@@ -95,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:5000/")  // Emulator용 localhost
+//                .baseUrl("http://10.0.2.2:5000/")  // Emulator용 localhost
+                .baseUrl("http://192.168.219.106:5000/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
