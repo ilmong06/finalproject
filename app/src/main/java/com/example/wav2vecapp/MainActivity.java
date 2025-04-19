@@ -16,6 +16,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.File;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -108,7 +109,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<TranscriptionResponse> call, Response<TranscriptionResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    textView.setText("결과: " + response.body().text);
+                    String text = response.body().text;
+                    List<Float> speakerVector = response.body().speakerVector;
+
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("📝 텍스트 결과:\n").append(text).append("\n\n");
+
+                    if (speakerVector != null) {
+                        sb.append("🧬 화자 벡터:\n");
+                        for (Float val : speakerVector) {
+                            sb.append(String.format("%.4f", val)).append(" ");
+                        }
+                    } else {
+                        sb.append("🧬 화자 벡터 없음");
+                    }
+
+                    textView.setText(sb.toString());
+                } else {
+                    textView.setText("서버 응답 오류");
                 }
             }
 
@@ -117,5 +135,6 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("에러: " + t.getMessage());
             }
         });
+
     }
 }
