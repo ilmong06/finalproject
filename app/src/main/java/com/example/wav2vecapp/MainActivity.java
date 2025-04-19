@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<TranscriptionResponse> call, Throwable t) {
-                textView.setText("에러: " + t.getMessage());
+                textView.setText("에러!: " + t.getMessage());
             }
         });
     }
