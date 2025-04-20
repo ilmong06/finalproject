@@ -1,8 +1,13 @@
 R_DEF: Internal format may change without notice
 local
+id appLogo
+id buttonGrid
+id emptyButton
+id phoneNumber
 id registerButton
 id startButton
 id stopButton
 id textRegisterStep
 id textResult
+id welcomeMessage
 layout activity_main
