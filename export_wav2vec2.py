@@ -11,6 +11,7 @@ import torch
 import uuid
 import json
 import numpy as np
+import matplotlib.pyplot as plt  # ✅ 시각화 추가
 
 app = Flask(__name__)
 CORS(app)
@@ -23,7 +24,7 @@ model_en = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
 processor_ko = Wav2Vec2Processor.from_pretrained("kresnik/wav2vec2-large-xlsr-korean")
 model_ko = Wav2Vec2ForCTC.from_pretrained("kresnik/wav2vec2-large-xlsr-korean")
 
-# ✅ 화자 임벤딩 모델 (x-vector)
+# ✅ 화자 임베딩 모델 (x-vector)
 speaker_model = SpeakerRecognition.from_hparams(
     source="speechbrain/spkrec-ecapa-voxceleb",
     savedir=None
@@ -64,13 +65,30 @@ def register_speaker():
         print(f"🧾 현재 등록된 화자 벡터 수: {len(vectors)}")
 
         if len(vectors) == 4:
-            mean_vector = np.mean(np.array(vectors), axis=0)
+            vectors_np = np.array(vectors)
+            mean_vector = np.mean(vectors_np, axis=0)
             final_vector = mean_vector / np.linalg.norm(mean_vector)
+
             with open(FINAL_VECTOR_FILE, "w") as f:
                 json.dump(final_vector.tolist(), f)
             os.remove(TEMP_VECTORS_FILE)
             print("✅ 화자 체인 확정 완료")
             print("✅ 평균 벡터:", final_vector.tolist())
+
+            # ✅ 시각화 시작
+            plt.figure(figsize=(14, 6))
+            for i, vec in enumerate(vectors_np):
+                plt.plot(vec, label=f"Registered Vector {i+1}", linestyle='--', alpha=0.6)
+            plt.plot(final_vector, label="Mean Speaker Vector", linewidth=2.5)
+            plt.title("📊 화자 벡터 평균 처리 결과")
+            plt.xlabel("차원 인덱스")
+            plt.ylabel("값")
+            plt.legend()
+            plt.grid(True)
+            plt.tight_layout()
+            plt.show()
+            # ✅ 시각화 끝
+
             return jsonify({"message": "화자 등록 완료 (4/4)"})
         else:
             return jsonify({"message": f"등록 {len(vectors)}/4 완료"})
