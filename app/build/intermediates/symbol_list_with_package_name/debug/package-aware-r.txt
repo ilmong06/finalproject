@@ -691,10 +691,12 @@ id activity_chooser_view_content
 id add
 id alertTitle
 id always
+id appLogo
 id async
 id beginning
 id blocking
 id bottom
+id buttonGrid
 id buttonPanel
 id center_vertical
 id checkbox
@@ -710,6 +712,7 @@ id default_activity_button
 id dialog_button
 id disableHome
 id edit_query
+id emptyButton
 id end
 id expand_activities_button
 id expanded_menu
@@ -740,6 +743,7 @@ id notification_main_column_container
 id off
 id on
 id parentPanel
+id phoneNumber
 id progress_circular
 id progress_horizontal
 id radio
@@ -810,6 +814,7 @@ id view_tree_on_back_pressed_dispatcher_owner
 id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible_removing_fragment_view_tag
+id welcomeMessage
 id withText
 id wrap_content
 integer abc_config_activityDefaultDur
