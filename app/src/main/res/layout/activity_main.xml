@@ -9,20 +9,38 @@
         android:id="@+id/startButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="녹음 시작" />
+        android:text="🎙️ STT 녹음 시작" />
 
     <Button
         android:id="@+id/stopButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="녹음 종료"
+        android:text="⏹️ 녹음 종료"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🧬 화자 등록 시작"
         android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/textResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="결과 출력"
+        android:text="🖥️ 결과 출력 영역"
         android:textSize="18sp"
-        android:layout_marginTop="24dp"/>
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
+        android:textColor="#333333"/>
+
+    <TextView
+        android:id="@+id/textRegisterStep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="(등록 상태 미표시)"
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:paddingTop="4dp" />
 </LinearLayout>

@@ -743,6 +743,7 @@ id parentPanel
 id progress_circular
 id progress_horizontal
 id radio
+id registerButton
 id right_icon
 id right_side
 id screen
@@ -790,6 +791,7 @@ id tag_unhandled_key_listeners
 id tag_window_insets_animation_callback
 id text
 id text2
+id textRegisterStep
 id textResult
 id textSpacerNoButtons
 id textSpacerNoTitle
