@@ -1,39 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="16dp"
+    android:background="#FFFFFF">
 
-    <Button
-        android:id="@+id/startButton"
+    <!-- 앱 이름 로고 (왼쪽 상단) -->
+    <TextView
+        android:id="@+id/appLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GetHelp"
+        android:textStyle="bold"
+        android:textSize="38sp"
+        android:textColor="#000000"
+        android:layout_gravity="start"
+        android:paddingTop="16dp" />
+
+    <!-- 인사말 영역 -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="🎙️ STT 녹음 시작" />
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="0dp"
+        android:paddingBottom="0dp"> <!-- 🔥 완전 밀착 -->
 
-    <Button
-        android:id="@+id/stopButton"
+        <TextView
+            android:id="@+id/welcomeMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="환영합니다 박ㅇㅇ님"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="010-1234-5678"
+            android:textSize="16sp"
+            android:textColor="#666666"/>
+    </LinearLayout>
+
+    <!-- 버튼 2x2 중앙 배치 -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="⏹️ 녹음 종료"
-        android:layout_marginTop="16dp"/>
+        android:layout_height="664dp"
+        android:layout_marginTop="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="0dp"> <!-- 🔥 버튼과 인사말 사이 여백 완전 제거 -->
 
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🧬 화자 등록 시작"
-        android:layout_marginTop="16dp"/>
+        <GridLayout
+            android:id="@+id/buttonGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="0dp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:paddingTop="0dp"
+            android:rowCount="2"
+            android:useDefaultMargins="true">
 
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:text="🎙️ STT 시작" />
+
+            <Button
+                android:id="@+id/stopButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:text="⏹️ 종료" />
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:text="🧬 화자 등록" />
+
+            <Button
+                android:id="@+id/emptyButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@android:color/darker_gray"
+                android:enabled="false" />
+        </GridLayout>
+    </LinearLayout>
+
+    <!-- 결과 출력 -->
     <TextView
         android:id="@+id/textResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="🖥️ 결과 출력 영역"
         android:textSize="18sp"
-        android:paddingTop="24dp"
-        android:paddingBottom="8dp"
-        android:textColor="#333333"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#333333"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/textRegisterStep"
@@ -42,5 +117,5 @@
         android:text="(등록 상태 미표시)"
         android:textSize="16sp"
         android:textColor="#666666"
-        android:paddingTop="4dp" />
+        android:gravity="center"/>
 </LinearLayout>
