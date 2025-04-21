@@ -2,7 +2,9 @@ R_DEF: Internal format may change without notice
 local
 id appLogo
 id buttonGrid
+id editKeyword
 id emptyButton
+id keywordRegisterButton
 id phoneNumber
 id registerButton
 id startButton

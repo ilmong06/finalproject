@@ -6,7 +6,9 @@ import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -33,9 +35,13 @@ public class MainActivity extends AppCompatActivity {
     private MediaRecorder recorder;
     private String filePath;
     private TextView textView, textRegisterStep;
-    private Button startButton, stopButton, registerButton;
+    private EditText keywordInput;
+    private Button startButton, stopButton, registerButton, keywordRegisterButton;
+
     private boolean isRegistering = false;
+    private boolean isKeywordRegistering = false;
     private int registerCount = 0;
+    private String currentKeyword = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +50,17 @@ public class MainActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textResult);
         textRegisterStep = findViewById(R.id.textRegisterStep);
+        keywordInput = findViewById(R.id.editKeyword);
         startButton = findViewById(R.id.startButton);
         stopButton = findViewById(R.id.stopButton);
         registerButton = findViewById(R.id.registerButton);
+        keywordRegisterButton = findViewById(R.id.keywordRegisterButton);
 
         filePath = getExternalFilesDir(null).getAbsolutePath() + "/recorded.wav";
 
         startButton.setOnClickListener(view -> {
             isRegistering = false;
+            isKeywordRegistering = false;
             startRecording();
         });
 
@@ -59,8 +68,22 @@ public class MainActivity extends AppCompatActivity {
 
         registerButton.setOnClickListener(view -> {
             isRegistering = true;
+            isKeywordRegistering = false;
             registerCount = 0;
-            textRegisterStep.setText("🧬 1/4 회차 등록 시작");
+            textRegisterStep.setText("🧬 화자 1/4 회차 등록 시작");
+            startRecording();
+        });
+
+        keywordRegisterButton.setOnClickListener(view -> {
+            currentKeyword = keywordInput.getText().toString().trim();
+            if (currentKeyword.isEmpty()) {
+                textView.setText("❗ 먼저 키워드를 입력하세요.");
+                return;
+            }
+            isRegistering = false;
+            isKeywordRegistering = true;
+            registerCount = 0;
+            textRegisterStep.setText("🔑 키워드 '" + currentKeyword + "' 1/6 등록 시작");
             startRecording();
         });
 
@@ -88,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
             stopButton.setEnabled(true);
             startButton.setEnabled(false);
             registerButton.setEnabled(false);
+            keywordRegisterButton.setEnabled(false);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -105,6 +129,8 @@ public class MainActivity extends AppCompatActivity {
 
             if (isRegistering) {
                 sendAudioToRegister(filePath);
+            } else if (isKeywordRegistering) {
+                sendAudioToKeywordRegister(filePath, currentKeyword);
             } else {
                 sendAudioToServer(filePath);
             }
@@ -112,6 +138,7 @@ public class MainActivity extends AppCompatActivity {
             stopButton.setEnabled(false);
             startButton.setEnabled(true);
             registerButton.setEnabled(true);
+            keywordRegisterButton.setEnabled(true);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -135,6 +162,10 @@ public class MainActivity extends AppCompatActivity {
                     StringBuilder sb = new StringBuilder();
                     sb.append("📝 텍스트 결과:\n").append(response.body().text).append("\n\n");
 
+                    if (response.body().triggeredKeyword != null) {
+                        sb.append("🔑 키워드: ").append(response.body().triggeredKeyword).append("\n\n");
+                    }
+
                     List<Float> speakerVector = response.body().speakerVector;
                     if (speakerVector != null) {
                         sb.append("🧬 화자 벡터:\n");
@@ -144,7 +175,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     textView.setText(sb.toString());
                 } else {
-                    textView.setText("❌ 서버 오류 또는 화자 인증 실패");
+                    textView.setText("❌ 서버 오류 또는 인증 실패");
                 }
             }
 
@@ -167,39 +198,7 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()) {
-                    try {
-                        String responseBody = response.body().string();
-                        String msg = new JSONObject(responseBody).getString("message");
-
-                        textView.setText("✅ " + msg);
-                        textRegisterStep.setText(msg);
-
-                        if (msg.contains("4/4")) {
-                            // ✅ 등록 완료. 반복 종료!
-                            isRegistering = false;
-                            registerCount = 0;
-                            stopButton.setEnabled(true);
-                            startButton.setEnabled(true);
-                            registerButton.setEnabled(true);
-                        } else {
-                            // ✅ 등록 진행 중이면 다음 회차로
-                            registerCount++;
-
-                            // ⛔ 4회차 초과 방지
-                            if (registerCount < 4) {
-                                textView.setText("🎤 " + (registerCount + 1) + "/4 회차 녹음 시작");
-                                startRecording();
-                            }
-                        }
-
-                    } catch (Exception e) {
-                        textView.setText("⚠️ 응답 파싱 오류");
-                        e.printStackTrace();
-                    }
-                } else {
-                    textView.setText("❌ 등록 실패 (서버 오류)");
-                }
+                handleRegistrationResponse(response, "화자", 4);
             }
 
             @Override
@@ -209,6 +208,58 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void sendAudioToKeywordRegister(String filePath, String keyword) {
+        File file = new File(filePath);
+        RequestBody reqFile = RequestBody.create(MediaType.parse("audio/wav"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), reqFile);
+        RequestBody keywordBody = RequestBody.create(MediaType.parse("text/plain"), keyword);
+
+        Retrofit retrofit = getRetrofitClient();
+        ApiService apiService = retrofit.create(ApiService.class);
+
+        Call<ResponseBody> call = apiService.registerKeyword(body, keywordBody);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                handleRegistrationResponse(response, "키워드", 6);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                textView.setText("🚫 키워드 등록 실패: " + t.getMessage());
+            }
+        });
+    }
+
+    private void handleRegistrationResponse(Response<ResponseBody> response, String type, int maxCount) {
+        if (response.isSuccessful()) {
+            try {
+                String responseBody = response.body().string();
+                String msg = new JSONObject(responseBody).getString("message");
+
+                textView.setText("✅ " + msg);
+                textRegisterStep.setText(msg);
+
+                if (msg.contains(maxCount + "/" + maxCount)) {
+                    isRegistering = false;
+                    isKeywordRegistering = false;
+                    registerCount = 0;
+                } else {
+                    registerCount++;
+                    if (registerCount < maxCount) {
+                        textView.setText("🎤 " + (registerCount + 1) + "/" + maxCount + " 회차 녹음 시작");
+                        startRecording();
+                    }
+                }
+
+            } catch (Exception e) {
+                textView.setText("⚠️ 응답 파싱 오류");
+                e.printStackTrace();
+            }
+        } else {
+            textView.setText("❌ 등록 실패 (서버 오류)");
+        }
+    }
 
     private Retrofit getRetrofitClient() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
