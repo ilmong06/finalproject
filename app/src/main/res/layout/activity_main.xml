@@ -25,8 +25,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center_horizontal"
-        android:layout_marginBottom="0dp"
-        android:paddingBottom="0dp"> <!-- 🔥 완전 밀착 -->
+        android:paddingBottom="0dp">
 
         <TextView
             android:id="@+id/welcomeMessage"
@@ -49,21 +48,17 @@
     <!-- 버튼 2x2 중앙 배치 -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="664dp"
-        android:layout_marginTop="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingTop="0dp"> <!-- 🔥 버튼과 인사말 사이 여백 완전 제거 -->
+        android:paddingTop="0dp">
 
         <GridLayout
             android:id="@+id/buttonGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
             android:alignmentMode="alignMargins"
             android:columnCount="2"
-            android:paddingTop="0dp"
             android:rowCount="2"
             android:useDefaultMargins="true">
 
@@ -98,6 +93,34 @@
         </GridLayout>
     </LinearLayout>
 
+    <!-- 🔑 키워드 입력 및 등록 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp">
+
+        <EditText
+            android:id="@+id/editKeyword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="키워드를 입력하세요"
+            android:background="@android:drawable/edit_text"
+            android:padding="8dp"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/keywordRegisterButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🔑 키워드 등록"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
     <!-- 결과 출력 -->
     <TextView
         android:id="@+id/textResult"
@@ -110,6 +133,7 @@
         android:textColor="#333333"
         android:gravity="center"/>
 
+    <!-- 등록 회차 표시 -->
     <TextView
         android:id="@+id/textRegisterStep"
         android:layout_width="match_parent"

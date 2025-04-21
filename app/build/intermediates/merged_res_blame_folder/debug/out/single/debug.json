@@ -1,9 +1,5 @@
 [
     {
-        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-20:\\layout_activity_main.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-22:\\layout\\activity_main.xml"
-    },
-    {
         "merged": "com.example.wav2vecapp-merged_res-20:/layout_activity_main.xml.flat",
         "source": "com.example.wav2vecapp-main-22:/layout/activity_main.xml"
     }
