@@ -189,7 +189,7 @@ def transcribe():
             keyword_vector = np.array(vectors[-1])  # 평균 벡터
             keyword_similarity = np.dot(norm_vector, keyword_vector)
             print(f"🔍 키워드 '{keyword}' 유사도: {keyword_similarity:.4f}")
-            if keyword_similarity > 0.8:
+            if keyword_similarity > 0.5:
                 triggered_keyword = keyword
                 break
 

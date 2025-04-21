@@ -30,6 +30,11 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 public class MainActivity extends AppCompatActivity {
 
     private MediaRecorder recorder;
@@ -42,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean isKeywordRegistering = false;
     private int registerCount = 0;
     private String currentKeyword = "";
+    private LocationHelper locationHelper;
+    private Button locationButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +62,15 @@ public class MainActivity extends AppCompatActivity {
         stopButton = findViewById(R.id.stopButton);
         registerButton = findViewById(R.id.registerButton);
         keywordRegisterButton = findViewById(R.id.keywordRegisterButton);
+        locationHelper = new LocationHelper(this, textView, textRegisterStep);
+// onCreate 내부에서 버튼 연결
+        locationButton = findViewById(R.id.locationButton);
+        locationHelper = new LocationHelper(this, textView, textRegisterStep);
+
+        locationButton.setOnClickListener(view -> {
+            Log.i("MainActivity", "🟡 위치 버튼 클릭됨");
+            locationHelper.requestLocationPermission();
+        });
 
         filePath = getExternalFilesDir(null).getAbsolutePath() + "/recorded.wav";
 
@@ -88,12 +104,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
-                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{
                     Manifest.permission.RECORD_AUDIO,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.ACCESS_FINE_LOCATION
             }, 200);
         }
+
     }
 
     private void startRecording() {
@@ -260,6 +279,12 @@ public class MainActivity extends AppCompatActivity {
             textView.setText("❌ 등록 실패 (서버 오류)");
         }
     }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        locationHelper.onRequestPermissionsResult(requestCode, grantResults);
+    }
+
 
     private Retrofit getRetrofitClient() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();

@@ -20,72 +20,90 @@
 14    <uses-permission android:name="android.permission.INTERNET" />
 14-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:7:5-66
 14-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:7:22-64
-15
-16    <permission
-16-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
-17        android:name="com.example.wav2vecapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-17-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
-18        android:protectionLevel="signature" />
-18-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
-19
-20    <uses-permission android:name="com.example.wav2vecapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-20-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
-20-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
-21
-22    <application
-22-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:9:5-22:19
-23        android:allowBackup="true"
-23-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:11:9-35
-24        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-24-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
-25        android:debuggable="true"
-26        android:extractNativeLibs="false"
-27        android:label="Wav2VecApp"
-27-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:12:9-35
-28        android:testOnly="true"
-29        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-29-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:13:9-65
-30        android:usesCleartextTraffic="true" >
-30-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:10:9-44
-31        <activity
-31-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:14:9-21:20
-32            android:name="com.example.wav2vecapp.MainActivity"
-32-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:15:13-41
-33            android:exported="true" >
-33-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:16:13-36
-34            <intent-filter>
-34-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:17:13-20:29
-35                <action android:name="android.intent.action.MAIN" />
-35-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:18:17-69
-35-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:18:25-66
-36
-37                <category android:name="android.intent.category.LAUNCHER" />
-37-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:19:17-77
-37-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:19:27-74
-38            </intent-filter>
-39        </activity>
-40
-41        <provider
-41-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-42            android:name="androidx.startup.InitializationProvider"
-42-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
-43            android:authorities="com.example.wav2vecapp.androidx-startup"
-43-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
-44            android:exported="false" >
-44-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
-45            <meta-data
-45-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-46                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-46-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
-47                android:value="androidx.startup" />
-47-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
-48            <meta-data
-48-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\user\.gradle\caches\transforms-3\47625f8d077c5a5418ff6ae9ac6b2f87\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
-49                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-49-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\user\.gradle\caches\transforms-3\47625f8d077c5a5418ff6ae9ac6b2f87\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
-50                android:value="androidx.startup" />
-50-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\user\.gradle\caches\transforms-3\47625f8d077c5a5418ff6ae9ac6b2f87\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
-51        </provider>
-52    </application>
-53
-54</manifest>
+15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+15-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:8:5-78
+15-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:8:22-76
+16
+17    <permission
+17-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+18        android:name="com.example.wav2vecapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+18-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+19        android:protectionLevel="signature" />
+19-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+20
+21    <uses-permission android:name="com.example.wav2vecapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+21-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+21-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+22
+23    <application
+23-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:10:5-23:19
+24        android:allowBackup="true"
+24-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:12:9-35
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+26        android:debuggable="true"
+27        android:extractNativeLibs="false"
+28        android:label="Wav2VecApp"
+28-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:13:9-35
+29        android:testOnly="true"
+30        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+30-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:14:9-65
+31        android:usesCleartextTraffic="true" >
+31-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:11:9-44
+32        <activity
+32-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:15:9-22:20
+33            android:name="com.example.wav2vecapp.MainActivity"
+33-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:16:13-41
+34            android:exported="true" >
+34-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:17:13-36
+35            <intent-filter>
+35-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:18:13-21:29
+36                <action android:name="android.intent.action.MAIN" />
+36-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:19:17-69
+36-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:19:25-66
+37
+38                <category android:name="android.intent.category.LAUNCHER" />
+38-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:20:17-77
+38-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:20:27-74
+39            </intent-filter>
+40        </activity>
+41        <activity
+41-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\user\.gradle\caches\transforms-3\3e9243882c7ea0050e8dcf8e39a882d6\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
+42            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+42-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\user\.gradle\caches\transforms-3\3e9243882c7ea0050e8dcf8e39a882d6\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:19-85
+43            android:exported="false"
+43-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\user\.gradle\caches\transforms-3\3e9243882c7ea0050e8dcf8e39a882d6\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:22:19-43
+44            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+44-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\user\.gradle\caches\transforms-3\3e9243882c7ea0050e8dcf8e39a882d6\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:21:19-78
+45
+46        <meta-data
+46-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\user\.gradle\caches\transforms-3\078626ffec6d6387d09304b7f521f475\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:21:9-23:69
+47            android:name="com.google.android.gms.version"
+47-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\user\.gradle\caches\transforms-3\078626ffec6d6387d09304b7f521f475\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:22:13-58
+48            android:value="@integer/google_play_services_version" />
+48-->[com.google.android.gms:play-services-basement:18.1.0] C:\Users\user\.gradle\caches\transforms-3\078626ffec6d6387d09304b7f521f475\transformed\jetified-play-services-basement-18.1.0\AndroidManifest.xml:23:13-66
+49
+50        <provider
+50-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+51            android:name="androidx.startup.InitializationProvider"
+51-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+52            android:authorities="com.example.wav2vecapp.androidx-startup"
+52-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+53            android:exported="false" >
+53-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+54            <meta-data
+54-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+55                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+55-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+56                android:value="androidx.startup" />
+56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\user\.gradle\caches\transforms-3\0953cccede69ba218ea617b28588fcd3\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+57            <meta-data
+57-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\user\.gradle\caches\transforms-3\47625f8d077c5a5418ff6ae9ac6b2f87\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+58                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+58-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\user\.gradle\caches\transforms-3\47625f8d077c5a5418ff6ae9ac6b2f87\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+59                android:value="androidx.startup" />
+59-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\user\.gradle\caches\transforms-3\47625f8d077c5a5418ff6ae9ac6b2f87\transformed\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+60        </provider>
+61    </application>
+62
+63</manifest>

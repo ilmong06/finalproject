@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.wav2vecapp-mergeDebugResources-18:/values-v16/values-v16.xml",
+            "outputFile": "com.example.wav2vecapp-mergeDebugResources-20:/values-v16/values-v16.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\5d4bfdd9a03f397dd627483301e179a1\\transformed\\core-1.9.0\\res\\values-v16\\values-v16.xml",

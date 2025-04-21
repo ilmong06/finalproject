@@ -84,12 +84,11 @@
                 android:text="🧬 화자 등록" />
 
             <Button
-                android:id="@+id/emptyButton"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_margin="8dp"
-                android:background="@android:color/darker_gray"
-                android:enabled="false" />
+                android:id="@+id/locationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 현재 위치 확인" />
+
         </GridLayout>
     </LinearLayout>
 

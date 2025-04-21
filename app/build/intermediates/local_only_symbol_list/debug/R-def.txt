@@ -3,8 +3,8 @@ local
 id appLogo
 id buttonGrid
 id editKeyword
-id emptyButton
 id keywordRegisterButton
+id locationButton
 id phoneNumber
 id registerButton
 id startButton
