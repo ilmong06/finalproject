@@ -711,6 +711,7 @@ id decor_content_parent
 id default_activity_button
 id dialog_button
 id disableHome
+id editKeyword
 id edit_query
 id emptyButton
 id end
@@ -727,6 +728,7 @@ id ifRoom
 id image
 id info
 id italic
+id keywordRegisterButton
 id line1
 id line3
 id listMode
