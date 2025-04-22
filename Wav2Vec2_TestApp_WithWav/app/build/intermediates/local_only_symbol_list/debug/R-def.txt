@@ -1,0 +1,6 @@
+R_DEF: Internal format may change without notice
+local
+id startButton
+id stopButton
+id textResult
+layout activity_main

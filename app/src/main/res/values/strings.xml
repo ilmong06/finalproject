@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="gethelp">GetHelp!</string>
+    <string name="key_word">키워드 등록</string>
+    <string name="voice_reco">사용자 음성 등록</string>
+    <string name="on_off">마이크 ON/OFF</string>
+    <string name="history">신고 내역</string>
+</resources>
