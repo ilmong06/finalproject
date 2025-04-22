@@ -6,6 +6,7 @@ from flask_cors import CORS
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 from speechbrain.pretrained import SpeakerRecognition
 from pydub import AudioSegment
+from pathlib import Path
 import torchaudio
 import torch
 import uuid
@@ -80,7 +81,6 @@ def register_speaker():
             plt.legend()
             plt.grid(True)
             plt.tight_layout()
-            plt.show()
 
             return jsonify({"message": "화자 등록 완료 (4/4)"})
         else:
@@ -95,52 +95,35 @@ def register_speaker():
 @app.route("/register_keyword", methods=["POST"])
 def register_keyword():
     keyword = request.form.get("keyword")
-    if not keyword:
-        return jsonify({"error": "키워드가 없습니다."}), 400
+    if not keyword or "file" not in request.files:
+        return jsonify({"error": "키워드 또는 파일 없음"}), 400
 
-    if "file" not in request.files:
-        return jsonify({"error": "음성 파일이 없습니다."}), 400
+    save_dir = Path("data/custom") / keyword
+    save_dir.mkdir(parents=True, exist_ok=True)
 
-    file = request.files["file"]
-    if file.filename == "":
-        return jsonify({"error": "선택된 파일이 없습니다."}), 400
+    existing = list(save_dir.glob("*.wav"))
+    index = len(existing) + 1
 
-    temp_filename = f"keyword_{uuid.uuid4().hex}.wav"
-    file.save(temp_filename)
+    raw_path = save_dir / f"raw_{index}.wav"
+    fixed_path = save_dir / f"record_{index}.wav"
 
     try:
-        audio = AudioSegment.from_file(temp_filename).set_frame_rate(16000).set_channels(1)
-        audio.export(temp_filename, format="wav")
-        waveform, _ = torchaudio.load(temp_filename)
-        embedding = speaker_model.encode_batch(waveform).squeeze().numpy()
-        norm_vector = embedding / np.linalg.norm(embedding)
+        file = request.files["file"]
+        file.save(str(raw_path))
 
-        if os.path.exists(KEYWORD_VECTOR_FILE):
-            with open(KEYWORD_VECTOR_FILE, "r") as f:
-                data = json.load(f)
+        audio = AudioSegment.from_file(str(raw_path))
+        audio = audio.set_frame_rate(16000).set_channels(1)
+        audio.export(str(fixed_path), format="wav")
+        os.remove(str(raw_path))
+
+        if index == 6:
+            os.system("python train_fewshot.py")
+            return jsonify({"message": f"{keyword} 키워드 6개 녹음 완료 → 모델 학습 시작됨"}), 200
         else:
-            data = {}
-
-        if keyword not in data:
-            data[keyword] = []
-
-        data[keyword].append(norm_vector.tolist())
-
-        if len(data[keyword]) == 6:
-            mean_vector = np.mean(np.array(data[keyword]), axis=0)
-            final_vector = mean_vector / np.linalg.norm(mean_vector)
-            data[keyword].append(final_vector.tolist())  # 마지막 인덱스 = 평균 벡터
-            print(f"✅ 키워드 '{keyword}' 등록 완료 (6/6)")
-
-        with open(KEYWORD_VECTOR_FILE, "w") as f:
-            json.dump(data, f)
-
-        return jsonify({"message": f"키워드 '{keyword}' 등록 {len(data[keyword])}/6 완료"})
+            return jsonify({"message": f"{keyword} 키워드 {index}/6 녹음 저장 완료"}), 200
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    finally:
-        os.remove(temp_filename)
 
 # ✅ STT + 화자 + 키워드 인증
 @app.route("/stt", methods=["POST"])
@@ -159,14 +142,13 @@ def transcribe():
     try:
         audio = AudioSegment.from_file(temp_filename).set_frame_rate(16000).set_channels(1)
         audio.export(temp_filename, format="wav")
-        waveform, sample_rate = torchaudio.load(temp_filename)
+        waveform, _ = torchaudio.load(temp_filename)
 
         print("화자 특징 추출 중...")
         speaker_embedding = speaker_model.encode_batch(waveform)
         speaker_vector = speaker_embedding.squeeze().numpy()
         norm_vector = speaker_vector / np.linalg.norm(speaker_vector)
 
-        # 🔐 화자 인증
         if not os.path.exists(FINAL_VECTOR_FILE):
             return jsonify({"error": "등록된 화자가 없습니다"}), 403
         with open(FINAL_VECTOR_FILE, "r") as f:
@@ -176,25 +158,71 @@ def transcribe():
         if speaker_similarity < 0.7:
             return jsonify({"error": "화자 인증 실패"}), 403
 
-        # 🎯 키워드 인증
-        if not os.path.exists(KEYWORD_VECTOR_FILE):
-            return jsonify({"error": "등록된 키워드가 없습니다"}), 403
-        with open(KEYWORD_VECTOR_FILE, "r") as f:
-            keyword_data = json.load(f)
+        from sklearn.metrics.pairwise import cosine_similarity
+        import torch.nn as nn
+        import torch.nn.functional as F
 
+        class KeywordNet(nn.Module):
+            def __init__(self):
+                super().__init__()
+                self.conv = nn.Sequential(
+                    nn.Conv2d(1, 16, kernel_size=3, stride=2),
+                    nn.ReLU()
+                )
+                self.pool = nn.AdaptiveAvgPool2d((1, 1))
+                self.fc = nn.Linear(16, 128)
+
+            def forward(self, x):
+                x = self.conv(x)
+                x = self.pool(x)
+                x = x.view(x.size(0), -1)
+                return self.fc(x)
+
+        def extract_mel(filepath, target_length=232):
+            waveform, sr = torchaudio.load(filepath)
+            waveform = torchaudio.functional.resample(waveform, sr, 16000)
+            mel = torchaudio.transforms.MelSpectrogram(sample_rate=16000, n_mels=40)(waveform)
+            if mel.shape[-1] < target_length:
+                pad = target_length - mel.shape[-1]
+                mel = F.pad(mel, (0, pad))
+            else:
+                mel = mel[:, :, :target_length]
+            return mel.unsqueeze(0)
+
+        if not os.path.exists("fewshot_model.pt") or not os.path.exists("label_map.json"):
+            return jsonify({"error": "Few-shot 모델 또는 라벨맵 없음"}), 403
+
+                # Few-shot 모델 로드 및 키워드 예측
+        mel = extract_mel(temp_filename)
+        model = KeywordNet()
+        checkpoint = torch.load("fewshot_model.pt", map_location="cpu")
+        model.load_state_dict(checkpoint["model"])
+        model.eval()
+
+        with open("label_map.json", "r", encoding="utf-8") as f:
+            label_map = json.load(f)
+
+        with torch.no_grad():
+            emb = model(mel).numpy()
+
+        # 유사도 측정
         triggered_keyword = None
-        for keyword, vectors in keyword_data.items():
-            if len(vectors) < 7:
-                continue
-            keyword_vector = np.array(vectors[-1])  # 평균 벡터
-            keyword_similarity = np.dot(norm_vector, keyword_vector)
-            print(f"🔍 키워드 '{keyword}' 유사도: {keyword_similarity:.4f}")
-            if keyword_similarity > 0.5:
+        best_score = 0
+        print("\n📊 키워드 유사도 (Cosine Similarity):")
+        for keyword, vec in label_map.items():
+            score = cosine_similarity(emb, [vec])[0][0]
+            print(f"🔸 '{keyword}' ↔ 입력 음성 : {score:.4f}")
+            if score > best_score:
+                best_score = score
                 triggered_keyword = keyword
-                break
 
-        if not triggered_keyword:
-            return jsonify({"error": "키워드 인증 실패"}), 403
+        # 유사도 기준 미달 → STT 불가
+        if best_score < 0.7:
+            return jsonify({
+                "error": "키워드 인증 실패 (Few-shot)",
+                "triggered_keyword": triggered_keyword,
+                "similarity": round(best_score, 4)
+            }), 403
 
         # ✅ STT 수행
         transcription = ""
@@ -214,15 +242,15 @@ def transcribe():
             transcription = processor_en.batch_decode(predicted_ids)[0]
 
         print(f"📣 인식된 문장: {transcription}")
-
         return jsonify({
             "text": transcription,
             "triggered_keyword": triggered_keyword,
+            "similarity": round(best_score, 4),
             "speaker_vector": norm_vector.tolist()
         })
 
+
     except Exception as e:
-        print("오류 발생:", e)
         return jsonify({"error": str(e)}), 500
     finally:
         os.remove(temp_filename)
