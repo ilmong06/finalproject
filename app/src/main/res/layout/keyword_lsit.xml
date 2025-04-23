@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="예: 구조 요청"
+        android:text="@string/keyword_num"
         android:layout_weight="7" />
 
     <View

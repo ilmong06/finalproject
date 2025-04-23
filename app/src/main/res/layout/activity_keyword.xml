@@ -42,7 +42,7 @@
         android:id="@+id/tv_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="등록할 키워드를 입력해주세요."
+        android:text="@string/input_keyword"
         android:textSize="16sp"
         app:layout_constraintTop_toBottomOf="@id/top_bar"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +64,7 @@
             android:id="@+id/etKeyword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="예: 구조 요청"
+            android:hint="@string/example"
             android:layout_weight="7" />
 
         <View
@@ -76,7 +76,7 @@
             android:id="@+id/btnAddKeyword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="추가"
+            android:text="@string/Add"
             android:layout_weight="2" />
     </LinearLayout>
 
@@ -94,13 +94,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="키워드 등록은 무료로 제공됩니다." />
+            android:text="@string/keyword_limit" />
 
         <TextView
             android:id="@+id/tv_hyperlink"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="결제 및 자세히 보기"
+            android:text="@string/extra"
             android:textColor="@android:color/holo_blue_dark"
             android:autoLink="web"
             android:linksClickable="true" />
@@ -127,8 +127,8 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="키워드 리스트"
-                android:textSize="16sp"
+                android:text="@string/keyword_list"
+                android:textSize="24sp"
                 android:layout_weight="7" />
 
             <View
@@ -139,7 +139,7 @@
             <Button
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="편집"
+                android:text="@string/edit"
                 android:layout_weight="2" />
         </LinearLayout>
 
@@ -153,7 +153,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="예: 도와주세요"
+                android:text="@string/keyword_1"
                 android:layout_weight="7" />
 
             <View
@@ -170,7 +170,7 @@
 
         <!-- 같은 형태 2개 더 -->
         <!-- 5-2-2 -->
-        <include layout="@layout/keyword_lsit"/>
+        <include layout="@layout/keyword_lsit" />
         <!-- 5-2-3 -->
         <include layout="@layout/keyword_lsit"/>
     </LinearLayout>
