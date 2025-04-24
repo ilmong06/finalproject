@@ -1,2 +1,0 @@
-rootProject.name = 'Wav2Vec2TestApp'
-include ':app'
