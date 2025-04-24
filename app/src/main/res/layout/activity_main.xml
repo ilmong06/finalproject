@@ -12,6 +12,7 @@
         android:id="@+id/appLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:text="GetHelp"
         android:textStyle="bold"
         android:textSize="38sp"
@@ -44,54 +45,6 @@
             android:textSize="16sp"
             android:textColor="#666666"/>
     </LinearLayout>
-
-    <!-- 버튼 2x2 중앙 배치 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="0dp">
-
-        <GridLayout
-            android:id="@+id/buttonGrid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alignmentMode="alignMargins"
-            android:columnCount="2"
-            android:rowCount="2"
-            android:useDefaultMargins="true">
-
-            <Button
-                android:id="@+id/startButton"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_margin="8dp"
-                android:text="🎙️ STT 시작" />
-
-            <Button
-                android:id="@+id/stopButton"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_margin="8dp"
-                android:text="⏹️ 종료" />
-
-            <Button
-                android:id="@+id/registerButton"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_margin="8dp"
-                android:text="🧬 화자 등록" />
-
-            <Button
-                android:id="@+id/locationButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="📍 현재 위치 확인" />
-
-        </GridLayout>
-    </LinearLayout>
-
     <!-- 🔑 키워드 입력 및 등록 버튼 -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -118,6 +71,53 @@
             android:layout_weight="1"
             android:text="🔑 키워드 등록"
             android:layout_marginStart="8dp"/>
+    </LinearLayout>
+    <!-- 버튼 2x2 중앙 배치 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="0dp">
+
+        <GridLayout
+            android:id="@+id/buttonGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:useDefaultMargins="true">
+
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="8dp"
+                android:text="🎙️ STT 시작" />
+
+            <Button
+                android:id="@+id/stopButton"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="8dp"
+                android:text="⏹️ 종료" />
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="8dp"
+                android:text="🧬 화자 등록" />
+
+            <Button
+                android:id="@+id/locationButton"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_margin="8dp"
+                android:text="📍 현재 위치 확인" />
+
+        </GridLayout>
     </LinearLayout>
 
     <!-- 결과 출력 -->
