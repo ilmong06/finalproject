@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -143,3 +144,132 @@
         android:textColor="#666666"
         android:gravity="center"/>
 </LinearLayout>
+=======
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- 1. 앱 이름 + 메뉴 버튼 -->
+
+    <TextView
+        android:id="@+id/appNameText"
+        android:layout_width="195dp"
+        android:layout_height="37dp"
+        android:text="@string/gethelp"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/menuButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/menuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="☰"
+        app:layout_constraintTop_toTopOf="@+id/appNameText"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- 2. 사용자 정보 -->
+
+    <!-- 3. 버튼 4개 (2x2) -->
+
+    <!-- 4. 상태 텍스트 -->
+    <TextView
+        android:id="@+id/userInfoText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="사용자 이름: 홍길동\n전화번호: 010-1234-5678"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appNameText" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="184dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button3"
+        app:layout_constraintTop_toTopOf="@id/button3"
+        app:layout_constraintWidth_percent="0.48" />
+
+    <Button
+        android:id="@+id/button3"
+
+        android:layout_width="184dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/on_off"
+        app:layout_constraintEnd_toStartOf="@id/button4"
+        app:layout_constraintStart_toStartOf="@id/button1"
+        app:layout_constraintTop_toBottomOf="@id/button1"
+        app:layout_constraintWidth_percent="0.48" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="184dp"
+        android:layout_height="120dp"
+
+        android:layout_marginTop="92dp"
+        android:text="@string/key_word"
+        app:layout_constraintEnd_toStartOf="@id/button2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userInfoText"
+        app:layout_constraintWidth_percent="0.48" />
+
+    <!-- 5. 광고 배너 -->
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="184dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/voice_reco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button1"
+        app:layout_constraintTop_toTopOf="@id/button1"
+        app:layout_constraintWidth_percent="0.48" />
+
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:text="상태: 준비됨"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button3" />
+
+    <ImageView
+        android:id="@+id/bannerAd"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="광고 배너"
+        android:scaleType="fitCenter"
+        android:src="@drawable/banner_sample"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statusText"
+        app:layout_constraintVertical_bias="0.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> userInter
