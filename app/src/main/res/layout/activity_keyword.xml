@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     android:padding="16dp">
 
     <!-- 레이아웃 1: 상단 바 -->
@@ -21,7 +22,9 @@
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="←" />
+            android:text="←"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"/>
 
         <View
             android:layout_width="0dp"
@@ -37,7 +40,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <!-- 레이아웃 2: 설명 TextView -->
+    <!-- 레이아웃 2: 설명 -->
     <TextView
         android:id="@+id/tv_description"
         android:layout_width="0dp"
@@ -49,7 +52,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />
 
-    <!-- 레이아웃 3: 키워드 입력 + 추가 버튼 -->
+    <!-- 레이아웃 3: 키워드 입력 -->
     <LinearLayout
         android:id="@+id/keyword_input_layout"
         android:layout_width="0dp"
@@ -76,11 +79,13 @@
             android:id="@+id/btnAddKeyword"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/Add"
+            android:text="@string/add"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
             android:layout_weight="2" />
     </LinearLayout>
 
-    <!-- 레이아웃 4: 하단 안내 + 하이퍼링크 -->
+    <!-- 레이아웃 4: 하단 안내 -->
     <LinearLayout
         android:id="@+id/info_layout"
         android:orientation="vertical"
@@ -117,7 +122,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- 5-1 -->
+        <!-- 리스트 헤더 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -140,15 +145,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/edit"
+                android:background="@drawable/rounded_button"
+                android:textColor="#FFFFFF"
                 android:layout_weight="2" />
         </LinearLayout>
 
-        <!-- 5-2-1 ~ 5-2-3 반복 -->
+        <!-- 5-2-1 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
 
             <TextView
                 android:layout_width="0dp"
@@ -168,11 +176,58 @@
                 android:layout_weight="2" />
         </LinearLayout>
 
-        <!-- 같은 형태 2개 더 -->
         <!-- 5-2-2 -->
-        <include layout="@layout/keyword_lsit" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/keyword_1"
+                android:layout_weight="7" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_weight="2" />
+        </LinearLayout>
+
         <!-- 5-2-3 -->
-        <include layout="@layout/keyword_lsit"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/keyword_1"
+                android:layout_weight="7" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_weight="2" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

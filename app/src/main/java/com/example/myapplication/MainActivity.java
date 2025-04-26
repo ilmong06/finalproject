@@ -4,11 +4,7 @@ import java.util.Arrays;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.*;
-import androidx.*;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
 
 //Pytorch
 import org.pytorch.IValue;
@@ -50,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_userinfo);
 
 
 
@@ -59,27 +55,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
-
-
-    //For loading PyTorch Model File
-    public static String assetFilePath(android.content.Context context, String assetName) throws java.io.IOException {
-        java.io.File file = new java.io.File(context.getFilesDir(), assetName);
-        if (file.exists() && file.length() > 0) {
-            return file.getAbsolutePath();
-        }
-
-        try (java.io.InputStream is = context.getAssets().open(assetName);
-             java.io.FileOutputStream os = new java.io.FileOutputStream(file)) {
-            byte[] buffer = new byte[4 * 1024];
-            int read;
-            while ((read = is.read(buffer)) != -1) {
-                os.write(buffer, 0, read);
-            }
-            os.flush();
-        }
-
-        return file.getAbsolutePath();
     }
 
 
