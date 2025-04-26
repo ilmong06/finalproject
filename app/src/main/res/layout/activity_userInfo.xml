@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -10,11 +9,11 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- 레이아웃 1: 중앙 정렬 안내 문구 -->
+        <!-- 안내 문구 -->
         <TextView
             android:id="@+id/tv_intro"
-            android:layout_width="354dp"
-            android:layout_height="22dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:text="@string/notice"
             android:textAlignment="center"
             android:textSize="18sp"
@@ -22,11 +21,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- 레이아웃 2: 네이비 배경 제목 바 -->
+        <!-- 네이비 제목 바 -->
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="372dp"
-            android:layout_height="45dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="#001F54"
             android:padding="12dp"
@@ -38,7 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_intro" />
 
-        <!-- 레이아웃 3: 사용자 정보 입력 -->
+        <!-- 사용자 정보 입력 -->
         <LinearLayout
             android:id="@+id/layout_user_info"
             android:layout_width="0dp"
@@ -49,7 +48,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
-            <!-- 3-1 -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -57,18 +55,21 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <!-- 3-2 -->
+            <!-- 이름 -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/user_name"
-                android:textColor="#800020" />
+                android:textColor="#800020"
+                android:layout_marginTop="12dp"/>
             <EditText
+                android:id="@+id/plain_text_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/iput_user_name" />
+                android:hint="@string/input_user_name"
+                android:inputType="text"/>
 
-            <!-- 3-3 -->
+            <!-- 전화번호 -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,10 +93,12 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.35"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="#FFFFFF"
                     android:text="@string/code" />
             </LinearLayout>
 
-            <!-- 3-4 -->
+            <!-- 언어 선택 -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -106,10 +109,11 @@
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="39dp"
+                android:background="@drawable/spinner"
                 android:entries="@array/language_list"
                 android:prompt="@string/language_prompt" />
 
-            <!-- 3-5 -->
+            <!-- 생년월일/성별 -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,7 +141,7 @@
                     android:paddingHorizontal="8dp" />
 
                 <EditText
-                    android:layout_width="8dp"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"
                     android:inputType="number"
@@ -151,17 +155,15 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- 레이아웃 4: 긴급 연락처 -->
-
+        <!-- 긴급 연락처 입력 -->
         <LinearLayout
             android:id="@+id/layout_emergency"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="24dp"
             android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/layout_user_info">
 
             <TextView
@@ -174,8 +176,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/em_name" />
-
+                android:text="@string/em_name"
+                android:layout_marginTop="8dp" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -184,8 +186,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/em_phnum" />
-
+                android:text="@string/em_phnum"
+                android:layout_marginTop="8dp" />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -195,23 +197,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/relation" />
-
+                android:text="@string/relation"
+                android:layout_marginTop="8dp" />
             <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="47dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/spinner"
                 android:entries="@array/relationship_list" />
         </LinearLayout>
 
+        <!-- 완료 버튼 -->
         <Button
             android:id="@+id/btnSubmit"
-            android:layout_width="231dp"
-            android:layout_height="37dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="완료"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/layout_emergency"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/layout_emergency" />
+            app:layout_constraintEnd_toEndOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

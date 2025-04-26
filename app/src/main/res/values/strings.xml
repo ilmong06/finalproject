@@ -20,7 +20,7 @@
     <string name="input_user_info">사용자 정보 입력</string>
     <string name="user_info">사용자 정보</string>
     <string name="user_name">*이름(필수항목)</string>
-    <string name="iput_user_name">이름을 입력하세요</string>
+    <string name="input_user_name">이름을 입력하세요</string>
     <string name="user_phnum_">*전화번호(필수항목)</string>
     <string name="numbers">숫자만 입력</string>
     <string name="code">인증번호 받기</string>

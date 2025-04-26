@@ -52,38 +52,9 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        resultTextView = findViewById(R.id.text_result);
-        Button loadButton = findViewById(R.id.load_button);
 
-        loadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    String pa = assetFilePath(MainActivity.this, "wav2vec2.ptl");
-                    File modelFile = new File(pa);
-                    Log.d("Model", "Model PATH : "+pa);
-                    Log.d("Model", "File Exist : "+modelFile.exists());
-                    Log.d("Model", "File Length: "+modelFile.length()+" bytes");
-                    // 모델 로딩
-                    model = LiteModuleLoader.load(assetFilePath(MainActivity.this, "wav2vec2.ptl"));
 
-                    // 예시 입력: 1초짜리 16kHz float 음성 텐서
-                    float[] fakeAudio = new float[16000];
-                    Tensor inputTensor = Tensor.fromBlob(fakeAudio, new long[]{1, 16000});
 
-                    // 추론
-                    Tensor outputTensor = model.forward(IValue.from(inputTensor)).toTensor();
-                    float[] output = outputTensor.getDataAsFloatArray();
-
-                    // 결과 출력
-                    resultTextView.setText("모델 출력: " + Arrays.toString(output));
-                    Log.d("MyApp", "SUCCESS!");
-                } catch (Exception e) {
-                    resultTextView.setText("❌ 모델 로딩 실패: " + e.getMessage());
-                    Log.e("MyApp", "FAILED." + e.getMessage());
-                }
-            }
-        });
 
 
 
