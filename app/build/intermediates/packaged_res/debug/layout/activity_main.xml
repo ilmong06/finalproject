@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FFFFFF">
+
+    <!-- 앱 이름 로고 (왼쪽 상단) -->
+    <TextView
+        android:id="@+id/appLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GetHelp"
+        android:textStyle="bold"
+        android:textSize="38sp"
+        android:textColor="#000000"
+        android:layout_gravity="start"
+        android:paddingTop="16dp" />
+
+    <!-- 인사말 영역 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:paddingBottom="0dp">
+
+        <TextView
+            android:id="@+id/welcomeMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="환영합니다 박ㅇㅇ님"
+            android:textSize="18sp"
+            android:textColor="#333333"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="010-1234-5678"
+            android:textSize="16sp"
+            android:textColor="#666666"/>
+    </LinearLayout>
+
+    <!-- 버튼 2x2 중앙 배치 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="0dp">
+
+        <GridLayout
+            android:id="@+id/buttonGrid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:rowCount="2"
+            android:useDefaultMargins="true">
+
+            <Button
+                android:id="@+id/startButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:text="🎙️ STT 시작" />
+
+            <Button
+                android:id="@+id/stopButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:text="⏹️ 종료" />
+
+            <Button
+                android:id="@+id/registerButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:text="🧬 화자 등록" />
+
+            <Button
+                android:id="@+id/emptyButton"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_margin="8dp"
+                android:background="@android:color/darker_gray"
+                android:enabled="false" />
+        </GridLayout>
+    </LinearLayout>
+
+    <!-- 🔑 키워드 입력 및 등록 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="8dp">
+
+        <EditText
+            android:id="@+id/editKeyword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="키워드를 입력하세요"
+            android:background="@android:drawable/edit_text"
+            android:padding="8dp"
+            android:textSize="16sp"/>
+
+        <Button
+            android:id="@+id/keywordRegisterButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="🔑 키워드 등록"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- 결과 출력 -->
+    <TextView
+        android:id="@+id/textResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🖥️ 결과 출력 영역"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="8dp"
+        android:textColor="#333333"
+        android:gravity="center"/>
+
+    <!-- 등록 회차 표시 -->
+    <TextView
+        android:id="@+id/textRegisterStep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="(등록 상태 미표시)"
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:gravity="center"/>
+</LinearLayout>
