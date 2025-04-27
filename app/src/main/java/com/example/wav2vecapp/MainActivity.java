@@ -1,6 +1,7 @@
 package com.example.wav2vecapp;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -49,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button btnMoveKeywordPage = findViewById(R.id.btnMoveKeywordPage);
+        btnMoveKeywordPage.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, KeywordActivity.class);
+            startActivity(intent);
+        });
 
         textView = findViewById(R.id.textResult);
         textRegisterStep = findViewById(R.id.textRegisterStep);

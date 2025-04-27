@@ -35,6 +35,7 @@
         android:testOnly="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true" >
+        <activity android:name="com.example.wav2vecapp.KeywordActivity" />
         <activity
             android:name="com.example.wav2vecapp.MainActivity"
             android:exported="true" >

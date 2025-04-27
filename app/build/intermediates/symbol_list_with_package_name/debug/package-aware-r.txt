@@ -3220,6 +3220,9 @@ id btnBack
 id btnCheckServer
 id btnManageContacts
 id btnManageUsers
+id btnMoveKeywordPage
+id btnStartRecording
+id btnStopRecording
 id btnViewReports
 id btnViewStatistics
 id btn_back
@@ -3505,6 +3508,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id record_controls
 id rectangles
 id registerButton
 id report_drawn

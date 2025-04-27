@@ -116,6 +116,12 @@
                 android:layout_height="170dp"
                 android:layout_margin="8dp"
                 android:text="📍 현재 위치 확인" />
+            <Button
+                android:id="@+id/btnMoveKeywordPage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="✏️ 키워드 관리 화면 이동"
+                android:layout_marginTop="12dp"/>
 
         </GridLayout>
     </LinearLayout>

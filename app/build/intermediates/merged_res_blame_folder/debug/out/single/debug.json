@@ -28,10 +28,6 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\drawable\\rounded_spinner.xml"
     },
     {
-        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_main1.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\activity_main1.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_voice.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\activity_voice.xml"
     },

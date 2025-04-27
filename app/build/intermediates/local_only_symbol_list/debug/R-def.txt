@@ -17,6 +17,9 @@ id btnBack
 id btnCheckServer
 id btnManageContacts
 id btnManageUsers
+id btnMoveKeywordPage
+id btnStartRecording
+id btnStopRecording
 id btnViewReports
 id btnViewStatistics
 id btn_back
@@ -42,6 +45,7 @@ id locationButton
 id phoneNumber
 id phone_text_input
 id plain_text_input
+id record_controls
 id registerButton
 id spinner_language
 id spinner_relation
