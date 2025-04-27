@@ -6,7 +6,11 @@ paths_to_remove = [
     "data/custom",                        # 키워드 음성 저장 폴더
     "registered_keyword_vectors.json",   # 키워드 벡터 저장 파일
     "fewshot_model.pt",                  # 학습된 모델
-    "fewshot_labelmap.json"              # 라벨 매핑
+    "fewshot_labelmap.json",              # 라벨 매핑
+    "registered_speakers.json",
+    "registered_speaker.json",
+    "label_map.json",
+    "keyword_vector.json"
 ]
 
 for path in paths_to_remove:

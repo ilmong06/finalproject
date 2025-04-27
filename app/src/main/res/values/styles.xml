@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- 앱 전체 테마 정의 -->
+    <style name="Theme.MyApplication" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+        <item name="colorOnBackground">@android:color/black</item>
+    </style>
+
+</resources>
