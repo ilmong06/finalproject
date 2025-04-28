@@ -33,9 +33,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    aaptOptions{
-        noCompress.add("ptl")
-    }
+
  androidResources
 }
 
