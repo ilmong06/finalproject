@@ -22,7 +22,11 @@
             android:id="@+id/btnBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="←"
+=======
+            android:text="@string/back"
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
             android:background="@drawable/rounded_button"
             android:textColor="#FFFFFF"/>
 
@@ -35,7 +39,11 @@
             android:id="@+id/appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:text="GetHelp!"
+=======
+            android:text="@string/app_name"
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
             android:textSize="18sp"
             android:textStyle="bold" />
     </LinearLayout>

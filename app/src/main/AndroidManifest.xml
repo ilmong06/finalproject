@@ -1,15 +1,20 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<?xml version="1.0" encoding="utf-8"?>
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.wav2vecapp">
-
+    xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
+<<<<<<< HEAD
         android:label="Wav2VecApp"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 =======
@@ -19,6 +24,8 @@
 
     <application
         android:allowBackup="true"
+=======
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -27,23 +34,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
+<<<<<<< HEAD
 >>>>>>> userInter
+=======
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
         <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> userInter
+=======
+
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
+<<<<<<< HEAD
 <<<<<<< HEAD
 </manifest>
 =======
 
 </manifest>
 >>>>>>> userInter
+=======
+
+</manifest>
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
