@@ -87,7 +87,14 @@
                 android:orientation="horizontal">
 
                 <EditText
+<<<<<<< HEAD
                     android:id="@+id/phone_text_input"
+=======
+<<<<<<< HEAD
+=======
+                    android:id="@+id/phone_text_input"
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
+>>>>>>> main
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.65"
@@ -105,6 +112,11 @@
                     android:text="@string/code" />
             </LinearLayout>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> main
             <!-- 인증번호 입력 + 인증 요청 버튼 -->
             <LinearLayout
                 android:id="@+id/layout_verification_code"
@@ -143,6 +155,10 @@
 
 
 
+<<<<<<< HEAD
+=======
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
+>>>>>>> main
             <!-- 언어 선택 -->
             <TextView
                 android:layout_width="wrap_content"
@@ -156,7 +172,14 @@
                 android:layout_height="48dp"
                 android:background="@drawable/rounded_spinner"
                 android:entries="@array/language_list"
+<<<<<<< HEAD
                 android:id="@+id/spinner_language"
+=======
+<<<<<<< HEAD
+=======
+                android:id="@+id/spinner_language"
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
+>>>>>>> main
                 android:prompt="@string/language_prompt" />
 
             <!-- 생년월일/성별 -->
@@ -175,8 +198,16 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+<<<<<<< HEAD
                     android:layout_weight="0.5"
                     android:id="@+id/birth"
+=======
+                    android:layout_weight="0.4"
+<<<<<<< HEAD
+=======
+                    android:id="@+id/birth"
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
+>>>>>>> main
                     android:hint="@string/yymmdd"
                     android:inputType="number"
                     android:maxLength="6" />
@@ -191,7 +222,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"
+<<<<<<< HEAD
                     android:id="@+id/gender"
+=======
+<<<<<<< HEAD
+=======
+                    android:id="@+id/gender"
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
+>>>>>>> main
                     android:inputType="number"
                     android:maxLength="1" />
 
@@ -231,7 +269,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_user_name"
+<<<<<<< HEAD
                 android:id="@+id/et_emergency_name"
+=======
+<<<<<<< HEAD
+=======
+                android:id="@+id/et_emergency_name"
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
+>>>>>>> main
                 android:inputType="text"
                 android:minHeight="48dp" />
 
@@ -245,7 +290,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/numbers"
+<<<<<<< HEAD
                 android:id="@+id/et_emergency_phone"
+=======
+<<<<<<< HEAD
+=======
+                android:id="@+id/et_emergency_phone"
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
+>>>>>>> main
                 android:inputType="phone"
                 android:minHeight="48dp" />
 
@@ -259,7 +311,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/rounded_spinner"
+<<<<<<< HEAD
                 android:id="@+id/spinner_relation"
+=======
+<<<<<<< HEAD
+=======
+                android:id="@+id/spinner_relation"
+>>>>>>> 96c59b5eab8476db8d10d2dc6d81d4378ea18674
+>>>>>>> main
                 android:entries="@array/relationship_list" />
         </LinearLayout>
 
