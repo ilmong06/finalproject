@@ -87,6 +87,7 @@
                 android:orientation="horizontal">
 
                 <EditText
+                    android:id="@+id/phone_text_input"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.65"
@@ -104,6 +105,44 @@
                     android:text="@string/code" />
             </LinearLayout>
 
+            <!-- 인증번호 입력 + 인증 요청 버튼 -->
+            <LinearLayout
+                android:id="@+id/layout_verification_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical">
+
+                <!-- 인증번호 입력창 -->
+                <EditText
+                    android:id="@+id/et_verification_code"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="7"
+                    android:hint="@string/input_code"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:minHeight="48dp"/>
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="match_parent"/>
+
+                <!-- 인증 요청 버튼 -->
+                <Button
+                    android:id="@+id/btn_request_verification"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    android:text="@string/code_require"
+                    android:background="@drawable/rounded_button"
+                    android:textColor="#FFFFFF"
+                    android:minHeight="48dp"/>
+            </LinearLayout>
+
+
+
             <!-- 언어 선택 -->
             <TextView
                 android:layout_width="wrap_content"
@@ -117,6 +156,7 @@
                 android:layout_height="48dp"
                 android:background="@drawable/rounded_spinner"
                 android:entries="@array/language_list"
+                android:id="@+id/spinner_language"
                 android:prompt="@string/language_prompt" />
 
             <!-- 생년월일/성별 -->
@@ -135,7 +175,8 @@
                 <EditText
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.4"
+                    android:layout_weight="0.5"
+                    android:id="@+id/birth"
                     android:hint="@string/yymmdd"
                     android:inputType="number"
                     android:maxLength="6" />
@@ -150,6 +191,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1"
+                    android:id="@+id/gender"
                     android:inputType="number"
                     android:maxLength="1" />
 
@@ -189,6 +231,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_user_name"
+                android:id="@+id/et_emergency_name"
                 android:inputType="text"
                 android:minHeight="48dp" />
 
@@ -202,6 +245,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/numbers"
+                android:id="@+id/et_emergency_phone"
                 android:inputType="phone"
                 android:minHeight="48dp" />
 
@@ -215,6 +259,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/rounded_spinner"
+                android:id="@+id/spinner_relation"
                 android:entries="@array/relationship_list" />
         </LinearLayout>
 
