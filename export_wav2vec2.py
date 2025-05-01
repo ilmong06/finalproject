@@ -8,18 +8,70 @@ from speechbrain.pretrained import SpeakerRecognition
 from pydub import AudioSegment
 from pathlib import Path
 import torchaudio
-from torchvision.models import resnet18
 import torch.nn as nn
 import torch.nn.functional as F
 from sklearn.metrics.pairwise import cosine_similarity
 import torch
 import uuid
 import json
+import traceback
+import subprocess
 import numpy as np
 import matplotlib.pyplot as plt
+from torchaudio.models.conformer import Conformer
 
 app = Flask(__name__)
 CORS(app)
+def segment_waveform(waveform, sample_rate=16000, segment_ms=1000):
+    segment_samples = int(sample_rate * segment_ms / 1000)
+    segments = []
+    for i in range(0, waveform.shape[1], segment_samples):
+        chunk = waveform[:, i:i+segment_samples]
+        if chunk.shape[1] == segment_samples:
+            energy = chunk.pow(2).mean().item()
+            if energy > 1e-5:  # 무음 제거
+                segments.append(chunk)
+    return segments
+# ✅ Conformer 기반 인코더 정의
+# 클래스 정의만 먼저
+class ConformerEncoder(nn.Module):
+    def __init__(self, input_dim=80, encoder_dim=144, num_layers=4):
+        super().__init__()
+        self.mel_transform = torchaudio.transforms.MelSpectrogram(
+            sample_rate=16000,
+            n_fft=1024,
+            hop_length=160,
+            n_mels=input_dim
+        )
+        self.encoder = Conformer(
+            input_dim=input_dim,
+            num_heads=4,
+            ffn_dim=encoder_dim * 4,
+            num_layers=num_layers,
+            depthwise_conv_kernel_size=31,
+            dropout=0.1
+        )
+        self.pool = nn.AdaptiveAvgPool1d(1)
+
+    def forward(self, waveform):
+        mel = self.mel_transform(waveform)      # [1, n_mels, T]
+        mel = mel.transpose(1, 2)               # [1, T, n_mels]
+        lengths = torch.full(size=(mel.shape[0],), fill_value=mel.shape[1], dtype=torch.long)
+        x, _ = self.encoder(mel,lengths)
+        x = x.transpose(1, 2)                   # [1, d_model, T]
+        x = self.pool(x).squeeze(-1)            # [1, d_model]
+        return x
+
+# 클래스 바깥에서 인스턴스 생성 및 모델 로딩
+conformer_encoder = ConformerEncoder()
+# ✅ 모델이 있을 경우에만 로드
+if os.path.exists("fewshot_model.pt"):
+    state = torch.load("fewshot_model.pt", map_location="cpu")
+    conformer_encoder.load_state_dict(state["model"])
+    conformer_encoder.eval()
+    print("✅ fewshot_model.pt 로드 완료")
+else:
+    print("⚠️ fewshot_model.pt 없음 → 키워드 등록만 가능, 학습 후 재시작 필요")
 
 # ✅ STT 모델
 processor_en = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
@@ -50,7 +102,7 @@ def register_speaker():
     try:
         audio = AudioSegment.from_file(temp_filename).set_frame_rate(16000).set_channels(1)
         audio.export(temp_filename, format="wav")
-        waveform, _ = torchaudio.load(temp_filename)
+        waveform, sr = torchaudio.load(temp_filename)
         embedding = speaker_model.encode_batch(waveform).squeeze().numpy()
         norm_vector = embedding / np.linalg.norm(embedding)
 
@@ -107,27 +159,61 @@ def register_keyword():
 
     existing = list(save_dir.glob("*.wav"))
     index = len(existing) + 1
-
-    raw_path = save_dir / f"raw_{index}.wav"
-    fixed_path = save_dir / f"record_{index}.wav"
+    save_path = save_dir / f"record_{index}.wav"
 
     try:
         file = request.files["file"]
-        file.save(str(raw_path))
+        file.save(str(save_path))
 
-        audio = AudioSegment.from_file(str(raw_path))
+        # 전처리: wav → mono 16kHz
+        audio = AudioSegment.from_file(str(save_path))
         audio = audio.set_frame_rate(16000).set_channels(1)
-        audio.export(str(fixed_path), format="wav")
-        os.remove(str(raw_path))
+        audio.export(str(save_path), format="wav")
 
         if index == 6:
-            os.system("python train_fewshot.py")
-            return jsonify({"message": f"{keyword} 키워드 6개 녹음 완료 → 모델 학습 시작됨"}), 200
+            vectors = []
+            for i in range(1, 7):
+                wav_path = save_dir / f"record_{i}.wav"
+                waveform, sr = torchaudio.load(wav_path)
+
+                # 🔹 segment 기반 평균 벡터
+                segments = segment_waveform(waveform)
+                seg_embeds = []
+                for seg in segments:
+                    with torch.no_grad():
+                        emb = conformer_encoder(seg).squeeze().numpy()
+                    emb = emb / np.linalg.norm(emb)
+                    seg_embeds.append(emb)
+                if seg_embeds:
+                    avg_emb = np.mean(seg_embeds, axis=0)
+                    avg_emb = avg_emb / np.linalg.norm(avg_emb)
+                    vectors.append(avg_emb)
+
+            # 🔹 6개 평균
+            avg_vec = np.mean(vectors, axis=0)
+            norm_vec = avg_vec / np.linalg.norm(avg_vec)
+
+            # 🔹 저장
+            label_map_path = "label_map.json"
+            if os.path.exists(label_map_path):
+                with open(label_map_path, "r") as f:
+                    label_map = json.load(f)
+            else:
+                label_map = {}
+            label_map[keyword] = norm_vec.tolist()
+            with open(label_map_path, "w") as f:
+                json.dump(label_map, f)
+
+            print("🚀 키워드 6개 등록 완료 → 학습 시작")  # ✅ 로그
+            subprocess.run(["python", "train_fewshot.py"])  # ✅ 학습 실행
+            return jsonify({"message": f"{keyword} 키워드 등록 완료 ✅"}), 200
+
         else:
             return jsonify({"message": f"{keyword} 키워드 {index}/6 녹음 저장 완료"}), 200
-
     except Exception as e:
+        traceback.print_exc()
         return jsonify({"error": str(e)}), 500
+
 
 # ✅ STT + 화자 + 키워드 인증
 @app.route("/stt", methods=["POST"])
@@ -146,7 +232,7 @@ def transcribe():
     try:
         audio = AudioSegment.from_file(temp_filename).set_frame_rate(16000).set_channels(1)
         audio.export(temp_filename, format="wav")
-        waveform, _ = torchaudio.load(temp_filename)
+        waveform, sr = torchaudio.load(temp_filename)
 
         print("화자 특징 추출 중...")
         speaker_embedding = speaker_model.encode_batch(waveform)
@@ -162,72 +248,38 @@ def transcribe():
         if speaker_similarity < 0.7:
             return jsonify({"error": "화자 인증 실패"}), 403
 
-        from sklearn.metrics.pairwise import cosine_similarity
-        import torch.nn as nn
-        import torch.nn.functional as F
-
-        class ResKeywordNet(nn.Module):
-            def __init__(self):
-                super().__init__()
-                base_model = resnet18(pretrained=False)
-                base_model.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
-                self.features = nn.Sequential(*list(base_model.children())[:-1])
-                self.fc = nn.Linear(512, 128)
-
-            def forward(self, x):
-                x = self.features(x)
-                x = x.view(x.size(0), -1)
-                return self.fc(x)
-
-        def extract_mel(filepath, target_length=232):
-            waveform, sr = torchaudio.load(filepath)
-            waveform = torchaudio.functional.resample(waveform, sr, 16000)
-            mel = torchaudio.transforms.MelSpectrogram(
-                sample_rate=16000,
-                n_fft=1024,
-                hop_length=160,
-                n_mels=80
-            )(waveform)
-            if mel.shape[-1] < target_length:
-                pad = target_length - mel.shape[-1]
-                mel = F.pad(mel, (0, pad))
-            elif mel.shape[-1] > target_length:
-                mel = mel[:, :, :target_length]
-            return mel.unsqueeze(0)
-
-        # ✅ 키워드 유사도 판단
-        if not os.path.exists("fewshot_model.pt") or not os.path.exists("label_map.json"):
-            return jsonify({"error": "Few-shot 모델 또는 라벨맵 없음"}), 403
-
-        mel = extract_mel(temp_filename)
-        model = ResKeywordNet()
-        checkpoint = torch.load("fewshot_model.pt", map_location="cpu")
-        model.load_state_dict(checkpoint["model"])
-        model.eval()
-
-        with open("label_map.json", "r", encoding="utf-8") as f:
-            label_map = json.load(f)
-
-        with torch.no_grad():
-            emb = model(mel).numpy()
+        # 🔍 키워드 인증 (segment 기반)
+        segments = segment_waveform(waveform)
+        segment_embeddings = []
+        for seg in segments:
+            with torch.no_grad():
+                emb = conformer_encoder(seg).squeeze().numpy()
+            emb = emb / np.linalg.norm(emb)
+            segment_embeddings.append(emb)
 
         triggered_keyword = None
-        best_score = 0
-        print("\n📊 키워드 유사도 (Cosine Similarity):")
-        for keyword, vec in label_map.items():
-            score = cosine_similarity(emb, [vec])[0][0]
-            print(f"🔸 '{keyword}' ↔ 입력 음성 : {score:.4f}")
-            if score > best_score:
-                best_score = score
-                triggered_keyword = keyword
+        best_score = -1
 
+        with open("label_map.json", "r") as f:
+            label_map = json.load(f)
+
+        print("\n📊 키워드 유사도:")
+        for keyword, vec in label_map.items():
+            vec = np.array(vec)
+            for emb in segment_embeddings:
+                score = np.dot(emb, vec)
+                print(f"🔸 '{keyword}' ↔ 세그먼트 유사도 : {score:.4f}")
+                if score > best_score:
+                    best_score = score
+                    triggered_keyword = keyword
+
+        # 인증 실패 시 중단
         if best_score < 0.7:
             return jsonify({
-                "error": "키워드 인증 실패 (Few-shot)",
+                "error": "키워드 인증 실패 (segment 기반)",
                 "triggered_keyword": triggered_keyword,
                 "similarity": round(best_score, 4)
             }), 403
-
 
 
         # ✅ STT 수행
@@ -255,9 +307,9 @@ def transcribe():
             "speaker_vector": norm_vector.tolist()
         })
 
-
     except Exception as e:
-        return jsonify({"error": str(e)}), 500
+           traceback.print_exc()  # 🔍 콘솔 전체 에러 출력
+           return jsonify({"error": str(e)}), 500
     finally:
         os.remove(temp_filename)
 

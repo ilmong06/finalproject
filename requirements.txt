@@ -1,0 +1,7 @@
+flask
+flask-cors
+transformers
+speechbrain
+torchaudio
+pydub
+numpy
