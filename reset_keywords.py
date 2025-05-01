@@ -10,7 +10,8 @@ paths_to_remove = [
     "registered_speakers.json",
     "registered_speaker.json",
     "label_map.json",
-    "keyword_vector.json"
+    "keyword_vector.json",
+    "tsne_result.png"
 ]
 
 for path in paths_to_remove:

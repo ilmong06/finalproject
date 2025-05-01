@@ -132,8 +132,8 @@ with torch.no_grad():
         idxs = (y == cls).nonzero(as_tuple=False).squeeze()
         reps = torch.stack([get_segment_avg_eval(X[i], model) for i in idxs])
         proto = reps.mean(dim=0)
-        keyword_embeddings[keyword] = (proto / proto.norm()).tolist()
-
+#         keyword_embeddings[keyword] = [ (proto / proto.norm()).tolist() ]  # ✅ 리스트로 한 번 감싸기
+        keyword_embeddings[keyword] = [ (v / v.norm()).tolist() for v in reps ]
 torch.save({"model": model.state_dict()}, "fewshot_model.pt")
 with open("label_map.json", "w", encoding="utf-8") as f:
     json.dump(keyword_embeddings, f)

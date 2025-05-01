@@ -175,23 +175,15 @@ def register_keyword():
             for i in range(1, 7):
                 wav_path = save_dir / f"record_{i}.wav"
                 waveform, sr = torchaudio.load(wav_path)
-
-                # 🔹 segment 기반 평균 벡터
                 segments = segment_waveform(waveform)
-                seg_embeds = []
                 for seg in segments:
                     with torch.no_grad():
                         emb = conformer_encoder(seg).squeeze().numpy()
                     emb = emb / np.linalg.norm(emb)
-                    seg_embeds.append(emb)
-                if seg_embeds:
-                    avg_emb = np.mean(seg_embeds, axis=0)
-                    avg_emb = avg_emb / np.linalg.norm(avg_emb)
-                    vectors.append(avg_emb)
+                    vectors.append(emb)
 
-            # 🔹 6개 평균
-            avg_vec = np.mean(vectors, axis=0)
-            norm_vec = avg_vec / np.linalg.norm(avg_vec)
+            print("✅ vectors 개수:", len(vectors))  # ✅ if 블록 안으로 넣기
+            print("✅ vectors[0] shape:", np.array(vectors[0]).shape)
 
             # 🔹 저장
             label_map_path = "label_map.json"
@@ -200,7 +192,8 @@ def register_keyword():
                     label_map = json.load(f)
             else:
                 label_map = {}
-            label_map[keyword] = norm_vec.tolist()
+            label_map[keyword] = [vec.tolist() for vec in vectors]
+
             with open(label_map_path, "w") as f:
                 json.dump(label_map, f)
 
@@ -264,14 +257,22 @@ def transcribe():
             label_map = json.load(f)
 
         print("\n📊 키워드 유사도:")
-        for keyword, vec in label_map.items():
-            vec = np.array(vec)
+        for keyword, vec_list in label_map.items():
             for emb in segment_embeddings:
-                score = np.dot(emb, vec)
-                print(f"🔸 '{keyword}' ↔ 세그먼트 유사도 : {score:.4f}")
-                if score > best_score:
-                    best_score = score
-                    triggered_keyword = keyword
+                for ref_vec in vec_list:
+                    ref_vec = np.array(ref_vec).reshape(-1)
+                    emb = np.array(emb).reshape(-1)
+                    score = np.dot(emb, ref_vec)
+                    if isinstance(score, np.ndarray):
+                        score = score.item()
+                    print(f"🔸 '{keyword}' ↔ 세그먼트 유사도 : {score:.4f}")
+                    if score > best_score:
+                        best_score = score
+                        triggered_keyword = keyword
+
+
+
+
 
         # 인증 실패 시 중단
         if best_score < 0.7:
