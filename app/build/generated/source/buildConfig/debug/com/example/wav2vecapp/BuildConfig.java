@@ -9,4 +9,6 @@ public final class BuildConfig {
   public static final String BUILD_TYPE = "debug";
   public static final int VERSION_CODE = 1;
   public static final String VERSION_NAME = "1.0";
+  // Field from default config.
+  public static final String FLASK_BASE_URL = "http:///222.118.128.214";
 }
