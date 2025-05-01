@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingHorizontal="10dp"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:layout_marginTop="10dp">
 
     <!-- 레이아웃 1: 헤더 바 -->
     <LinearLayout
@@ -17,26 +19,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp"
-        android:paddingHorizontal="10dp">
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
 
-        <ImageButton
+        <Button
             android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_arrow"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="뒤로가기 버튼" />
+            android:text="@string/back"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/tvHeader"
+            android:id="@+id/appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GetHelp!"
-            android:textSize="20sp"
+            android:text="@string/gethelp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_marginStart="12dp"
-            android:textColor="@color/black"/>
+            android:clickable="true"
+            android:focusable="true"/>
     </LinearLayout>
 
     <!-- 중앙 정렬 영역 -->
@@ -73,12 +80,12 @@
         <!-- 레이아웃 3: 음성 등록 버튼 (원형) -->
         <Button
             android:id="@+id/btnRecord"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="녹음"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:text="녹음 시작"
             android:textColor="@color/white"
             android:backgroundTint="@color/purple_500"
-            android:background="@drawable/circle_button"
+            android:background="@drawable/rounded_circle_button"
             android:textSize="16sp" />
 
         <!-- 구분선 -->
