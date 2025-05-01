@@ -8,6 +8,10 @@ from speechbrain.pretrained import SpeakerRecognition
 from pydub import AudioSegment
 from pathlib import Path
 import torchaudio
+from torchvision.models import resnet18
+import torch.nn as nn
+import torch.nn.functional as F
+from sklearn.metrics.pairwise import cosine_similarity
 import torch
 import uuid
 import json
@@ -162,39 +166,41 @@ def transcribe():
         import torch.nn as nn
         import torch.nn.functional as F
 
-        class KeywordNet(nn.Module):
+        class ResKeywordNet(nn.Module):
             def __init__(self):
                 super().__init__()
-                self.conv = nn.Sequential(
-                    nn.Conv2d(1, 16, kernel_size=3, stride=2),
-                    nn.ReLU()
-                )
-                self.pool = nn.AdaptiveAvgPool2d((1, 1))
-                self.fc = nn.Linear(16, 128)
+                base_model = resnet18(pretrained=False)
+                base_model.conv1 = nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3, bias=False)
+                self.features = nn.Sequential(*list(base_model.children())[:-1])
+                self.fc = nn.Linear(512, 128)
 
             def forward(self, x):
-                x = self.conv(x)
-                x = self.pool(x)
+                x = self.features(x)
                 x = x.view(x.size(0), -1)
                 return self.fc(x)
 
         def extract_mel(filepath, target_length=232):
             waveform, sr = torchaudio.load(filepath)
             waveform = torchaudio.functional.resample(waveform, sr, 16000)
-            mel = torchaudio.transforms.MelSpectrogram(sample_rate=16000, n_mels=40)(waveform)
+            mel = torchaudio.transforms.MelSpectrogram(
+                sample_rate=16000,
+                n_fft=1024,
+                hop_length=160,
+                n_mels=80
+            )(waveform)
             if mel.shape[-1] < target_length:
                 pad = target_length - mel.shape[-1]
                 mel = F.pad(mel, (0, pad))
-            else:
+            elif mel.shape[-1] > target_length:
                 mel = mel[:, :, :target_length]
             return mel.unsqueeze(0)
 
+        # ✅ 키워드 유사도 판단
         if not os.path.exists("fewshot_model.pt") or not os.path.exists("label_map.json"):
             return jsonify({"error": "Few-shot 모델 또는 라벨맵 없음"}), 403
 
-                # Few-shot 모델 로드 및 키워드 예측
         mel = extract_mel(temp_filename)
-        model = KeywordNet()
+        model = ResKeywordNet()
         checkpoint = torch.load("fewshot_model.pt", map_location="cpu")
         model.load_state_dict(checkpoint["model"])
         model.eval()
@@ -205,7 +211,6 @@ def transcribe():
         with torch.no_grad():
             emb = model(mel).numpy()
 
-        # 유사도 측정
         triggered_keyword = None
         best_score = 0
         print("\n📊 키워드 유사도 (Cosine Similarity):")
@@ -216,13 +221,14 @@ def transcribe():
                 best_score = score
                 triggered_keyword = keyword
 
-        # 유사도 기준 미달 → STT 불가
         if best_score < 0.7:
             return jsonify({
                 "error": "키워드 인증 실패 (Few-shot)",
                 "triggered_keyword": triggered_keyword,
                 "similarity": round(best_score, 4)
             }), 403
+
+
 
         # ✅ STT 수행
         transcription = ""
