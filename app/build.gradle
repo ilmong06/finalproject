@@ -3,9 +3,9 @@ plugins {
 }
 
 // 🔐 secrets.properties 읽기
-//def secretsFile = rootProject.file("secrets.properties")
-//def secrets = new Properties()
-//secrets.load(new FileInputStream(secretsFile))
+def secretsFile = rootProject.file("secrets.properties")
+def secrets = new Properties()
+secrets.load(new FileInputStream(secretsFile))
 
 android {
     namespace "com.example.wav2vecapp"
@@ -21,7 +21,7 @@ android {
         versionName "1.0"
 
         // 🔑 BuildConfig로 서버 주소 주입
-        //buildConfigField "String", "FLASK_BASE_URL", "\"${secrets['FLASK_BASE_URL']}\""
+        buildConfigField "String", "FLASK_BASE_URL", "\"${secrets['FLASK_BASE_URL']}\""
     }
 
     buildTypes {

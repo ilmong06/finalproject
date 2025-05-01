@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         return new Retrofit.Builder()
-                .baseUrl(BuildConfig.FLASK_BASE_URL)
+                //.baseUrl(BuildConfig.FLASK_BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
