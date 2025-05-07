@@ -78,7 +78,7 @@
         <item name="android:layout_height">48dp</item>
         <item name="android:backgroundTint">@color/primary</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:cornerRadius">12dp</item>
+        <item name="cornerRadius">12dp</item>
         <item name="android:elevation">4dp</item>
     </style>
 
@@ -88,7 +88,7 @@
         <item name="android:layout_height">160dp</item>
         <item name="android:backgroundTint">@color/primaryLight</item>
         <item name="android:textColor">@android:color/black</item>
-        <item name="android:cornerRadius">24dp</item>
+        <item name="cornerRadius">24dp</item>
         <item name="android:elevation">6dp</item>
     </style>
 
@@ -96,7 +96,7 @@
     <style name="CircularButton" parent="Widget.MaterialComponents.Button">
         <item name="android:backgroundTint">@color/purple_500</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:cornerRadius">100dp</item>
+        <item name="cornerRadius">100dp</item>
         <item name="android:elevation">6dp</item>
     </style>
 
@@ -106,7 +106,7 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:backgroundTint">@color/grayLight</item>
         <item name="android:textColor">@color/textPrimary</item>
-        <item name="android:cornerRadius">8dp</item>
+        <item name="cornerRadius">8dp</item>
     </style>
 
     <!-- ✅ 링크 텍스트 -->
@@ -116,5 +116,24 @@
         <item name="android:autoLink">web</item>
 >>>>>>> whatsInter
     </style>
+
+    <style name="CircleRedButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">30dp</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="android:minWidth">60dp</item>
+        <item name="backgroundTint">@color/red</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="CircleGrayButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">30dp</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="android:minWidth">60dp</item>
+        <item name="backgroundTint">@color/gray</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 
 </resources>
