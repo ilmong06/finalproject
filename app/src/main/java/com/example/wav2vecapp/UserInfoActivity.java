@@ -1,10 +1,14 @@
 package com.example.wav2vecapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintSet;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
+
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -23,7 +27,8 @@ public class UserInfoActivity extends AppCompatActivity{
     // 주요 뷰 연결
     EditText etName, etPhone, etVerificationCode, etBirth, etGender, etEmergencyName, etEmergencyPhone;
     Spinner spinnerLanguage, spinnerRelation;
-    Button btnRequestVerification, btnSubmit;
+    Button btnRequestVerification, btnSubmit, btnReceive;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +48,26 @@ public class UserInfoActivity extends AppCompatActivity{
         spinnerLanguage = findViewById(R.id.spinner_language);
         spinnerRelation = findViewById(R.id.spinner_relation);
 
+        //layout
+
+
         // 버튼 연결
         btnRequestVerification = findViewById(R.id.btn_request_verification);
         btnSubmit = findViewById(R.id.btn_submit);
+        btnReceive = findViewById(R.id.receive_code);
+
+        //인증번호 받기 클릭
+        btnReceive.setOnClickListener(v ->{
+            btnRequestVerification.setVisibility(View.VISIBLE);
+            etVerificationCode.setVisibility(View.VISIBLE);
+        });
 
         // 인증요청 버튼 클릭
         btnRequestVerification.setOnClickListener(v -> {
             etVerificationCode.setEnabled(true);
             etVerificationCode.requestFocus();
             Toast.makeText(this, "인증번호를 입력하세요", Toast.LENGTH_SHORT).show();
+
         });
 
         // 인증번호 EditText 6자리 제한

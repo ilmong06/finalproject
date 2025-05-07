@@ -97,10 +97,11 @@
                     android:minHeight="48dp" />
 
                 <Button
+                    android:id="@+id/receive_code"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.35"
-                    android:background="@drawable/rounded_button"
+                    style="@style/PrimaryButton"
                     android:textColor="#FFFFFF"
                     android:text="@string/code" />
             </LinearLayout>
@@ -112,7 +113,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="12dp"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                >
 
                 <!-- 인증번호 입력창 -->
                 <EditText
@@ -123,7 +125,8 @@
                     android:hint="@string/input_code"
                     android:inputType="number"
                     android:maxLength="6"
-                    android:minHeight="48dp"/>
+                    android:minHeight="48dp"
+                    android:visibility="gone"/>
 
                 <View
                     android:layout_width="8dp"
@@ -136,9 +139,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:text="@string/code_require"
-                    android:background="@drawable/rounded_button"
+                    style="@style/PrimaryButton"
                     android:textColor="#FFFFFF"
-                    android:minHeight="48dp"/>
+                    android:minHeight="48dp"
+                    android:visibility="gone"/>
             </LinearLayout>
 
 
@@ -270,7 +274,7 @@
             android:layout_height="wrap_content"
             android:text="@string/complete"
             android:layout_marginTop="24dp"
-            android:background="@drawable/rounded_button"
+            style="@style/PrimaryButton"
             android:textColor="#FFFFFF"
             app:layout_constraintTop_toBottomOf="@id/layout_emergency"
             app:layout_constraintStart_toStartOf="parent"
