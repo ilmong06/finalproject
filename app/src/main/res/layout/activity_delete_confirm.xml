@@ -47,8 +47,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="예"
+                style="@style/PrimaryButton"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_button"
                 android:textAllCaps="false"
                 android:layout_marginEnd="8dp"/>
 
@@ -58,8 +58,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="아니오"
+                style="@style/PrimaryButton"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_button"
                 android:textAllCaps="false"/>
         </LinearLayout>
     </LinearLayout>
