@@ -64,12 +64,20 @@ public class KeywordActivity extends AppCompatActivity {
 
         // 🎙️ 녹음 시작 버튼
         btnStartRecording.setOnClickListener(v -> {
+<<<<<<< HEAD
             startKeywordRegistration();
+=======
+            //startKeywordRegistration();
+>>>>>>> whatsInter
         });
 
         // ⏹️ 녹음 중지 버튼
         btnStopRecording.setOnClickListener(v -> {
+<<<<<<< HEAD
             stopRecording();
+=======
+            //stopRecording();
+>>>>>>> whatsInter
             btnStartRecording.setEnabled(true);
             btnStopRecording.setEnabled(false);
         });
@@ -81,8 +89,13 @@ public class KeywordActivity extends AppCompatActivity {
                 Toast.makeText(this, "❗ 키워드를 입력하세요.", Toast.LENGTH_SHORT).show();
                 return;
             }
+<<<<<<< HEAD
             addKeywordToList(currentKeyword);   // ✅ 리스트에 추가
             startKeywordRegistration();         // ✅ 녹음 바로 시작
+=======
+            //addKeywordToList(currentKeyword);   // ✅ 리스트에 추가
+            //startKeywordRegistration();         // ✅ 녹음 바로 시작
+>>>>>>> whatsInter
         });
 
         // 🔒 권한 요청
@@ -112,10 +125,17 @@ public class KeywordActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "❌ 녹음 실패", Toast.LENGTH_SHORT).show();
         }
+<<<<<<< HEAD
     }*/
 
     // ⏹️ 녹음 중지 함수
     /*private void stopRecording() {
+=======
+    }
+
+    // ⏹️ 녹음 중지 함수
+    private void stopRecording() {
+>>>>>>> whatsInter
         try {
             recorder.stop();
             recorder.release();
@@ -131,7 +151,11 @@ public class KeywordActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "❌ 녹음 중지 실패", Toast.LENGTH_SHORT).show();
         }
+<<<<<<< HEAD
     }*/
+=======
+    }
+>>>>>>> whatsInter
 
     // 🚀 서버로 오디오 + 키워드 전송
     private void sendAudioToKeywordRegister(String filePath, String keyword) {
@@ -225,10 +249,17 @@ public class KeywordActivity extends AppCompatActivity {
         newItemLayout.addView(checkBox);
 
         layoutKeywordList.addView(newItemLayout);
+<<<<<<< HEAD
     }
 
     // 🔧 Retrofit 클라이언트 설정
     private Retrofit getRetrofitClient() {
+=======
+    }*/
+
+    // 🔧 Retrofit 클라이언트 설정
+    /*private Retrofit getRetrofitClient() {
+>>>>>>> whatsInter
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
@@ -243,6 +274,10 @@ public class KeywordActivity extends AppCompatActivity {
     }
 
     // 🌟 키워드 등록 시작 함수
+<<<<<<< HEAD
+=======
+
+>>>>>>> whatsInter
     private void startKeywordRegistration() {
         currentKeyword = etKeyword.getText().toString().trim();
         if (currentKeyword.isEmpty()) {
@@ -255,5 +290,9 @@ public class KeywordActivity extends AppCompatActivity {
         startRecording();
         btnStartRecording.setEnabled(false);
         btnStopRecording.setEnabled(true);
+<<<<<<< HEAD
     }
+=======
+    }*/
+>>>>>>> whatsInter
 }
