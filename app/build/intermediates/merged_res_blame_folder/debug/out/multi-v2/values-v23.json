@@ -4,6 +4,7 @@
             "outputFile": "com.example.wav2vecapp-mergeDebugResources-32:/values-v23/values-v23.xml",
             "map": [
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\kdh55\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
@@ -16,6 +17,9 @@
                 },
                 {
                     "source": "C:\\Users\\kdh55\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-v23\\values-v23.xml",
+=======
+                    "source": "C:\\Users\\kdh55\\.gradle\\caches\\transforms-3\\4086e976df2ef4ecbfa0b783c02b0ce2\\transformed\\material-1.11.0\\res\\values-v23\\values-v23.xml",
+>>>>>>> whatsInter
                     "from": {
                         "startLines": "2,5,9,13,16,19,22,25,28,32",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",
@@ -34,7 +38,22 @@
                     }
                 },
                 {
+<<<<<<< HEAD
                     "source": "C:\\Users\\kdh55\\.gradle\\caches\\transforms-3\\a1a383b07319f987d2c8bfb6541910c8\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+=======
+                    "source": "C:\\Users\\kdh55\\.gradle\\caches\\transforms-3\\17c7ff47b11612dfd7a8d7b6d569e239\\transformed\\appcompat-1.6.1\\res\\values-v23\\values-v23.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,190,325,400,487,1225,1975,2094,2221,2443,2667,2782,2889,3002",
+                        "endLines": "2,3,4,5,19,33,34,35,38,42,43,44,45,49",
+                        "endColumns": "134,134,74,86,12,12,118,126,12,12,114,106,112,12",
+                        "endOffsets": "185,320,395,482,1220,1970,2089,2216,2438,2662,2777,2884,2997,3227"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\kdh55\\.gradle\\caches\\transforms-3\\352805cbc7bb4ae20fa64fad22b48a9b\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",
+>>>>>>> whatsInter
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
