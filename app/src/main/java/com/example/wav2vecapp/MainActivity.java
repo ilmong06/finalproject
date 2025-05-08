@@ -53,11 +53,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btnMoveKeywordPage = findViewById(R.id.btnMoveKeywordPage);
-        btnMoveKeywordPage.setOnClickListener(view -> {
+
+
+        //키워드 등록창 이동하는 이벤트
+        /*btnMoveKeywordPage.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, KeywordActivity.class);
             startActivity(intent);
-        });
+        });*/
+
 
         textView = findViewById(R.id.textResult);
         textRegisterStep = findViewById(R.id.textRegisterStep);
