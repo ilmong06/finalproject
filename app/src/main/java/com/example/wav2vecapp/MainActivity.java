@@ -13,6 +13,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import org.json.JSONObject;
 
@@ -44,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
     private int registerCount = 0;
     private String currentKeyword = "";
     private LocationHelper locationHelper;
-    private Button locationButton;
+    private Button locationButton, btnMenu;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,18 @@ public class MainActivity extends AppCompatActivity {
 // onCreate 내부에서 버튼 연결
         locationButton = findViewById(R.id.locationButton);
         locationHelper = new LocationHelper(this, textView, textRegisterStep);
+
+        drawerLayout = findViewById(R.id.drawerLayout);
+        btnMenu = findViewById(R.id.btnMenu);
+
+        btnMenu.setOnClickListener(v -> {
+            if (!drawerLayout.isDrawerOpen(GravityCompat.END)) {
+                drawerLayout.openDrawer(GravityCompat.END);
+            } else {
+                drawerLayout.closeDrawer(GravityCompat.END);
+            }
+        });
+
 
         locationButton.setOnClickListener(view -> {
             Log.i("MainActivity", "🟡 위치 버튼 클릭됨");

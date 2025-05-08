@@ -28,10 +28,10 @@ com.example.wav2vecapp-constraintlayout-2.1.4-26 C:\Users\kdh55\.gradle\caches\t
 com.example.wav2vecapp-transition-1.2.0-27 C:\Users\kdh55\.gradle\caches\transforms-3\e9be4a12fa22518413263cda28971ba7\transformed\transition-1.2.0\res
 com.example.wav2vecapp-jetified-play-services-base-18.1.0-28 C:\Users\kdh55\.gradle\caches\transforms-3\eee32528c733d586bc2a6b3b5c6dd8f3\transformed\jetified-play-services-base-18.1.0\res
 com.example.wav2vecapp-jetified-viewpager2-1.0.0-29 C:\Users\kdh55\.gradle\caches\transforms-3\f93b383051e04165b9e14f06fe5d2e92\transformed\jetified-viewpager2-1.0.0\res
-com.example.wav2vecapp-pngs-30 C:\Users\kdh55\AndroidStudioProjects\flower\app\build\generated\res\pngs\debug
-com.example.wav2vecapp-resValues-31 C:\Users\kdh55\AndroidStudioProjects\flower\app\build\generated\res\resValues\debug
-com.example.wav2vecapp-packageDebugResources-32 C:\Users\kdh55\AndroidStudioProjects\flower\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
-com.example.wav2vecapp-packageDebugResources-33 C:\Users\kdh55\AndroidStudioProjects\flower\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
-com.example.wav2vecapp-merged_res-34 C:\Users\kdh55\AndroidStudioProjects\flower\app\build\intermediates\merged_res\debug
-com.example.wav2vecapp-debug-35 C:\Users\kdh55\AndroidStudioProjects\flower\app\src\debug\res
-com.example.wav2vecapp-main-36 C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\res
+com.example.wav2vecapp-pngs-30 C:\Users\kdh55\AndroidStudioProjects\finalproject\app\build\generated\res\pngs\debug
+com.example.wav2vecapp-resValues-31 C:\Users\kdh55\AndroidStudioProjects\finalproject\app\build\generated\res\resValues\debug
+com.example.wav2vecapp-packageDebugResources-32 C:\Users\kdh55\AndroidStudioProjects\finalproject\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.wav2vecapp-packageDebugResources-33 C:\Users\kdh55\AndroidStudioProjects\finalproject\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.wav2vecapp-merged_res-34 C:\Users\kdh55\AndroidStudioProjects\finalproject\app\build\intermediates\merged_res\debug
+com.example.wav2vecapp-debug-35 C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\debug\res
+com.example.wav2vecapp-main-36 C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\res

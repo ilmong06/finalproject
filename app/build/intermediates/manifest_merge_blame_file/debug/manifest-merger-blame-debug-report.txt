@@ -9,20 +9,20 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-11-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:4:5-70
-11-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:4:22-68
+11-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:4:5-70
+11-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:4:22-68
 12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-12-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:5:5-80
-12-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:5:22-78
+12-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:5:5-80
+12-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:5:22-78
 13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-13-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:6:5-79
-13-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:6:22-77
+13-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:6:5-79
+13-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:6:22-77
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:7:5-66
-14-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:7:22-64
+14-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:7:5-66
+14-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:7:22-64
 15    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-15-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:8:5-78
-15-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:8:22-76
+15-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:8:5-78
+15-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:8:22-76
 16    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 16-->[com.google.android.datatransport:transport-runtime:4.0.0] C:\Users\kdh55\.gradle\caches\transforms-3\3f4423d31ac57e5411b8826b92fadf77\transformed\jetified-transport-runtime-4.0.0\AndroidManifest.xml:20:5-79
 16-->[com.google.android.datatransport:transport-runtime:4.0.0] C:\Users\kdh55\.gradle\caches\transforms-3\3f4423d31ac57e5411b8826b92fadf77\transformed\jetified-transport-runtime-4.0.0\AndroidManifest.xml:20:22-76
@@ -39,48 +39,48 @@
 22-->[androidx.core:core:1.9.0] C:\Users\kdh55\.gradle\caches\transforms-3\0a259d3c393404f8ed426f7af994dd8e\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 23
 24    <application
-24-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:10:5-30:19
+24-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:10:5-30:19
 25        android:allowBackup="true"
-25-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:12:9-35
+25-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:12:9-35
 26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 26-->[androidx.core:core:1.9.0] C:\Users\kdh55\.gradle\caches\transforms-3\0a259d3c393404f8ed426f7af994dd8e\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 27        android:dataExtractionRules="@xml/data_extraction_rules"
-27-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:13:9-65
+27-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:13:9-65
 28        android:debuggable="true"
 29        android:extractNativeLibs="false"
 30        android:fullBackupContent="@xml/backup_rules"
-30-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:14:9-54
+30-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:14:9-54
 31        android:icon="@mipmap/ic_launcher"
-31-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:15:9-43
+31-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:15:9-43
 32        android:label="@string/app_name"
-32-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:16:9-41
+32-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:16:9-41
 33        android:roundIcon="@mipmap/ic_launcher_round"
-33-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:17:9-54
+33-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:17:9-54
 34        android:supportsRtl="true"
-34-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:18:9-35
+34-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:18:9-35
 35        android:testOnly="true"
 36        android:theme="@style/Theme.MyApplication"
-36-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:19:9-51
+36-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:19:9-51
 37        android:usesCleartextTraffic="true" >
-37-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:11:9-44
+37-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:11:9-44
 38        <activity android:name="com.example.wav2vecapp.KeywordActivity" />
-38-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:21:9-53
-38-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:21:19-50
+38-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:21:9-53
+38-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:21:19-50
 39        <activity
-39-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:22:9-29:20
+39-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:22:9-29:20
 40            android:name="com.example.wav2vecapp.MainActivity"
-40-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:23:13-41
+40-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:23:13-41
 41            android:exported="true" >
-41-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:24:13-36
+41-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:24:13-36
 42            <intent-filter>
-42-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:25:13-28:29
+42-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:25:13-28:29
 43                <action android:name="android.intent.action.MAIN" />
-43-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:26:17-69
-43-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:26:25-66
+43-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:26:17-69
+43-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:26:25-66
 44
 45                <category android:name="android.intent.category.LAUNCHER" />
-45-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:27:17-77
-45-->C:\Users\kdh55\AndroidStudioProjects\flower\app\src\main\AndroidManifest.xml:27:27-74
+45-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:27:17-77
+45-->C:\Users\kdh55\AndroidStudioProjects\finalproject\app\src\main\AndroidManifest.xml:27:27-74
 46            </intent-filter>
 47        </activity>
 48        <activity
