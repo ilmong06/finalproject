@@ -1,150 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#FFFFFF">
+    android:background="@color/backgroundLight"
+    android:padding="16dp">
 
-    <!-- 앱 이름 로고 (왼쪽 상단) -->
-    <TextView
-        android:id="@+id/appLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="GetHelp"
-        android:textStyle="bold"
-        android:textSize="38sp"
-        android:textColor="#000000"
-        android:layout_gravity="start"
-        android:paddingTop="16dp" />
-
-    <!-- 인사말 영역 -->
+    <!-- 📌 헤더 바 -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingBottom="0dp">
-
-        <TextView
-            android:id="@+id/welcomeMessage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="환영합니다 박ㅇㅇ님"
-            android:textSize="18sp"
-            android:textColor="#333333"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/phoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="010-1234-5678"
-            android:textSize="16sp"
-            android:textColor="#666666"/>
-    </LinearLayout>
-    <!-- 🔑 키워드 입력 및 등록 버튼 -->
-    <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/headerBar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="8dp">
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <EditText
-            android:id="@+id/editKeyword"
+        <TextView
+            android:id="@+id/appLogo"
+            style="@style/TitleText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:hint="키워드를 입력하세요"
-            android:background="@android:drawable/edit_text"
-            android:padding="8dp"
-            android:textSize="16sp"/>
+            android:layout_weight="7"
+            android:text="@string/gethelp" />
 
         <Button
-            android:id="@+id/keywordRegisterButton"
+            android:id="@+id/btnMenu"
+            style="@style/SmallIconButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="🔑 키워드 등록"
-            android:layout_marginStart="8dp"/>
+            android:layout_weight="1.5"
+            android:text="@string/hamburger" />
     </LinearLayout>
-    <!-- 버튼 2x2 중앙 배치 -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingTop="0dp">
 
-        <GridLayout
-            android:id="@+id/buttonGrid"
-            android:layout_width="wrap_content"
+    <ScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/headerBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:alignmentMode="alignMargins"
-            android:columnCount="2"
-            android:rowCount="2"
-            android:useDefaultMargins="true">
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="32dp">
 
-            <Button
-                android:id="@+id/startButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_margin="8dp"
-                android:text="🎙️ STT 시작" />
-
-            <Button
-                android:id="@+id/stopButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_margin="8dp"
-                android:text="⏹️ 종료" />
-
-            <Button
-                android:id="@+id/registerButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_margin="8dp"
-                android:text="🧬 화자 등록" />
-
-            <Button
-                android:id="@+id/locationButton"
-                android:layout_width="170dp"
-                android:layout_height="170dp"
-                android:layout_margin="8dp"
-                android:text="📍 현재 위치 확인" />
-            <Button
-                android:id="@+id/btnMoveKeywordPage"
-                android:layout_width="match_parent"
+            <!-- 👋 인사말 -->
+            <TextView
+                android:id="@+id/welcomeMessage"
                 android:layout_height="wrap_content"
-                android:text="✏️ 키워드 관리 화면 이동"
-                android:layout_marginTop="12dp"/>
+                android:layout_width="wrap_content"
+                style="@style/HeaderText"
+                android:text="환영합니다 박ㅇㅇ님" />
 
-        </GridLayout>
-    </LinearLayout>
+            <TextView
+                android:id="@+id/phoneNumber"
+                style="@style/SecondaryText"
+                android:text="010-1234-5678"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="12dp" />
 
-    <!-- 결과 출력 -->
-    <TextView
-        android:id="@+id/textResult"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="🖥️ 결과 출력 영역"
-        android:textSize="18sp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="8dp"
-        android:textColor="#333333"
-        android:gravity="center"/>
+            <!-- 🔘 2x2 버튼 -->
+            <GridLayout
+                android:id="@+id/buttonGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:rowCount="3"
+                android:useDefaultMargins="true">
 
-    <!-- 등록 회차 표시 -->
-    <TextView
-        android:id="@+id/textRegisterStep"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="(등록 상태 미표시)"
-        android:textSize="16sp"
-        android:textColor="#666666"
-        android:gravity="center"/>
-</LinearLayout>
+                <Button
+                    android:id="@+id/startButton"
+                    style="@style/GridActionButton"
+                    android:text="🎙️ STT 시작" />
+
+                <Button
+                    android:id="@+id/stopButton"
+                    style="@style/GridActionButton"
+                    android:text="⏹️ 종료" />
+
+                <Button
+                    android:id="@+id/registerButton"
+                    style="@style/GridActionButton"
+                    android:text="🧬 화자 등록" />
+
+                <Button
+                    android:id="@+id/locationButton"
+                    style="@style/GridActionButton"
+                    android:text="📍 현재 위치 확인" />
+
+                <Button
+                    android:id="@+id/btnMoveKeywordPage"
+                    style="@style/PrimaryButton"
+                    android:layout_columnSpan="2"
+                    android:text="✏️ 키워드 관리 화면 이동"
+                    android:layout_marginTop="16dp" />
+            </GridLayout>
+
+            <!-- 🖥️ 결과 출력 -->
+            <TextView
+                android:id="@+id/textResult"
+                style="@style/OutputText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🖥️ 결과 출력 영역"
+                android:layout_marginTop="24dp" />
+
+            <TextView
+                android:id="@+id/textRegisterStep"
+                style="@style/SecondaryText"
+                android:text="(등록 상태 미표시)"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

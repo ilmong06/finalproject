@@ -2,17 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wav2vecapp"
     android:versionCode="1"
-    android:versionName="1.0" >
-
+    android:versionName="1.0" > <!-- ✅ 반드시 닫힌 후에 -->
     <uses-sdk
         android:minSdkVersion="23"
         android:targetSdkVersion="34" />
 
+    <!-- 앱 권한 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <permission
@@ -35,10 +34,10 @@
         android:testOnly="true"
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true" >
-        <activity android:name="com.example.wav2vecapp.KeywordActivity" />
-        <activity android:name="com.example.wav2vecapp.MainActivity" />
+
+        <!-- 앱 실행 진입점 -->
         <activity
-            android:name="com.example.wav2vecapp.UserInfoActivity"
+            android:name="com.example.wav2vecapp.SplashActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,6 +45,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 나머지 액티비티 -->
+        <activity android:name="com.example.wav2vecapp.MainActivity" />
+        <activity android:name="com.example.wav2vecapp.KeywordActivity" />
+        <activity android:name="com.example.wav2vecapp.UserInfoActivity" />
+        <activity android:name="com.example.wav2vecapp.VoiceRegisterActivity" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
@@ -105,4 +110,4 @@
         </receiver>
     </application>
 
-</manifest>
+</manifest> <!-- ✅ 최종적으로 manifest 닫기 -->

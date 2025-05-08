@@ -1358,10 +1358,12 @@ color accent_material_dark
 color accent_material_light
 color androidx_core_ripple_material_light
 color androidx_core_secondary_text_default_material_light
+color backgroundLight
 color background_floating_material_dark
 color background_floating_material_light
 color background_material_dark
 color background_material_light
+color black
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -1385,6 +1387,7 @@ color common_google_signin_btn_text_light_disabled
 color common_google_signin_btn_text_light_focused
 color common_google_signin_btn_text_light_pressed
 color common_google_signin_btn_tint
+color dark_gray
 color design_bottom_navigation_shadow_color
 color design_box_stroke_color
 color design_dark_default_color_background
@@ -1431,8 +1434,12 @@ color error_color_material_dark
 color error_color_material_light
 color foreground_material_dark
 color foreground_material_light
+color gray
+color grayLight
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color light_gray
+color linkBlue
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -2086,6 +2093,8 @@ color mtrl_textinput_focused_box_stroke_color
 color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
+color primary
+color primaryLight
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -2094,6 +2103,9 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
+color purple_500
+color purple_700
+color red
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
@@ -2106,8 +2118,13 @@ color switch_thumb_material_dark
 color switch_thumb_material_light
 color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
+color teal_200
+color teal_700
+color textPrimary
+color textSecondary
 color tooltip_background_dark
 color tooltip_background_light
+color white
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -2993,6 +3010,8 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable circle_gray
+drawable circle_red
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -3022,6 +3041,7 @@ drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
+drawable ic_close
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3106,7 +3126,9 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable rounded_button
 drawable rounded_circle_button
+drawable rounded_gray
 drawable rounded_spinner
+drawable rounded_white
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3217,17 +3239,23 @@ id bounceStart
 id btnAddKeyword
 id btnAppSettings
 id btnBack
+id btnC
 id btnCheckServer
+id btnClose
+id btnDelete
+id btnFinish
 id btnManageContacts
 id btnManageUsers
+id btnMenu
 id btnMoveKeywordPage
+id btnNo
+id btnRecord
+id btnRetry
 id btnStartRecording
 id btnStopRecording
 id btnViewReports
 id btnViewStatistics
-id btn_back
-id btn_delete_voice
-id btn_record
+id btnYes
 id btn_request_verification
 id btn_submit
 id buttonGrid
@@ -3239,6 +3267,7 @@ id carryVelocity
 id center
 id centerCrop
 id centerInside
+id centerLayout
 id center_horizontal
 id center_vertical
 id chain
@@ -3276,6 +3305,8 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deletePopup
+id delete_popup_container
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -3284,6 +3315,7 @@ id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
 id dialog_button
+id dialog_container
 id dimensions
 id direct
 id disableHome
@@ -3305,7 +3337,6 @@ id easeInOut
 id easeOut
 id east
 id edge
-id editKeyword
 id edit_query
 id elastic
 id embed
@@ -3346,6 +3377,7 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
+id headerBar
 id header_title
 id hideable
 id home
@@ -3370,7 +3402,6 @@ id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
-id keywordRegisterButton
 id keyword_input_layout
 id labeled
 id layout
@@ -3389,6 +3420,7 @@ id listMode
 id list_item
 id locationButton
 id m3_side_sheet
+id mainScrollView
 id marquee
 id masked
 id match_constraint
@@ -3501,6 +3533,7 @@ id phoneNumber
 id phone_text_input
 id pin
 id plain_text_input
+id popupCard
 id position
 id postLayout
 id pressed
@@ -3508,6 +3541,7 @@ id progress_circular
 id progress_horizontal
 id radio
 id ratio
+id recordButtons
 id record_controls
 id rectangles
 id registerButton
@@ -3633,12 +3667,14 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
-id tv_app_name
+id tvCount
+id tvDeletePrompt
+id tvInstruction
+id tvLastDate
+id tvScript
 id tv_description
 id tv_hyperlink
-id tv_instruction
 id tv_intro
-id tv_last_date
 id tv_title
 id unchecked
 id uniform
@@ -3654,6 +3690,7 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
+id voice_register_layout
 id welcomeMessage
 id west
 id wide
@@ -3781,10 +3818,12 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_admin
+layout activity_delete_confirm
 layout activity_keyword
 layout activity_main
 layout activity_userinfo
 layout activity_voice
+layout activity_voice_popup
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -4106,6 +4145,7 @@ style Animation_Material3_SideSheetDialog
 style Animation_Material3_SideSheetDialog_Left
 style Animation_Material3_SideSheetDialog_Right
 style Animation_MaterialComponents_BottomSheetDialog
+style AppTheme
 style Base_AlertDialog_AppCompat
 style Base_AlertDialog_AppCompat_Light
 style Base_Animation_AppCompat_Dialog
@@ -4386,6 +4426,12 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style CircleGrayButton
+style CircleRedButton
+style CircularButton
+style GridActionButton
+style HeaderText
+style LinkText
 style MaterialAlertDialog_Material3
 style MaterialAlertDialog_Material3_Animation
 style MaterialAlertDialog_Material3_Body_Text
@@ -4406,6 +4452,7 @@ style MaterialAlertDialog_MaterialComponents_Title_Panel
 style MaterialAlertDialog_MaterialComponents_Title_Panel_CenterStacked
 style MaterialAlertDialog_MaterialComponents_Title_Text
 style MaterialAlertDialog_MaterialComponents_Title_Text_CenterStacked
+style OutputText
 style Platform_AppCompat
 style Platform_AppCompat_Light
 style Platform_MaterialComponents
@@ -4420,6 +4467,8 @@ style Platform_V21_AppCompat_Light
 style Platform_V25_AppCompat
 style Platform_V25_AppCompat_Light
 style Platform_Widget_AppCompat_Spinner
+style PrimaryButton
+style RoundedButtonStyle
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon
@@ -4437,6 +4486,7 @@ style RtlOverlay_Widget_AppCompat_Search_DropDown_Text
 style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
+style SecondaryText
 style ShapeAppearance_M3_Comp_Badge_Large_Shape
 style ShapeAppearance_M3_Comp_Badge_Shape
 style ShapeAppearance_M3_Comp_BottomAppBar_Container_Shape
@@ -4499,6 +4549,7 @@ style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Day
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Window_Fullscreen
 style ShapeAppearanceOverlay_MaterialComponents_MaterialCalendar_Year
 style ShapeAppearanceOverlay_MaterialComponents_TextInputLayout_FilledBox
+style SmallIconButton
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2
@@ -4836,6 +4887,7 @@ style ThemeOverlay_MaterialComponents_TimePicker_Display_TextInputEditText
 style ThemeOverlay_MaterialComponents_Toolbar_Popup_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
+style TitleText
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar

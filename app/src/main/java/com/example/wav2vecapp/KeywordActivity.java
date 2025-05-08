@@ -35,12 +35,16 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class KeywordActivity extends AppCompatActivity {
 
+    // 🎙️ 녹음 관련 변수
     private MediaRecorder recorder;
     private String filePath;
+
+    // 🔧 UI 컴포넌트
     private EditText etKeyword;
     private Button btnAddKeyword, btnStartRecording, btnStopRecording, btnBack;
     private LinearLayout layoutKeywordList;
 
+    // 🔁 녹음 상태 변수
     private boolean isKeywordRegistering = false;
     private int registerCount = 0;
     private String currentKeyword = "";
@@ -50,55 +54,42 @@ public class KeywordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyword);
 
+        // 🔗 UI 요소 연결
         etKeyword = findViewById(R.id.etKeyword);
         btnAddKeyword = findViewById(R.id.btnAddKeyword);
         btnBack = findViewById(R.id.btnBack);
         btnStartRecording = findViewById(R.id.btnStartRecording);
         btnStopRecording = findViewById(R.id.btnStopRecording);
-        layoutKeywordList = findViewById(R.id.layout_keyword_list); // 🔥 키워드 리스트 연결
+        layoutKeywordList = findViewById(R.id.layout_keyword_list);
 
+        // 🎙️ 녹음 파일 저장 경로 설정
         filePath = getExternalFilesDir(null).getAbsolutePath() + "/keyword_recorded.wav";
 
-        // 🔙 뒤로가기
+        // 🔙 뒤로가기 버튼
         btnBack.setOnClickListener(v -> finish());
 
-        // 🎙️ 녹음 시작 버튼
-        btnStartRecording.setOnClickListener(v -> {
-<<<<<<< HEAD
-            startKeywordRegistration();
-=======
-            //startKeywordRegistration();
->>>>>>> whatsInter
-        });
+        // ▶️ 키워드 녹음 시작 버튼
+        btnStartRecording.setOnClickListener(v -> startKeywordRegistration());
 
-        // ⏹️ 녹음 중지 버튼
+        // ⏹️ 키워드 녹음 중지 버튼
         btnStopRecording.setOnClickListener(v -> {
-<<<<<<< HEAD
             stopRecording();
-=======
-            //stopRecording();
->>>>>>> whatsInter
             btnStartRecording.setEnabled(true);
             btnStopRecording.setEnabled(false);
         });
 
-        // ✏️ 키워드 추가 버튼
+        // ➕ 키워드 추가 및 녹음 시작
         btnAddKeyword.setOnClickListener(v -> {
             currentKeyword = etKeyword.getText().toString().trim();
             if (currentKeyword.isEmpty()) {
                 Toast.makeText(this, "❗ 키워드를 입력하세요.", Toast.LENGTH_SHORT).show();
                 return;
             }
-<<<<<<< HEAD
-            addKeywordToList(currentKeyword);   // ✅ 리스트에 추가
-            startKeywordRegistration();         // ✅ 녹음 바로 시작
-=======
-            //addKeywordToList(currentKeyword);   // ✅ 리스트에 추가
-            //startKeywordRegistration();         // ✅ 녹음 바로 시작
->>>>>>> whatsInter
+            addKeywordToList(currentKeyword); // 동적 리스트 추가
+            startKeywordRegistration();       // 바로 녹음 시작
         });
 
-        // 🔒 권한 요청
+        // 🔐 마이크 및 저장소 권한 요청
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{
@@ -108,8 +99,8 @@ public class KeywordActivity extends AppCompatActivity {
         }
     }
 
-    // 🎙️ 녹음 시작 함수
-    /*private void startRecording() {
+    // 🎙️ 실제 녹음 시작 처리
+    private void startRecording() {
         try {
             recorder = new MediaRecorder();
             recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -125,17 +116,10 @@ public class KeywordActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "❌ 녹음 실패", Toast.LENGTH_SHORT).show();
         }
-<<<<<<< HEAD
-    }*/
-
-    // ⏹️ 녹음 중지 함수
-    /*private void stopRecording() {
-=======
     }
 
-    // ⏹️ 녹음 중지 함수
+    // ⏹️ 녹음 종료 및 서버 전송
     private void stopRecording() {
->>>>>>> whatsInter
         try {
             recorder.stop();
             recorder.release();
@@ -151,13 +135,9 @@ public class KeywordActivity extends AppCompatActivity {
             e.printStackTrace();
             Toast.makeText(this, "❌ 녹음 중지 실패", Toast.LENGTH_SHORT).show();
         }
-<<<<<<< HEAD
-    }*/
-=======
     }
->>>>>>> whatsInter
 
-    // 🚀 서버로 오디오 + 키워드 전송
+    // 🚀 서버에 오디오 파일 + 키워드 텍스트 전송
     private void sendAudioToKeywordRegister(String filePath, String keyword) {
         File file = new File(filePath);
         RequestBody reqFile = RequestBody.create(MediaType.parse("audio/wav"), file);
@@ -181,7 +161,7 @@ public class KeywordActivity extends AppCompatActivity {
         });
     }
 
-    // 🎯 키워드 등록 응답 처리
+    // ✅ 서버 응답 처리 (6회 완료 시 종료)
     private void handleKeywordRegistrationResponse(Response<ResponseBody> response) {
         if (response.isSuccessful()) {
             try {
@@ -211,7 +191,37 @@ public class KeywordActivity extends AppCompatActivity {
         }
     }
 
-    // 🔥 키워드 리스트에 동적으로 추가하는 함수
+    // 🔧 Retrofit 설정
+    private Retrofit getRetrofitClient() {
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(logging)
+                .build();
+
+        return new Retrofit.Builder()
+                .baseUrl(BuildConfig.FLASK_BASE_URL)
+                .client(client)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
+
+    // 🟡 키워드 등록 시작 흐름
+    private void startKeywordRegistration() {
+        currentKeyword = etKeyword.getText().toString().trim();
+        if (currentKeyword.isEmpty()) {
+            Toast.makeText(this, "❗ 키워드를 입력하세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        isKeywordRegistering = true;
+        registerCount = 0;
+        Toast.makeText(this, "🔑 키워드 '" + currentKeyword + "' 등록 시작 (1/6)", Toast.LENGTH_SHORT).show();
+        startRecording();
+        btnStartRecording.setEnabled(false);
+        btnStopRecording.setEnabled(true);
+    }
+
+    // ✅ 키워드 리스트 UI에 추가
     private void addKeywordToList(String keyword) {
         LinearLayout newItemLayout = new LinearLayout(this);
         newItemLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -242,57 +252,12 @@ public class KeywordActivity extends AppCompatActivity {
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 2
         ));
-        checkBox.setVisibility(View.GONE);
+        checkBox.setVisibility(View.GONE); // 체크박스는 현재 안보이도록 설정
 
         newItemLayout.addView(keywordText);
         newItemLayout.addView(spacer);
         newItemLayout.addView(checkBox);
 
         layoutKeywordList.addView(newItemLayout);
-<<<<<<< HEAD
     }
-
-    // 🔧 Retrofit 클라이언트 설정
-    private Retrofit getRetrofitClient() {
-=======
-    }*/
-
-    // 🔧 Retrofit 클라이언트 설정
-    /*private Retrofit getRetrofitClient() {
->>>>>>> whatsInter
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(logging)
-                .build();
-
-        return new Retrofit.Builder()
-                .baseUrl(BuildConfig.FLASK_BASE_URL)
-                .client(client)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-    }
-
-    // 🌟 키워드 등록 시작 함수
-<<<<<<< HEAD
-=======
-
->>>>>>> whatsInter
-    private void startKeywordRegistration() {
-        currentKeyword = etKeyword.getText().toString().trim();
-        if (currentKeyword.isEmpty()) {
-            Toast.makeText(this, "❗ 키워드를 입력하세요.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        isKeywordRegistering = true;
-        registerCount = 0;
-        Toast.makeText(this, "🔑 키워드 '" + currentKeyword + "' 등록 시작 (1/6)", Toast.LENGTH_SHORT).show();
-        startRecording();
-        btnStartRecording.setEnabled(false);
-        btnStopRecording.setEnabled(true);
-<<<<<<< HEAD
-    }
-=======
-    }*/
->>>>>>> whatsInter
 }

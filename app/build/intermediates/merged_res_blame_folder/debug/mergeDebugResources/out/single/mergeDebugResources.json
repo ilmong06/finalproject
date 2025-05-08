@@ -4,6 +4,10 @@
         "source": "com.example.wav2vecapp-main-36:/drawable/ic_launcher_background.xml"
     },
     {
+        "merged": "com.example.wav2vecapp-debug-34:/drawable_ic_close.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/drawable/ic_close.xml"
+    },
+    {
         "merged": "com.example.wav2vecapp-debug-34:/mipmap-xhdpi_ic_launcher.webp.flat",
         "source": "com.example.wav2vecapp-main-36:/mipmap-xhdpi/ic_launcher.webp"
     },
@@ -40,8 +44,20 @@
         "source": "com.example.wav2vecapp-pngs-30:/drawable-mdpi/ic_launcher_foreground.png"
     },
     {
+        "merged": "com.example.wav2vecapp-debug-34:/drawable_rounded_gray.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/drawable/rounded_gray.xml"
+    },
+    {
+        "merged": "com.example.wav2vecapp-debug-34:/drawable_circle_red.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/drawable/circle_red.xml"
+    },
+    {
         "merged": "com.example.wav2vecapp-debug-34:/drawable-hdpi_ic_launcher_foreground.png.flat",
         "source": "com.example.wav2vecapp-pngs-30:/drawable-hdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.example.wav2vecapp-debug-34:/drawable_circle_gray.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/drawable/circle_gray.xml"
     },
     {
         "merged": "com.example.wav2vecapp-debug-34:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
@@ -72,6 +88,10 @@
         "source": "com.example.wav2vecapp-main-36:/drawable/rounded_circle_button.xml"
     },
     {
+        "merged": "com.example.wav2vecapp-debug-34:/drawable_rounded_white.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/drawable/rounded_white.xml"
+    },
+    {
         "merged": "com.example.wav2vecapp-debug-34:/xml_data_extraction_rules.xml.flat",
         "source": "com.example.wav2vecapp-main-36:/xml/data_extraction_rules.xml"
     },
@@ -82,6 +102,10 @@
     {
         "merged": "com.example.wav2vecapp-debug-34:/drawable-xhdpi_ic_launcher_foreground.png.flat",
         "source": "com.example.wav2vecapp-pngs-30:/drawable-xhdpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.example.wav2vecapp-debug-34:/layout_activity_voice_popup.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/layout/activity_voice_popup.xml"
     },
     {
         "merged": "com.example.wav2vecapp-debug-34:/xml_backup_rules.xml.flat",
@@ -102,6 +126,10 @@
     {
         "merged": "com.example.wav2vecapp-debug-34:/drawable-ldpi_ic_launcher_foreground.png.flat",
         "source": "com.example.wav2vecapp-pngs-30:/drawable-ldpi/ic_launcher_foreground.png"
+    },
+    {
+        "merged": "com.example.wav2vecapp-debug-34:/layout_activity_delete_confirm.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/layout/activity_delete_confirm.xml"
     },
     {
         "merged": "com.example.wav2vecapp-debug-34:/mipmap-xxhdpi_ic_launcher.webp.flat",
