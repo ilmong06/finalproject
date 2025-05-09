@@ -70,43 +70,43 @@ public class MainActivity extends AppCompatActivity {
 
         locationButton.setOnClickListener(view -> {
             Log.i("MainActivity", "🟡 위치 버튼 클릭됨");
-<<<<<<< HEAD
+
             locationHelper.requestLocationPermission();
         });
 
         filePath = getExternalFilesDir(null).getAbsolutePath() + "/recorded.wav";
-=======
+
             //locationHelper.requestLocationPermission();
         });
 
         //filePath = getExternalFilesDir(null).getAbsolutePath() + "/recorded.wav";
->>>>>>> whatsInter
+
 
         startButton.setOnClickListener(view -> {
             isRegistering = false;
             isKeywordRegistering = false;
-<<<<<<< HEAD
+
             startRecording();
         });
 
         stopButton.setOnClickListener(view -> stopRecording());
-=======
+
             //startRecording();
         });
 
         //stopButton.setOnClickListener(view -> stopRecording());
->>>>>>> whatsInter
+
 
         registerButton.setOnClickListener(view -> {
             isRegistering = true;
             isKeywordRegistering = false;
             registerCount = 0;
             textRegisterStep.setText("🧬 화자 1/4 회차 등록 시작");
-<<<<<<< HEAD
+
             startRecording();
-=======
+
             //startRecording();
->>>>>>> whatsInter
+
         });
 
         keywordRegisterButton.setOnClickListener(view -> {
@@ -119,11 +119,11 @@ public class MainActivity extends AppCompatActivity {
             isKeywordRegistering = true;
             registerCount = 0;
             textRegisterStep.setText("🔑 키워드 '" + currentKeyword + "' 1/6 등록 시작");
-<<<<<<< HEAD
+
             startRecording();
-=======
+
             //startRecording();
->>>>>>> whatsInter
+
         });
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
@@ -138,11 +138,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-<<<<<<< HEAD
+
     private void startRecording() {
-=======
+
     /*private void startRecording() {
->>>>>>> whatsInter
+
         try {
             recorder = new MediaRecorder();
             recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
@@ -163,15 +163,15 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
             textView.setText("❌ 녹음 시작 실패");
         }
-<<<<<<< HEAD
+
     }
 
     private void stopRecording() {
-=======
+
     }*/
 
     /*private void stopRecording() {
->>>>>>> whatsInter
+
         try {
             recorder.stop();
             recorder.release();
@@ -196,15 +196,15 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
             textView.setText("❌ 녹음 중지 실패");
         }
-<<<<<<< HEAD
+
     }
 
     private void sendAudioToServer(String filePath) {
-=======
+
     }*/
 
     /*private void sendAudioToServer(String filePath) {
->>>>>>> whatsInter
+
         File file = new File(filePath);
         RequestBody reqFile = RequestBody.create(MediaType.parse("audio/wav"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), reqFile);
@@ -242,14 +242,14 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("🚫 연결 실패: " + t.getMessage());
             }
         });
-<<<<<<< HEAD
+
     }
 
-=======
+
     }*/
 
     /*
->>>>>>> whatsInter
+
     private void sendAudioToRegister(String filePath) {
         File file = new File(filePath);
         RequestBody reqFile = RequestBody.create(MediaType.parse("audio/wav"), file);
@@ -270,36 +270,36 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("🚫 등록 요청 실패: " + t.getMessage());
             }
         });
-<<<<<<< HEAD
+
     }
 
     private void sendAudioToKeywordRegister(String filePath, String keyword) {
-=======
+
     }*/
 
     /*private void sendAudioToKeywordRegister(String filePath, String keyword) {
->>>>>>> whatsInter
+
         File file = new File(filePath);
         RequestBody reqFile = RequestBody.create(MediaType.parse("audio/wav"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), reqFile);
         RequestBody keywordBody = RequestBody.create(MediaType.parse("text/plain"), keyword);
 
-<<<<<<< HEAD
+
         Retrofit retrofit = getRetrofitClient();
-=======
+
          Retrofit retrofit = getRetrofitClient();
->>>>>>> whatsInter
+
         ApiService apiService = retrofit.create(ApiService.class);
 
         Call<ResponseBody> call = apiService.registerKeyword(body, keywordBody);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-<<<<<<< HEAD
+
                 handleRegistrationResponse(response, "키워드", 6);
-=======
+
                 // handleRegistrationResponse(response, "키워드", 6);
->>>>>>> whatsInter
+
             }
 
             @Override
@@ -307,15 +307,15 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("🚫 키워드 등록 실패: " + t.getMessage());
             }
         });
-<<<<<<< HEAD
+
     }
 
     private void handleRegistrationResponse(Response<ResponseBody> response, String type, int maxCount) {
-=======
+
     }*/
 
     /*private void handleRegistrationResponse(Response<ResponseBody> response, String type, int maxCount) {
->>>>>>> whatsInter
+
         if (response.isSuccessful()) {
             try {
                 String responseBody = response.body().string();
@@ -332,11 +332,11 @@ public class MainActivity extends AppCompatActivity {
                     registerCount++;
                     if (registerCount < maxCount) {
                         textView.setText("🎤 " + (registerCount + 1) + "/" + maxCount + " 회차 녹음 시작");
-<<<<<<< HEAD
+
                         startRecording();
-=======
+
                         //startRecording();
->>>>>>> whatsInter
+
                     }
                 }
 
@@ -352,17 +352,17 @@ public class MainActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         locationHelper.onRequestPermissionsResult(requestCode, grantResults);
-<<<<<<< HEAD
+
     }
 
 
     private Retrofit getRetrofitClient() {
-=======
+
     }*/
 
 
     /*private Retrofit getRetrofitClient() {
->>>>>>> whatsInter
+
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder()
@@ -374,9 +374,9 @@ public class MainActivity extends AppCompatActivity {
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-<<<<<<< HEAD
+
     }
-=======
+
     }*/
->>>>>>> whatsInter
+
 }
