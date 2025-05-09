@@ -36,10 +36,16 @@
             android:text="모의 신고 기능"
             android:textSize="16sp" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchMockReport"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="OFF"
+            android:trackTint="@color/light_gray"
+            android:thumbTint="@color/light_gray"
+            />
+
     </LinearLayout>
 
     <TextView android:id="@+id/menuPrivacy" style="@style/DrawerMenuItem" android:text="개인 정보 처리 방침" />
