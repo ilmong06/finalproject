@@ -22,4 +22,34 @@ public class UserInfo {
         this.emergency_phnum = emergency_phnum;
         this.emergency_relation = emergency_relation;
     }
+
+    public class UserInfoResponse {
+        private String uuid;
+        private String Name;  // 대소문자 주의: JSON 필드 이름과 정확히 일치
+        private String phnum;
+
+        public String getUuid() {
+            return uuid;
+        }
+
+        public String getName() {
+            return Name;
+        }
+
+        public String getPhnum() {
+            return phnum;
+        }
+
+        public void setUuid(String uuid) {
+            this.uuid = uuid;
+        }
+
+        public void setName(String name) {
+            this.Name = name;
+        }
+
+        public void setPhnum(String phnum) {
+            this.phnum = phnum;
+        }
+    }
 }
