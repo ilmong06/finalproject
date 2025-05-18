@@ -3,15 +3,10 @@ plugins {
 }
 
 // 🔐 secrets.properties 읽기
-<<<<<<< HEAD
+
 def secretsFile = rootProject.file("secrets.properties")
 def secrets = new Properties()
 secrets.load(new FileInputStream(secretsFile))
-=======
-//def secretsFile = rootProject.file("secrets.properties")
-//def secrets = new Properties()
-//secrets.load(new FileInputStream(secretsFile))
->>>>>>> whatsInter
 
 android {
     namespace "com.example.wav2vecapp"
@@ -27,11 +22,8 @@ android {
         versionName "1.0"
 
         // 🔑 BuildConfig로 서버 주소 주입
-<<<<<<< HEAD
+
         buildConfigField "String", "FLASK_BASE_URL", "\"${secrets['FLASK_BASE_URL']}\""
-=======
-        //buildConfigField "String", "FLASK_BASE_URL", "\"${secrets['FLASK_BASE_URL']}\""
->>>>>>> whatsInter
     }
 
     buildTypes {
@@ -58,10 +50,9 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'com.google.android.datatransport:transport-runtime:4.0.0'
-<<<<<<< HEAD
-=======
+
     implementation 'com.google.android.material:material:1.11.0'
->>>>>>> whatsInter
+
 
     // ✅ 오직 이거 하나만 남긴다 (Lite 전용)
     implementation 'org.pytorch:pytorch_android_lite:1.10.0'
