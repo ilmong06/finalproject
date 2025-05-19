@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundLight"
+    android:padding="16dp">
+
+    <!-- 📌 헤더 바 -->
+    <LinearLayout
+        android:id="@+id/headerBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/appLogo"
+            style="@style/TitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="@string/gethelp" />
+
+        <Button
+            android:id="@+id/btnMenu"
+            style="@style/SmallIconButton"
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:text="@string/hamburger" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/headerBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="16dp"
+            android:paddingBottom="32dp">
+
+            <!-- 👋 인사말 -->
+            <TextView
+                android:id="@+id/welcomeMessage"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                style="@style/HeaderText"
+                android:text="환영합니다 박ㅇㅇ님" />
+
+            <TextView
+                android:id="@+id/phoneNumber"
+                style="@style/SecondaryText"
+                android:text="010-1234-5678"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginBottom="12dp" />
+
+            <!-- 🔘 2x2 버튼 -->
+            <GridLayout
+                android:id="@+id/buttonGrid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alignmentMode="alignMargins"
+                android:columnCount="2"
+                android:rowCount="3"
+                android:useDefaultMargins="true">
+
+                <Button
+                    android:id="@+id/keyWord"
+                    style="@style/GridActionButton"
+                    android:layout_height="161dp"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:text="@string/key_word" />
+
+                <Button
+                    android:id="@+id/registerButton"
+                    style="@style/GridActionButton"
+                    android:layout_row="0"
+                    android:layout_column="1"
+                    android:text="@string/voice_reco" />
+
+                <Button
+                    android:id="@+id/locationButton"
+                    style="@style/GridActionButton"
+                    android:layout_row="1"
+                    android:layout_column="0"
+                    android:text="📍 현재 위치 확인" />
+                <Button
+                    android:id="@+id/micOnOff"
+                    style="@style/GridActionButton"
+                    android:layout_row="1"
+                    android:layout_column="1"
+                    android:text="@string/on_off" />
+
+            </GridLayout>
+
+            <!-- 🖥️ 결과 출력 -->
+            <TextView
+                android:id="@+id/textResult"
+                style="@style/OutputText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/warning_main"
+                android:layout_marginTop="24dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

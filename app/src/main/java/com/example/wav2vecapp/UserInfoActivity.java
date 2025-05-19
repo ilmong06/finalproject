@@ -1,0 +1,138 @@
+/* 사용자 등록화면 */
+
+package com.example.wav2vecapp;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.text.InputFilter;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import org.json.JSONObject;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+/**
+ * 사용자 정보 입력 후 서버에 등록하고 토큰과 uuid 저장
+ */
+public class UserInfoActivity extends AppCompatActivity {
+
+    // 사용자 입력 필드
+    EditText etName, etPhone, etVerificationCode, etBirth, etGender, etEmergencyName, etEmergencyPhone;
+    Spinner spinnerLanguage, spinnerRelation;
+    Button btnRequestVerification, btnSubmit;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_userinfo);
+
+        // 🔗 UI 연결
+        etName = findViewById(R.id.plain_text_input);
+        etPhone = findViewById(R.id.phone_text_input);
+        etVerificationCode = findViewById(R.id.et_verification_code);
+        etBirth = findViewById(R.id.birth);
+        etGender = findViewById(R.id.gender);
+        etEmergencyName = findViewById(R.id.et_emergency_name);
+        etEmergencyPhone = findViewById(R.id.et_emergency_phone);
+
+        spinnerLanguage = findViewById(R.id.spinner_language);
+        spinnerRelation = findViewById(R.id.spinner_relation);
+
+        btnRequestVerification = findViewById(R.id.btn_request_verification);
+        btnSubmit = findViewById(R.id.btn_submit);
+
+        // 🔐 인증번호 활성화 버튼
+        btnRequestVerification.setOnClickListener(v -> {
+            etVerificationCode.setEnabled(true);
+            etVerificationCode.requestFocus();
+            Toast.makeText(this, "인증번호를 입력하세요", Toast.LENGTH_SHORT).show();
+        });
+
+        // 인증번호 6자리 제한
+        etVerificationCode.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
+
+        // ✅ 완료 버튼 클릭 시 등록 요청
+        btnSubmit.setOnClickListener(v -> saveUserData());
+    }
+
+    /**
+     * 사용자 입력값을 수집하고 서버로 전송
+     */
+    private void saveUserData() {
+        // 1️⃣ 입력값 가져오기
+        String name = etName.getText().toString().trim();
+        String phone = etPhone.getText().toString().trim();
+        String language = spinnerLanguage.getSelectedItem().toString();
+        String birthRaw = etBirth.getText().toString().trim(); // yymmdd
+        String genderCode = etGender.getText().toString().trim(); // 1~4
+        String emergencyName = etEmergencyName.getText().toString().trim();
+        String emergencyPhone = etEmergencyPhone.getText().toString().trim();
+        String relation = spinnerRelation.getSelectedItem().toString();
+
+        // 2️⃣ 생년월일 변환 (yyyyMMdd)
+        int yearPrefix = Integer.parseInt(birthRaw.substring(0, 2));
+        String fullBirthYear = (yearPrefix <= 25 ? "20" : "19") + birthRaw.substring(0, 2);
+        String fullBirth = fullBirthYear + birthRaw.substring(2);
+
+        // 3️⃣ 성별 코드 해석
+        String gender = switch (genderCode) {
+            case "1", "3" -> "남자";
+            case "2", "4" -> "여자";
+            default -> "기타";
+        };
+
+        // 4️⃣ 서버로 전송할 객체 구성
+        UserInfo userInfo = new UserInfo(name, phone, language, fullBirth, gender, emergencyName, emergencyPhone, relation);
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        Call<ResponseBody> call = apiService.registerUser(userInfo);
+
+        // 5️⃣ 비동기 전송
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        // 응답 바디 파싱
+                        String responseBody = response.body().string();
+                        JSONObject json = new JSONObject(responseBody);
+                        String token = json.getString("token");
+                        String uuid = json.getString("uuid");
+
+                        // SharedPreferences 저장
+                        SharedPreferences prefs = getSharedPreferences("user_info", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putString("user_token", token);
+                        editor.putString("uuid", uuid);
+                        editor.putLong("login_time", System.currentTimeMillis());
+                        editor.apply();
+
+                        // MainActivity로 이동
+                        Intent intent = new Intent(UserInfoActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(UserInfoActivity.this, "응답 처리 오류", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(UserInfoActivity.this, "등록 실패", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(UserInfoActivity.this, "서버 연결 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+}
