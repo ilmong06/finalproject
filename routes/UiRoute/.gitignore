@@ -1,11 +1,47 @@
+# Python 가상환경
+venv*/
+.env
+*.env
+
+# pycache, 컴파일된 파이썬 파일
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
-env/
-venv310/
-.idea/
-.vscode/
-.DS_Store
 
-.env
+# IDE 및 OS 관련
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 로그 및 임시파일
+*.log
+*.tmp
+
+# 대용량/바이너리 파일
+*.dll
+*.so
+*.lib
+*.exe
+
+# Jupyter 노트북 체크포인트
+.ipynb_checkpoints/
+
+# 모델, 체크포인트, 임시 파일
+*.pt
+*.pth
+*.h5
+*.ckpt
+*.tflite
+*.onnx
+*.pb
+
+# Flask 관련
+instance/
+*.sqlite3
+
+# coverage/test 관련
+.coverage
+htmlcov/
+.tox/
