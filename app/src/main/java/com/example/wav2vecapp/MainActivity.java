@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,9 +33,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class MainActivity extends AppCompatActivity {
 
+
+    /// 사용자 정보
     private TextView welcomeMessage, phoneNumber;
 
-    private Button keyWord, voiceRecord, micOn, menu;
+    /// 가운데 4개 버튼
+    private Button keyWord, voiceRecord, micOn;
+    /// menu 버튼
+    private Button menu;
+
+
+    ///메뉴 레이아웃에 포함된 버튼/TextView
+    private TextView tvReportHistory, tvNotice, tvPrivacy;
+
+    private Switch switchMockReport;
+    private Button btnMyPage, btnSettings;
 
 
     @Override
@@ -42,14 +55,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 🔗 UI 요소 연결
+        /// 🔗 UI 요소 연결
+        // 사용자 정보
         welcomeMessage = findViewById(R.id.welcomeMessage);
         phoneNumber = findViewById(R.id.phoneNumber);
+
+        //가운데 4개 버튼
         keyWord = findViewById(R.id.keyWord);
         voiceRecord = findViewById(R.id.registerButton);
         micOn = findViewById(R.id.micOnOff);
-        menu = findViewById(R.id.btnMenu);
+
         //btnMoveKeywordPage = findViewById(R.id.btnMoveKeywordPage);
+
+        //햄버거 메뉴 버튼
+        menu = findViewById(R.id.btnMenu);
+
+        // 그 속의 내용물들
+        tvReportHistory = findViewById(R.id.tvReportHistory);
+        tvNotice = findViewById(R.id.tvNotice);
+        tvPrivacy = findViewById(R.id.tvPrivacy);
+        switchMockReport = findViewById(R.id.switchMockReport);
+        btnMyPage = findViewById(R.id.btnMyPage);
+        btnSettings = findViewById(R.id.btnSettings);
 
 
 
@@ -69,21 +96,47 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });*/
 
-        //메뉴버튼
+        ///햄버거 메뉴버튼
         menu.setOnClickListener(view -> {
 
         });
-        //키워드 등록 화면
+
+        ///키워드 등록 화면
         keyWord.setOnClickListener(view -> {
 
         });
-        //사용자 등록 화면
+        ///사용자 등록 화면
         voiceRecord.setOnClickListener(view -> {
 
         });
-        //마이크 on/off 화면
+        ///마이크 on/off 화면
         micOn.setOnClickListener(view -> {
 
+        });
+
+        /// 햄버거 메뉴 클릭 시 등장하는 컴포넌트의 이벤트
+        tvReportHistory.setOnClickListener(v -> {
+            // 신고 내역 화면으로 이동
+        });
+
+        tvNotice.setOnClickListener(v -> {
+            // 안내 화면으로 이동
+        });
+
+        tvPrivacy.setOnClickListener(v -> {
+            // 개인정보처리방침 화면으로 이동
+        });
+
+        switchMockReport.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            // 스위치 on/off 이벤트 처리
+        });
+
+        btnMyPage.setOnClickListener(v -> {
+            // 마이페이지 이동
+        });
+
+        btnSettings.setOnClickListener(v -> {
+            // 설정 화면 이동
         });
 
 
