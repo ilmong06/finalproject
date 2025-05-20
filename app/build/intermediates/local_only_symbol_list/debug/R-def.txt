@@ -171,6 +171,7 @@ string warning_main
 string yymmdd
 style AppTheme
 style Base.Theme.MyApplication
+style CircleBlueButton
 style CircleGrayButton
 style CircleRedButton
 style CircularButton

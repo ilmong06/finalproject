@@ -4433,6 +4433,7 @@ int style Base_Widget_MaterialComponents_TextView 0x7f110120
 int style CardView 0x7f110121
 int style CardView_Dark 0x7f110122
 int style CardView_Light 0x7f110123
+int style CircleBlueButton 0x7f11046b
 int style CircleGrayButton 0x7f110124
 int style CircleRedButton 0x7f110125
 int style CircularButton 0x7f110126
