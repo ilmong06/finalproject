@@ -40,6 +40,10 @@
         "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\activity_admin.xml"
     },
     {
+        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_voice_popup.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/layout/activity_voice_popup.xml"
+    },
+    {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
@@ -74,10 +78,6 @@
     {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\mipmap-xxhdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_voice.xml.flat",
-        "source": "com.example.wav2vecapp-main-36:/layout/activity_voice.xml"
     },
     {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\xml_data_extraction_rules.xml.flat",

@@ -51,6 +51,7 @@ public class VoiceRegister extends AppCompatActivity{
     // MainActivity.java 또는 RegisterVoiceActivity.java
     Button popupTrigger;
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,22 +65,7 @@ public class VoiceRegister extends AppCompatActivity{
             Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawableResource(android.R.color.transparent);
             dialog.show();
 
-            // 팝업 내부 버튼 이벤트 처리
-            ImageButton btnClose = dialog.findViewById(R.id.btnClose);
-            btnClose.setOnClickListener(view -> dialog.dismiss());
 
-            Button btnRecord = dialog.findViewById(R.id.btnRecord);
-            btnRecord.setOnClickListener(view -> {
-                // 녹음 시작 처리
-            });
-
-            Button btnC = dialog.findViewById(R.id.btnC);
-            Button btnRetry = dialog.findViewById(R.id.btnRetry);
-            Button btnFinish = dialog.findViewById(R.id.btnFinish);
-            btnFinish.setOnClickListener(view -> {
-                // 등록 완료 처리
-                dialog.dismiss();
-            });
         });
     }
 
