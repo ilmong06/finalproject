@@ -100,7 +100,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.35"
-                    android:background="@drawable/rounded_button"
+                    style="@style/PrimaryButton"
                     android:textColor="#FFFFFF"
                     android:text="@string/code" />
             </LinearLayout>
@@ -112,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="12dp"
+                android:visibility="visible"
                 android:gravity="center_vertical">
 
                 <!-- 인증번호 입력창 -->
@@ -270,7 +271,7 @@
             android:layout_height="wrap_content"
             android:text="@string/complete"
             android:layout_marginTop="24dp"
-            android:background="@drawable/rounded_button"
+            style="@style/PrimaryButton"
             android:textColor="#FFFFFF"
             app:layout_constraintTop_toBottomOf="@id/layout_emergency"
             app:layout_constraintStart_toStartOf="parent"
