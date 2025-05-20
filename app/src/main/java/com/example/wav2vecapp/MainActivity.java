@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -24,6 +27,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 /**
  * MainActivity:
@@ -41,13 +47,16 @@ public class MainActivity extends AppCompatActivity {
     private Button keyWord, voiceRecord, micOn;
     /// menu 버튼
     private Button menu;
+    /// app Name
+    private TextView appLogo;
 
 
     ///메뉴 레이아웃에 포함된 버튼/TextView
     private TextView tvReportHistory, tvNotice, tvPrivacy;
 
-    private Switch switchMockReport;
+    private SwitchCompat switchMockReport;
     private Button btnMyPage, btnSettings;
+    private DrawerLayout drawerLayout;
 
 
     @Override
@@ -56,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         /// 🔗 UI 요소 연결
+        // 앱 이름
+        appLogo = findViewById(R.id.appLogo);
         // 사용자 정보
         welcomeMessage = findViewById(R.id.welcomeMessage);
         phoneNumber = findViewById(R.id.phoneNumber);
@@ -77,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         switchMockReport = findViewById(R.id.switchMockReport);
         btnMyPage = findViewById(R.id.btnMyPage);
         btnSettings = findViewById(R.id.btnSettings);
+        drawerLayout = findViewById(R.id.drawerLayout);
 
 
 
@@ -97,18 +109,37 @@ public class MainActivity extends AppCompatActivity {
         });*/
 
         ///햄버거 메뉴버튼
-        menu.setOnClickListener(view -> {
-
+        menu.setOnClickListener(v -> {
+            //클릭하면 오른쪽에서 레이아웃 등장
+            if (!drawerLayout.isDrawerOpen(GravityCompat.END)) {
+                drawerLayout.openDrawer(GravityCompat.END);
+            } else {
+                drawerLayout.closeDrawer(GravityCompat.END);
+            }
         });
 
-        ///키워드 등록 화면
-        keyWord.setOnClickListener(view -> {
+        /// 여백 클릭시 레이아웃 닫기
 
-        });
-        ///사용자 등록 화면
-        voiceRecord.setOnClickListener(view -> {
 
+
+
+        ///  키워드 등록 화면 이동
+        keyWord.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, KeywordActivity.class);
+            startActivity(intent);
         });
+
+        /// ️음성 등록 버튼 → 음성 등록 화면 이동
+        voiceRecord.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, VoiceRegisterActivity.class);
+            startActivity(intent);
+        });
+
+        /// 6GetHelp! 텍스트 클릭 → 새로고침
+        appLogo.setOnClickListener(v -> {
+            recreate(); // 현재 액티비티 새로고침
+        });
+
         ///마이크 on/off 화면
         micOn.setOnClickListener(view -> {
 
@@ -141,6 +172,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout != null && drawerLayout.isDrawerOpen(GravityCompat.END)) {
+            drawerLayout.closeDrawer(GravityCompat.END);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     /**
