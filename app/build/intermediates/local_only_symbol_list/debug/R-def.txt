@@ -22,6 +22,7 @@ color white
 drawable circle_gray
 drawable circle_red
 drawable ic_close
+drawable ic_gethelp_logo
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable rounded_button
@@ -42,6 +43,7 @@ id btnClose
 id btnDelete
 id btnFinish
 id btnManageContacts
+id btnManageKeywords
 id btnManageUsers
 id btnMenu
 id btnMyPage
@@ -75,7 +77,9 @@ id layout_emergency
 id layout_keyword_list
 id layout_user_info
 id layout_verification_code
+id loadingIndicator
 id locationButton
+id logoImage
 id mainScrollView
 id menuTitle
 id micOnOff
@@ -109,6 +113,7 @@ id welcomeMessage
 layout activity_admin
 layout activity_delete_confirm
 layout activity_keyword
+layout activity_logo
 layout activity_main
 layout activity_userinfo
 layout activity_voice
