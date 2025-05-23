@@ -3042,6 +3042,7 @@ drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_close
+drawable ic_gethelp_logo
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3245,6 +3246,7 @@ id btnClose
 id btnDelete
 id btnFinish
 id btnManageContacts
+id btnManageKeywords
 id btnManageUsers
 id btnMenu
 id btnMyPage
@@ -3421,7 +3423,9 @@ id line3
 id linear
 id listMode
 id list_item
+id loadingIndicator
 id locationButton
+id logoImage
 id m3_side_sheet
 id mainScrollView
 id marquee
@@ -3827,6 +3831,7 @@ layout abc_tooltip
 layout activity_admin
 layout activity_delete_confirm
 layout activity_keyword
+layout activity_logo
 layout activity_main
 layout activity_userinfo
 layout activity_voice
