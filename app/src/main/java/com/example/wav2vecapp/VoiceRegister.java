@@ -43,9 +43,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-/*
-* 본 클래스는 음성 등록 팝업창의 버튼이벤트 클래스입니다.
-* */
+
 public class VoiceRegister extends AppCompatActivity{
 
     // MainActivity.java 또는 RegisterVoiceActivity.java
