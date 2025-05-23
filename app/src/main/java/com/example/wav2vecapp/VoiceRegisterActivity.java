@@ -42,6 +42,9 @@ public class VoiceRegisterActivity extends AppCompatActivity {
      * - 팝업 레이아웃: activity_voice_popup.xml
      */
 
+    /*
+     * 본 메소드는 음성 등록 팝업창의 버튼이벤트입니다.
+     * */
     /**
      * 위에서 차례대로
      * 닫기
@@ -111,6 +114,7 @@ public class VoiceRegisterActivity extends AppCompatActivity {
      * 🗑️ 녹음 삭제 확인 팝업 표시
      * - 팝업 레이아웃: activity_delete_confirm.xml
      */
+
 
     private Button btnYes, btnNo;
 
