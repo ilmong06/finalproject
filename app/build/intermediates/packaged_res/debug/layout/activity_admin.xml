@@ -34,6 +34,14 @@
             android:layout_marginBottom="16dp" />
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnManageKeywords"
+            style="@style/PrimaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="종합 키워드 관리"
+            android:layout_marginBottom="16dp" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnViewReports"
             style="@style/PrimaryButton"
             android:layout_width="match_parent"

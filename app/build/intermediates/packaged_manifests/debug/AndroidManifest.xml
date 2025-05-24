@@ -38,8 +38,9 @@
         android:theme="@style/Theme.MyApplication"
         android:usesCleartextTraffic="true" >
         <activity android:name="com.example.wav2vecapp.KeywordActivity" />
+        <activity android:name="com.example.wav2vecapp.VoiceRegisterActivity" />
         <activity
-            android:name="com.example.wav2vecapp.VoiceRegister"
+            android:name="com.example.wav2vecapp.MainActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,6 +48,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.example.wav2vecapp.UserInfoActivity" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
