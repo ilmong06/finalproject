@@ -103,6 +103,7 @@
                     android:layout_columnSpan="2"
                     android:text="✏️ 키워드 관리 화면 이동"
                     android:layout_marginTop="16dp" />
+
             </GridLayout>
 
             <!-- 🖥️ 결과 출력 -->

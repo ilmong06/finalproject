@@ -48,20 +48,20 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        // 🧾 사용자 정보 불러오기
-        loadUserInfoFromServer();
-
-        // 👉 키워드 등록 화면 이동
-        btnMoveKeywordPage.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, KeywordActivity.class);
-            startActivity(intent);
-        });
-
-        // 👉 화자 등록 화면 이동
-        btnVoiceRegisterPage.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, VoiceRegisterActivity.class);
-            startActivity(intent);
-        });
+//        // 🧾 사용자 정보 불러오기
+//        loadUserInfoFromServer();
+//
+//        // 👉 키워드 등록 화면 이동
+//        btnMoveKeywordPage.setOnClickListener(view -> {
+//            Intent intent = new Intent(MainActivity.this, KeywordActivity.class);
+//            startActivity(intent);
+//        });
+//
+//        // 👉 화자 등록 화면 이동
+//        btnVoiceRegisterPage.setOnClickListener(view -> {
+//            Intent intent = new Intent(MainActivity.this, VoiceRegisterActivity.class);
+//            startActivity(intent);
+//        });
     }
 
     /**
