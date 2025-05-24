@@ -62,7 +62,9 @@
             style="@style/SecondaryText"
             android:text="사용자 음성 유사도 측정을 위해 4회 등록합니다."
             android:gravity="center"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <!-- 구분선 -->
         <View

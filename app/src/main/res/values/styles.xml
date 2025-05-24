@@ -117,5 +117,14 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <style name="CircleBlueButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">30dp</item>
+        <item name="android:minHeight">60dp</item>
+        <item name="android:minWidth">60dp</item>
+        <item name="backgroundTint">@color/linkBlue</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 
 </resources>

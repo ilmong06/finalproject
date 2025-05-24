@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.1.1" type="incidents">
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;음성 데이터를 삭제하시겠습니까?&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_delete_confirm.xml"
+            line="28"
+            column="13"
+            startOffset="1147"
+            endLine="28"
+            endColumn="45"
+            endOffset="1179"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;예&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_delete_confirm.xml"
+            line="49"
+            column="17"
+            startOffset="1949"
+            endLine="49"
+            endColumn="33"
+            endOffset="1965"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;아니오&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_delete_confirm.xml"
+            line="60"
+            column="17"
+            startOffset="2379"
+            endLine="60"
+            endColumn="35"
+            endOffset="2397"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;←&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_keyword.xml"
+            line="27"
+            column="17"
+            startOffset="1123"
+            endLine="27"
+            endColumn="33"
+            endOffset="1139"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;🎙️ 녹음 시작&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_keyword.xml"
+            line="102"
+            column="17"
+            startOffset="4345"
+            endLine="102"
+            endColumn="41"
+            endOffset="4369"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;⏹️ 중지&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_keyword.xml"
+            line="110"
+            column="17"
+            startOffset="4710"
+            endLine="110"
+            endColumn="37"
+            endOffset="4730"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;환영합니다 박ㅇㅇ님&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="60"
+            column="17"
+            startOffset="2234"
+            endLine="60"
+            endColumn="42"
+            endOffset="2259"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;010-1234-5678&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="65"
+            column="17"
+            startOffset="2398"
+            endLine="65"
+            endColumn="45"
+            endOffset="2426"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;🎙️ STT 시작&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="83"
+            column="21"
+            startOffset="3137"
+            endLine="83"
+            endColumn="46"
+            endOffset="3162"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;⏹️ 종료&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="88"
+            column="21"
+            startOffset="3317"
+            endLine="88"
+            endColumn="41"
+            endOffset="3337"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;🧬 화자 등록&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="93"
+            column="21"
+            startOffset="3496"
+            endLine="93"
+            endColumn="44"
+            endOffset="3519"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;📍 현재 위치 확인&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="98"
+            column="21"
+            startOffset="3678"
+            endLine="98"
+            endColumn="47"
+            endOffset="3704"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;✏️ 키워드 관리 화면 이동&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="104"
+            column="21"
+            startOffset="3915"
+            endLine="104"
+            endColumn="51"
+            endOffset="3945"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;🖥️ 결과 출력 영역&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="114"
+            column="17"
+            startOffset="4299"
+            endLine="114"
+            endColumn="44"
+            endOffset="4326"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;(등록 상태 미표시)&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="120"
+            column="17"
+            startOffset="4519"
+            endLine="120"
+            endColumn="43"
+            endOffset="4545"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_userinfo.xml"
+            line="68"
+            column="14"
+            startOffset="2697"
+            endLine="68"
+            endColumn="22"
+            endOffset="2705"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_userinfo.xml"
+            line="89"
+            column="18"
+            startOffset="3521"
+            endLine="89"
+            endColumn="26"
+            endOffset="3529"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_userinfo.xml"
+            line="118"
+            column="18"
+            startOffset="4757"
+            endLine="118"
+            endColumn="26"
+            endOffset="4765"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_userinfo.xml"
+            line="175"
+            column="18"
+            startOffset="7023"
+            endLine="175"
+            endColumn="26"
+            endOffset="7031"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_userinfo.xml"
+            line="190"
+            column="18"
+            startOffset="7648"
+            endLine="190"
+            endColumn="26"
+            endOffset="7656"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_userinfo.xml"
+            line="230"
+            column="14"
+            startOffset="9235"
+            endLine="230"
+            endColumn="22"
+            endOffset="9243"/>
+    </incident>
+
+    <incident
+        id="Autofill"
+        severity="warning"
+        message="Missing `autofillHints` attribute">
+        <fix-alternatives>
+            <fix-attribute
+                description="Set autofillHints"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="autofillHints"
+                value=""
+                dot="0"
+                mark="0"/>
+            <fix-attribute
+                description="Set importantForAutofill=&quot;no&quot;"
+                namespace="http://schemas.android.com/apk/res/android"
+                attribute="importantForAutofill"
+                value="no"/>
+        </fix-alternatives>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_userinfo.xml"
+            line="244"
+            column="14"
+            startOffset="9795"
+            endLine="244"
+            endColumn="22"
+            endOffset="9803"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;사용자 음성 유사도 측정을 위해 4회 등록합니다.&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice.xml"
+            line="63"
+            column="13"
+            startOffset="2276"
+            endLine="63"
+            endColumn="55"
+            endOffset="2318"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;녹음 시작&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice.xml"
+            line="81"
+            column="13"
+            startOffset="2869"
+            endLine="81"
+            endColumn="33"
+            endOffset="2889"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;마지막 등록 날짜 : &quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice.xml"
+            line="98"
+            column="13"
+            startOffset="3449"
+            endLine="98"
+            endColumn="40"
+            endOffset="3476"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;음성 삭제&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice.xml"
+            line="113"
+            column="13"
+            startOffset="3930"
+            endLine="113"
+            endColumn="33"
+            endOffset="3950"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;X&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice_popup.xml"
+            line="44"
+            column="21"
+            startOffset="1769"
+            endLine="44"
+            endColumn="37"
+            endOffset="1785"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;예시 문장: \n\위급한 상황입니다. 도와주세요.\&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice_popup.xml"
+            line="53"
+            column="17"
+            startOffset="2090"
+            endLine="53"
+            endColumn="60"
+            endOffset="2133"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;●&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice_popup.xml"
+            line="76"
+            column="21"
+            startOffset="3132"
+            endLine="76"
+            endColumn="37"
+            endOffset="3148"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;C&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice_popup.xml"
+            line="83"
+            column="21"
+            startOffset="3455"
+            endLine="83"
+            endColumn="37"
+            endOffset="3471"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;↻&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice_popup.xml"
+            line="92"
+            column="21"
+            startOffset="3888"
+            endLine="92"
+            endColumn="37"
+            endOffset="3904"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;등록 횟수: 1/4&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice_popup.xml"
+            line="101"
+            column="17"
+            startOffset="4205"
+            endLine="101"
+            endColumn="42"
+            endOffset="4230"/>
+    </incident>
+
+    <incident
+        id="HardcodedText"
+        severity="warning"
+        message="Hardcoded string &quot;완료&quot;, should use `@string` resource">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice_popup.xml"
+            line="113"
+            column="17"
+            startOffset="4742"
+            endLine="113"
+            endColumn="34"
+            endOffset="4759"/>
+    </incident>
+
+    <incident
+        id="TypographyEllipsis"
+        severity="warning"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?">
+        <fix-replace
+            description="Replace with …"
+            oldString="..."
+            replacement="…"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="10"
+            column="34"
+            startOffset="392"
+            endLine="10"
+            endColumn="50"
+            endOffset="408"/>
+    </incident>
+
+    <incident
+        id="TypographyEllipsis"
+        severity="warning"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?">
+        <fix-replace
+            description="Replace with …"
+            oldString="..."
+            replacement="…"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="17"
+            column="30"
+            startOffset="743"
+            endLine="17"
+            endColumn="43"
+            endOffset="756"/>
+    </incident>
+
+    <incident
+        id="TypographyEllipsis"
+        severity="warning"
+        message="Replace &quot;...&quot; with ellipsis character (…, &amp;#8230;) ?">
+        <fix-replace
+            description="Replace with …"
+            oldString="..."
+            replacement="…"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="18"
+            column="32"
+            startOffset="798"
+            endLine="18"
+            endColumn="46"
+            endOffset="812"/>
+    </incident>
+
+    <incident
+        id="TypographyDashes"
+        severity="warning"
+        message="Replace &quot;-&quot; with an &quot;en dash&quot; character (–, &amp;#8211;) ?">
+        <fix-replace
+            description="Replace with –"
+            oldString="-"
+            replacement="–"/>
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/values/strings.xml"
+            line="41"
+            column="35"
+            startOffset="1825"
+            endLine="41"
+            endColumn="67"
+            endOffset="1857"/>
+    </incident>
+
+    <incident
+        id="SetTextI18n"
+        severity="warning"
+        message="Do not concatenate text displayed with `setText`. Use resource string with placeholders.">
+        <location
+            file="${:app*debug*sourceProvider*0*javaDir*0}/com/example/wav2vecapp/MainActivity.java"
+            line="107"
+            column="44"
+            startOffset="3240"
+            endLine="107"
+            endColumn="70"
+            endOffset="3266"/>
+    </incident>
+
+    <incident
+        id="OldTargetApi"
+        severity="warning"
+        message="Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details.">
+        <fix-replace
+            description="Update targetSdkVersion to 35"
+            oldString="34"
+            replacement="35"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="21"
+            column="9"
+            startOffset="443"
+            endLine="21"
+            endColumn="21"
+            endOffset="455"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.0">
+        <fix-replace
+            description="Change to 1.7.0"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="44"
+            column="20"
+            startOffset="911"
+            endLine="44"
+            endColumn="56"
+            endOffset="947"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1">
+        <fix-replace
+            description="Change to 2.2.1"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="45"
+            column="20"
+            startOffset="968"
+            endLine="45"
+            endColumn="70"
+            endOffset="1018"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.11.0 is available: 1.12.0">
+        <fix-replace
+            description="Change to 1.12.0"
+            family="Update versions"
+            oldString="1.11.0"
+            replacement="1.12.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="46"
+            column="20"
+            startOffset="1039"
+            endLine="46"
+            endColumn="65"
+            endOffset="1084"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.activity:activity than 1.8.2 is available: 1.10.1">
+        <fix-replace
+            description="Change to 1.10.1"
+            family="Update versions"
+            oldString="1.8.2"
+            replacement="1.10.1"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="47"
+            column="20"
+            startOffset="1105"
+            endLine="47"
+            endColumn="54"
+            endOffset="1139"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.gms:play-services-location than 21.0.1 is available: 21.3.0">
+        <fix-replace
+            description="Change to 21.3.0"
+            family="Update versions"
+            oldString="21.0.1"
+            replacement="21.3.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="53"
+            column="20"
+            startOffset="1413"
+            endLine="53"
+            endColumn="74"
+            endOffset="1467"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of com.google.android.material:material than 1.11.0 is available: 1.12.0">
+        <fix-replace
+            description="Change to 1.12.0"
+            family="Update versions"
+            oldString="1.11.0"
+            replacement="1.12.0"/>
+        <location
+            file="${:app*projectDir}/build.gradle"
+            line="56"
+            column="20"
+            startOffset="1569"
+            endLine="56"
+            endColumn="65"
+            endOffset="1614"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/white` with a theme that also paints a background (inferred theme is `@style/Theme.MyApplication`)">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_admin.xml"
+            line="7"
+            column="5"
+            startOffset="294"
+            endLine="7"
+            endColumn="38"
+            endOffset="327"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `#88000000` with a theme that also paints a background (inferred theme is `@style/Theme.MyApplication`)">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_delete_confirm.xml"
+            line="7"
+            column="5"
+            startOffset="341"
+            endLine="7"
+            endColumn="35"
+            endOffset="371"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/backgroundLight` with a theme that also paints a background (inferred theme is `@style/Theme.MyApplication`)">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_keyword.xml"
+            line="6"
+            column="5"
+            startOffset="283"
+            endLine="6"
+            endColumn="48"
+            endOffset="326"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/backgroundLight` with a theme that also paints a background (inferred theme is `@style/Theme.MyApplication`)">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_main.xml"
+            line="7"
+            column="5"
+            startOffset="300"
+            endLine="7"
+            endColumn="48"
+            endOffset="343"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `@color/backgroundLight` with a theme that also paints a background (inferred theme is `@style/Theme.MyApplication`)">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice.xml"
+            line="9"
+            column="5"
+            startOffset="383"
+            endLine="9"
+            endColumn="48"
+            endOffset="426"/>
+    </incident>
+
+    <incident
+        id="Overdraw"
+        severity="warning"
+        message="Possible overdraw: Root element paints background `#88000000` with a theme that also paints a background (inferred theme is `@style/Theme.MyApplication`)">
+        <location
+            file="${:app*debug*sourceProvider*0*resDir*0}/layout/activity_voice_popup.xml"
+            line="8"
+            column="5"
+            startOffset="340"
+            endLine="8"
+            endColumn="35"
+            endOffset="370"/>
+    </incident>
+
+</incidents>

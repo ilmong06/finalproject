@@ -8,6 +8,7 @@ def secretsFile = rootProject.file("secrets.properties")
 def secrets = new Properties()
 secrets.load(new FileInputStream(secretsFile))
 
+
 android {
     namespace "com.example.wav2vecapp"
     compileSdk 34
@@ -24,6 +25,7 @@ android {
         // 🔑 BuildConfig로 서버 주소 주입
 
         buildConfigField "String", "FLASK_BASE_URL", "\"${secrets['FLASK_BASE_URL']}\""
+
     }
 
     buildTypes {
@@ -52,7 +54,6 @@ dependencies {
     implementation 'com.google.android.datatransport:transport-runtime:4.0.0'
 
     implementation 'com.google.android.material:material:1.11.0'
-
 
     // ✅ 오직 이거 하나만 남긴다 (Lite 전용)
     implementation 'org.pytorch:pytorch_android_lite:1.10.0'

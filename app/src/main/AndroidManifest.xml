@@ -9,6 +9,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
+
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
@@ -21,6 +22,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity android:name=".KeywordActivity" />
+        <activity android:name=".VoiceRegisterActivity"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -29,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".UserInfoActivity"/>
     </application>
 
 </manifest>

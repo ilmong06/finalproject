@@ -3042,6 +3042,7 @@ drawable ic_arrow_back_black_24
 drawable ic_clear_black_24
 drawable ic_clock_black_24dp
 drawable ic_close
+drawable ic_gethelp_logo
 drawable ic_keyboard_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
@@ -3245,12 +3246,14 @@ id btnClose
 id btnDelete
 id btnFinish
 id btnManageContacts
+id btnManageKeywords
 id btnManageUsers
 id btnMenu
-id btnMoveKeywordPage
+id btnMyPage
 id btnNo
 id btnRecord
 id btnRetry
+id btnSettings
 id btnStartRecording
 id btnStopRecording
 id btnViewReports
@@ -3331,6 +3334,7 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id drawerLayout
 id dropdown_menu
 id easeIn
 id easeInOut
@@ -3402,6 +3406,7 @@ id italic
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
+id keyWord
 id keyword_input_layout
 id labeled
 id layout
@@ -3418,7 +3423,9 @@ id line3
 id linear
 id listMode
 id list_item
+id loadingIndicator
 id locationButton
+id logoImage
 id m3_side_sheet
 id mainScrollView
 id marquee
@@ -3446,7 +3453,9 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
+id menuTitle
 id message
+id micOnOff
 id middle
 id mini
 id month_grid
@@ -3549,6 +3558,7 @@ id report_drawn
 id reverseSawtooth
 id right
 id rightToLeft
+id right_drawer
 id right_icon
 id right_side
 id rounded
@@ -3606,18 +3616,17 @@ id src_in
 id src_over
 id standard
 id start
-id startButton
 id startHorizontal
 id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
 id stop
-id stopButton
 id stretch
 id submenuarrow
 id submit_area
 id supportScrollUp
+id switchMockReport
 id tabMode
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
@@ -3635,7 +3644,6 @@ id tag_window_insets_animation_callback
 id text
 id text2
 id textEnd
-id textRegisterStep
 id textResult
 id textSpacerNoButtons
 id textSpacerNoTitle
@@ -3671,6 +3679,9 @@ id tvCount
 id tvDeletePrompt
 id tvInstruction
 id tvLastDate
+id tvNotice
+id tvPrivacy
+id tvReportHistory
 id tvScript
 id tv_description
 id tv_hyperlink
@@ -3820,6 +3831,7 @@ layout abc_tooltip
 layout activity_admin
 layout activity_delete_confirm
 layout activity_keyword
+layout activity_logo
 layout activity_main
 layout activity_userinfo
 layout activity_voice
@@ -4133,6 +4145,7 @@ string user_phnum
 string voice_reco
 string voice_start
 string warning
+string warning_main
 string yymmdd
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
@@ -4426,6 +4439,7 @@ style Base_Widget_MaterialComponents_TextView
 style CardView
 style CardView_Dark
 style CardView_Light
+style CircleBlueButton
 style CircleGrayButton
 style CircleRedButton
 style CircularButton
