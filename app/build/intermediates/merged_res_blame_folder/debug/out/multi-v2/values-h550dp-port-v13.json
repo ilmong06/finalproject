@@ -4,11 +4,7 @@
             "outputFile": "com.example.wav2vecapp-mergeDebugResources-32:/values-h550dp-port-v13/values-h550dp-port-v13.xml",
             "map": [
                 {
-<<<<<<< HEAD
-                    "source": "C:\\Users\\kdh55\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
-=======
-                    "source": "C:\\Users\\kdh55\\.gradle\\caches\\transforms-3\\4086e976df2ef4ecbfa0b783c02b0ce2\\transformed\\material-1.11.0\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
->>>>>>> whatsInter
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
