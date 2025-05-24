@@ -10,5 +10,5 @@ public final class BuildConfig {
   public static final int VERSION_CODE = 1;
   public static final String VERSION_NAME = "1.0";
   // Field from default config.
-  public static final String FLASK_BASE_URL = "http://127.0.0.1:5000/";
+  public static final String FLASK_BASE_URL = "http://192.168.219.116:5000/";
 }
