@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/backgroundLight"
     android:padding="16dp">
 
-    <!-- 📌 헤더 바: 앱 이름 + 햄버거 메뉴 -->
+    <!-- 📌 헤더 바 -->
     <LinearLayout
         android:id="@+id/headerBar"
         android:layout_width="0dp"
@@ -20,25 +20,20 @@
 
         <TextView
             android:id="@+id/appLogo"
+            style="@style/TitleText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/gethelp"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-
-            android:layout_weight="7" />
+            android:layout_weight="7"
+            android:text="@string/gethelp" />
 
         <Button
             android:id="@+id/btnMenu"
+            style="@style/SmallIconButton"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:src="@drawable/rounded_button"
-            android:text="@string/hamburger"
-            android:layout_weight="1.5" />
+            android:layout_weight="1.5"
+            android:text="@string/hamburger" />
     </LinearLayout>
 
-    <!-- 📦 본문 ScrollView -->
     <ScrollView
         android:id="@+id/mainScrollView"
         android:layout_width="0dp"
@@ -52,30 +47,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:gravity="center_horizontal"
             android:paddingTop="16dp"
-            android:paddingBottom="32dp"
-            android:gravity="center_horizontal">
+            android:paddingBottom="32dp">
 
             <!-- 👋 인사말 -->
             <TextView
                 android:id="@+id/welcomeMessage"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="환영합니다 박ㅇㅇ님"
-                android:textSize="18sp"
-                android:textColor="#333333"
-                android:textStyle="bold" />
+                android:layout_width="wrap_content"
+                style="@style/HeaderText"
+                android:text="환영합니다 박ㅇㅇ님" />
 
             <TextView
                 android:id="@+id/phoneNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/SecondaryText"
                 android:text="010-1234-5678"
-                android:textSize="16sp"
-                android:textColor="#666666"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:layout_marginBottom="12dp" />
 
-            <!-- 🔘 버튼 2x2 구성 -->
+            <!-- 🔘 2x2 버튼 -->
             <GridLayout
                 android:id="@+id/buttonGrid"
                 android:layout_width="wrap_content"
@@ -87,59 +79,49 @@
 
                 <Button
                     android:id="@+id/startButton"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
-                    android:src="@drawable/rounded_gray"
+                    style="@style/GridActionButton"
                     android:text="🎙️ STT 시작" />
 
                 <Button
                     android:id="@+id/stopButton"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
+                    style="@style/GridActionButton"
                     android:text="⏹️ 종료" />
 
                 <Button
                     android:id="@+id/registerButton"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
+                    style="@style/GridActionButton"
                     android:text="🧬 화자 등록" />
 
                 <Button
                     android:id="@+id/locationButton"
-                    android:layout_width="170dp"
-                    android:layout_height="170dp"
+                    style="@style/GridActionButton"
                     android:text="📍 현재 위치 확인" />
 
                 <Button
                     android:id="@+id/btnMoveKeywordPage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/PrimaryButton"
+                    android:layout_columnSpan="2"
                     android:text="✏️ 키워드 관리 화면 이동"
-                    android:layout_marginTop="12dp"
-                    android:layout_columnSpan="2" />
+                    android:layout_marginTop="16dp" />
+
             </GridLayout>
 
             <!-- 🖥️ 결과 출력 -->
             <TextView
                 android:id="@+id/textResult"
-                android:layout_width="match_parent"
+                style="@style/OutputText"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="🖥️ 결과 출력 영역"
-                android:textSize="18sp"
-                android:layout_marginTop="20dp"
-                android:textColor="#333333"
-                android:gravity="center" />
+                android:layout_marginTop="24dp" />
 
-            <!-- 📊 등록 상태 -->
             <TextView
                 android:id="@+id/textRegisterStep"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/SecondaryText"
                 android:text="(등록 상태 미표시)"
-                android:textSize="16sp"
-                android:textColor="#666666"
-                android:gravity="center"
-                android:layout_marginTop="6dp"/>
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="8dp" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
