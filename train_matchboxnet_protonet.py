@@ -21,8 +21,7 @@ class MatchboxNetEncoder(nn.Module):
         )
         self.pool = nn.AdaptiveAvgPool1d(1)
 
-    def forward(self, x):  # x: [B, T]
-        x = x.unsqueeze(1)  # [B, 1, T]
+    def forward(self, x):  # x: [B, 1, T]
         x = self.conv(x)   # [B, C, T']
         return x
 
