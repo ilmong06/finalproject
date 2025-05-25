@@ -33,6 +33,26 @@ FINAL_VECTOR_FILE = "registered_speaker.json"
 KEYWORD_VECTOR_FILE = "registered_keyword_vectors.json"
 PROTO_LABEL_MAP_FILE = "proto_label_map.json"
 
+
+def preprocess_waveform(path):
+    audio = AudioSegment.from_file(path).set_frame_rate(16000).set_channels(1)
+    audio.export(path, format="wav")
+    waveform, _ = torchaudio.load(path)  # [1, T] expected
+
+    print("[DEBUG] waveform shape before:", waveform.shape, flush=True)
+
+    if waveform.dim() == 2:
+        waveform = waveform.unsqueeze(0)  # [1, 1, T]
+    elif waveform.dim() == 3 and waveform.shape[:2] == (1, 1):
+        pass  # already [1, 1, T]
+    else:
+        raise RuntimeError(f"[ERROR] Unexpected waveform shape: {waveform.shape}")
+
+    print("[DEBUG] waveform shape after:", waveform.shape, flush=True)
+    return waveform
+
+
+
 @app.route("/register", methods=["POST"])
 def register_speaker():
     if "file" not in request.files:
@@ -43,11 +63,9 @@ def register_speaker():
     temp_filename = f"register_{uuid.uuid4().hex}.wav"
     file.save(temp_filename)
     try:
-        audio = AudioSegment.from_file(temp_filename).set_frame_rate(16000).set_channels(1)
-        audio.export(temp_filename, format="wav")
-        waveform, _ = torchaudio.load(temp_filename)
+        waveform = preprocess_waveform(temp_filename)
         with torch.no_grad():
-            embed = speaker_model(waveform.unsqueeze(0))
+            embed = speaker_model(waveform)  # [1, 1, T]
             weights = torch.softmax(torch.norm(embed, dim=1), dim=-1)
             speaker_vec = torch.sum(embed * weights.unsqueeze(1), dim=-1).squeeze().numpy()
         speaker_vec = speaker_vec / np.linalg.norm(speaker_vec)
@@ -66,8 +84,11 @@ def register_speaker():
             os.remove(TEMP_VECTORS_FILE)
             return jsonify({"message": "화자 등록 완료 (4/4)"})
         return jsonify({"message": f"등록 {len(vectors)}/4 완료"})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
     finally:
         os.remove(temp_filename)
+
 
 @app.route("/register_keyword", methods=["POST"])
 def register_keyword():
@@ -86,9 +107,9 @@ def register_keyword():
         audio = AudioSegment.from_file(str(raw_path)).set_frame_rate(16000).set_channels(1)
         audio.export(str(fixed_path), format="wav")
         os.remove(str(raw_path))
-        waveform, _ = torchaudio.load(str(fixed_path))
+        waveform = preprocess_waveform(str(fixed_path))
         with torch.no_grad():
-            embed = speaker_model(waveform.unsqueeze(0))
+            embed = speaker_model(waveform)  # [1, 1, T]
             weights = torch.softmax(torch.norm(embed, dim=1), dim=-1)
             vec = torch.sum(embed * weights.unsqueeze(1), dim=-1).squeeze().numpy()
         vec = vec / np.linalg.norm(vec)
@@ -102,9 +123,12 @@ def register_keyword():
         if len(all_vectors[keyword]) == 6:
             subprocess.run(["python", "train_matchboxnet_protonet.py"])
         return jsonify({"message": f"{keyword} 키워드 {index}/6 저장 완료"})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
     finally:
         if os.path.exists(raw_path):
             os.remove(str(raw_path))
+
 
 @app.route("/stt", methods=["POST"])
 def transcribe():
@@ -116,11 +140,9 @@ def transcribe():
     temp_filename = f"temp_{uuid.uuid4().hex}.wav"
     file.save(temp_filename)
     try:
-        audio = AudioSegment.from_file(temp_filename).set_frame_rate(16000).set_channels(1)
-        audio.export(temp_filename, format="wav")
-        waveform, _ = torchaudio.load(temp_filename)
+        waveform = preprocess_waveform(temp_filename)
         with torch.no_grad():
-            raw_embed = speaker_model(waveform.unsqueeze(0))
+            raw_embed = speaker_model(waveform)
             time_weights = torch.softmax(torch.norm(raw_embed, dim=1), dim=-1)
             weighted_embed = torch.sum(raw_embed * time_weights.unsqueeze(1), dim=-1).squeeze().numpy()
         speaker_vec = weighted_embed / np.linalg.norm(weighted_embed)
@@ -161,7 +183,11 @@ def transcribe():
         sim_kw = best_score
         total_score = sim_sp + sim_kw
         if total_score < 1.5:
-            return jsonify({"error": "인증 실패", "sim_sp": round(sim_sp, 4), "sim_kw": round(sim_kw, 4)}), 403
+            return jsonify({
+                "error": "인증 실패",
+                "sim_sp": round(sim_sp, 4),
+                "sim_kw": round(sim_kw, 4)
+            }), 403
         wf = wave.open(temp_filename, "rb")
         rec = KaldiRecognizer(vosk_model, wf.getframerate())
         results = []
