@@ -110,11 +110,16 @@ id tv_intro
 id tv_title
 id voice_register_layout
 id welcomeMessage
+layout acrivity_setting
 layout activity_admin
 layout activity_delete_confirm
+layout activity_history
+layout activity_information
 layout activity_keyword
 layout activity_logo
 layout activity_main
+layout activity_mypage
+layout activity_notice
 layout activity_userinfo
 layout activity_voice
 layout activity_voice_popup

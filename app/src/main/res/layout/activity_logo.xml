@@ -19,7 +19,8 @@
         android:layout_height="240dp"
         android:src="@drawable/ic_gethelp_logo"
         tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="190dp" />
+        tools:layout_editor_absoluteY="190dp"
+        tools:ignore="MissingConstraints" />
 
     <!-- 아래 로딩 표시 (선택사항) -->
     <ProgressBar
