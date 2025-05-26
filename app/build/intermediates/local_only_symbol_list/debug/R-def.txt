@@ -110,7 +110,6 @@ id tv_intro
 id tv_title
 id voice_register_layout
 id welcomeMessage
-layout acrivity_setting
 layout activity_admin
 layout activity_delete_confirm
 layout activity_history
@@ -120,9 +119,17 @@ layout activity_logo
 layout activity_main
 layout activity_mypage
 layout activity_notice
+layout activity_setting
 layout activity_userinfo
 layout activity_voice
 layout activity_voice_popup
+layout admin_appsetting
+layout admin_histories
+layout admin_keywords
+layout admin_parents
+layout admin_server_model
+layout admin_stats
+layout admin_userinfo
 mipmap ic_launcher
 mipmap ic_launcher_round
 string accuracy
