@@ -148,6 +148,8 @@ public class MainActivity extends AppCompatActivity {
         /// 햄버거 메뉴 클릭 시 등장하는 컴포넌트의 이벤트
         tvReportHistory.setOnClickListener(v -> {
             // 신고 내역 화면으로 이동
+            Intent intent = new Intent(MainActivity.this, ReportHistoryActivity.class);
+            startActivity(intent);
         });
 
         tvNotice.setOnClickListener(v -> {

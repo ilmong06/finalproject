@@ -3827,7 +3827,6 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0c0018
 int layout abc_search_view 0x7f0c0019
 int layout abc_select_dialog_material 0x7f0c001a
 int layout abc_tooltip 0x7f0c001b
-int layout acrivity_setting 0x7f0c0071
 int layout activity_admin 0x7f0c001c
 int layout activity_delete_confirm 0x7f0c001d
 int layout activity_history 0x7f0c0072
@@ -3837,9 +3836,17 @@ int layout activity_logo 0x7f0c0070
 int layout activity_main 0x7f0c001f
 int layout activity_mypage 0x7f0c0074
 int layout activity_notice 0x7f0c0075
+int layout activity_setting 0x7f0c0076
 int layout activity_userinfo 0x7f0c0020
 int layout activity_voice 0x7f0c0021
 int layout activity_voice_popup 0x7f0c0022
+int layout admin_appsetting 0x7f0c0077
+int layout admin_histories 0x7f0c0078
+int layout admin_keywords 0x7f0c0079
+int layout admin_parents 0x7f0c007a
+int layout admin_server_model 0x7f0c007b
+int layout admin_stats 0x7f0c007c
+int layout admin_userinfo 0x7f0c007d
 int layout custom_dialog 0x7f0c0023
 int layout design_bottom_navigation_item 0x7f0c0024
 int layout design_bottom_sheet_dialog 0x7f0c0025
