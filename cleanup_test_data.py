@@ -5,10 +5,9 @@ import shutil
 
 # 삭제 대상 JSON 파일
 json_files = [
-    "registered_vectors.json",
+    "fewshot_model.pt",
     "registered_speaker.json",
-    "registered_keyword_vectors.json",
-    "proto_label_map.json"
+    "label_map.json"
 ]
 
 # 폴더 경로
@@ -44,9 +43,6 @@ if __name__ == "__main__":
     print("📁 JSON 파일 삭제:")
     for jf in json_files:
         delete_file(jf)
-
-    print("\n📁 테스트 오디오 파일 삭제:")
-    delete_folder_contents(test_audio_dir)
 
     print("\n📁 사용자 키워드 오디오 전체 삭제:")
     delete_folder(custom_data_dir)
