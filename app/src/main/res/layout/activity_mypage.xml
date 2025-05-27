@@ -47,7 +47,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/user_info"
+                android:text="수정하고 싶은 정보를 입력하세요"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 

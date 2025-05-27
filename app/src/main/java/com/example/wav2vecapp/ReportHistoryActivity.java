@@ -16,6 +16,7 @@ import java.util.List;
 public class ReportHistoryActivity extends AppCompatActivity {
 
     Button btnStartDate, btnEndDate, btnSearch;
+    Button btnBack;
     EditText etKeyword;
     RecyclerView recyclerView;
     ReportAdapter adapter;
@@ -31,6 +32,7 @@ public class ReportHistoryActivity extends AppCompatActivity {
         btnSearch = findViewById(R.id.btnSearch);
         etKeyword = findViewById(R.id.etKeyword);
         recyclerView = findViewById(R.id.recyclerViewReports);
+        btnBack = findViewById(R.id.history_btnBack);
 
         adapter = new ReportAdapter(reportList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -46,16 +48,25 @@ public class ReportHistoryActivity extends AppCompatActivity {
             String endDate = btnEndDate.getText().toString();
             fetchReportHistory(startDate, endDate, keyword);
         });
+
+        btnBack.setOnClickListener(v-> finish());
     }
 
     private void showDatePicker(Button targetButton) {
-        Calendar calendar = Calendar.getInstance();
-        DatePickerDialog dialog = new DatePickerDialog(this,
-                (view, year, month, dayOfMonth) -> {
-                    String date = year + "-" + (month + 1) + "-" + dayOfMonth;
-                    targetButton.setText(date);
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH); // 0~11
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog dialog = new DatePickerDialog(
+                this,
+                (view, y, m, d) -> {
+                    // 날짜 선택 후 버튼 텍스트 업데이트
+                    String selectedDate = String.format("%04d-%02d-%02d", y, m + 1, d);
+                    targetButton.setText(selectedDate);
                 },
-                calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
+                year, month, day
+        );
         dialog.show();
     }
 

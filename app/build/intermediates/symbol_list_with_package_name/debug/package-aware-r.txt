@@ -3695,6 +3695,7 @@ id triangle
 id tvCount
 id tvDate
 id tvDeletePrompt
+id tvIndex
 id tvInstruction
 id tvKeyword
 id tvLastDate
@@ -3703,6 +3704,7 @@ id tvNotice
 id tvPrivacy
 id tvReportHistory
 id tvScript
+id tvTitle
 id tv_description
 id tv_hyperlink
 id tv_intro
@@ -3848,8 +3850,10 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_access_mypage
 layout activity_admin
 layout activity_delete_confirm
+layout activity_denied
 layout activity_history
 layout activity_information
 layout activity_keyword
