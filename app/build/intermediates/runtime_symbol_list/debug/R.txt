@@ -3694,6 +3694,7 @@ int id triangle 0x7f09021b
 int id tvCount 0x7f09021c
 int id tvDate 0x7f090254
 int id tvDeletePrompt 0x7f09021d
+int id tvIndex 0x7f090257
 int id tvInstruction 0x7f09021e
 int id tvKeyword 0x7f090255
 int id tvLastDate 0x7f09021f
@@ -3702,6 +3703,7 @@ int id tvNotice 0x7f090220
 int id tvPrivacy 0x7f090221
 int id tvReportHistory 0x7f090222
 int id tvScript 0x7f090223
+int id tvTitle 0x7f090258
 int id tv_description 0x7f090224
 int id tv_hyperlink 0x7f090225
 int id tv_intro 0x7f090226
@@ -3847,8 +3849,10 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0c0018
 int layout abc_search_view 0x7f0c0019
 int layout abc_select_dialog_material 0x7f0c001a
 int layout abc_tooltip 0x7f0c001b
+int layout activity_access_mypage 0x7f0c007f
 int layout activity_admin 0x7f0c001c
 int layout activity_delete_confirm 0x7f0c001d
+int layout activity_denied 0x7f0c0080
 int layout activity_history 0x7f0c0072
 int layout activity_information 0x7f0c0073
 int layout activity_keyword 0x7f0c001e
