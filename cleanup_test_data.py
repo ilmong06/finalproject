@@ -11,8 +11,8 @@ json_files = [
     "proto_label_map.json"
 ]
 
-
-# 사용자 커스텀 키워드 오디오 디렉토리
+# 폴더 경로
+test_audio_dir = "test_audio"
 custom_data_dir = "data/custom"
 
 def delete_file(filepath):
