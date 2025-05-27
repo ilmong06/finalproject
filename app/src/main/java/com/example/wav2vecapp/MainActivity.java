@@ -166,6 +166,8 @@ public class MainActivity extends AppCompatActivity {
 
         btnMyPage.setOnClickListener(v -> {
             // 마이페이지 이동
+            Intent intent = new Intent(MainActivity.this, MyPageActivity.class);
+            startActivity(intent);
         });
 
         btnSettings.setOnClickListener(v -> {

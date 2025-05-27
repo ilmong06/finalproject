@@ -40,10 +40,6 @@
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_stats.xml"
     },
     {
-        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_main.xml.flat",
-        "source": "com.example.wav2vecapp-main-36:/layout/activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable_circle_gray.xml.flat",
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\drawable\\circle_gray.xml"
     },
@@ -72,8 +68,16 @@
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-pngs-30:\\drawable-hdpi\\ic_launcher_foreground.png"
     },
     {
+        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_history.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/layout/activity_history.xml"
+    },
+    {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable-xxhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-pngs-30:\\drawable-xxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_report_item.xml.flat",
+        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\activity_report_item.xml"
     },
     {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_main.xml.flat",
@@ -84,24 +88,24 @@
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\drawable\\rounded_circle_button.xml"
     },
     {
-        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_voice_popup.xml.flat",
-        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\activity_voice_popup.xml"
+        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\xml\\data_extraction_rules.xml"
     },
     {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\xml_data_extraction_rules.xml.flat",
-        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\xml\\data_extraction_rules.xml"
-    },
-    {
-        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_admin_appsetting.xml.flat",
-        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_appsetting.xml"
+        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_voice_popup.xml.flat",
+        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\activity_voice_popup.xml"
     },
     {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_history.xml.flat",
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\activity_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_admin_appsetting.xml.flat",
+        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_appsetting.xml"
     },
     {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_admin.xml.flat",
@@ -194,6 +198,10 @@
     {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable-xxxhdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-pngs-30:\\drawable-xxxhdpi\\ic_launcher_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable_search_background.xml.flat",
+        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\drawable\\search_background.xml"
     },
     {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_delete_confirm.xml.flat",
