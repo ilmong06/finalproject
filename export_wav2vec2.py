@@ -146,15 +146,18 @@ def transcribe():
             time_weights = torch.softmax(torch.norm(raw_embed, dim=1), dim=-1)
             weighted_embed = torch.sum(raw_embed * time_weights.unsqueeze(1), dim=-1).squeeze().numpy()
         speaker_vec = weighted_embed / np.linalg.norm(weighted_embed)
+
         if not os.path.exists(FINAL_VECTOR_FILE):
             return jsonify({"error": "화자 벡터 없음"}), 403
         with open(FINAL_VECTOR_FILE, "r") as f:
             ref_vec = np.array(json.load(f))
         sim_sp = float(np.dot(speaker_vec, ref_vec))
+
         if not os.path.exists(KEYWORD_VECTOR_FILE):
             return jsonify({"error": "키워드 벡터 없음"}), 403
         with open(KEYWORD_VECTOR_FILE, "r") as f:
             label_map = json.load(f)
+
         best_keyword = None
         best_score = 0
         proto_label_map = {}
@@ -162,11 +165,14 @@ def transcribe():
             vecs_np = []
             for v in vecs:
                 v_np = np.array(v)
-                energy = np.linalg.norm(v_np, axis=-1)
-                weights = np.exp(energy) / np.sum(np.exp(energy))
-                weighted = np.sum(v_np * weights[..., None], axis=0)
-                weighted /= np.linalg.norm(weighted)
-                vecs_np.append(weighted)
+                if v_np.ndim == 1:
+                    vecs_np.append(v_np / np.linalg.norm(v_np))
+                else:
+                    energy = np.linalg.norm(v_np, axis=-1)
+                    weights = np.exp(energy) / np.sum(np.exp(energy))
+                    weighted = np.sum(v_np * weights[..., None], axis=0)
+                    weighted /= np.linalg.norm(weighted)
+                    vecs_np.append(weighted)
             vecs_np = np.array(vecs_np)
             vecs_np = vecs_np / np.linalg.norm(vecs_np, axis=1, keepdims=True)
             n_proto = min(3, len(vecs_np))
@@ -180,6 +186,7 @@ def transcribe():
                 best_keyword = keyword
         with open(PROTO_LABEL_MAP_FILE, "w") as f:
             json.dump(proto_label_map, f, indent=2)
+
         sim_kw = best_score
         total_score = sim_sp + sim_kw
         if total_score < 1.5:
@@ -188,17 +195,21 @@ def transcribe():
                 "sim_sp": round(sim_sp, 4),
                 "sim_kw": round(sim_kw, 4)
             }), 403
-        wf = wave.open(temp_filename, "rb")
-        rec = KaldiRecognizer(vosk_model, wf.getframerate())
-        results = []
-        while True:
-            data = wf.readframes(4000)
-            if len(data) == 0:
-                break
-            if rec.AcceptWaveform(data):
-                results.append(json.loads(rec.Result()))
-        results.append(json.loads(rec.FinalResult()))
-        transcript = " ".join([r.get("text", "") for r in results if r.get("text")])
+
+        # ✅ wave.open은 with 블록으로 열기
+        transcript = ""
+        with wave.open(temp_filename, "rb") as wf:
+            rec = KaldiRecognizer(vosk_model, wf.getframerate())
+            results = []
+            while True:
+                data = wf.readframes(4000)
+                if len(data) == 0:
+                    break
+                if rec.AcceptWaveform(data):
+                    results.append(json.loads(rec.Result()))
+            results.append(json.loads(rec.FinalResult()))
+            transcript = " ".join([r.get("text", "") for r in results if r.get("text")])
+
         return jsonify({
             "text": transcript,
             "speaker_similarity": round(sim_sp, 4),
@@ -206,10 +217,16 @@ def transcribe():
             "keyword_similarity": round(sim_kw, 4),
             "s_total": round(total_score, 4)
         })
+
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
-        os.remove(temp_filename)
+        if os.path.exists(temp_filename):
+            try:
+                os.remove(temp_filename)
+            except Exception as e:
+                print("[WARN] 파일 삭제 실패:", e)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
