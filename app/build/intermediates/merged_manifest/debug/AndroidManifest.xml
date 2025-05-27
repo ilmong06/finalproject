@@ -39,6 +39,8 @@
         android:usesCleartextTraffic="true" >
         <activity android:name="com.example.wav2vecapp.KeywordActivity" />
         <activity android:name="com.example.wav2vecapp.VoiceRegisterActivity" />
+        <activity android:name="com.example.wav2vecapp.MyPageActivity" />
+        <activity android:name="com.example.wav2vecapp.ReportHistoryActivity" />
         <activity
             android:name="com.example.wav2vecapp.MainActivity"
             android:exported="true" >

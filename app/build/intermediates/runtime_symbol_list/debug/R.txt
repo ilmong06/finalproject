@@ -3129,6 +3129,7 @@ int drawable rounded_circle_button 0x7f0800f5
 int drawable rounded_gray 0x7f0800f6
 int drawable rounded_spinner 0x7f0800f7
 int drawable rounded_white 0x7f0800f8
+int drawable search_background 0x7f0800fd
 int drawable test_level_drawable 0x7f0800f9
 int drawable tooltip_frame_dark 0x7f0800fa
 int drawable tooltip_frame_light 0x7f0800fb
@@ -3243,6 +3244,7 @@ int id btnC 0x7f09006b
 int id btnCheckServer 0x7f09006c
 int id btnClose 0x7f09006d
 int id btnDelete 0x7f09006e
+int id btnEndDate 0x7f090244
 int id btnFinish 0x7f09006f
 int id btnManageContacts 0x7f090070
 int id btnManageKeywords 0x7f090071
@@ -3252,7 +3254,9 @@ int id btnMyPage 0x7f090074
 int id btnNo 0x7f090075
 int id btnRecord 0x7f090076
 int id btnRetry 0x7f090077
+int id btnSearch 0x7f090245
 int id btnSettings 0x7f090078
+int id btnStartDate 0x7f090246
 int id btnStartRecording 0x7f090079
 int id btnStopRecording 0x7f09007a
 int id btnViewReports 0x7f09007b
@@ -3302,6 +3306,7 @@ int id custom 0x7f0900a6
 int id customPanel 0x7f0900a7
 int id cut 0x7f0900a8
 int id dark 0x7f0900a9
+int id dateRangeContainer 0x7f090247
 int id date_picker_actions 0x7f0900aa
 int id decelerate 0x7f0900ab
 int id decelerateAndComplete 0x7f0900ac
@@ -3464,6 +3469,17 @@ int id month_navigation_next 0x7f090146
 int id month_navigation_previous 0x7f090147
 int id month_title 0x7f090148
 int id motion_base 0x7f090149
+int id mp_btn_request_verification 0x7f090248
+int id mp_et_emergency_name 0x7f090249
+int id mp_et_emergency_phone 0x7f09024a
+int id mp_et_verification_code 0x7f09024b
+int id mp_layout_emergency 0x7f09024c
+int id mp_layout_user_info 0x7f09024d
+int id mp_layout_verification_code 0x7f09024e
+int id mp_phone_text_input 0x7f09024f
+int id mp_plain_text_input 0x7f090250
+int id mp_spinner_relation 0x7f090251
+int id mp_title 0x7f090252
 int id mtrl_anchor_parent 0x7f09014a
 int id mtrl_calendar_day_selector_frame 0x7f09014b
 int id mtrl_calendar_days_of_week 0x7f09014c
@@ -3552,6 +3568,7 @@ int id ratio 0x7f09019e
 int id recordButtons 0x7f09019f
 int id record_controls 0x7f0901a0
 int id rectangles 0x7f0901a1
+int id recyclerViewReports 0x7f090253
 int id registerButton 0x7f0901a2
 int id report_drawn 0x7f0901a3
 int id reverseSawtooth 0x7f0901a4
@@ -3675,9 +3692,12 @@ int id transition_scene_layoutid_cache 0x7f090219
 int id transition_transform 0x7f09021a
 int id triangle 0x7f09021b
 int id tvCount 0x7f09021c
+int id tvDate 0x7f090254
 int id tvDeletePrompt 0x7f09021d
 int id tvInstruction 0x7f09021e
+int id tvKeyword 0x7f090255
 int id tvLastDate 0x7f09021f
+int id tvLocation 0x7f090256
 int id tvNotice 0x7f090220
 int id tvPrivacy 0x7f090221
 int id tvReportHistory 0x7f090222
@@ -3836,6 +3856,7 @@ int layout activity_logo 0x7f0c0070
 int layout activity_main 0x7f0c001f
 int layout activity_mypage 0x7f0c0074
 int layout activity_notice 0x7f0c0075
+int layout activity_report_item 0x7f0c007e
 int layout activity_setting 0x7f0c0076
 int layout activity_userinfo 0x7f0c0020
 int layout activity_voice 0x7f0c0021

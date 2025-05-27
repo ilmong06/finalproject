@@ -3130,6 +3130,7 @@ drawable rounded_circle_button
 drawable rounded_gray
 drawable rounded_spinner
 drawable rounded_white
+drawable search_background
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3244,6 +3245,7 @@ id btnC
 id btnCheckServer
 id btnClose
 id btnDelete
+id btnEndDate
 id btnFinish
 id btnManageContacts
 id btnManageKeywords
@@ -3253,7 +3255,9 @@ id btnMyPage
 id btnNo
 id btnRecord
 id btnRetry
+id btnSearch
 id btnSettings
+id btnStartDate
 id btnStartRecording
 id btnStopRecording
 id btnViewReports
@@ -3303,6 +3307,7 @@ id custom
 id customPanel
 id cut
 id dark
+id dateRangeContainer
 id date_picker_actions
 id decelerate
 id decelerateAndComplete
@@ -3465,6 +3470,17 @@ id month_navigation_next
 id month_navigation_previous
 id month_title
 id motion_base
+id mp_btn_request_verification
+id mp_et_emergency_name
+id mp_et_emergency_phone
+id mp_et_verification_code
+id mp_layout_emergency
+id mp_layout_user_info
+id mp_layout_verification_code
+id mp_phone_text_input
+id mp_plain_text_input
+id mp_spinner_relation
+id mp_title
 id mtrl_anchor_parent
 id mtrl_calendar_day_selector_frame
 id mtrl_calendar_days_of_week
@@ -3553,6 +3569,7 @@ id ratio
 id recordButtons
 id record_controls
 id rectangles
+id recyclerViewReports
 id registerButton
 id report_drawn
 id reverseSawtooth
@@ -3676,9 +3693,12 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvCount
+id tvDate
 id tvDeletePrompt
 id tvInstruction
+id tvKeyword
 id tvLastDate
+id tvLocation
 id tvNotice
 id tvPrivacy
 id tvReportHistory
@@ -3837,6 +3857,7 @@ layout activity_logo
 layout activity_main
 layout activity_mypage
 layout activity_notice
+layout activity_report_item
 layout activity_setting
 layout activity_userinfo
 layout activity_voice
