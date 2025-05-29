@@ -28,7 +28,7 @@ CORS(app)
 # ✅ Vosk 모델 로드
 vosk_model = VoskModel("model")
 
-def segment_waveform(waveform, sample_rate=16000, segment_ms=500  ):
+def segment_waveform(waveform, sample_rate=16000, segment_ms=250  ):
     segment_samples = int(sample_rate * segment_ms / 1000  )
     segments = []
     for i in range(0, waveform.shape[1], segment_samples):
@@ -199,8 +199,11 @@ def transcribe():
             registered_vector = np.array(json.load(f)).flatten()
 
         sim_sp = float(np.dot(norm_vector, registered_vector))
+        print(f"[DEBUG] 🔐 화자 유사도: {sim_sp:.4f}")
         if sim_sp < 0.7:
-            return jsonify({"error": "화자 인증 실패", "similarity": round(sim_sp, 4)}), 403
+            print("[WARN] 화자 인증 실패지만 키워드 인증까지 진행합니다 (디버깅용)")
+        else:
+            print("[DEBUG] 화자 인증 통과")
 
         # 🔍 키워드 인증
         segments = segment_waveform(waveform)
@@ -241,6 +244,7 @@ def transcribe():
                         best_keyword = keyword
 
         sim_kw = best_score
+        print(f"[DEBUG] 🔍 키워드 유사도: {sim_kw:.4f}")
         if sim_kw < 0.7:
             return jsonify({
                 "error": "키워드 인증 실패",
