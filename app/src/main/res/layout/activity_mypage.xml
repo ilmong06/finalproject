@@ -17,12 +17,26 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
+        <Button
+            android:id="@+id/mp_btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="←"
+            android:textSize="14sp"
+            android:backgroundTint="#DDDDDD"
+            android:textColor="#000000"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <!-- 네이비 제목 바 -->
+
+        <!-- 사용자 정보 입력 -->
+
         <TextView
             android:id="@+id/mp_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="56dp"
             android:background="#001F54"
             android:padding="12dp"
             android:text="사용자 정보 수정"
@@ -30,10 +44,10 @@
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="@id/mp_btnBack" />
 
-        <!-- 사용자 정보 입력 -->
         <LinearLayout
             android:id="@+id/mp_layout_user_info"
             android:layout_width="0dp"
@@ -201,7 +215,7 @@
 
         <!-- 완료 버튼 -->
         <Button
-            android:id="@+id/btn_submit"
+            android:id="@+id/mp_btn_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/complete"

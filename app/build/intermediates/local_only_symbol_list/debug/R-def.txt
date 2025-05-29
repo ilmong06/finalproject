@@ -31,6 +31,11 @@ drawable rounded_gray
 drawable rounded_spinner
 drawable rounded_white
 drawable search_background
+id ac_btnBack
+id ac_btn_submit
+id ac_phone_text_input
+id ac_plain_text_input
+id ac_tv_title
 id adminTitle
 id appLogo
 id appName
@@ -75,6 +80,8 @@ id et_emergency_phone
 id et_verification_code
 id gender
 id headerBar
+id history_btnBack
+id history_title
 id info_layout
 id keyWord
 id keyword_input_layout
@@ -89,6 +96,7 @@ id mainScrollView
 id menuTitle
 id micOnOff
 id mp_btn_request_verification
+id mp_btn_submit
 id mp_et_emergency_name
 id mp_et_emergency_phone
 id mp_et_verification_code

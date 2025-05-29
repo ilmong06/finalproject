@@ -32,10 +32,6 @@
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_histories.xml"
     },
     {
-        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_report_item.xml.flat",
-        "source": "com.example.wav2vecapp-main-36:/layout/activity_report_item.xml"
-    },
-    {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable-ldpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-pngs-30:\\drawable-ldpi\\ic_launcher_foreground.png"
     },
@@ -72,12 +68,12 @@
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\drawable\\rounded_spinner.xml"
     },
     {
-        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable-hdpi_ic_launcher_foreground.png.flat",
-        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-pngs-30:\\drawable-hdpi\\ic_launcher_foreground.png"
+        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_access_mypage.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/layout/activity_access_mypage.xml"
     },
     {
-        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_history.xml.flat",
-        "source": "com.example.wav2vecapp-main-36:/layout/activity_history.xml"
+        "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable-hdpi_ic_launcher_foreground.png.flat",
+        "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-pngs-30:\\drawable-hdpi\\ic_launcher_foreground.png"
     },
     {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable-xxhdpi_ic_launcher_foreground.png.flat",
@@ -222,10 +218,6 @@
     {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable-mdpi_ic_launcher_foreground.png.flat",
         "source": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-pngs-30:\\drawable-mdpi\\ic_launcher_foreground.png"
-    },
-    {
-        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_mypage.xml.flat",
-        "source": "com.example.wav2vecapp-main-36:/layout/activity_mypage.xml"
     },
     {
         "merged": "C:\\Users\\kdh55\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\mipmap-mdpi_ic_launcher.webp.flat",

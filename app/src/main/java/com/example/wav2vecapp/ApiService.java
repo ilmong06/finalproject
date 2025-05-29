@@ -35,6 +35,10 @@ public interface ApiService {
     @POST("/api/report_gps")
     Call<ResponseBody> sendGpsData(@Body GpsRequest gpsRequest);
 
+    @GET("/user/check")
+    Call<UserResponse> checkUser(@Query("name") String name, @Query("phone") String phone);
+
+
 
 }
 

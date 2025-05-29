@@ -3147,6 +3147,11 @@ int id SHOW_PROGRESS 0x7f09000a
 int id SYM 0x7f09000b
 int id TOP_END 0x7f09000c
 int id TOP_START 0x7f09000d
+int id ac_btnBack 0x7f09025f
+int id ac_btn_submit 0x7f090259
+int id ac_phone_text_input 0x7f09025a
+int id ac_plain_text_input 0x7f09025b
+int id ac_tv_title 0x7f090260
 int id accelerate 0x7f09000e
 int id accessibility_action_clickable_span 0x7f09000f
 int id accessibility_custom_action_0 0x7f090010
@@ -3388,6 +3393,8 @@ int id groups 0x7f0900f7
 int id headerBar 0x7f0900f8
 int id header_title 0x7f0900f9
 int id hideable 0x7f0900fa
+int id history_btnBack 0x7f09025c
+int id history_title 0x7f09025d
 int id home 0x7f0900fb
 int id homeAsUp 0x7f0900fc
 int id honorRequest 0x7f0900fd
@@ -3470,6 +3477,7 @@ int id month_navigation_previous 0x7f090147
 int id month_title 0x7f090148
 int id motion_base 0x7f090149
 int id mp_btn_request_verification 0x7f090248
+int id mp_btn_submit 0x7f09025e
 int id mp_et_emergency_name 0x7f090249
 int id mp_et_emergency_phone 0x7f09024a
 int id mp_et_verification_code 0x7f09024b
