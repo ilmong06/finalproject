@@ -11,34 +11,33 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <!-- 안내 문구 -->
-        <TextView
-            android:id="@+id/tv_intro"
-            android:layout_width="0dp"
+        <!-- 🔙 뒤로가기 버튼 (Button) -->
+        <Button
+            android:id="@+id/ac_btnBack"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/notice"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:layout_marginTop="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="←"
+            android:textSize="14sp"
+            android:backgroundTint="#DDDDDD"
+            android:textColor="#000000"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <!-- 네이비 제목 바 -->
         <TextView
-            android:id="@+id/tv_title"
+            android:id="@+id/ac_tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="#001F54"
             android:padding="12dp"
-            android:text="@string/input_user_info"
+            android:text="사용자 정보 확인"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_intro" />
+            app:layout_constraintTop_toBottomOf="@id/ac_btnBack" />
 
         <!-- 사용자 정보 입력 -->
         <LinearLayout
@@ -47,14 +46,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@id/tv_title"
+            app:layout_constraintTop_toBottomOf="@id/ac_tv_title"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/user_info"
+                android:text="정확한 사용자 정보를 입력하세요."
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -67,11 +66,10 @@
                 android:layout_marginTop="12dp"/>
 
             <EditText
-                android:id="@+id/plain_text_input"
+                android:id="@+id/ac_plain_text_input"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_user_name"
-
                 android:inputType="text"
                 android:minHeight="48dp" />
 
@@ -83,36 +81,21 @@
                 android:textColor="#800020"
                 android:layout_marginTop="12dp"/>
 
-            <LinearLayout
+            <EditText
+                android:id="@+id/ac_phone_text_input"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/phone_text_input"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.65"
-                    android:hint="@string/numbers"
-                    android:inputType="phone"
-                    android:maxLength="11"
-                    android:minHeight="48dp" />
-
-
-            </LinearLayout>
-
-
-
-
+                android:layout_height="0dp"
+                android:layout_weight="0.65"
+                android:hint="@string/numbers"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:minHeight="48dp" />
 
         </LinearLayout>
 
-        <!-- 긴급 연락처 입력 -->
-
-
         <!-- 완료 버튼 -->
         <Button
-            android:id="@+id/btn_submit"
+            android:id="@+id/ac_btn_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/complete"

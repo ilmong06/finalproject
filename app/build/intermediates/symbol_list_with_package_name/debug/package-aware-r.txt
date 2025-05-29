@@ -3148,6 +3148,11 @@ id SHOW_PROGRESS
 id SYM
 id TOP_END
 id TOP_START
+id ac_btnBack
+id ac_btn_submit
+id ac_phone_text_input
+id ac_plain_text_input
+id ac_tv_title
 id accelerate
 id accessibility_action_clickable_span
 id accessibility_custom_action_0
@@ -3389,6 +3394,8 @@ id groups
 id headerBar
 id header_title
 id hideable
+id history_btnBack
+id history_title
 id home
 id homeAsUp
 id honorRequest
@@ -3471,6 +3478,7 @@ id month_navigation_previous
 id month_title
 id motion_base
 id mp_btn_request_verification
+id mp_btn_submit
 id mp_et_emergency_name
 id mp_et_emergency_phone
 id mp_et_verification_code
