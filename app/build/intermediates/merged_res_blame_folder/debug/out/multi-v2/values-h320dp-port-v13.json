@@ -4,7 +4,7 @@
             "outputFile": "com.example.wav2vecapp-mergeDebugResources-32:/values-h320dp-port-v13/values-h320dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\kdh55\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
+                    "source": "C:\\Users\\nick_kim\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-h320dp-port-v13\\values-h320dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
