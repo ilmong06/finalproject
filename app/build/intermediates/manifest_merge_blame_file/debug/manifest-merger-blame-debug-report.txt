@@ -48,7 +48,7 @@
 25-->[androidx.core:core:1.9.0] C:\Users\user\.gradle\caches\transforms-3\5d4bfdd9a03f397dd627483301e179a1\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 26
 27    <application
-27-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:15:5-45:19
+27-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:15:5-44:19
 28        android:allowBackup="true"
 28-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:17:9-35
 29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
