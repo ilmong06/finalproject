@@ -17,6 +17,8 @@ import subprocess
 import numpy as np
 import matplotlib.pyplot as plt
 import wave
+from g2pk import G2p
+g2p = G2p()
 
 # ✅ MatchboxNet 인코더 임포트
 from train_matchboxnet_protonet import MatchboxNetEncoder
@@ -99,7 +101,8 @@ def register_speaker():
 
 @app.route("/register_keyword", methods=["POST"])
 def register_keyword():
-    keyword = request.form.get("keyword")
+    raw_keyword = request.form.get("keyword")
+    keyword = g2p(raw_keyword).replace(" ", "")
     if not keyword or "file" not in request.files:
         return jsonify({"error": "키워드 또는 파일 없음"}), 400
 
@@ -223,7 +226,9 @@ def transcribe():
         with open("label_map.json", "r") as f:
             label_map = json.load(f)
 
+        # ✅ label_map 키워드들을 발음 기준으로 비교
         for keyword, vec_list in label_map.items():
+            phonetic_keyword = g2p(keyword).replace(" ", "")
             for emb in segment_embeddings:
                 emb = np.array(emb).flatten()
                 for ref_vec in vec_list:
@@ -265,7 +270,8 @@ def transcribe():
             transcript = " ".join([r.get("text", "") for r in results if r.get("text")])
 
         return jsonify({
-            "text": transcript.strip(),
+            "text": transcript.strip(),  # ✅ Vosk STT 결과
+            "vosk_stt": transcript.strip(),  # ✅ 명확히 표시용 추가
             "speaker_similarity": round(sim_sp, 4),
             "triggered_keyword": best_keyword,
             "keyword_similarity": round(sim_kw, 4),
