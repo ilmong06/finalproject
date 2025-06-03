@@ -3250,6 +3250,7 @@ id btnC
 id btnCheckServer
 id btnClose
 id btnDelete
+id btnDeleteSelected
 id btnEndDate
 id btnFinish
 id btnManageContacts
@@ -3321,6 +3322,8 @@ id default_activity_button
 id deletePopup
 id delete_popup_container
 id deltaRelative
+id denied_confirm
+id denied_text
 id dependency_ordering
 id design_bottom_sheet
 id design_menu_item_action_area
@@ -3351,6 +3354,7 @@ id easeInOut
 id easeOut
 id east
 id edge
+id editKeyword
 id edit_query
 id elastic
 id embed
@@ -3411,7 +3415,6 @@ id immediateStop
 id included
 id indeterminate
 id info
-id info_layout
 id invisible
 id inward
 id italic
@@ -3715,7 +3718,6 @@ id tvReportHistory
 id tvScript
 id tvTitle
 id tv_description
-id tv_hyperlink
 id tv_intro
 id tv_title
 id unchecked

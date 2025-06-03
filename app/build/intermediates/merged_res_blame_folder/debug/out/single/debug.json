@@ -28,6 +28,10 @@
         "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_server_model.xml"
     },
     {
+        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_keyword.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/layout/activity_keyword.xml"
+    },
+    {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable_rounded_gray.xml.flat",
         "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\drawable\\rounded_gray.xml"
     },
@@ -40,12 +44,12 @@
         "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\mipmap-xxxhdpi\\ic_launcher.webp"
     },
     {
-        "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_admin_appsetting.xml.flat",
-        "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_appsetting.xml"
-    },
-    {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable_rounded_white.xml.flat",
         "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\drawable\\rounded_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_admin_appsetting.xml.flat",
+        "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_appsetting.xml"
     },
     {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_voice_popup.xml.flat",
@@ -66,6 +70,10 @@
     {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_admin_parents.xml.flat",
         "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_parents.xml"
+    },
+    {
+        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_denied.xml.flat",
+        "source": "com.example.wav2vecapp-main-36:/layout/activity_denied.xml"
     },
     {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\drawable-mdpi_ic_launcher_foreground.png.flat",
@@ -138,10 +146,6 @@
     {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
-    },
-    {
-        "merged": "com.example.wav2vecapp-merged_res-34:/layout_activity_voice_popup.xml.flat",
-        "source": "com.example.wav2vecapp-main-36:/layout/activity_voice_popup.xml"
     },
     {
         "merged": "C:\\Users\\nick_kim\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_activity_denied.xml.flat",

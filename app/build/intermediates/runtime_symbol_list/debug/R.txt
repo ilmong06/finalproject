@@ -3249,6 +3249,7 @@ int id btnC 0x7f090070
 int id btnCheckServer 0x7f090071
 int id btnClose 0x7f090072
 int id btnDelete 0x7f090073
+int id btnDeleteSelected 0x7f090262
 int id btnEndDate 0x7f090074
 int id btnFinish 0x7f090075
 int id btnManageContacts 0x7f090076
@@ -3320,6 +3321,8 @@ int id default_activity_button 0x7f0900b7
 int id deletePopup 0x7f0900b8
 int id delete_popup_container 0x7f0900b9
 int id deltaRelative 0x7f0900ba
+int id denied_confirm 0x7f090263
+int id denied_text 0x7f090264
 int id dependency_ordering 0x7f0900bb
 int id design_bottom_sheet 0x7f0900bc
 int id design_menu_item_action_area 0x7f0900bd
@@ -3350,6 +3353,7 @@ int id easeInOut 0x7f0900d5
 int id easeOut 0x7f0900d6
 int id east 0x7f0900d7
 int id edge 0x7f0900d8
+int id editKeyword 0x7f090265
 int id edit_query 0x7f0900d9
 int id elastic 0x7f0900da
 int id embed 0x7f0900db
@@ -3410,7 +3414,6 @@ int id immediateStop 0x7f090111
 int id included 0x7f090112
 int id indeterminate 0x7f090113
 int id info 0x7f090114
-int id info_layout 0x7f090115
 int id invisible 0x7f090116
 int id inward 0x7f090117
 int id italic 0x7f090118
@@ -3714,7 +3717,6 @@ int id tvReportHistory 0x7f090241
 int id tvScript 0x7f090242
 int id tvTitle 0x7f090243
 int id tv_description 0x7f090244
-int id tv_hyperlink 0x7f090245
 int id tv_intro 0x7f090246
 int id tv_title 0x7f090247
 int id unchecked 0x7f090248

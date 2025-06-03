@@ -15,6 +15,7 @@
         android:background="@drawable/rounded_white"
         android:padding="16dp"
         android:elevation="8dp"
+        android:gravity="center_horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +23,7 @@
 
         <!-- 레이아웃 1: 문구 -->
         <TextView
-            android:id="@+id/tvDeletePrompt"
+            android:id="@+id/denied_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="입력하신 정보가 올바르지 않습니다"
@@ -35,13 +36,13 @@
 
         <!-- 레이아웃 2: 예 / 아니오 버튼 -->
         <Button
-            android:id="@+id/btnYes"
+            android:id="@+id/denied_confirm"
             style="@style/PrimaryButton"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center"
             android:text="확인"
             android:textAllCaps="false"
             android:textColor="@color/white" />
