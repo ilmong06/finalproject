@@ -1,19 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!-- 신고 내역 확인
-
-사용자의 신고 내역 출력해주는 화면
-1) 인덱스, 날짜, 사용된 키워드, 장소
-2)
-
--->
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:fitsSystemWindows="true">
 
+    <!-- 🧾 화면 타이틀 + 뒤로가기 버튼 -->
+    <LinearLayout
+        android:id="@+id/history_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/history_btnBack"
+            style="@style/CircleGrayButton"
+            android:layout_width="75dp"
+            android:layout_height="match_parent"
+            android:text="⬅️" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="신고 이력 조회"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
     <!-- 📅 날짜 범위 선택 -->
     <LinearLayout
@@ -22,15 +44,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/history_title"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="12dp">
 
         <Button
             android:id="@+id/btnStartDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/PrimaryButton"
             android:text="시작 날짜" />
 
         <TextView
@@ -43,6 +67,7 @@
             android:id="@+id/btnEndDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="@style/PrimaryButton"
             android:text="종료 날짜" />
     </LinearLayout>
 
@@ -66,6 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="검색"
+        style="@style/PrimaryButton"
         app:layout_constraintTop_toBottomOf="@id/etKeyword"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="12dp" />
@@ -80,5 +106,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:clipToPadding="false"
-        android:paddingBottom="8dp"/>
+        android:paddingBottom="8dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
