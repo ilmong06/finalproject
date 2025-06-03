@@ -14,6 +14,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
+ * activity_access_mypage, activity_denied
  * 개인 정보 수정하기 전, 입력한 정보가 맞는지 검사하는 화면.
  * 1) 이름과 전화번호 입력.
  * 2) DB와 비교

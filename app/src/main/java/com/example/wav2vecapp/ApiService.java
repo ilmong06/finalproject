@@ -39,6 +39,6 @@ public interface ApiService {
     Call<UserResponse> checkUser(@Query("name") String name, @Query("phone") String phone);
 
 
-
+    Call<KeywordListResponse> getKeywords();
 }
 

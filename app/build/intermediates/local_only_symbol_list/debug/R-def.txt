@@ -47,6 +47,7 @@ id btnC
 id btnCheckServer
 id btnClose
 id btnDelete
+id btnDeleteSelected
 id btnEndDate
 id btnFinish
 id btnManageContacts
@@ -72,8 +73,11 @@ id centerLayout
 id dateRangeContainer
 id deletePopup
 id delete_popup_container
+id denied_confirm
+id denied_text
 id dialog_container
 id drawerLayout
+id editKeyword
 id etKeyword
 id et_emergency_name
 id et_emergency_phone
@@ -82,7 +86,6 @@ id gender
 id headerBar
 id history_btnBack
 id history_title
-id info_layout
 id keyWord
 id keyword_input_layout
 id layout_emergency
@@ -136,7 +139,6 @@ id tvReportHistory
 id tvScript
 id tvTitle
 id tv_description
-id tv_hyperlink
 id tv_intro
 id tv_title
 id voice_register_layout
