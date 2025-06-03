@@ -178,7 +178,6 @@ def register_keyword():
 
 # ✅ STT + 화자 + 키워드 인증
 @app.route("/stt", methods=["POST"])
-@app.route("/stt", methods=["POST"])
 def transcribe():
     if "file" not in request.files:
         return jsonify({"error": "No file part"}), 400
@@ -207,57 +206,12 @@ def transcribe():
 
         sim_sp = float(np.dot(norm_vector, registered_vector))
         print(f"[DEBUG] 🔐 화자 유사도: {sim_sp:.4f}")
-        if sim_sp < 0.7:
-            print("[WARN] 화자 인증 실패지만 키워드 인증까지 진행합니다 (디버깅용)")
-        else:
-            print("[DEBUG] 화자 인증 통과")
 
-        # 🔍 키워드 인증
-        segments = segment_waveform(waveform)
-        segment_embeddings = []
-        for seg in segments:
-            with torch.no_grad():
-                seg = seg.unsqueeze(0)
-                emb = matchbox_model(seg).squeeze().mean(dim=-1).numpy()
-            emb = emb / np.linalg.norm(emb)
-            segment_embeddings.append(emb)
-
-        best_keyword = None
-        best_score = -1
-        if not os.path.exists("label_map.json"):
-            return jsonify({"error": "등록된 키워드 없음"}), 403
-
-        with open("label_map.json", "r") as f:
-            label_map = json.load(f)
-
-        for keyword, vec_list in label_map.items():
-            phonetic_keyword = g2p(keyword).replace(" ", "")
-            for emb in segment_embeddings:
-                emb = np.array(emb).flatten()
-                for ref_vec in vec_list:
-                    ref_vec = np.array(ref_vec).flatten()
-                    if emb.shape != ref_vec.shape:
-                        print(f"[WARN] shape mismatch: emb={emb.shape}, ref={ref_vec.shape}, skip")
-                        continue
-                    try:
-                        score = float(np.dot(emb, ref_vec))
-                    except Exception as e:
-                        print(f"[ERROR] dot failed: {e}")
-                        continue
-
-                    if score > best_score:
-                        best_score = score
-                        best_keyword = keyword
-
-        sim_kw = best_score
-        print(f"[DEBUG] 🔍 키워드 유사도: {sim_kw:.4f}")
-
-        # 🔁 STT 처리 (Google STT 사용)
+        # ✅ Google STT로 먼저 음성 인식
         try:
             client = speech.SpeechClient()
             with open(temp_filename, "rb") as audio_file:
                 content = audio_file.read()
-
             audio_g = speech.RecognitionAudio(content=content)
             config = speech.RecognitionConfig(
                 encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
@@ -271,12 +225,53 @@ def transcribe():
             transcript = ""
             print(f"[ERROR] Google STT 실패: {stt_err}")
 
+        # ✅ KoG2P로 텍스트를 발음 단위로 변환
+        phonetic_transcript = g2p(transcript).replace(" ", "")
+        print(f"[DEBUG] 🔤 변환된 발음: {phonetic_transcript}")
+
+        # ✅ label_map.json 기반 키워드 유사도 계산
+        if not os.path.exists("label_map.json"):
+            return jsonify({"error": "등록된 키워드 없음"}), 403
+
+        with open("label_map.json", "r") as f:
+            label_map = json.load(f)
+
+        best_keyword = None
+        best_score = -1
+        segment, sr = torchaudio.load(temp_filename)
+        segments = segment_waveform(segment)
+
+        segment_embeddings = []
+        for seg in segments:
+            with torch.no_grad():
+                seg = seg.unsqueeze(0)
+                emb = matchbox_model(seg).squeeze().mean(dim=-1).numpy()
+            emb = emb / np.linalg.norm(emb)
+            segment_embeddings.append(emb)
+
+        for keyword, vec_list in label_map.items():
+            phonetic_keyword = g2p(keyword).replace(" ", "")
+            if phonetic_keyword in phonetic_transcript:
+                # 가장 높은 유사도를 best_score로
+                for emb in segment_embeddings:
+                    for ref_vec in vec_list:
+                        ref_vec = np.array(ref_vec)
+                        if emb.shape != ref_vec.shape:
+                            continue
+                        score = float(np.dot(emb, ref_vec))
+                        if score > best_score:
+                            best_score = score
+                            best_keyword = keyword
+
+        sim_kw = best_score
+        print(f"[DEBUG] 🔍 키워드 유사도: {sim_kw:.4f}")
+
         if sim_kw < 0.7:
             return jsonify({
                 "error": "키워드 인증 실패",
                 "triggered_keyword": best_keyword,
                 "similarity": round(sim_kw, 4),
-                "text": transcript  # 인증 실패해도 음성 텍스트 출력
+                "text": transcript
             }), 403
 
         return jsonify({
