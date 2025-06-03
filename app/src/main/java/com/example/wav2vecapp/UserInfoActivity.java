@@ -68,15 +68,48 @@ public class UserInfoActivity extends AppCompatActivity {
      * 사용자 입력값을 수집하고 서버로 전송
      */
     private void saveUserData() {
+        // 0️⃣ 방어 코드 추가 시작
         // 1️⃣ 입력값 가져오기
         String name = etName.getText().toString().trim();
+        if (name.isEmpty()) {
+            Toast.makeText(this, "이름이 없습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String phone = etPhone.getText().toString().trim();
-        String language = spinnerLanguage.getSelectedItem().toString();
-        String birthRaw = etBirth.getText().toString().trim(); // yymmdd
-        String genderCode = etGender.getText().toString().trim(); // 1~4
+        if (phone.isEmpty()) {
+            Toast.makeText(this, "전화번호가 없습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String birthRaw = etBirth.getText().toString().trim();
+        if (birthRaw.isEmpty()) {
+            Toast.makeText(this, "생년월일이 없습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String genderCode = etGender.getText().toString().trim();
+        if (genderCode.isEmpty()) {
+            Toast.makeText(this, "성별 코드가 없습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String emergencyName = etEmergencyName.getText().toString().trim();
+        if (emergencyName.isEmpty()) {
+            Toast.makeText(this, "비상 연락처 이름이 없습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         String emergencyPhone = etEmergencyPhone.getText().toString().trim();
+        if (emergencyPhone.isEmpty()) {
+            Toast.makeText(this, "비상 연락처 전화번호가 없습니다. 다시 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String language = spinnerLanguage.getSelectedItem().toString();
         String relation = spinnerRelation.getSelectedItem().toString();
+        
+        
 
         // 2️⃣ 생년월일 변환 (yyyyMMdd)
         int yearPrefix = Integer.parseInt(birthRaw.substring(0, 2));
