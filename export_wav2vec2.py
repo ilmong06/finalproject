@@ -177,11 +177,11 @@ def register_keyword():
 
 
 # ✅ STT + 화자 + 키워드 인증
+# ✅ STT + 화자 + 키워드 텍스트 인증
 @app.route("/stt", methods=["POST"])
 def transcribe():
     if "file" not in request.files:
         return jsonify({"error": "No file part"}), 400
-
     file = request.files["file"]
     if file.filename == "":
         return jsonify({"error": "No selected file"}), 400
@@ -207,7 +207,7 @@ def transcribe():
         sim_sp = float(np.dot(norm_vector, registered_vector))
         print(f"[DEBUG] 🔐 화자 유사도: {sim_sp:.4f}")
 
-        # ✅ Google STT로 먼저 음성 인식
+        # ✅ Google STT로 텍스트 추출
         try:
             client = speech.SpeechClient()
             with open(temp_filename, "rb") as audio_file:
@@ -225,60 +225,43 @@ def transcribe():
             transcript = ""
             print(f"[ERROR] Google STT 실패: {stt_err}")
 
-        # ✅ KoG2P로 텍스트를 발음 단위로 변환
+        # ✅ 발음 변환
         phonetic_transcript = g2p(transcript).replace(" ", "")
         print(f"[DEBUG] 🔤 변환된 발음: {phonetic_transcript}")
 
-        # ✅ label_map.json 기반 키워드 유사도 계산
+        # ✅ 키워드 포함 여부만으로 판별
         if not os.path.exists("label_map.json"):
             return jsonify({"error": "등록된 키워드 없음"}), 403
 
         with open("label_map.json", "r") as f:
             label_map = json.load(f)
 
-        best_keyword = None
-        best_score = -1
-        segment, sr = torchaudio.load(temp_filename)
-        segments = segment_waveform(segment)
+        matched_keyword = None
+        sim_kw = -1  # 초기값
 
-        segment_embeddings = []
-        for seg in segments:
-            with torch.no_grad():
-                seg = seg.unsqueeze(0)
-                emb = matchbox_model(seg).squeeze().mean(dim=-1).numpy()
-            emb = emb / np.linalg.norm(emb)
-            segment_embeddings.append(emb)
-
-        for keyword, vec_list in label_map.items():
+        for keyword in label_map.keys():
             phonetic_keyword = g2p(keyword).replace(" ", "")
-            if phonetic_keyword in phonetic_transcript:
-                # 가장 높은 유사도를 best_score로
-                for emb in segment_embeddings:
-                    for ref_vec in vec_list:
-                        ref_vec = np.array(ref_vec)
-                        if emb.shape != ref_vec.shape:
-                            continue
-                        score = float(np.dot(emb, ref_vec))
-                        if score > best_score:
-                            best_score = score
-                            best_keyword = keyword
+            if keyword in transcript or phonetic_keyword in phonetic_transcript:
+                matched_keyword = keyword
+                sim_kw = 1.0  # 텍스트 일치 시 유사도는 1.0
+                break
 
-        sim_kw = best_score
         print(f"[DEBUG] 🔍 키워드 유사도: {sim_kw:.4f}")
 
-        if sim_kw < 0.7:
+
+        if not matched_keyword:
             return jsonify({
                 "error": "키워드 인증 실패",
-                "triggered_keyword": best_keyword,
-                "similarity": round(sim_kw, 4),
+                "triggered_keyword": None,
+                "similarity": sim_kw,
                 "text": transcript
             }), 403
 
         return jsonify({
             "text": transcript.strip(),
             "speaker_similarity": round(sim_sp, 4),
-            "triggered_keyword": best_keyword,
-            "keyword_similarity": round(sim_kw, 4),
+            "triggered_keyword": matched_keyword,
+            "keyword_similarity": sim_kw,
             "s_total": round(sim_sp + sim_kw, 4)
         })
 
