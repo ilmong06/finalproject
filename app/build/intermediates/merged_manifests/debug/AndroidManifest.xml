@@ -8,6 +8,7 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="34" />
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -39,6 +40,9 @@
         android:usesCleartextTraffic="true" >
         <activity android:name="com.example.wav2vecapp.KeywordActivity" />
         <activity android:name="com.example.wav2vecapp.VoiceRegisterActivity" />
+        <activity android:name="com.example.wav2vecapp.MyPageActivity" />
+        <activity android:name="com.example.wav2vecapp.AccessActivity" />
+        <activity android:name="com.example.wav2vecapp.ReportHistoryActivity" />
         <activity
             android:name="com.example.wav2vecapp.MainActivity"
             android:exported="true" >
