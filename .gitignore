@@ -2,6 +2,5 @@ secrets.properties
 # Ignore APKs
 *.apk
 
-*.apk
 google_stt_key.json
 /app/build/
