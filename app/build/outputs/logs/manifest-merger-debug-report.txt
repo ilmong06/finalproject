@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:2:1-47:12
-INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:2:1-47:12
+ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:2:1-46:12
+INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:2:1-46:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\user\.gradle\caches\transforms-3\05c4e2e8f18486d924ad0ad774dd7fc4\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\user\.gradle\caches\transforms-3\2e97661da66398154b1077e53502362d\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\user\.gradle\caches\transforms-3\c2c13d5790aa5dae2b010de510f3fc8e\transformed\jetified-appcompat-resources-1.6.1\AndroidManifest.xml:17:1-22:12
@@ -87,8 +87,8 @@ ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifes
 	android:name
 		ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:11:22-78
 application
-ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:15:5-45:19
-INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:15:5-45:19
+ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:15:5-44:19
+INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:15:5-44:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\user\.gradle\caches\transforms-3\05c4e2e8f18486d924ad0ad774dd7fc4\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\user\.gradle\caches\transforms-3\05c4e2e8f18486d924ad0ad774dd7fc4\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\user\.gradle\caches\transforms-3\2e97661da66398154b1077e53502362d\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
