@@ -79,7 +79,8 @@ with torch.no_grad():
             emb = model(mel).squeeze()
             vecs.append(emb)
         mean_vec = torch.stack(vecs).mean(dim=0)
-        keyword_embeddings[keyword] = (mean_vec / mean_vec.norm()).tolist()
+        vec = mean_vec / mean_vec.norm()
+        keyword_embeddings[keyword] = [vec.view(-1).tolist()]
 
 # 모델 저장
 torch.save({"model": model.state_dict()}, "fewshot_model.pt")
