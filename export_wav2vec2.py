@@ -137,7 +137,7 @@ def register_keyword():
                         seg = seg.unsqueeze(0)  # [1, 1, T]
                         emb = matchbox_model(seg).squeeze().mean(dim=-1).numpy()
                     emb = emb / np.linalg.norm(emb)  # ✅ 정규화
-                    vectors.append(emb.tolist())     # ✅ list[float] 형태로 저장
+                    vectors.append(np.array(emb).flatten().tolist())  # ✅ list[float] 형태로 저장
 
             print(f"[DEBUG] ✅ 생성된 벡터 수: {len(vectors)}")
 
@@ -228,11 +228,9 @@ def transcribe():
                 emb = np.array(emb).flatten()
                 for ref_vec in vec_list:
                     ref_vec = np.array(ref_vec).flatten()
-
                     if emb.shape != ref_vec.shape:
                         print(f"[WARN] shape mismatch: emb={emb.shape}, ref={ref_vec.shape}, skip")
                         continue
-
                     try:
                         score = float(np.dot(emb, ref_vec))
                     except Exception as e:
