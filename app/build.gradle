@@ -26,6 +26,9 @@ android {
 
         buildConfigField "String", "FLASK_BASE_URL", "\"${secrets['FLASK_BASE_URL']}\""
 
+        ndk {
+            abiFilters "armeabi-v7a", "arm64-v8a"
+        }
     }
 
     buildTypes {
