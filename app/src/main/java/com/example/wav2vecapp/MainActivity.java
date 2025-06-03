@@ -100,9 +100,13 @@ public class MainActivity extends AppCompatActivity {
         /*btnMoveKeywordPage.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, KeywordActivity.class);
             startActivity(intent);
+        });
+
+        // 👉 화자 등록 화면 이동
+        btnVoiceRegisterPage.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, VoiceRegisterActivity.class);
+            startActivity(intent);
         });*/
-
-
 
         ///햄버거 메뉴버튼
         menu.setOnClickListener(v -> {
@@ -138,14 +142,16 @@ public class MainActivity extends AppCompatActivity {
 
         ///마이크 on/off 화면
         micOn.setOnClickListener(view -> {
-            Intent intent = new Intent(MainActivity.this, VoiceRegisterActivity.class);
-            startActivity(intent);
+
         });
 
-
         /// 햄버거 메뉴 클릭 시 등장하는 컴포넌트의 이벤트
+
+
         tvReportHistory.setOnClickListener(v -> {
             // 신고 내역 화면으로 이동
+            Intent intent = new Intent(MainActivity.this, ReportHistoryActivity.class);
+            startActivity(intent);
         });
 
         tvNotice.setOnClickListener(v -> {
@@ -162,6 +168,8 @@ public class MainActivity extends AppCompatActivity {
 
         btnMyPage.setOnClickListener(v -> {
             // 마이페이지 이동
+            Intent intent = new Intent(MainActivity.this, AccessActivity.class);
+            startActivity(intent);
         });
 
         btnSettings.setOnClickListener(v -> {
