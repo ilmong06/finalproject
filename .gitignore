@@ -3,3 +3,4 @@ secrets.properties
 *.apk
 
 *.apk
+google_stt_key.json
