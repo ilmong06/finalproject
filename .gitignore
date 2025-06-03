@@ -4,3 +4,4 @@ secrets.properties
 
 *.apk
 google_stt_key.json
+/app/build/
