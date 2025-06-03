@@ -19,6 +19,9 @@ import matplotlib.pyplot as plt
 import wave
 from g2pk import G2p
 g2p = G2p()
+import os
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "google_stt_key.json"
+from google.cloud import speech
 
 # ✅ MatchboxNet 인코더 임포트
 from train_matchboxnet_protonet import MatchboxNetEncoder
@@ -175,6 +178,7 @@ def register_keyword():
 
 # ✅ STT + 화자 + 키워드 인증
 @app.route("/stt", methods=["POST"])
+@app.route("/stt", methods=["POST"])
 def transcribe():
     if "file" not in request.files:
         return jsonify({"error": "No file part"}), 400
@@ -226,7 +230,6 @@ def transcribe():
         with open("label_map.json", "r") as f:
             label_map = json.load(f)
 
-        # ✅ label_map 키워드들을 발음 기준으로 비교
         for keyword, vec_list in label_map.items():
             phonetic_keyword = g2p(keyword).replace(" ", "")
             for emb in segment_embeddings:
@@ -248,46 +251,36 @@ def transcribe():
 
         sim_kw = best_score
         print(f"[DEBUG] 🔍 키워드 유사도: {sim_kw:.4f}")
-        # 🔍 키워드 인증 실패 시에도 STT 결과 로그 출력
-        if sim_kw < 0.7:
-            transcript = ""
-            with wave.open(temp_filename, "rb") as wf:
-                rec = KaldiRecognizer(vosk_model, wf.getframerate())
-                results = []
-                while True:
-                    data = wf.readframes(4000)
-                    if len(data) == 0:
-                        break
-                    if rec.AcceptWaveform(data):
-                        results.append(json.loads(rec.Result()))
-                results.append(json.loads(rec.FinalResult()))
-                transcript = " ".join([r.get("text", "") for r in results if r.get("text")])
-            print(f"[DEBUG] 🗣️ Vosk STT 결과(인증 실패): {transcript}")
 
+        # 🔁 STT 처리 (Google STT 사용)
+        try:
+            client = speech.SpeechClient()
+            with open(temp_filename, "rb") as audio_file:
+                content = audio_file.read()
+
+            audio_g = speech.RecognitionAudio(content=content)
+            config = speech.RecognitionConfig(
+                encoding=speech.RecognitionConfig.AudioEncoding.LINEAR16,
+                sample_rate_hertz=16000,
+                language_code="ko-KR",
+            )
+            response = client.recognize(config=config, audio=audio_g)
+            transcript = " ".join(result.alternatives[0].transcript for result in response.results)
+            print(f"[DEBUG] 🗣️ Google STT 결과: {transcript}")
+        except Exception as stt_err:
+            transcript = ""
+            print(f"[ERROR] Google STT 실패: {stt_err}")
+
+        if sim_kw < 0.7:
             return jsonify({
                 "error": "키워드 인증 실패",
                 "triggered_keyword": best_keyword,
-                "similarity": round(sim_kw, 4)
+                "similarity": round(sim_kw, 4),
+                "text": transcript  # 인증 실패해도 음성 텍스트 출력
             }), 403
 
-
-        # ✅ Vosk STT
-        transcript = ""
-        with wave.open(temp_filename, "rb") as wf:
-            rec = KaldiRecognizer(vosk_model, wf.getframerate())
-            results = []
-            while True:
-                data = wf.readframes(4000)
-                if len(data) == 0:
-                    break
-                if rec.AcceptWaveform(data):
-                    results.append(json.loads(rec.Result()))
-            results.append(json.loads(rec.FinalResult()))
-            transcript = " ".join([r.get("text", "") for r in results if r.get("text")])
-        print(f"[DEBUG] 🗣️ Vosk STT 결과: {transcript}")  # ✅ 추가된 로그 출력
         return jsonify({
-            "text": transcript.strip(),  # ✅ Vosk STT 결과
-            "vosk_stt": transcript.strip(),  # ✅ 명확히 표시용 추가
+            "text": transcript.strip(),
             "speaker_similarity": round(sim_sp, 4),
             "triggered_keyword": best_keyword,
             "keyword_similarity": round(sim_kw, 4),
