@@ -248,12 +248,28 @@ def transcribe():
 
         sim_kw = best_score
         print(f"[DEBUG] 🔍 키워드 유사도: {sim_kw:.4f}")
+        # 🔍 키워드 인증 실패 시에도 STT 결과 로그 출력
         if sim_kw < 0.7:
+            transcript = ""
+            with wave.open(temp_filename, "rb") as wf:
+                rec = KaldiRecognizer(vosk_model, wf.getframerate())
+                results = []
+                while True:
+                    data = wf.readframes(4000)
+                    if len(data) == 0:
+                        break
+                    if rec.AcceptWaveform(data):
+                        results.append(json.loads(rec.Result()))
+                results.append(json.loads(rec.FinalResult()))
+                transcript = " ".join([r.get("text", "") for r in results if r.get("text")])
+            print(f"[DEBUG] 🗣️ Vosk STT 결과(인증 실패): {transcript}")
+
             return jsonify({
                 "error": "키워드 인증 실패",
                 "triggered_keyword": best_keyword,
                 "similarity": round(sim_kw, 4)
             }), 403
+
 
         # ✅ Vosk STT
         transcript = ""
@@ -268,7 +284,7 @@ def transcribe():
                     results.append(json.loads(rec.Result()))
             results.append(json.loads(rec.FinalResult()))
             transcript = " ".join([r.get("text", "") for r in results if r.get("text")])
-
+        print(f"[DEBUG] 🗣️ Vosk STT 결과: {transcript}")  # ✅ 추가된 로그 출력
         return jsonify({
             "text": transcript.strip(),  # ✅ Vosk STT 결과
             "vosk_stt": transcript.strip(),  # ✅ 명확히 표시용 추가
