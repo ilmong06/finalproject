@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -20,6 +21,7 @@ import androidx.core.content.ContextCompat;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -43,6 +45,8 @@ public class KeywordActivity extends AppCompatActivity {
     private EditText etKeyword;
     private Button btnAddKeyword, btnStartRecording, btnStopRecording, btnBack;
     private LinearLayout layoutKeywordList;
+    private Button delete, edit;
+    private boolean isEditMode = false;
 
     // 🔁 녹음 상태 변수
     private boolean isKeywordRegistering = false;
@@ -61,6 +65,8 @@ public class KeywordActivity extends AppCompatActivity {
         btnStartRecording = findViewById(R.id.btnStartRecording);
         btnStopRecording = findViewById(R.id.btnStopRecording);
         layoutKeywordList = findViewById(R.id.layout_keyword_list);
+        delete = findViewById(R.id.btnDeleteSelected);
+        edit = findViewById(R.id.editKeyword);
 
         // 🎙️ 녹음 파일 저장 경로 설정
         filePath = getExternalFilesDir(null).getAbsolutePath() + "/keyword_recorded.wav";
@@ -86,8 +92,18 @@ public class KeywordActivity extends AppCompatActivity {
                 return;
             }
             addKeywordToList(currentKeyword); // 동적 리스트 추가
-            startKeywordRegistration();       // 바로 녹음 시작
+            //startKeywordRegistration();       // 바로 녹음 시작
         });
+
+        /// 키워드 편집
+        edit.setOnClickListener(v->{
+            isEditMode = !isEditMode;
+            edit.setText(isEditMode ? "완료" : "편집");
+            delete.setVisibility(isEditMode?View.VISIBLE:View.GONE);
+            checkBoxVis(isEditMode);
+        });
+
+        delete.setOnClickListener(v->deleteKeywords());
 
         // 🔐 마이크 및 저장소 권한 요청
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
@@ -98,6 +114,23 @@ public class KeywordActivity extends AppCompatActivity {
             }, 100);
         }
     }
+
+
+    /// checkBox Visibility
+    private void checkBoxVis(boolean visible) {
+        for (int i = 0; i < layoutKeywordList.getChildCount(); i++) {
+            View view = layoutKeywordList.getChildAt(i);
+            if (view instanceof LinearLayout l) {
+                for (int j = 0; j < l.getChildCount(); j++) {
+                    View child = l.getChildAt(j);
+                    if (child instanceof CheckBox) {
+                        child.setVisibility(visible ? View.VISIBLE : View.GONE);
+                    }
+                }
+            }
+        }
+    }
+
 
     // 🎙️ 실제 녹음 시작 처리
     private void startRecording() {
@@ -136,6 +169,32 @@ public class KeywordActivity extends AppCompatActivity {
             Toast.makeText(this, "❌ 녹음 중지 실패", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void loadKeywordsFromDB() {
+        Retrofit retrofit = getRetrofitClient();
+        ApiService apiService = retrofit.create(ApiService.class);
+
+        Call<KeywordListResponse> call = apiService.getKeywords();
+        call.enqueue(new Callback<KeywordListResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<KeywordListResponse> call, @NonNull Response<KeywordListResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<String> keywords = response.body().getKeywords();
+                    for (String keyword : keywords) {
+                        addKeywordToList(keyword);
+                    }
+                } else {
+                    Toast.makeText(KeywordActivity.this, "❌ 키워드 목록을 불러오지 못했습니다.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<KeywordListResponse> call, @NonNull Throwable t) {
+                Toast.makeText(KeywordActivity.this, "⚠️ 서버 연결 실패: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     // 🚀 서버에 오디오 파일 + 키워드 텍스트 전송
     private void sendAudioToKeywordRegister(String filePath, String keyword) {
@@ -238,6 +297,8 @@ public class KeywordActivity extends AppCompatActivity {
                 7
         ));
         keywordText.setText(keyword);
+        keywordText.setTextSize(20); // 16sp 크기 설정
+
 
         View spacer = new View(this);
         spacer.setLayoutParams(new LinearLayout.LayoutParams(
@@ -260,4 +321,20 @@ public class KeywordActivity extends AppCompatActivity {
 
         layoutKeywordList.addView(newItemLayout);
     }
+
+    /// 키워드 삭제
+    private void deleteKeywords() {
+        for (int i = layoutKeywordList.getChildCount() - 1; i >= 0; i--) {
+            View view = layoutKeywordList.getChildAt(i);
+            if (view instanceof LinearLayout row) {
+                CheckBox checkBox = (CheckBox) row.getChildAt(2); // CheckBox는 3번째
+                if (checkBox.isChecked()) {
+                    layoutKeywordList.removeViewAt(i);
+                    // TODO: 필요 시 서버에도 삭제 요청
+                }
+            }
+        }
+        //Toast.makeText(this, "키워드 삭제 완료", Toast.LENGTH_SHORT).show();
+    }
+
 }
