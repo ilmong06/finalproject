@@ -105,78 +105,26 @@ def register_speaker():
 @app.route("/register_keyword", methods=["POST"])
 def register_keyword():
     raw_keyword = request.form.get("keyword")
-    keyword = g2p(raw_keyword).replace(" ", "")
-    if not keyword or "file" not in request.files:
-        return jsonify({"error": "키워드 또는 파일 없음"}), 400
+    if not raw_keyword:
+        return jsonify({"error": "키워드 없음"}), 400
 
-    save_dir = Path("data/custom") / keyword
-    save_dir.mkdir(parents=True, exist_ok=True)
+    # ✅ 등록된 키워드를 파일로 저장 (예: keywords.txt)
+    keyword_file = "keywords.txt"
+    keywords = []
 
-    existing = list(save_dir.glob("*.wav"))
-    index = len(existing) + 1
-    save_path = save_dir / f"record_{index}.wav"
+    if os.path.exists(keyword_file):
+        with open(keyword_file, "r", encoding="utf-8") as f:
+            keywords = f.read().splitlines()
 
-    try:
-        file = request.files["file"]
-        file.save(str(save_path))
-        audio = AudioSegment.from_file(str(save_path))
-        audio = audio.set_frame_rate(16000).set_channels(1)
-        audio.export(str(save_path), format="wav")
-
-        print(f"[DEBUG] ▶️ record_{index}.wav 저장 완료")
-
-        if index == 6:
-            vectors = []
-            for i in range(1, 7):
-                wav_path = save_dir / f"record_{i}.wav"
-                waveform, sr = torchaudio.load(wav_path)
-                segments = segment_waveform(waveform)
-
-                print(f"[DEBUG] 🔍 record_{i}.wav 세그먼트 수: {len(segments)}")
-
-                if len(segments) == 0:
-                    print(f"[WARN] ❌ 세그먼트 없음 → {wav_path}는 무시됨")
-                    continue
-
-                for seg in segments:
-                    with torch.no_grad():
-                        seg = seg.unsqueeze(0)  # [1, 1, T]
-                        emb = matchbox_model(seg).squeeze().mean(dim=-1).numpy()
-                    emb = emb / np.linalg.norm(emb)  # ✅ 정규화
-                    vectors.append(np.array(emb).flatten().tolist())  # ✅ list[float] 형태로 저장
-
-            print(f"[DEBUG] ✅ 생성된 벡터 수: {len(vectors)}")
-
-            if len(vectors) == 0:
-                return jsonify({"error": "❌ 키워드 벡터 생성 실패: 세그먼트 없음"}), 500
-
-            # ✅ label_map.json에 저장
-            label_map_path = "label_map.json"
-            if os.path.exists(label_map_path):
-                with open(label_map_path, "r") as f:
-                    label_map = json.load(f)
-            else:
-                label_map = {}
-
-            # 🔁 최종 저장
-            label_map[keyword] = [v if isinstance(v, list) else v.tolist() for v in vectors]
-
-            with open(label_map_path, "w") as f:
-                json.dump(label_map, f, indent=2)
-
-            print(f"[DEBUG] 💾 label_map.json 저장 완료: 키워드={keyword}, 벡터={len(vectors)}")
-
-            subprocess.run(["python", "train_fewshot.py"])
-            return jsonify({"message": f"{keyword} 키워드 등록 완료 ✅"}), 200
-        else:
-            return jsonify({"message": f"{keyword} 키워드 {index}/6 녹음 저장 완료"}), 200
-
-    except Exception as e:
-        traceback.print_exc()
-        return jsonify({"error": str(e)}), 500
+    if raw_keyword not in keywords:
+        keywords.append(raw_keyword)
+        keywords.append(g2p(raw_keyword).replace(" ", ""))  # 발음형도 같이 저장
+        with open(keyword_file, "w", encoding="utf-8") as f:
+            f.write("\n".join(keywords))
 
 
-# ✅ STT + 화자 + 키워드 인증
+    return jsonify({"message": f"{raw_keyword} 키워드 등록 완료 ✅"}), 200
+
 # ✅ STT + 화자 + 키워드 텍스트 인증
 @app.route("/stt", methods=["POST"])
 def transcribe():
@@ -230,16 +178,14 @@ def transcribe():
         print(f"[DEBUG] 🔤 변환된 발음: {phonetic_transcript}")
 
         # ✅ 키워드 포함 여부만으로 판별
-        if not os.path.exists("label_map.json"):
+        keyword_file = "keywords.txt"
+        if not os.path.exists(keyword_file):
             return jsonify({"error": "등록된 키워드 없음"}), 403
 
-        with open("label_map.json", "r") as f:
-            label_map = json.load(f)
+        with open(keyword_file, "r", encoding="utf-8") as f:
+            keyword_list = f.read().splitlines()
 
-        matched_keyword = None
-        sim_kw = -1  # 초기값
-
-        for keyword in label_map.keys():
+        for keyword in keyword_list:
             original_keyword = keyword
             g2p_keyword = g2p(keyword).replace(" ", "")
 
@@ -267,6 +213,7 @@ def transcribe():
             "text": transcript.strip(),
             "speaker_similarity": round(sim_sp, 4),
             "triggered_keyword": matched_keyword,
+            "triggered_keyword_g2p": g2p(matched_keyword).replace(" ", ""),
             "keyword_similarity": sim_kw,
             "s_total": round(sim_sp + sim_kw, 4)
         })
