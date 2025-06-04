@@ -3264,8 +3264,6 @@ id btnRetry
 id btnSearch
 id btnSettings
 id btnStartDate
-id btnStartRecording
-id btnStopRecording
 id btnViewReports
 id btnViewStatistics
 id btnYes
@@ -3579,7 +3577,6 @@ id progress_horizontal
 id radio
 id ratio
 id recordButtons
-id record_controls
 id rectangles
 id recyclerViewReports
 id registerButton
