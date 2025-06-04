@@ -240,11 +240,17 @@ def transcribe():
         sim_kw = -1  # 초기값
 
         for keyword in label_map.keys():
-            phonetic_keyword = g2p(keyword).replace(" ", "")
-            if keyword in transcript or phonetic_keyword in phonetic_transcript:
-                matched_keyword = keyword
-                sim_kw = 1.0  # 텍스트 일치 시 유사도는 1.0
+            original_keyword = keyword
+            g2p_keyword = g2p(keyword).replace(" ", "")
+
+            if (original_keyword in transcript or
+                g2p_keyword in transcript.replace(" ", "") or
+                original_keyword in phonetic_transcript or
+                g2p_keyword in phonetic_transcript):
+                matched_keyword = original_keyword
+                sim_kw = 1.0
                 break
+
 
         print(f"[DEBUG] 🔍 키워드 유사도: {sim_kw:.4f}")
 
