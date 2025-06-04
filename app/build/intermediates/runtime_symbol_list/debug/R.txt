@@ -3263,8 +3263,6 @@ int id btnRetry 0x7f09007e
 int id btnSearch 0x7f09007f
 int id btnSettings 0x7f090080
 int id btnStartDate 0x7f090081
-int id btnStartRecording 0x7f090082
-int id btnStopRecording 0x7f090083
 int id btnViewReports 0x7f090084
 int id btnViewStatistics 0x7f090085
 int id btnYes 0x7f090086
@@ -3578,7 +3576,6 @@ int id progress_horizontal 0x7f0901b9
 int id radio 0x7f0901ba
 int id ratio 0x7f0901bb
 int id recordButtons 0x7f0901bc
-int id record_controls 0x7f0901bd
 int id rectangles 0x7f0901be
 int id recyclerViewReports 0x7f0901bf
 int id registerButton 0x7f0901c0

@@ -84,35 +84,6 @@
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 
-        <!-- 🎙️ 녹음 컨트롤 -->
-        <LinearLayout
-            android:id="@+id/record_controls"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/keyword_input_layout"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnStartRecording"
-                style="@style/PrimaryButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="🎙️ 녹음 시작"
-                android:layout_marginEnd="12dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnStopRecording"
-                style="@style/PrimaryButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="⏹️ 중지"
-                android:enabled="false" />
-        </LinearLayout>
-
         <!-- ✅ 키워드 목록 -->
         <LinearLayout
             android:id="@+id/layout_keyword_list"
@@ -120,7 +91,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@id/record_controls"
+            app:layout_constraintTop_toBottomOf="@id/keyword_input_layout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
 

@@ -61,8 +61,6 @@ id btnRetry
 id btnSearch
 id btnSettings
 id btnStartDate
-id btnStartRecording
-id btnStopRecording
 id btnViewReports
 id btnViewStatistics
 id btnYes
@@ -116,7 +114,6 @@ id phone_text_input
 id plain_text_input
 id popupCard
 id recordButtons
-id record_controls
 id recyclerViewReports
 id registerButton
 id right_drawer

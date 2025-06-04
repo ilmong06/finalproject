@@ -76,12 +76,12 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-pngs-30:\\drawable-ldpi\\ic_launcher_foreground.png"
     },
     {
-        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_admin_server_model.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_server_model.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\xml_data_extraction_rules.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\layout_admin_server_model.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-main-36:\\layout\\admin_server_model.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.5\\com.example.wav2vecapp-merged_res-34:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",

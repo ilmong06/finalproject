@@ -43,7 +43,7 @@ public class KeywordActivity extends AppCompatActivity {
 
     // 🔧 UI 컴포넌트
     private EditText etKeyword;
-    private Button btnAddKeyword, btnStartRecording, btnStopRecording, btnBack;
+    private Button btnAddKeyword, btnBack;
     private LinearLayout layoutKeywordList;
     private Button delete, edit;
     private boolean isEditMode = false;
@@ -62,8 +62,6 @@ public class KeywordActivity extends AppCompatActivity {
         etKeyword = findViewById(R.id.etKeyword);
         btnAddKeyword = findViewById(R.id.btnAddKeyword);
         btnBack = findViewById(R.id.btnBack);
-        btnStartRecording = findViewById(R.id.btnStartRecording);
-        btnStopRecording = findViewById(R.id.btnStopRecording);
         layoutKeywordList = findViewById(R.id.layout_keyword_list);
         delete = findViewById(R.id.btnDeleteSelected);
         edit = findViewById(R.id.editKeyword);
@@ -74,15 +72,6 @@ public class KeywordActivity extends AppCompatActivity {
         // 🔙 뒤로가기 버튼
         btnBack.setOnClickListener(v -> finish());
 
-        // ▶️ 키워드 녹음 시작 버튼
-        btnStartRecording.setOnClickListener(v -> startKeywordRegistration());
-
-        // ⏹️ 키워드 녹음 중지 버튼
-        btnStopRecording.setOnClickListener(v -> {
-            stopRecording();
-            btnStartRecording.setEnabled(true);
-            btnStopRecording.setEnabled(false);
-        });
 
         // ➕ 키워드 추가 및 녹음 시작
         btnAddKeyword.setOnClickListener(v -> {
@@ -233,8 +222,6 @@ public class KeywordActivity extends AppCompatActivity {
                 if (registerCount < 6) {
                     Toast.makeText(this, "🎤 " + (registerCount + 1) + "/6 회차 녹음 시작", Toast.LENGTH_SHORT).show();
                     startRecording();
-                    btnStartRecording.setEnabled(false);
-                    btnStopRecording.setEnabled(true);
                 } else {
                     Toast.makeText(this, "✅ 키워드 6회 등록 완료!", Toast.LENGTH_LONG).show();
                     isKeywordRegistering = false;
@@ -276,8 +263,6 @@ public class KeywordActivity extends AppCompatActivity {
         registerCount = 0;
         Toast.makeText(this, "🔑 키워드 '" + currentKeyword + "' 등록 시작 (1/6)", Toast.LENGTH_SHORT).show();
         startRecording();
-        btnStartRecording.setEnabled(false);
-        btnStopRecording.setEnabled(true);
     }
 
     // ✅ 키워드 리스트 UI에 추가
