@@ -25,13 +25,19 @@ def generate_token(uuid):
 def save_user_info():
     data = request.get_json()
 
+    # UserInfoActivity.java에서 오는 key에 맞춰 파싱
     name = data.get('name')
     phnum = data.get('phnum')
-    birthdate = data.get('birthdate')  # 형식: "20001123"
-    gender_code = data.get('gender')   # 형식: "1", "2", "3", "4"
-    em_name = data.get('emergency_name')
-    em_phnum = data.get('emergency_phnum')
-    em_parent = data.get('emergency_relation')
+    birthdate = data.get('fullBirth')  # yyyyMMdd
+    gender_text = data.get('gender')   # "남자", "여자", "기타"
+    em_name = data.get('emergencyName')
+    em_phnum = data.get('emergencyPhone')
+    em_parent = data.get('relation')
+    # language는 무시
+
+    # gender 텍스트를 코드로 변환
+    gender_map = {"남자": "1", "여자": "2"}
+    gender_code = gender_map.get(gender_text, "3")  # 기타는 3
 
     # 필수 값 확인
     if not all([name, phnum, birthdate, gender_code, em_name, em_phnum, em_parent]):
@@ -61,7 +67,6 @@ def save_user_info():
 
         connection.commit()
         
-        
         # ✅ 토큰 발행
         token = generate_token(user_uuid)
         if isinstance(token,bytes):
@@ -72,8 +77,6 @@ def save_user_info():
             "uuid": user_uuid,
             "token":token}), 201
     
-        
-
     except Exception as e:
         connection.rollback()
         return jsonify({"error": f"❌ DB 오류: {str(e)}"}), 500
