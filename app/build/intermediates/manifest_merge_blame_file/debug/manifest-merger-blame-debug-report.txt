@@ -89,8 +89,8 @@
 45-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:30:19-56
 46        <activity
 46-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:31:9-38:20
-47            android:name="com.example.wav2vecapp.MainActivity"
-47-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:32:13-41
+47            android:name="com.example.wav2vecapp.UserInfoActivity"
+47-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:32:13-45
 48            android:exported="true" >
 48-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:33:13-36
 49            <intent-filter>
@@ -108,9 +108,9 @@
 55-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:39:9-42:20
 55-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:40:13-41
 56        </activity>
-57        <activity android:name="com.example.wav2vecapp.UserInfoActivity" />
-57-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:43:9-53
-57-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:43:19-51
+57        <activity android:name="com.example.wav2vecapp.MainActivity" />
+57-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:43:9-49
+57-->C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:43:19-47
 58        <activity
 58-->[com.google.android.gms:play-services-base:18.1.0] C:\Users\user\.gradle\caches\transforms-3\3e9243882c7ea0050e8dcf8e39a882d6\transformed\jetified-play-services-base-18.1.0\AndroidManifest.xml:20:9-22:45
 59            android:name="com.google.android.gms.common.api.GoogleApiActivity"

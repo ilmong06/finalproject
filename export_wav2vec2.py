@@ -1,6 +1,7 @@
 import os
 os.environ["SPEECHBRAIN_LOCAL_FILE_STRATEGY"] = "copy"
-
+import pymysql
+from datetime import datetime
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from speechbrain.pretrained import SpeakerRecognition
@@ -23,6 +24,15 @@ import os
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "google_stt_key.json"
 from google.cloud import speech
 
+def get_connection():
+    return pymysql.connect(
+        host="localhost",
+        user="root",
+        password="",  # 비밀번호 없는 경우
+        database="endproject",
+        charset="utf8mb4",
+        cursorclass=pymysql.cursors.DictCursor
+    )
 # ✅ MatchboxNet 인코더 임포트
 from train_matchboxnet_protonet import MatchboxNetEncoder
 
@@ -105,13 +115,15 @@ def register_speaker():
 @app.route("/register_keyword", methods=["POST"])
 def register_keyword():
     raw_keyword = request.form.get("keyword")
-    if not raw_keyword:
-        return jsonify({"error": "키워드 없음"}), 400
+    uuid_value = request.form.get("uuid")
+    order_value = request.form.get("order")
+
+    if not raw_keyword or not uuid_value or not order_value:
+        return jsonify({"error": "키워드, UUID, 순번 누락"}), 400
 
     # ✅ 등록된 키워드를 파일로 저장 (예: keywords.txt)
     keyword_file = "keywords.txt"
     keywords = []
-
     if os.path.exists(keyword_file):
         with open(keyword_file, "r", encoding="utf-8") as f:
             keywords = f.read().splitlines()
@@ -122,6 +134,20 @@ def register_keyword():
         with open(keyword_file, "w", encoding="utf-8") as f:
             f.write("\n".join(keywords))
 
+    # ✅ MySQL DB에 저장
+    try:
+        conn = get_connection()
+        with conn.cursor() as cursor:
+            sql = """
+                INSERT INTO keyword (uuid, keywd_text, keywd_order, add_date)
+                VALUES (%s, %s, %s, %s)
+            """
+            cursor.execute(sql, (uuid_value, raw_keyword, int(order_value), datetime.now()))
+        conn.commit()
+    except Exception as e:
+        return jsonify({"error": f"MySQL 저장 실패: {str(e)}"}), 500
+    finally:
+        conn.close()
 
     return jsonify({"message": f"{raw_keyword} 키워드 등록 완료 ✅"}), 200
 

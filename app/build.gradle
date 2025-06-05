@@ -25,7 +25,7 @@ android {
         // 🔑 BuildConfig로 서버 주소 주입
 
         buildConfigField "String", "FLASK_BASE_URL", "\"${secrets['FLASK_BASE_URL']}\""
-
+        buildConfigField "String", "BACKEND_BASE_URL", "\"${secrets['BACKEND_BASE_URL']}\""
         ndk {
             abiFilters "armeabi-v7a", "arm64-v8a"
         }

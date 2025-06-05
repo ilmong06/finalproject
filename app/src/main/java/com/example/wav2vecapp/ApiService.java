@@ -25,7 +25,11 @@ public interface ApiService {
 
     @Multipart
     @POST("/api/register_keyword")
-    Call<ResponseBody> registerKeyword(@Part MultipartBody.Part file, @Part("keyword") RequestBody keyword);
+    Call<ResponseBody> registerKeyword(
+            @Part("keyword") RequestBody keyword,
+            @Part("uuid") RequestBody uuid,
+            @Part("order") RequestBody order
+    );
 
     @Multipart
     @POST("/api/register_speaker")

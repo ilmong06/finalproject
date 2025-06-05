@@ -1,9 +1,11 @@
 package com.example.wav2vecapp;
 
 import android.Manifest;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -37,28 +39,26 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class KeywordActivity extends AppCompatActivity {
 
-    // 🎙️ 녹음 관련 변수
-    private MediaRecorder recorder;
-    private String filePath;
-
-    // 🔧 UI 컴포넌트
     private EditText etKeyword;
-    private Button btnAddKeyword, btnBack;
+    private Button btnAddKeyword, btnBack, delete, edit;
     private LinearLayout layoutKeywordList;
-    private Button delete, edit;
     private boolean isEditMode = false;
 
-    // 🔁 녹음 상태 변수
+    private MediaRecorder recorder;
+    private String filePath;
     private boolean isKeywordRegistering = false;
     private int registerCount = 0;
     private String currentKeyword = "";
+
+    private SharedPreferences sharedPreferences;
+    private String uuid;
+    private int keywordOrder = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_keyword);
 
-        // 🔗 UI 요소 연결
         etKeyword = findViewById(R.id.etKeyword);
         btnAddKeyword = findViewById(R.id.btnAddKeyword);
         btnBack = findViewById(R.id.btnBack);
@@ -66,35 +66,31 @@ public class KeywordActivity extends AppCompatActivity {
         delete = findViewById(R.id.btnDeleteSelected);
         edit = findViewById(R.id.editKeyword);
 
-        // 🎙️ 녹음 파일 저장 경로 설정
         filePath = getExternalFilesDir(null).getAbsolutePath() + "/keyword_recorded.wav";
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        uuid = sharedPreferences.getString("uuid", "");
 
-        // 🔙 뒤로가기 버튼
         btnBack.setOnClickListener(v -> finish());
 
-
-        // ➕ 키워드 추가 및 녹음 시작
         btnAddKeyword.setOnClickListener(v -> {
             currentKeyword = etKeyword.getText().toString().trim();
             if (currentKeyword.isEmpty()) {
                 Toast.makeText(this, "❗ 키워드를 입력하세요.", Toast.LENGTH_SHORT).show();
                 return;
             }
-            addKeywordToList(currentKeyword); // 동적 리스트 추가
-            //startKeywordRegistration();       // 바로 녹음 시작
+            addKeywordToList(currentKeyword);
+            startKeywordRegistration();
         });
 
-        /// 키워드 편집
-        edit.setOnClickListener(v->{
+        edit.setOnClickListener(v -> {
             isEditMode = !isEditMode;
             edit.setText(isEditMode ? "완료" : "편집");
-            delete.setVisibility(isEditMode?View.VISIBLE:View.GONE);
+            delete.setVisibility(isEditMode ? View.VISIBLE : View.GONE);
             checkBoxVis(isEditMode);
         });
 
-        delete.setOnClickListener(v->deleteKeywords());
+        delete.setOnClickListener(v -> deleteKeywords());
 
-        // 🔐 마이크 및 저장소 권한 요청
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
                 ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{
@@ -104,8 +100,6 @@ public class KeywordActivity extends AppCompatActivity {
         }
     }
 
-
-    /// checkBox Visibility
     private void checkBoxVis(boolean visible) {
         for (int i = 0; i < layoutKeywordList.getChildCount(); i++) {
             View view = layoutKeywordList.getChildAt(i);
@@ -120,8 +114,6 @@ public class KeywordActivity extends AppCompatActivity {
         }
     }
 
-
-    // 🎙️ 실제 녹음 시작 처리
     private void startRecording() {
         try {
             recorder = new MediaRecorder();
@@ -132,7 +124,6 @@ public class KeywordActivity extends AppCompatActivity {
 
             recorder.prepare();
             recorder.start();
-
             Toast.makeText(this, "🎙️ 녹음 중...", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -140,7 +131,6 @@ public class KeywordActivity extends AppCompatActivity {
         }
     }
 
-    // ⏹️ 녹음 종료 및 서버 전송
     private void stopRecording() {
         try {
             recorder.stop();
@@ -150,7 +140,7 @@ public class KeywordActivity extends AppCompatActivity {
             Toast.makeText(this, "🎧 녹음 완료", Toast.LENGTH_SHORT).show();
 
             if (isKeywordRegistering) {
-                sendAudioToKeywordRegister(filePath, currentKeyword);
+                sendAudioToKeywordRegister(filePath, currentKeyword, keywordOrder);
             }
 
         } catch (Exception e) {
@@ -159,113 +149,68 @@ public class KeywordActivity extends AppCompatActivity {
         }
     }
 
-    private void loadKeywordsFromDB() {
-        Retrofit retrofit = getRetrofitClient();
-        ApiService apiService = retrofit.create(ApiService.class);
-
-        Call<KeywordListResponse> call = apiService.getKeywords();
-        call.enqueue(new Callback<KeywordListResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<KeywordListResponse> call, @NonNull Response<KeywordListResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    List<String> keywords = response.body().getKeywords();
-                    for (String keyword : keywords) {
-                        addKeywordToList(keyword);
-                    }
-                } else {
-                    Toast.makeText(KeywordActivity.this, "❌ 키워드 목록을 불러오지 못했습니다.", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<KeywordListResponse> call, @NonNull Throwable t) {
-                Toast.makeText(KeywordActivity.this, "⚠️ 서버 연결 실패: " + t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void startKeywordRegistration() {
+        isKeywordRegistering = true;
+        registerCount = 0;
+        keywordOrder++;
+        Toast.makeText(this, "🔑 키워드 등록 시작 (1/6)", Toast.LENGTH_SHORT).show();
+        startRecording();
     }
 
-
-    // 🚀 서버에 오디오 파일 + 키워드 텍스트 전송
-    private void sendAudioToKeywordRegister(String filePath, String keyword) {
+    private void sendAudioToKeywordRegister(String filePath, String keyword, int order) {
         File file = new File(filePath);
         RequestBody reqFile = RequestBody.create(MediaType.parse("audio/wav"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), reqFile);
         RequestBody keywordBody = RequestBody.create(MediaType.parse("text/plain"), keyword);
+        RequestBody uuidBody = RequestBody.create(MediaType.parse("text/plain"), uuid);
+        RequestBody orderBody = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(order));
 
         Retrofit retrofit = getRetrofitClient();
         ApiService apiService = retrofit.create(ApiService.class);
 
-        Call<ResponseBody> call = apiService.registerKeyword(body, keywordBody);
-        call.enqueue(new Callback<ResponseBody>() {
+        Call<ResponseBody> call = apiService.registerKeyword(keywordBody, uuidBody, orderBody);
+        call.enqueue(new Callback<>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                handleKeywordRegistrationResponse(response);
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        JSONObject json = new JSONObject(response.body().string());
+                        Toast.makeText(KeywordActivity.this, "✅ " + json.getString("message"), Toast.LENGTH_SHORT).show();
+                        registerCount++;
+                        if (registerCount < 6) {
+                            startRecording();
+                        } else {
+                            isKeywordRegistering = false;
+                            registerCount = 0;
+                            Toast.makeText(KeywordActivity.this, "🔚 6회 등록 완료", Toast.LENGTH_LONG).show();
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Toast.makeText(KeywordActivity.this, "❌ 등록 실패", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Toast.makeText(KeywordActivity.this, "🚫 키워드 등록 실패: " + t.getMessage(), Toast.LENGTH_SHORT).show();
+            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
+                Toast.makeText(KeywordActivity.this, "🚫 오류: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    // ✅ 서버 응답 처리 (6회 완료 시 종료)
-    private void handleKeywordRegistrationResponse(Response<ResponseBody> response) {
-        if (response.isSuccessful()) {
-            try {
-                String responseBody = response.body().string();
-                String msg = new JSONObject(responseBody).getString("message");
-
-                Toast.makeText(this, "✅ " + msg, Toast.LENGTH_SHORT).show();
-
-                registerCount++;
-                if (registerCount < 6) {
-                    Toast.makeText(this, "🎤 " + (registerCount + 1) + "/6 회차 녹음 시작", Toast.LENGTH_SHORT).show();
-                    startRecording();
-                } else {
-                    Toast.makeText(this, "✅ 키워드 6회 등록 완료!", Toast.LENGTH_LONG).show();
-                    isKeywordRegistering = false;
-                    registerCount = 0;
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-                Toast.makeText(this, "⚠️ 응답 파싱 오류", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(this, "❌ 서버 오류", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    // 🔧 Retrofit 설정
     private Retrofit getRetrofitClient() {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(logging)
-                .build();
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(logging).build();
 
         return new Retrofit.Builder()
-                .baseUrl(BuildConfig.FLASK_BASE_URL)
+                .baseUrl(BuildConfig.BACKEND_BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
-    // 🟡 키워드 등록 시작 흐름
-    private void startKeywordRegistration() {
-        currentKeyword = etKeyword.getText().toString().trim();
-        if (currentKeyword.isEmpty()) {
-            Toast.makeText(this, "❗ 키워드를 입력하세요.", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        isKeywordRegistering = true;
-        registerCount = 0;
-        Toast.makeText(this, "🔑 키워드 '" + currentKeyword + "' 등록 시작 (1/6)", Toast.LENGTH_SHORT).show();
-        startRecording();
-    }
-
-    // ✅ 키워드 리스트 UI에 추가
     private void addKeywordToList(String keyword) {
         LinearLayout newItemLayout = new LinearLayout(this);
         newItemLayout.setOrientation(LinearLayout.HORIZONTAL);
@@ -282,23 +227,14 @@ public class KeywordActivity extends AppCompatActivity {
                 7
         ));
         keywordText.setText(keyword);
-        keywordText.setTextSize(20); // 16sp 크기 설정
-
+        keywordText.setTextSize(20);
 
         View spacer = new View(this);
-        spacer.setLayoutParams(new LinearLayout.LayoutParams(
-                0,
-                1,
-                1
-        ));
+        spacer.setLayoutParams(new LinearLayout.LayoutParams(0, 1, 1));
 
         CheckBox checkBox = new CheckBox(this);
-        checkBox.setLayoutParams(new LinearLayout.LayoutParams(
-                0,
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                2
-        ));
-        checkBox.setVisibility(View.GONE); // 체크박스는 현재 안보이도록 설정
+        checkBox.setLayoutParams(new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 2));
+        checkBox.setVisibility(View.GONE);
 
         newItemLayout.addView(keywordText);
         newItemLayout.addView(spacer);
@@ -307,19 +243,16 @@ public class KeywordActivity extends AppCompatActivity {
         layoutKeywordList.addView(newItemLayout);
     }
 
-    /// 키워드 삭제
     private void deleteKeywords() {
         for (int i = layoutKeywordList.getChildCount() - 1; i >= 0; i--) {
             View view = layoutKeywordList.getChildAt(i);
             if (view instanceof LinearLayout row) {
-                CheckBox checkBox = (CheckBox) row.getChildAt(2); // CheckBox는 3번째
+                CheckBox checkBox = (CheckBox) row.getChildAt(2);
                 if (checkBox.isChecked()) {
                     layoutKeywordList.removeViewAt(i);
-                    // TODO: 필요 시 서버에도 삭제 요청
+                    // 서버 삭제 필요 시 추가 구현
                 }
             }
         }
-        //Toast.makeText(this, "키워드 삭제 완료", Toast.LENGTH_SHORT).show();
     }
-
 }
