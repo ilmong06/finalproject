@@ -44,7 +44,7 @@
         <activity android:name="com.example.wav2vecapp.AccessActivity" />
         <activity android:name="com.example.wav2vecapp.ReportHistoryActivity" />
         <activity
-            android:name="com.example.wav2vecapp.MainActivity"
+            android:name="com.example.wav2vecapp.UserInfoActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -54,7 +54,7 @@
         </activity>
         <activity android:name="com.example.wav2vecapp.LogoActivity" >
         </activity>
-        <activity android:name="com.example.wav2vecapp.UserInfoActivity" />
+        <activity android:name="com.example.wav2vecapp.MainActivity" />
         <activity
             android:name="com.google.android.gms.common.api.GoogleApiActivity"
             android:exported="false"
