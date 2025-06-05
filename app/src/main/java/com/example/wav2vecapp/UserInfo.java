@@ -2,6 +2,7 @@ package com.example.wav2vecapp;
 
 public class UserInfo {
 
+    public String uuid;
     public String name;
     public String phnum;
     public String language;
@@ -11,8 +12,9 @@ public class UserInfo {
     public String emergency_phnum;
     public String emergency_relation;
 
-    public UserInfo(String name, String phnum, String language, String birthdate, String gender,
+    public UserInfo(String uuid, String name, String phnum, String language, String birthdate, String gender,
                     String emergency_name, String emergency_phnum, String emergency_relation) {
+        this.uuid = uuid;
         this.name = name;
         this.phnum = phnum;
         this.language = language;
@@ -23,9 +25,11 @@ public class UserInfo {
         this.emergency_relation = emergency_relation;
     }
 
-    public class UserInfoResponse {
+    // 서버 응답 처리용 내부 클래스 (필요할 경우)
+    public static class UserInfoResponse {
         private String uuid;
-        private String Name;  // 대소문자 주의: JSON 필드 이름과 정확히 일치
+        private String name;  // Name → name (서버 JSON 키 대소문자와 일치)
+
         private String phnum;
 
         public String getUuid() {
@@ -33,7 +37,7 @@ public class UserInfo {
         }
 
         public String getName() {
-            return Name;
+            return name;
         }
 
         public String getPhnum() {
@@ -45,7 +49,7 @@ public class UserInfo {
         }
 
         public void setName(String name) {
-            this.Name = name;
+            this.name = name;
         }
 
         public void setPhnum(String phnum) {

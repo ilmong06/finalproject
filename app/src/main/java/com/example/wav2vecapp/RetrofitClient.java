@@ -11,7 +11,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
  */
 public class RetrofitClient {
 
-    private static final String BASE_URL = BuildConfig.FLASK_BASE_URL;
+    private static final String BASE_URL = BuildConfig.BACKEND_BASE_URL;
     private static Retrofit retrofit = null;
 
     /**
