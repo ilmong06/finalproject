@@ -3267,7 +3267,6 @@ id btnStartDate
 id btnViewReports
 id btnViewStatistics
 id btnYes
-id btn_request_verification
 id btn_submit
 id buttonGrid
 id buttonPanel
@@ -3717,6 +3716,7 @@ id tvTitle
 id tv_description
 id tv_intro
 id tv_title
+id tv_verification_message
 id unchecked
 id uniform
 id unlabeled

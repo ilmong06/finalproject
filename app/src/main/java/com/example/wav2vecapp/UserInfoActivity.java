@@ -6,9 +6,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONObject;
@@ -29,6 +31,7 @@ public class UserInfoActivity extends AppCompatActivity {
     EditText etName, etPhone, etVerificationCode, etBirth, etGender, etEmergencyName, etEmergencyPhone;
     Spinner spinnerLanguage, spinnerRelation;
     Button btnRequestVerification, btnSubmit;
+    TextView tv_ver_message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +40,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
         // 🔗 UI 연결
         etName = findViewById(R.id.plain_text_input);
-        etPhone = findViewById(R.id.phone_text_input);
-        etVerificationCode = findViewById(R.id.et_verification_code);
+
         etBirth = findViewById(R.id.birth);
         etGender = findViewById(R.id.gender);
         etEmergencyName = findViewById(R.id.et_emergency_name);
@@ -47,18 +49,26 @@ public class UserInfoActivity extends AppCompatActivity {
         spinnerLanguage = findViewById(R.id.spinner_language);
         spinnerRelation = findViewById(R.id.spinner_relation);
 
-        btnRequestVerification = findViewById(R.id.btn_request_verification);
+        /// 전화번호 동일하지 않을 경우 발생.
+        etVerificationCode = findViewById(R.id.et_verification_code);
+        tv_ver_message = findViewById(R.id.tv_verification_message);
+        etPhone = findViewById(R.id.phone_text_input);
+
+        String phoneNumber = etPhone.getText().toString().trim();
+        String verificationCode = etVerificationCode.getText().toString().trim();
+        // 일치 여부 확인
+        if (!phoneNumber.equals(verificationCode)) {
+            // 다르면 안내 메시지 표시
+            tv_ver_message.setText("입력한 전화번호가 일치하지 않습니다.");
+            tv_ver_message.setVisibility(View.VISIBLE);
+        } else {
+            // 같으면 메시지 숨김
+            tv_ver_message.setVisibility(View.GONE);
+        }
+
+
         btnSubmit = findViewById(R.id.btn_submit);
 
-        // 🔐 인증번호 활성화 버튼
-        btnRequestVerification.setOnClickListener(v -> {
-            etVerificationCode.setEnabled(true);
-            etVerificationCode.requestFocus();
-            Toast.makeText(this, "인증번호를 입력하세요", Toast.LENGTH_SHORT).show();
-        });
-
-        // 인증번호 6자리 제한
-        etVerificationCode.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
 
         // ✅ 완료 버튼 클릭 시 등록 요청
         btnSubmit.setOnClickListener(v -> saveUserData());
