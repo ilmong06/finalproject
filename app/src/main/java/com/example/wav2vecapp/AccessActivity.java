@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import retrofit2.Call;
@@ -41,7 +42,7 @@ public class AccessActivity extends AppCompatActivity {
 
         /// 완료 버튼을 누르면 아이디, 연락처를 비교.
         /// 있으면 회원정보 수정 화면으로 이동.
-        /*confirm.setOnClickListener(v -> {
+        confirm.setOnClickListener(v -> {
             String name = identify.getText().toString().trim();
             String phone = ph.getText().toString().trim();
 
@@ -50,11 +51,7 @@ public class AccessActivity extends AppCompatActivity {
                 return;
             }
 
-            ///checkUserExists(name, phone);
-        });*/
-        confirm.setOnClickListener(v->{
-            Intent intent = new Intent(AccessActivity.this, MyPageActivity.class);
-            startActivity(intent);
+            checkUserExists(name, phone);
         });
 
         back.setOnClickListener(view -> {
@@ -62,14 +59,14 @@ public class AccessActivity extends AppCompatActivity {
         });
     }
 
-    /*
+
     private void checkUserExists(String name, String phone) {
         ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
         Call<UserResponse> call = apiService.checkUser(name, phone);
 
-        call.enqueue(new Callback<UserResponse>() {
+        call.enqueue(new Callback<>() {
             @Override
-            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+            public void onResponse(@NonNull Call<UserResponse> call, @NonNull Response<UserResponse> response) {
                 if (response.isSuccessful() && response.body() != null && response.body().exists) {
                     // ✅ 사용자 존재 → 다음 화면으로 이동
                     Intent intent = new Intent(AccessActivity.this, MyPageActivity.class);
@@ -85,7 +82,7 @@ public class AccessActivity extends AppCompatActivity {
                 Toast.makeText(AccessActivity.this, "서버 연결에 실패했습니다", Toast.LENGTH_SHORT).show();
             }
         });
-    }*/
+    }
 
 
 
