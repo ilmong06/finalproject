@@ -1,0 +1,8 @@
+{
+    "python.analysis.extraPaths": [
+        "./Mysqldb",
+        "./venv310/Lib/site-packages"
+    ],
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "venv310\\Scripts\\python.exe"
+}
