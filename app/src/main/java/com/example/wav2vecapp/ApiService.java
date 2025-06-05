@@ -1,10 +1,14 @@
 package com.example.wav2vecapp;
 
+import java.util.List;
+
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
@@ -26,8 +30,8 @@ public interface ApiService {
     @Multipart
     @POST("/api/register_keyword")
     Call<ResponseBody> registerKeyword(
-            @Part("keyword") RequestBody keyword,
             @Part("uuid") RequestBody uuid,
+            @Part("keyword") RequestBody keyword,
             @Part("order") RequestBody order
     );
 

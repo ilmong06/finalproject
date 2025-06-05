@@ -152,10 +152,9 @@ public class UserInfoActivity extends AppCompatActivity {
 
                         SharedPreferences prefs = getSharedPreferences("user_info", MODE_PRIVATE);
                         SharedPreferences.Editor editor = prefs.edit();
-                        editor.putString("user_token", token);
                         editor.putString("uuid", returnedUuid);
-                        editor.putLong("login_time", System.currentTimeMillis());
                         editor.apply();
+
 
                         Intent intent = new Intent(UserInfoActivity.this, MainActivity.class);
                         startActivity(intent);
