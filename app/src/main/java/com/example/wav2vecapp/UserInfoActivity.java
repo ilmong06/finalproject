@@ -1,5 +1,3 @@
-/* 사용자 등록화면 */
-
 package com.example.wav2vecapp;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import org.json.JSONObject;
+
+import java.util.UUID;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -68,7 +68,6 @@ public class UserInfoActivity extends AppCompatActivity {
      * 사용자 입력값을 수집하고 서버로 전송
      */
     private void saveUserData() {
-        // 0️⃣ 방어 코드 추가 시작
         // 1️⃣ 입력값 가져오기
         String name = etName.getText().toString().trim();
         if (name.isEmpty()) {
@@ -108,8 +107,6 @@ public class UserInfoActivity extends AppCompatActivity {
 
         String language = spinnerLanguage.getSelectedItem().toString();
         String relation = spinnerRelation.getSelectedItem().toString();
-        
-        
 
         // 2️⃣ 생년월일 변환 (yyyyMMdd)
         int yearPrefix = Integer.parseInt(birthRaw.substring(0, 2));
@@ -123,32 +120,42 @@ public class UserInfoActivity extends AppCompatActivity {
             default -> "기타";
         };
 
-        // 4️⃣ 서버로 전송할 객체 구성
-        UserInfo userInfo = new UserInfo(name, phone, language, fullBirth, gender, emergencyName, emergencyPhone, relation);
+        // 4️⃣ UUID 생성
+        String generatedUuid = UUID.randomUUID().toString();
+
+        // 5️⃣ 서버로 전송할 객체 구성
+        UserInfo userInfo = new UserInfo(
+                generatedUuid,
+                name,
+                phone,
+                language,
+                fullBirth,
+                gender,
+                emergencyName,
+                emergencyPhone,
+                relation
+        );
+
         ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
         Call<ResponseBody> call = apiService.registerUser(userInfo);
 
-        // 5️⃣ 비동기 전송
+        // 6️⃣ 비동기 전송
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()) {
                     try {
-                        // 응답 바디 파싱
                         String responseBody = response.body().string();
                         JSONObject json = new JSONObject(responseBody);
                         String token = json.getString("token");
-                        String uuid = json.getString("uuid");
+                        String returnedUuid = json.getString("uuid");
 
-                        // SharedPreferences 저장
                         SharedPreferences prefs = getSharedPreferences("user_info", MODE_PRIVATE);
                         SharedPreferences.Editor editor = prefs.edit();
-                        editor.putString("user_token", token);
-                        editor.putString("uuid", uuid);
-                        editor.putLong("login_time", System.currentTimeMillis());
+                        editor.putString("uuid", returnedUuid);
                         editor.apply();
 
-                        // MainActivity로 이동
+
                         Intent intent = new Intent(UserInfoActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();

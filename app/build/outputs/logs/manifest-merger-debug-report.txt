@@ -159,12 +159,12 @@ activity#com.example.wav2vecapp.ReportHistoryActivity
 ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:30:9-58
 	android:name
 		ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:30:19-56
-activity#com.example.wav2vecapp.MainActivity
+activity#com.example.wav2vecapp.UserInfoActivity
 ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:31:9-38:20
 	android:exported
 		ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:33:13-36
 	android:name
-		ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:32:13-41
+		ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:32:13-45
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:34:13-37:29
 action#android.intent.action.MAIN
@@ -179,10 +179,10 @@ activity#com.example.wav2vecapp.LogoActivity
 ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:39:9-42:20
 	android:name
 		ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:40:13-41
-activity#com.example.wav2vecapp.UserInfoActivity
-ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:43:9-53
+activity#com.example.wav2vecapp.MainActivity
+ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:43:9-49
 	android:name
-		ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:43:19-51
+		ADDED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml:43:19-47
 uses-sdk
 INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\user\Wav2Vec2_Android_Java_Final\app\src\main\AndroidManifest.xml
