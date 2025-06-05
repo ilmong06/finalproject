@@ -63,12 +63,12 @@
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     style="@style/HeaderText"
-                    android:text="환영합니다 박ㅇㅇ님" />
+                    android:text="환영합니다, 님" />
 
                 <TextView
                     android:id="@+id/phoneNumber"
                     style="@style/SecondaryText"
-                    android:text="010-1234-5678"
+                    android:text="연락처 : "
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_marginBottom="12dp" />
