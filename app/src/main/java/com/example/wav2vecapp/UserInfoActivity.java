@@ -57,21 +57,27 @@ public class UserInfoActivity extends AppCompatActivity {
         String phoneNumber = etPhone.getText().toString().trim();
         String verificationCode = etVerificationCode.getText().toString().trim();
         // 일치 여부 확인
-        if (!phoneNumber.equals(verificationCode)) {
-            // 다르면 안내 메시지 표시
-            tv_ver_message.setText("입력한 전화번호가 일치하지 않습니다.");
-            tv_ver_message.setVisibility(View.VISIBLE);
-        } else {
-            // 같으면 메시지 숨김
-            tv_ver_message.setVisibility(View.GONE);
-        }
 
 
         btnSubmit = findViewById(R.id.btn_submit);
 
 
         // ✅ 완료 버튼 클릭 시 등록 요청
-        btnSubmit.setOnClickListener(v -> saveUserData());
+        btnSubmit.setOnClickListener(v -> {
+
+            if (!phoneNumber.equals(verificationCode)) {
+                // 다르면 안내 메시지 표시
+                tv_ver_message.setText("입력한 전화번호가 일치하지 않습니다.");
+                tv_ver_message.setVisibility(View.VISIBLE);
+            } else {
+                // 같으면 메시지 숨김
+                tv_ver_message.setVisibility(View.GONE);
+                saveUserData();
+            }
+
+
+
+        });
     }
 
     /**
