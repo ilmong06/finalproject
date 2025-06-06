@@ -6,3 +6,4 @@ google_stt_key.json
 /app/build/
 *.pyc
 __pycache__/
+
