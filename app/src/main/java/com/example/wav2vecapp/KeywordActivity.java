@@ -2,7 +2,6 @@ package com.example.wav2vecapp;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -15,8 +14,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.json.JSONObject;
-
 import java.util.List;
 
 import okhttp3.OkHttpClient;
@@ -24,7 +21,6 @@ import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import okhttp3.MediaType;
-import okhttp3.MultipartBody;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,25 +57,26 @@ public class KeywordActivity extends AppCompatActivity {
         /// get Keywords
         ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
         KeywordRequest rq = new KeywordRequest(uuid);
-        Call<KeywordListResponse> call = apiService.getKeywords(rq);
+        Call<List<KeywordItem>> call = apiService.getKeywordList(rq);
 
-        call.enqueue(new Callback<KeywordListResponse>() {
+        call.enqueue(new Callback<List<KeywordItem>>() {
             @Override
-            public void onResponse(Call<KeywordListResponse> call, Response<KeywordListResponse> response) {
+            public void onResponse(Call<List<KeywordItem>> call, Response<List<KeywordItem>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    List<String> keywordList = response.body().getKeywords();  // ✅ 리스트는 여기서 꺼냄
+                    List<KeywordItem> keywordList = response.body();
 
+                    // ✅ k_list를 비우고 키워드 재출력
                     LinearLayout kListLayout = findViewById(R.id.k_list);
                     kListLayout.removeAllViews();
 
-                    for (String item : keywordList) {
-                        addKeywordToList(item);
+                    for (KeywordItem item : keywordList) {
+                        addKeywordToList(item.getKeyword());
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<KeywordListResponse> call, Throwable t) {
+            public void onFailure(Call<List<KeywordItem>> call, Throwable t) {
                 Toast.makeText(KeywordActivity.this, "키워드 불러오기 실패", Toast.LENGTH_SHORT).show();
             }
         });
