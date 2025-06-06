@@ -30,6 +30,7 @@ def register_keyword_route():
         return jsonify(result), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+<<<<<<< Updated upstream
 
 
 @keyword_bp.route('/get_keywords', methods=['POST'])
@@ -50,3 +51,7 @@ def get_keywords():
         return jsonify({"error": str(e)}), 500
     finally:
         conn.close()
+=======
+    
+
+>>>>>>> Stashed changes

@@ -1,12 +1,23 @@
+<<<<<<< Updated upstream
 #Fri Jun 06 18:15:43 KST 2025
+=======
+#Fri Jun 06 20:35:56 KST 2025
+>>>>>>> Stashed changes
 path.3=classes2.dex
 path.2=5/classes.dex
 path.1=0/classes.dex
 path.0=classes.dex
+<<<<<<< Updated upstream
 base.3=C\:\\Users\\user\\Wav2Vec2_Android_Java_Final\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 base.2=C\:\\Users\\user\\Wav2Vec2_Android_Java_Final\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
 base.1=C\:\\Users\\user\\Wav2Vec2_Android_Java_Final\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.0=C\:\\Users\\user\\Wav2Vec2_Android_Java_Final\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+=======
+base.3=C\:\\Users\\worker\\Desktop\\python\\finalproject55\\finalproject\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+base.2=C\:\\Users\\worker\\Desktop\\python\\finalproject55\\finalproject\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.1=C\:\\Users\\worker\\Desktop\\python\\finalproject55\\finalproject\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.0=C\:\\Users\\worker\\Desktop\\python\\finalproject55\\finalproject\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+>>>>>>> Stashed changes
 renamed.3=classes4.dex
 renamed.2=classes3.dex
 renamed.1=classes2.dex

@@ -1,7 +1,9 @@
 package com.example.wav2vecapp;
 
 import android.app.DatePickerDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -9,9 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ReportHistoryActivity extends AppCompatActivity {
 
@@ -71,8 +81,38 @@ public class ReportHistoryActivity extends AppCompatActivity {
     }
 
     private void fetchReportHistory(String start, String end, String keyword) {
-        // TODO: 서버에서 start, end, keyword 기준으로 데이터 요청 및 reportList 갱신
-        // 예시: Retrofit 호출 → 응답 결과 → reportList.clear(); reportList.addAll(...); adapter.notifyDataSetChanged();
+
+        SharedPreferences prefs = getSharedPreferences("user_info", MODE_PRIVATE);
+        String uuid = prefs.getString("uuid", null);
+        if (uuid == null) return;
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BuildConfig.BACKEND_BASE_URL)  // 예: http://10.0.2.2:5001/
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ApiService api = retrofit.create(ApiService.class);
+        Call<List<ReportItem>> call = api.getReportHistory(uuid, start, end, keyword);
+
+        call.enqueue(new Callback<List<ReportItem>>() {
+            @Override
+            public void onResponse(Call<List<ReportItem>> call, Response<List<ReportItem>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    reportList.clear();
+                    reportList.addAll(response.body());
+                    adapter.notifyDataSetChanged();
+                    Log.i("ReportFetch", "✅ 신고 이력 " + reportList.size() + "건 수신됨");
+                } else {
+                    Log.e("ReportFetch", "❌ 응답 실패: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<ReportItem>> call, Throwable t) {
+                Log.e("ReportFetch", "🚫 네트워크 오류: " + t.getMessage());
+            }
+        });
     }
+
 }
 

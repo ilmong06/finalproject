@@ -65,3 +65,4 @@ def send_gps():
         return jsonify({"message": "위치 저장 성공", "address": address}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+

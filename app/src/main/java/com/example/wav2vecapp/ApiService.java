@@ -41,6 +41,15 @@ public interface ApiService {
     @POST("/api/report_gps")
     Call<ResponseBody> sendGpsData(@Body GpsRequest gpsRequest);
 
+    @GET("/api/get_reports")
+    Call<List<ReportItem>> getReportHistory(
+            @Query("uuid") String uuid,
+            @Query("start_date") String startDate,
+            @Query("end_date") String endDate,
+            @Query("keyword") String keyword
+    );
+
+
     @GET("/user/check")
     Call<UserResponse> checkUser(@Query("name") String name, @Query("phone") String phone);
 

@@ -1,6 +1,7 @@
 import re
 from Mysqldb import models
 
+
 # 🔵 전화번호 형식 검사
 def is_valid_phnum(phnum):
     """
@@ -19,12 +20,12 @@ def is_duplicate_phnum(phnum):
     return existing_user is not None
 
 # 🔵 키워드 중복 체크 (기존 있던 것 유지)
-def is_keyword_exist(uuid, keyword):
-    conn = get_connection()
+def is_keyword_exist(uuid, keywd_text):
+    conn = models.get_connection()
     try:
         with conn.cursor() as cursor:
             sql = "SELECT COUNT(*) AS cnt FROM keyword WHERE uuid = %s AND keywd_text = %s"
-            cursor.execute(sql, (uuid, keyword))
+            cursor.execute(sql, (uuid, keywd_text))
             result = cursor.fetchone()
             return result['cnt'] > 0
     finally:

@@ -21,16 +21,18 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
     @NonNull
     @Override
     public ReportViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_report_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.activity_report_item, parent, false);
         return new ReportViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ReportViewHolder holder, int position) {
         ReportItem item = reportList.get(position);
-        holder.tvDate.setText(item.getDate());
-        holder.tvLocation.setText(item.getLocation());
-        holder.tvKeyword.setText(item.getKeyword());
+        holder.tvIndex.setText(String.valueOf(item.getId()));       // 🔵 index
+        holder.tvDate.setText(item.getDate());                      // 📅 날짜
+        holder.tvKeyword.setText(item.getKeyword());                // 🔑 키워드
+        holder.tvLocation.setText(item.getLocation());              // 📍 주소
     }
 
     @Override
@@ -39,14 +41,14 @@ public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportView
     }
 
     public static class ReportViewHolder extends RecyclerView.ViewHolder {
-        TextView tvDate, tvLocation, tvKeyword;
+        TextView tvIndex, tvDate, tvKeyword, tvLocation;
 
         public ReportViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvIndex = itemView.findViewById(R.id.tvIndex);
             tvDate = itemView.findViewById(R.id.tvDate);
-            tvLocation = itemView.findViewById(R.id.tvLocation);
             tvKeyword = itemView.findViewById(R.id.tvKeyword);
+            tvLocation = itemView.findViewById(R.id.tvLocation);
         }
     }
 }
-

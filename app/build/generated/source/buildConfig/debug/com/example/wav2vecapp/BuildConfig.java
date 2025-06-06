@@ -10,7 +10,13 @@ public final class BuildConfig {
   public static final int VERSION_CODE = 1;
   public static final String VERSION_NAME = "1.0";
   // Field from default config.
+<<<<<<< Updated upstream
   public static final String BACKEND_BASE_URL = "http://192.168.219.107:5001";
   // Field from default config.
   public static final String FLASK_BASE_URL = "http://192.168.219.107:5000";
+=======
+  public static final String BACKEND_BASE_URL = "http://192.168.45.131:5001/";
+  // Field from default config.
+  public static final String FLASK_BASE_URL = "null";
+>>>>>>> Stashed changes
 }

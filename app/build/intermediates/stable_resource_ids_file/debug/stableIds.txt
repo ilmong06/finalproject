@@ -1156,6 +1156,7 @@ com.example.wav2vecapp:integer/bottom_sheet_slide_duration = 0x7f0a0003
 com.example.wav2vecapp:style/ThemeOverlay.Material3.BottomSheetDialog = 0x7f110294
 com.example.wav2vecapp:integer/app_bar_elevation_anim_duration = 0x7f0a0002
 com.example.wav2vecapp:integer/abc_config_activityShortDur = 0x7f0a0001
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/x_right = 0x7f09025f
 com.example.wav2vecapp:id/wrap_content_constrained = 0x7f09025d
 com.example.wav2vecapp:id/withinBounds = 0x7f09025a
@@ -1394,6 +1395,246 @@ com.example.wav2vecapp:id/layout_emergency = 0x7f090121
 com.example.wav2vecapp:id/layout = 0x7f090120
 com.example.wav2vecapp:id/labeled = 0x7f09011f
 com.example.wav2vecapp:id/k_list = 0x7f09011c
+=======
+com.example.wav2vecapp:id/x_right = 0x7f090260
+com.example.wav2vecapp:id/wrap_content_constrained = 0x7f09025e
+com.example.wav2vecapp:id/withinBounds = 0x7f09025b
+com.example.wav2vecapp:id/with_icon = 0x7f09025a
+com.example.wav2vecapp:id/withText = 0x7f090259
+com.example.wav2vecapp:id/wide = 0x7f090258
+com.example.wav2vecapp:layout/activity_delete_confirm = 0x7f0c001e
+com.example.wav2vecapp:id/voice_register_layout = 0x7f090255
+com.example.wav2vecapp:id/view_tree_view_model_store_owner = 0x7f090252
+com.example.wav2vecapp:id/view_tree_lifecycle_owner = 0x7f09024f
+com.example.wav2vecapp:string/abc_action_mode_done = 0x7f100003
+com.example.wav2vecapp:id/view_offset_helper = 0x7f09024d
+com.example.wav2vecapp:id/useLogo = 0x7f09024b
+com.example.wav2vecapp:integer/show_password_duration = 0x7f0a0043
+com.example.wav2vecapp:id/tv_verification_message = 0x7f090246
+com.example.wav2vecapp:id/tv_description = 0x7f090243
+com.example.wav2vecapp:id/tvPrivacy = 0x7f09023f
+com.example.wav2vecapp:id/tvLocation = 0x7f09023d
+com.example.wav2vecapp:style/ThemeOverlay.Material3.Light.Dialog.Alert.Framework = 0x7f1102b4
+com.example.wav2vecapp:style/ThemeOverlay.Material3.Button.TonalButton = 0x7f11029c
+com.example.wav2vecapp:id/tvLastDate = 0x7f09023c
+com.example.wav2vecapp:id/tvInstruction = 0x7f09023a
+com.example.wav2vecapp:id/tvIndex = 0x7f090239
+com.example.wav2vecapp:interpolator/btn_radio_to_off_mtrl_animation_interpolator_0 = 0x7f0b0004
+com.example.wav2vecapp:id/tvDeletePrompt = 0x7f090238
+com.example.wav2vecapp:id/tvDate = 0x7f090237
+com.example.wav2vecapp:id/triangle = 0x7f090235
+com.example.wav2vecapp:macro/m3_comp_search_bar_pressed_supporting_text_color = 0x7f0d00ee
+com.example.wav2vecapp:macro/m3_comp_navigation_rail_active_hover_state_layer_color = 0x7f0d0097
+com.example.wav2vecapp:id/transition_transform = 0x7f090234
+com.example.wav2vecapp:id/transition_position = 0x7f090232
+com.example.wav2vecapp:id/transitionToEnd = 0x7f09022e
+com.example.wav2vecapp:id/touch_outside = 0x7f09022d
+com.example.wav2vecapp:id/top_bar = 0x7f09022c
+com.example.wav2vecapp:id/top = 0x7f09022a
+com.example.wav2vecapp:id/toggle = 0x7f090229
+com.example.wav2vecapp:id/time = 0x7f090225
+com.example.wav2vecapp:id/textinput_prefix_text = 0x7f090223
+com.example.wav2vecapp:styleable/LinearLayoutCompat_Layout = 0x7f120049
+com.example.wav2vecapp:id/textinput_helper_text = 0x7f090221
+com.example.wav2vecapp:styleable/AnimatedStateListDrawableCompat = 0x7f120007
+com.example.wav2vecapp:id/textinput_error = 0x7f090220
+com.example.wav2vecapp:style/Base.ThemeOverlay.MaterialComponents.MaterialAlertDialog = 0x7f11008a
+com.example.wav2vecapp:string/searchview_navigation_content_description = 0x7f1000d8
+com.example.wav2vecapp:id/textinput_counter = 0x7f09021f
+com.example.wav2vecapp:id/text_input_start_icon = 0x7f09021e
+com.example.wav2vecapp:id/text_input_end_icon = 0x7f09021c
+com.example.wav2vecapp:id/textSpacerNoTitle = 0x7f090219
+com.example.wav2vecapp:id/textResult = 0x7f090217
+com.example.wav2vecapp:id/text = 0x7f090214
+com.example.wav2vecapp:id/tag_window_insets_animation_callback = 0x7f090213
+com.example.wav2vecapp:id/tag_unhandled_key_listeners = 0x7f090212
+com.example.wav2vecapp:id/tag_unhandled_key_event_manager = 0x7f090211
+com.example.wav2vecapp:id/tag_screen_reader_focusable = 0x7f09020e
+com.example.wav2vecapp:id/tag_on_receive_content_listener = 0x7f09020c
+com.example.wav2vecapp:id/tag_accessibility_pane_title = 0x7f09020a
+com.example.wav2vecapp:style/TextAppearance.AppCompat.Widget.Button.Colored = 0x7f1101c9
+com.example.wav2vecapp:id/tag_accessibility_heading = 0x7f090209
+com.example.wav2vecapp:layout/m3_auto_complete_simple_item = 0x7f0c0046
+com.example.wav2vecapp:id/tag_accessibility_actions = 0x7f090207
+com.example.wav2vecapp:style/Widget.Material3.FloatingActionButton.Large.Tertiary = 0x7f110394
+com.example.wav2vecapp:id/submit_area = 0x7f090203
+com.example.wav2vecapp:style/Platform.ThemeOverlay.AppCompat = 0x7f110146
+com.example.wav2vecapp:id/submenuarrow = 0x7f090202
+com.example.wav2vecapp:id/staticLayout = 0x7f0901fe
+com.example.wav2vecapp:id/startVertical = 0x7f0901fd
+com.example.wav2vecapp:styleable/MaterialTextView = 0x7f12005c
+com.example.wav2vecapp:id/startToEnd = 0x7f0901fc
+com.example.wav2vecapp:id/standard = 0x7f0901f9
+com.example.wav2vecapp:id/textinput_suffix_text = 0x7f090224
+com.example.wav2vecapp:id/src_atop = 0x7f0901f6
+com.example.wav2vecapp:id/spring = 0x7f0901f4
+com.example.wav2vecapp:styleable/ConstraintLayout_Layout = 0x7f120027
+com.example.wav2vecapp:id/spread_inside = 0x7f0901f3
+com.example.wav2vecapp:id/spread = 0x7f0901f2
+com.example.wav2vecapp:id/split_action_bar = 0x7f0901f1
+com.example.wav2vecapp:id/spinner_relation = 0x7f0901ef
+com.example.wav2vecapp:styleable/AppBarLayout_Layout = 0x7f12000c
+com.example.wav2vecapp:style/Widget.Material3.SideSheet.Modal = 0x7f1103d3
+com.example.wav2vecapp:id/spinner_language = 0x7f0901ee
+com.example.wav2vecapp:style/Widget.MaterialComponents.CardView = 0x7f11040e
+com.example.wav2vecapp:id/south = 0x7f0901eb
+com.example.wav2vecapp:id/textEnd = 0x7f090216
+com.example.wav2vecapp:id/snapMargins = 0x7f0901ea
+com.example.wav2vecapp:id/snap = 0x7f0901e9
+com.example.wav2vecapp:id/snackbar_text = 0x7f0901e8
+com.example.wav2vecapp:id/slide = 0x7f0901e6
+com.example.wav2vecapp:id/skipped = 0x7f0901e5
+com.example.wav2vecapp:style/Theme.MaterialComponents.Dialog.Bridge = 0x7f110267
+com.example.wav2vecapp:id/skipCollapsed = 0x7f0901e4
+com.example.wav2vecapp:id/sin = 0x7f0901e3
+com.example.wav2vecapp:id/showTitle = 0x7f0901e2
+com.example.wav2vecapp:id/showHome = 0x7f0901e1
+com.example.wav2vecapp:id/shortcut = 0x7f0901df
+com.example.wav2vecapp:id/sharedValueUnset = 0x7f0901de
+com.example.wav2vecapp:style/Theme.Material3.Light = 0x7f110248
+com.example.wav2vecapp:id/sharedValueSet = 0x7f0901dd
+com.example.wav2vecapp:id/select_dialog_listview = 0x7f0901da
+com.example.wav2vecapp:id/search_voice_btn = 0x7f0901d9
+com.example.wav2vecapp:macro/m3_comp_outlined_text_field_focus_input_text_color = 0x7f0d00bc
+com.example.wav2vecapp:id/search_mag_icon = 0x7f0901d6
+com.example.wav2vecapp:macro/m3_comp_navigation_bar_inactive_hover_icon_color = 0x7f0d0072
+com.example.wav2vecapp:id/search_edit_frame = 0x7f0901d4
+com.example.wav2vecapp:id/search_badge = 0x7f0901d0
+com.example.wav2vecapp:id/scrollable = 0x7f0901cf
+com.example.wav2vecapp:id/scrollIndicatorUp = 0x7f0901cd
+com.example.wav2vecapp:id/screen = 0x7f0901ca
+com.example.wav2vecapp:style/Widget.AppCompat.ActionButton.Overflow = 0x7f1102fa
+com.example.wav2vecapp:id/sawtooth = 0x7f0901c8
+com.example.wav2vecapp:id/save_overlay_view = 0x7f0901c7
+com.example.wav2vecapp:id/save_non_transition_alpha = 0x7f0901c6
+com.example.wav2vecapp:id/row_index_key = 0x7f0901c5
+com.example.wav2vecapp:id/right_side = 0x7f0901c3
+com.example.wav2vecapp:style/Widget.AppCompat.Light.ActionBar.Solid.Inverse = 0x7f11030f
+com.example.wav2vecapp:macro/m3_comp_switch_unselected_focus_handle_color = 0x7f0d0130
+com.example.wav2vecapp:id/rightToLeft = 0x7f0901c0
+com.example.wav2vecapp:style/Widget.Material3.MaterialCalendar.MonthNavigationButton = 0x7f1103b1
+com.example.wav2vecapp:id/reverseSawtooth = 0x7f0901be
+com.example.wav2vecapp:id/report_drawn = 0x7f0901bd
+com.example.wav2vecapp:id/registerButton = 0x7f0901bc
+com.example.wav2vecapp:style/Base.TextAppearance.AppCompat.Inverse = 0x7f110021
+com.example.wav2vecapp:id/rectangles = 0x7f0901ba
+com.example.wav2vecapp:id/recordButtons = 0x7f0901b9
+com.example.wav2vecapp:id/radio = 0x7f0901b7
+com.example.wav2vecapp:id/progress_horizontal = 0x7f0901b6
+com.example.wav2vecapp:id/pressed = 0x7f0901b4
+com.example.wav2vecapp:id/postLayout = 0x7f0901b3
+com.example.wav2vecapp:id/position = 0x7f0901b2
+com.example.wav2vecapp:id/popupCard = 0x7f0901b1
+com.example.wav2vecapp:id/phone_text_input = 0x7f0901ae
+com.example.wav2vecapp:string/notice_voice = 0x7f1000cb
+com.example.wav2vecapp:macro/m3_comp_outlined_text_field_error_outline_color = 0x7f0d00b9
+com.example.wav2vecapp:id/phoneNumber = 0x7f0901ad
+com.example.wav2vecapp:id/percent = 0x7f0901ac
+com.example.wav2vecapp:style/TextAppearance.MaterialComponents.Headline2 = 0x7f11020c
+com.example.wav2vecapp:id/peekHeight = 0x7f0901ab
+com.example.wav2vecapp:id/pathRelative = 0x7f0901aa
+com.example.wav2vecapp:id/path = 0x7f0901a9
+com.example.wav2vecapp:id/parentPanel = 0x7f0901a5
+com.example.wav2vecapp:id/parent = 0x7f0901a4
+com.example.wav2vecapp:macro/m3_comp_time_picker_period_selector_label_text_type = 0x7f0d0154
+com.example.wav2vecapp:id/parallax = 0x7f0901a3
+com.example.wav2vecapp:id/open_search_view_toolbar = 0x7f09019d
+com.example.wav2vecapp:id/open_search_view_status_bar_spacer = 0x7f09019c
+com.example.wav2vecapp:style/Animation.AppCompat.Tooltip = 0x7f110004
+com.example.wav2vecapp:integer/mtrl_calendar_header_orientation = 0x7f0a0031
+com.example.wav2vecapp:id/open_search_view_search_prefix = 0x7f09019b
+com.example.wav2vecapp:id/tag_on_receive_content_mime_types = 0x7f09020d
+com.example.wav2vecapp:id/open_search_view_root = 0x7f090199
+com.example.wav2vecapp:id/open_search_view_header_container = 0x7f090198
+com.example.wav2vecapp:id/open_search_view_dummy_toolbar = 0x7f090196
+com.example.wav2vecapp:id/open_search_view_divider = 0x7f090195
+com.example.wav2vecapp:id/onInterceptTouchReturnSwipe = 0x7f090190
+com.example.wav2vecapp:id/on = 0x7f09018f
+com.example.wav2vecapp:style/ThemeOverlay.Material3.NavigationView = 0x7f1102bd
+com.example.wav2vecapp:id/notification_main_column_container = 0x7f09018d
+com.example.wav2vecapp:id/notification_background = 0x7f09018b
+com.example.wav2vecapp:id/normal = 0x7f090189
+com.example.wav2vecapp:styleable/State = 0x7f120083
+com.example.wav2vecapp:id/none = 0x7f090188
+com.example.wav2vecapp:id/noState = 0x7f090187
+com.example.wav2vecapp:id/neverCompleteToStart = 0x7f090185
+com.example.wav2vecapp:id/neverCompleteToEnd = 0x7f090184
+com.example.wav2vecapp:id/navigation_header_container = 0x7f090182
+com.example.wav2vecapp:id/navigation_bar_item_large_label_view = 0x7f090180
+com.example.wav2vecapp:style/Theme.MaterialComponents.DayNight.Dialog.Alert = 0x7f11025a
+com.example.wav2vecapp:id/navigation_bar_item_labels_group = 0x7f09017f
+com.example.wav2vecapp:id/textinput_placeholder = 0x7f090222
+com.example.wav2vecapp:id/navigation_bar_item_icon_container = 0x7f09017d
+com.example.wav2vecapp:styleable/AppCompatTextView = 0x7f120011
+com.example.wav2vecapp:id/outward = 0x7f0901a0
+com.example.wav2vecapp:id/multiply = 0x7f09017b
+com.example.wav2vecapp:id/mtrl_picker_title_text = 0x7f090179
+com.example.wav2vecapp:id/mtrl_picker_text_input_range_end = 0x7f090177
+com.example.wav2vecapp:styleable/ActivityChooserView = 0x7f120005
+com.example.wav2vecapp:id/mtrl_picker_header_selection_text = 0x7f090173
+com.example.wav2vecapp:id/mtrl_picker_header = 0x7f090172
+com.example.wav2vecapp:styleable/TabLayout = 0x7f12008a
+com.example.wav2vecapp:id/mtrl_picker_fullscreen = 0x7f090171
+com.example.wav2vecapp:id/mtrl_internal_children_alpha_tag = 0x7f09016f
+com.example.wav2vecapp:style/Base.Widget.AppCompat.SeekBar.Discrete = 0x7f1100f7
+com.example.wav2vecapp:id/mtrl_calendar_text_input_frame = 0x7f09016b
+com.example.wav2vecapp:id/mtrl_calendar_months = 0x7f090169
+com.example.wav2vecapp:id/mtrl_calendar_main_pane = 0x7f090168
+com.example.wav2vecapp:id/mtrl_calendar_day_selector_frame = 0x7f090165
+com.example.wav2vecapp:style/Platform.AppCompat.Light = 0x7f110141
+com.example.wav2vecapp:style/Base.Theme.AppCompat.Light.Dialog.MinWidth = 0x7f110058
+com.example.wav2vecapp:string/mtrl_switch_thumb_path_checked = 0x7f1000c1
+com.example.wav2vecapp:id/mp_title = 0x7f090163
+com.example.wav2vecapp:id/mp_layout_verification_code = 0x7f09015f
+com.example.wav2vecapp:style/Widget.Material3.Chip.Suggestion.Elevated = 0x7f11037b
+com.example.wav2vecapp:id/mp_layout_user_info = 0x7f09015e
+com.example.wav2vecapp:id/mp_layout_emergency = 0x7f09015d
+com.example.wav2vecapp:string/m3_ref_typeface_brand_medium = 0x7f100067
+com.example.wav2vecapp:id/mp_et_emergency_name = 0x7f09015a
+com.example.wav2vecapp:id/mp_plain_text_input = 0x7f090161
+com.example.wav2vecapp:id/mp_btn_submit = 0x7f090159
+com.example.wav2vecapp:style/Widget.AppCompat.Light.ActionBar.TabText = 0x7f110312
+com.example.wav2vecapp:style/Base.Widget.AppCompat.ListView.DropDown = 0x7f1100ea
+com.example.wav2vecapp:id/mp_btnBack = 0x7f090157
+com.example.wav2vecapp:id/navigation_bar_item_active_indicator_view = 0x7f09017c
+com.example.wav2vecapp:id/motion_base = 0x7f090156
+com.example.wav2vecapp:id/month_navigation_previous = 0x7f090154
+com.example.wav2vecapp:id/month_navigation_next = 0x7f090153
+com.example.wav2vecapp:id/month_navigation_fragment_toggle = 0x7f090152
+com.example.wav2vecapp:id/month_navigation_bar = 0x7f090151
+com.example.wav2vecapp:id/month_grid = 0x7f090150
+com.example.wav2vecapp:style/ThemeOverlay.MaterialComponents.Dialog = 0x7f1102d9
+com.example.wav2vecapp:id/micOnOff = 0x7f09014d
+com.example.wav2vecapp:id/message = 0x7f09014c
+com.example.wav2vecapp:id/material_timepicker_ok_button = 0x7f090147
+com.example.wav2vecapp:id/material_textinput_timepicker = 0x7f090143
+com.example.wav2vecapp:id/material_minute_tv = 0x7f090142
+com.example.wav2vecapp:id/material_hour_tv = 0x7f09013f
+com.example.wav2vecapp:id/material_hour_text_input = 0x7f09013e
+com.example.wav2vecapp:style/Widget.Material3.FloatingActionButton.Tertiary = 0x7f11039c
+com.example.wav2vecapp:id/material_clock_level = 0x7f09013a
+com.example.wav2vecapp:id/material_clock_display_and_toggle = 0x7f090137
+com.example.wav2vecapp:id/material_clock_display = 0x7f090136
+com.example.wav2vecapp:id/match_parent = 0x7f090135
+com.example.wav2vecapp:id/match_constraint = 0x7f090134
+com.example.wav2vecapp:id/masked = 0x7f090133
+com.example.wav2vecapp:string/mtrl_picker_announce_current_range_selection = 0x7f10009d
+com.example.wav2vecapp:id/marquee = 0x7f090132
+com.example.wav2vecapp:macro/m3_comp_navigation_drawer_modal_container_color = 0x7f0d0095
+com.example.wav2vecapp:id/m3_side_sheet = 0x7f090130
+com.example.wav2vecapp:id/logoImage = 0x7f09012f
+com.example.wav2vecapp:id/loadingIndicator = 0x7f09012d
+com.example.wav2vecapp:id/list_item = 0x7f09012c
+com.example.wav2vecapp:id/listMode = 0x7f09012b
+com.example.wav2vecapp:layout/abc_screen_toolbar = 0x7f0c0017
+com.example.wav2vecapp:id/line3 = 0x7f090129
+com.example.wav2vecapp:id/leftToRight = 0x7f090125
+com.example.wav2vecapp:id/layout_verification_code = 0x7f090123
+com.example.wav2vecapp:id/layout_user_info = 0x7f090122
+com.example.wav2vecapp:id/layout_emergency = 0x7f090120
+com.example.wav2vecapp:id/layout = 0x7f09011f
+com.example.wav2vecapp:id/labeled = 0x7f09011e
+>>>>>>> Stashed changes
 com.example.wav2vecapp:id/item_touch_helper_previous_elevation = 0x7f090119
 com.example.wav2vecapp:id/italic = 0x7f090118
 com.example.wav2vecapp:id/invisible = 0x7f090116
@@ -1487,8 +1728,13 @@ com.example.wav2vecapp:style/Widget.MaterialComponents.TextInputLayout.FilledBox
 com.example.wav2vecapp:id/content = 0x7f0900a3
 com.example.wav2vecapp:id/constraint = 0x7f0900a1
 com.example.wav2vecapp:id/collapseActionView = 0x7f09009e
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/outline = 0x7f09019d
 com.example.wav2vecapp:id/mtrl_picker_text_input_date = 0x7f090174
+=======
+com.example.wav2vecapp:id/outline = 0x7f09019f
+com.example.wav2vecapp:id/mtrl_picker_text_input_date = 0x7f090176
+>>>>>>> Stashed changes
 com.example.wav2vecapp:id/closest = 0x7f09009d
 com.example.wav2vecapp:id/clip_vertical = 0x7f09009b
 com.example.wav2vecapp:style/TextAppearance.Material3.SearchView = 0x7f110200
@@ -1517,7 +1763,11 @@ com.example.wav2vecapp:id/btnMyPage = 0x7f09007b
 com.example.wav2vecapp:integer/hide_password_duration = 0x7f0a0009
 com.example.wav2vecapp:id/btnMenu = 0x7f09007a
 com.example.wav2vecapp:id/btnManageUsers = 0x7f090079
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/view_tree_saved_state_registry_owner = 0x7f090250
+=======
+com.example.wav2vecapp:id/view_tree_saved_state_registry_owner = 0x7f090251
+>>>>>>> Stashed changes
 com.example.wav2vecapp:id/btnFinish = 0x7f090076
 com.example.wav2vecapp:string/icon_content_description = 0x7f100059
 com.example.wav2vecapp:id/btnClose = 0x7f090072
@@ -1594,14 +1844,22 @@ com.example.wav2vecapp:id/accessibility_custom_action_2 = 0x7f090021
 com.example.wav2vecapp:id/accessibility_custom_action_19 = 0x7f090020
 com.example.wav2vecapp:id/accessibility_custom_action_18 = 0x7f09001f
 com.example.wav2vecapp:id/accessibility_custom_action_17 = 0x7f09001e
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/matrix = 0x7f09014b
+=======
+com.example.wav2vecapp:id/matrix = 0x7f09014a
+>>>>>>> Stashed changes
 com.example.wav2vecapp:id/accessibility_custom_action_16 = 0x7f09001d
 com.example.wav2vecapp:id/accessibility_custom_action_15 = 0x7f09001c
 com.example.wav2vecapp:id/accessibility_custom_action_14 = 0x7f09001b
 com.example.wav2vecapp:drawable/common_google_signin_btn_icon_disabled = 0x7f080089
 com.example.wav2vecapp:id/accessibility_custom_action_11 = 0x7f090018
 com.example.wav2vecapp:id/accessibility_custom_action_1 = 0x7f090016
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tvReportHistory = 0x7f09023f
+=======
+com.example.wav2vecapp:id/tvReportHistory = 0x7f090240
+>>>>>>> Stashed changes
 com.example.wav2vecapp:drawable/abc_switch_track_mtrl_alpha = 0x7f08006b
 com.example.wav2vecapp:id/accessibility_action_clickable_span = 0x7f090014
 com.example.wav2vecapp:id/accelerate = 0x7f090013
@@ -1642,7 +1900,11 @@ com.example.wav2vecapp:style/Base.TextAppearance.AppCompat.Widget.ActionMode.Sub
 com.example.wav2vecapp:drawable/mtrl_dropdown_arrow = 0x7f0800cf
 com.example.wav2vecapp:drawable/mtrl_checkbox_button_unchecked_checked = 0x7f0800cd
 com.example.wav2vecapp:style/Widget.Material3.MaterialCalendar.HeaderLayout = 0x7f1103aa
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/scroll = 0x7f0901c9
+=======
+com.example.wav2vecapp:id/scroll = 0x7f0901cb
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/fastscroll_margin = 0x7f070091
 com.example.wav2vecapp:drawable/mtrl_checkbox_button_icon_unchecked_indeterminate = 0x7f0800cc
 com.example.wav2vecapp:id/container = 0x7f0900a2
@@ -1696,7 +1958,11 @@ com.example.wav2vecapp:attr/quantizeMotionInterpolator = 0x7f04038c
 com.example.wav2vecapp:drawable/design_password_eye = 0x7f08009a
 com.example.wav2vecapp:drawable/design_ic_visibility_off = 0x7f080099
 com.example.wav2vecapp:style/ThemeOverlay.Material3.FloatingActionButton.Tertiary = 0x7f1102b0
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/scrollIndicatorDown = 0x7f0901ca
+=======
+com.example.wav2vecapp:id/scrollIndicatorDown = 0x7f0901cc
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/colorControlHighlight = 0x7f0400fa
 com.example.wav2vecapp:drawable/design_fab_background = 0x7f080097
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant90 = 0x7f0600d6
@@ -1728,7 +1994,12 @@ com.example.wav2vecapp:drawable/ic_clear_black_24 = 0x7f08009f
 com.example.wav2vecapp:color/material_dynamic_tertiary0 = 0x7f060262
 com.example.wav2vecapp:drawable/abc_switch_thumb_material = 0x7f08006a
 com.example.wav2vecapp:style/Widget.MaterialComponents.Snackbar.FullWidth = 0x7f11044a
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/keyword_input_layout = 0x7f09011e
+=======
+com.example.wav2vecapp:id/mp_et_verification_code = 0x7f09015c
+com.example.wav2vecapp:id/keyword_input_layout = 0x7f09011d
+>>>>>>> Stashed changes
 com.example.wav2vecapp:drawable/abc_spinner_textfield_background_material = 0x7f080067
 com.example.wav2vecapp:color/design_default_color_surface = 0x7f060056
 com.example.wav2vecapp:color/m3_ref_palette_error30 = 0x7f060108
@@ -1770,12 +2041,20 @@ com.example.wav2vecapp:drawable/abc_btn_check_material = 0x7f08002c
 com.example.wav2vecapp:style/ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox = 0x7f1102e8
 com.example.wav2vecapp:macro/m3_comp_outlined_text_field_hover_input_text_color = 0x7f0d00c0
 com.example.wav2vecapp:drawable/abc_action_bar_item_background_material = 0x7f08002a
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/snackbar_action = 0x7f0901e5
+=======
+com.example.wav2vecapp:id/snackbar_action = 0x7f0901e7
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/displayOptions = 0x7f04017e
 com.example.wav2vecapp:drawable/$mtrl_switch_thumb_unchecked_pressed__0 = 0x7f080028
 com.example.wav2vecapp:string/language_prompt = 0x7f100064
 com.example.wav2vecapp:macro/m3_comp_switch_unselected_hover_handle_color = 0x7f0d0136
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/material_clock_period_toggle = 0x7f09013e
+=======
+com.example.wav2vecapp:id/material_clock_period_toggle = 0x7f09013d
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/m3_sys_motion_easing_linear_control_x2 = 0x7f070205
 com.example.wav2vecapp:drawable/$mtrl_switch_thumb_pressed_unchecked__0 = 0x7f080025
 com.example.wav2vecapp:style/Base.Theme.AppCompat.CompactMenu = 0x7f11004d
@@ -1796,7 +2075,11 @@ com.example.wav2vecapp:style/TextAppearance.Compat.Notification.Info = 0x7f1101d
 com.example.wav2vecapp:attr/gapBetweenBars = 0x7f04020e
 com.example.wav2vecapp:drawable/mtrl_ic_cancel = 0x7f0800d2
 com.example.wav2vecapp:style/Base.Widget.AppCompat.Light.ActionBar.TabText.Inverse = 0x7f1100e3
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/open_search_view_scrim = 0x7f090198
+=======
+com.example.wav2vecapp:id/open_search_view_scrim = 0x7f09019a
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/material_personalized_color_on_tertiary_container = 0x7f060297
 com.example.wav2vecapp:drawable/$m3_avd_hide_password__1 = 0x7f080008
 com.example.wav2vecapp:drawable/$m3_avd_hide_password__0 = 0x7f080007
@@ -1895,7 +2178,11 @@ com.example.wav2vecapp:styleable/StateListDrawable = 0x7f120084
 com.example.wav2vecapp:style/TextAppearance.AppCompat.Caption = 0x7f1101a5
 com.example.wav2vecapp:dimen/mtrl_fab_translation_z_pressed = 0x7f0702b3
 com.example.wav2vecapp:layout/admin_userinfo = 0x7f0c0032
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/overshoot = 0x7f09019f
+=======
+com.example.wav2vecapp:id/overshoot = 0x7f0901a1
+>>>>>>> Stashed changes
 com.example.wav2vecapp:drawable/notification_bg_low = 0x7f0800eb
 com.example.wav2vecapp:dimen/material_emphasis_disabled_background = 0x7f07022e
 com.example.wav2vecapp:dimen/mtrl_fab_translation_z_hovered_focused = 0x7f0702b2
@@ -1909,7 +2196,11 @@ com.example.wav2vecapp:dimen/mtrl_navigation_rail_icon_margin = 0x7f0702c9
 com.example.wav2vecapp:color/mtrl_chip_close_icon_tint = 0x7f0602d0
 com.example.wav2vecapp:dimen/mtrl_extended_fab_start_padding_icon = 0x7f0702ab
 com.example.wav2vecapp:macro/m3_comp_fab_surface_container_color = 0x7f0d003e
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/text_input_error_icon = 0x7f09021b
+=======
+com.example.wav2vecapp:id/text_input_error_icon = 0x7f09021d
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/boxBackgroundMode = 0x7f04007f
 com.example.wav2vecapp:dimen/mtrl_extended_fab_end_padding = 0x7f0702a4
 com.example.wav2vecapp:macro/m3_comp_search_bar_hover_supporting_text_color = 0x7f0d00e9
@@ -1948,8 +2239,14 @@ com.example.wav2vecapp:dimen/m3_extended_fab_start_padding = 0x7f0701ad
 com.example.wav2vecapp:dimen/mtrl_calendar_day_horizontal_padding = 0x7f070272
 com.example.wav2vecapp:styleable/FontFamilyFont = 0x7f120037
 com.example.wav2vecapp:style/Base.Widget.AppCompat.ActivityChooserView = 0x7f1100cd
+<<<<<<< Updated upstream
 com.example.wav2vecapp:drawable/mtrl_switch_thumb_unchecked_pressed = 0x7f0800e4
 com.example.wav2vecapp:id/material_clock_hand = 0x7f09013a
+=======
+com.example.wav2vecapp:id/mp_btn_request_verification = 0x7f090158
+com.example.wav2vecapp:drawable/mtrl_switch_thumb_unchecked_pressed = 0x7f0800e4
+com.example.wav2vecapp:id/material_clock_hand = 0x7f090139
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/mtrl_calendar_day_corner = 0x7f070270
 com.example.wav2vecapp:attr/imageButtonStyle = 0x7f040235
 com.example.wav2vecapp:dimen/mtrl_calendar_bottom_padding = 0x7f07026e
@@ -1971,7 +2268,11 @@ com.example.wav2vecapp:dimen/mtrl_alert_dialog_background_inset_start = 0x7f0702
 com.example.wav2vecapp:attr/alphabeticModifiers = 0x7f04002f
 com.example.wav2vecapp:dimen/mtrl_alert_dialog_background_inset_end = 0x7f070241
 com.example.wav2vecapp:dimen/mtrl_btn_snackbar_margin_horizontal = 0x7f070264
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/up = 0x7f090249
+=======
+com.example.wav2vecapp:id/up = 0x7f09024a
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/mtrl_btn_pressed_z = 0x7f070263
 com.example.wav2vecapp:drawable/btn_radio_off_to_on_mtrl_animation = 0x7f08007f
 com.example.wav2vecapp:dimen/mtrl_btn_padding_top = 0x7f070262
@@ -2055,7 +2356,11 @@ com.example.wav2vecapp:style/Widget.Design.AppBarLayout = 0x7f11033e
 com.example.wav2vecapp:style/Base.V21.ThemeOverlay.AppCompat.Dialog = 0x7f1100ab
 com.example.wav2vecapp:dimen/m3_sys_motion_easing_legacy_decelerate_control_x2 = 0x7f070201
 com.example.wav2vecapp:dimen/m3_sys_motion_easing_legacy_decelerate_control_x1 = 0x7f070200
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/material_clock_period_am_button = 0x7f09013c
+=======
+com.example.wav2vecapp:id/material_clock_period_am_button = 0x7f09013b
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/mtrl_navigation_elevation = 0x7f0702bf
 com.example.wav2vecapp:dimen/m3_sys_motion_easing_legacy_control_y1 = 0x7f0701fe
 com.example.wav2vecapp:attr/contentInsetStart = 0x7f040141
@@ -2090,7 +2395,11 @@ com.example.wav2vecapp:dimen/m3_simple_item_color_hovered_alpha = 0x7f0701e2
 com.example.wav2vecapp:dimen/m3_side_sheet_width = 0x7f0701e1
 com.example.wav2vecapp:styleable/View = 0x7f120095
 com.example.wav2vecapp:id/accessibility_custom_action_13 = 0x7f09001a
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tvScript = 0x7f090240
+=======
+com.example.wav2vecapp:id/tvScript = 0x7f090241
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/behavior_autoShrink = 0x7f040068
 com.example.wav2vecapp:dimen/m3_side_sheet_modal_elevation = 0x7f0701df
 com.example.wav2vecapp:style/Widget.Material3.FloatingActionButton.Large.Primary = 0x7f110391
@@ -2133,7 +2442,11 @@ com.example.wav2vecapp:style/Widget.MaterialComponents.MaterialCalendar.HeaderTo
 com.example.wav2vecapp:macro/m3_comp_switch_selected_hover_track_color = 0x7f0d0129
 com.example.wav2vecapp:dimen/m3_navigation_item_shape_inset_end = 0x7f0701bd
 com.example.wav2vecapp:dimen/m3_navigation_item_shape_inset_bottom = 0x7f0701bc
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_child_content_container = 0x7f09016c
+=======
+com.example.wav2vecapp:id/mtrl_child_content_container = 0x7f09016e
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/m3_navigation_item_horizontal_padding = 0x7f0701ba
 com.example.wav2vecapp:dimen/m3_navigation_item_active_indicator_label_padding = 0x7f0701b9
 com.example.wav2vecapp:id/design_menu_item_action_area = 0x7f0900bd
@@ -2208,7 +2521,11 @@ com.example.wav2vecapp:drawable/common_google_signin_btn_text_dark = 0x7f08008e
 com.example.wav2vecapp:color/mtrl_choice_chip_ripple_color = 0x7f0602d4
 com.example.wav2vecapp:dimen/m3_comp_search_view_full_screen_header_container_height = 0x7f070173
 com.example.wav2vecapp:dimen/m3_comp_search_view_docked_header_container_height = 0x7f070172
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/selection_type = 0x7f0901da
+=======
+com.example.wav2vecapp:id/selection_type = 0x7f0901dc
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/m3_comp_search_view_container_elevation = 0x7f070171
 com.example.wav2vecapp:color/m3_dark_default_color_secondary_text = 0x7f060085
 com.example.wav2vecapp:attr/motionPath = 0x7f040345
@@ -2376,7 +2693,11 @@ com.example.wav2vecapp:macro/m3_comp_filled_tonal_button_container_color = 0x7f0
 com.example.wav2vecapp:dimen/m3_bottomappbar_height = 0x7f0700c9
 com.example.wav2vecapp:dimen/m3_bottomappbar_fab_cradle_vertical_offset = 0x7f0700c7
 com.example.wav2vecapp:dimen/m3_bottomappbar_fab_cradle_rounded_corner_radius = 0x7f0700c6
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/startHorizontal = 0x7f0901f9
+=======
+com.example.wav2vecapp:id/startHorizontal = 0x7f0901fb
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/m3_bottom_sheet_elevation = 0x7f0700c3
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral80 = 0x7f0600bc
 com.example.wav2vecapp:dimen/m3_bottom_nav_item_padding_bottom = 0x7f0700bf
@@ -2408,11 +2729,19 @@ com.example.wav2vecapp:dimen/m3_appbar_scrim_height_trigger = 0x7f0700a6
 com.example.wav2vecapp:dimen/m3_appbar_expanded_title_margin_horizontal = 0x7f0700a5
 com.example.wav2vecapp:string/mtrl_switch_thumb_path_pressed = 0x7f1000c4
 com.example.wav2vecapp:dimen/m3_appbar_expanded_title_margin_bottom = 0x7f0700a4
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mainScrollView = 0x7f090132
 com.example.wav2vecapp:dimen/m3_alert_dialog_icon_size = 0x7f0700a2
 com.example.wav2vecapp:dimen/m3_alert_dialog_icon_margin = 0x7f0700a1
 com.example.wav2vecapp:dimen/m3_alert_dialog_action_top_padding = 0x7f07009e
 com.example.wav2vecapp:id/mtrl_view_tag_bottom_padding = 0x7f090178
+=======
+com.example.wav2vecapp:id/mainScrollView = 0x7f090131
+com.example.wav2vecapp:dimen/m3_alert_dialog_icon_size = 0x7f0700a2
+com.example.wav2vecapp:dimen/m3_alert_dialog_icon_margin = 0x7f0700a1
+com.example.wav2vecapp:dimen/m3_alert_dialog_action_top_padding = 0x7f07009e
+com.example.wav2vecapp:id/mtrl_view_tag_bottom_padding = 0x7f09017a
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/item_touch_helper_swipe_escape_max_velocity = 0x7f07009b
 com.example.wav2vecapp:styleable/include = 0x7f12009a
 com.example.wav2vecapp:dimen/hint_pressed_alpha_material_light = 0x7f070099
@@ -2421,7 +2750,11 @@ com.example.wav2vecapp:macro/m3_comp_navigation_rail_inactive_label_text_color =
 com.example.wav2vecapp:integer/material_motion_duration_medium_1 = 0x7f0a0029
 com.example.wav2vecapp:dimen/hint_alpha_material_light = 0x7f070097
 com.example.wav2vecapp:style/Widget.MaterialComponents.MaterialCalendar.Day.Today = 0x7f110427
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/keyWord = 0x7f09011d
+=======
+com.example.wav2vecapp:id/keyWord = 0x7f09011c
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/listPreferredItemHeightLarge = 0x7f0402c8
 com.example.wav2vecapp:dimen/hint_alpha_material_dark = 0x7f070096
 com.example.wav2vecapp:attr/flow_firstHorizontalBias = 0x7f0401eb
@@ -2484,7 +2817,11 @@ com.example.wav2vecapp:dimen/design_appbar_elevation = 0x7f07005e
 com.example.wav2vecapp:styleable/SearchView = 0x7f12007a
 com.example.wav2vecapp:style/MaterialAlertDialog.MaterialComponents = 0x7f110135
 com.example.wav2vecapp:style/Base.TextAppearance.AppCompat.Small.Inverse = 0x7f11002d
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/special_effects_controller_view_tag = 0x7f0901eb
+=======
+com.example.wav2vecapp:id/special_effects_controller_view_tag = 0x7f0901ed
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/layout_constraintDimensionRatio = 0x7f040284
 com.example.wav2vecapp:dimen/def_drawer_elevation = 0x7f07005d
 com.example.wav2vecapp:dimen/compat_button_inset_vertical_material = 0x7f070057
@@ -2502,7 +2839,11 @@ com.example.wav2vecapp:dimen/abc_text_size_title_material = 0x7f07004f
 com.example.wav2vecapp:color/error_color_material_dark = 0x7f060065
 com.example.wav2vecapp:dimen/abc_text_size_subtitle_material_toolbar = 0x7f07004e
 com.example.wav2vecapp:dimen/mtrl_calendar_selection_text_baseline_to_bottom = 0x7f07028a
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tvTitle = 0x7f090241
+=======
+com.example.wav2vecapp:id/tvTitle = 0x7f090242
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/telltales_velocityMode = 0x7f04042f
 com.example.wav2vecapp:dimen/abc_text_size_menu_material = 0x7f07004b
 com.example.wav2vecapp:dimen/abc_text_size_medium_material = 0x7f070049
@@ -2544,7 +2885,11 @@ com.example.wav2vecapp:color/design_default_color_on_primary = 0x7f06004e
 com.example.wav2vecapp:dimen/abc_dialog_fixed_width_minor = 0x7f07001f
 com.example.wav2vecapp:style/TextAppearance.AppCompat.Widget.ActionMode.Title.Inverse = 0x7f1101c6
 com.example.wav2vecapp:dimen/abc_dialog_fixed_height_major = 0x7f07001c
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/open_search_view_background = 0x7f090190
+=======
+com.example.wav2vecapp:id/open_search_view_background = 0x7f090192
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_sys_color_dynamic_dark_surface_container = 0x7f0601a1
 com.example.wav2vecapp:dimen/m3_comp_radio_button_selected_focus_state_layer_opacity = 0x7f070166
 com.example.wav2vecapp:dimen/abc_dialog_corner_radius_material = 0x7f07001b
@@ -2574,10 +2919,17 @@ com.example.wav2vecapp:attr/dayStyle = 0x7f040171
 com.example.wav2vecapp:dimen/abc_action_bar_stacked_tab_max_width = 0x7f07000a
 com.example.wav2vecapp:attr/motionTarget = 0x7f040349
 com.example.wav2vecapp:dimen/abc_action_bar_stacked_max_height = 0x7f070009
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/scrollView = 0x7f0901cc
 com.example.wav2vecapp:dimen/abc_action_bar_overflow_padding_start_material = 0x7f070008
 com.example.wav2vecapp:dimen/abc_action_bar_icon_vertical_padding_material = 0x7f070006
 com.example.wav2vecapp:id/navigation_bar_item_small_label_view = 0x7f09017f
+=======
+com.example.wav2vecapp:id/scrollView = 0x7f0901ce
+com.example.wav2vecapp:dimen/abc_action_bar_overflow_padding_start_material = 0x7f070008
+com.example.wav2vecapp:dimen/abc_action_bar_icon_vertical_padding_material = 0x7f070006
+com.example.wav2vecapp:id/navigation_bar_item_small_label_view = 0x7f090181
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/abc_action_bar_default_padding_end_material = 0x7f070003
 com.example.wav2vecapp:dimen/abc_action_bar_content_inset_with_nav = 0x7f070001
 com.example.wav2vecapp:color/white = 0x7f06031b
@@ -2628,7 +2980,11 @@ com.example.wav2vecapp:color/mtrl_switch_thumb_tint = 0x7f0602ec
 com.example.wav2vecapp:color/mtrl_scrim_color = 0x7f0602ea
 com.example.wav2vecapp:color/mtrl_navigation_item_text_color = 0x7f0602e4
 com.example.wav2vecapp:color/mtrl_outlined_stroke_color = 0x7f0602e8
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tvNotice = 0x7f09023d
+=======
+com.example.wav2vecapp:id/tvNotice = 0x7f09023e
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/mtrl_navigation_item_icon_tint = 0x7f0602e3
 com.example.wav2vecapp:color/mtrl_navigation_bar_item_tint = 0x7f0602e0
 com.example.wav2vecapp:macro/m3_comp_switch_disabled_selected_track_color = 0x7f0d011c
@@ -2646,7 +3002,11 @@ com.example.wav2vecapp:color/mtrl_choice_chip_text_color = 0x7f0602d5
 com.example.wav2vecapp:color/mtrl_chip_text_color = 0x7f0602d2
 com.example.wav2vecapp:style/ThemeOverlay.MaterialComponents.ActionBar.Surface = 0x7f1102cd
 com.example.wav2vecapp:dimen/m3_btn_disabled_elevation = 0x7f0700cd
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tabMode = 0x7f090204
+=======
+com.example.wav2vecapp:id/tabMode = 0x7f090206
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/mtrl_card_view_ripple = 0x7f0602ce
 com.example.wav2vecapp:color/mtrl_card_view_foreground = 0x7f0602cd
 com.example.wav2vecapp:style/Widget.Material3.Button.TonalButton.Icon = 0x7f11036c
@@ -2661,7 +3021,11 @@ com.example.wav2vecapp:style/ThemeOverlay.Material3.ExtendedFloatingActionButton
 com.example.wav2vecapp:color/m3_ref_palette_white = 0x7f06015d
 com.example.wav2vecapp:color/material_timepicker_modebutton_tint = 0x7f0602c2
 com.example.wav2vecapp:drawable/abc_list_focused_holo = 0x7f08004f
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/search_bar = 0x7f0901cf
+=======
+com.example.wav2vecapp:id/search_bar = 0x7f0901d1
+>>>>>>> Stashed changes
 com.example.wav2vecapp:id/btnManageKeywords = 0x7f090078
 com.example.wav2vecapp:dimen/abc_disabled_alpha_material_dark = 0x7f070027
 com.example.wav2vecapp:color/material_timepicker_clockface = 0x7f0602c1
@@ -2689,7 +3053,11 @@ com.example.wav2vecapp:color/material_personalized_color_text_secondary_and_tert
 com.example.wav2vecapp:dimen/mtrl_btn_padding_right = 0x7f070261
 com.example.wav2vecapp:dimen/m3_carousel_debug_keyline_width = 0x7f0700ed
 com.example.wav2vecapp:macro/m3_comp_switch_selected_pressed_handle_color = 0x7f0d012b
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/pin = 0x7f0901ad
+=======
+com.example.wav2vecapp:id/pin = 0x7f0901af
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/layout_scrollEffect = 0x7f0402b4
 com.example.wav2vecapp:dimen/compat_notification_large_icon_max_height = 0x7f07005b
 com.example.wav2vecapp:layout/mtrl_alert_dialog = 0x7f0c0056
@@ -2725,7 +3093,11 @@ com.example.wav2vecapp:style/TextAppearance.AppCompat.Display1 = 0x7f1101a6
 com.example.wav2vecapp:attr/textureEffect = 0x7f04046e
 com.example.wav2vecapp:color/material_personalized_color_primary = 0x7f06029a
 com.example.wav2vecapp:string/last_register = 0x7f100065
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/x_left = 0x7f09025e
+=======
+com.example.wav2vecapp:id/x_left = 0x7f09025f
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/layout_dodgeInsetEdges = 0x7f0402a6
 com.example.wav2vecapp:attr/spinBars = 0x7f0403db
 com.example.wav2vecapp:color/material_personalized_color_primary_inverse = 0x7f06029c
@@ -2819,7 +3191,11 @@ com.example.wav2vecapp:string/m3_sys_motion_easing_standard = 0x7f100073
 com.example.wav2vecapp:color/material_dynamic_secondary80 = 0x7f06025e
 com.example.wav2vecapp:color/material_dynamic_secondary70 = 0x7f06025d
 com.example.wav2vecapp:style/ThemeOverlay.Material3.Button = 0x7f110295
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/search_go_btn = 0x7f0901d3
+=======
+com.example.wav2vecapp:id/search_go_btn = 0x7f0901d5
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/m3_comp_time_picker_time_selector_focus_state_layer_opacity = 0x7f07019f
 com.example.wav2vecapp:color/material_dynamic_secondary60 = 0x7f06025c
 com.example.wav2vecapp:attr/searchPrefixText = 0x7f0403ae
@@ -2837,7 +3213,11 @@ com.example.wav2vecapp:style/Widget.Material3.FloatingActionButton.Small.Seconda
 com.example.wav2vecapp:dimen/mtrl_card_corner_radius = 0x7f070297
 com.example.wav2vecapp:color/material_dynamic_primary90 = 0x7f060252
 com.example.wav2vecapp:style/Base.ThemeOverlay.AppCompat.Dialog = 0x7f11007e
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/off = 0x7f09018c
+=======
+com.example.wav2vecapp:id/off = 0x7f09018e
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/mock_label = 0x7f04031a
 com.example.wav2vecapp:color/material_dynamic_primary80 = 0x7f060251
 com.example.wav2vecapp:attr/liftOnScroll = 0x7f0402b8
@@ -2889,7 +3269,11 @@ com.example.wav2vecapp:color/material_dynamic_neutral30 = 0x7f060232
 com.example.wav2vecapp:layout/custom_dialog = 0x7f0c0033
 com.example.wav2vecapp:color/material_dynamic_neutral20 = 0x7f060231
 com.example.wav2vecapp:id/TOP_START = 0x7f09000d
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/switchMockReport = 0x7f090203
+=======
+com.example.wav2vecapp:id/switchMockReport = 0x7f090205
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/m3_comp_assist_chip_flat_container_elevation = 0x7f0700fc
 com.example.wav2vecapp:xml/backup_rules = 0x7f130000
 com.example.wav2vecapp:color/material_dynamic_neutral100 = 0x7f060230
@@ -2907,7 +3291,11 @@ com.example.wav2vecapp:color/material_dynamic_color_dark_on_error_container = 0x
 com.example.wav2vecapp:dimen/m3_comp_sheet_bottom_docked_modal_container_elevation = 0x7f07017a
 com.example.wav2vecapp:color/material_dynamic_color_dark_on_error = 0x7f060228
 com.example.wav2vecapp:color/material_dynamic_color_dark_error_container = 0x7f060227
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/scale = 0x7f0901c7
+=======
+com.example.wav2vecapp:id/scale = 0x7f0901c9
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/material_dynamic_color_dark_error = 0x7f060226
 com.example.wav2vecapp:color/material_divider_color = 0x7f060225
 com.example.wav2vecapp:color/material_deep_teal_500 = 0x7f060224
@@ -2923,7 +3311,11 @@ com.example.wav2vecapp:attr/viewTransitionMode = 0x7f0404c5
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant12 = 0x7f0600c8
 com.example.wav2vecapp:dimen/mtrl_snackbar_action_text_color_alpha = 0x7f0702e9
 com.example.wav2vecapp:style/Widget.AppCompat.Button.Colored = 0x7f110302
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/spline = 0x7f0901ee
+=======
+com.example.wav2vecapp:id/spline = 0x7f0901f0
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/marginLeftSystemWindowInsets = 0x7f0402d3
 com.example.wav2vecapp:color/m3_timepicker_button_ripple_color = 0x7f060215
 com.example.wav2vecapp:style/Platform.ThemeOverlay.AppCompat.Dark = 0x7f110147
@@ -2967,11 +3359,19 @@ com.example.wav2vecapp:style/Base.Widget.Material3.MaterialCalendar.NavigationBu
 com.example.wav2vecapp:attr/subtitleCentered = 0x7f040403
 com.example.wav2vecapp:dimen/mtrl_card_spacing = 0x7f07029a
 com.example.wav2vecapp:color/m3_sys_color_light_tertiary = 0x7f0601f8
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/textStart = 0x7f090218
 com.example.wav2vecapp:attr/endIconTint = 0x7f0401ab
 com.example.wav2vecapp:drawable/common_google_signin_btn_icon_light_normal = 0x7f08008c
 com.example.wav2vecapp:color/m3_sys_color_light_surface_variant = 0x7f0601f7
 com.example.wav2vecapp:id/wrap = 0x7f09025b
+=======
+com.example.wav2vecapp:id/textStart = 0x7f09021a
+com.example.wav2vecapp:attr/endIconTint = 0x7f0401ab
+com.example.wav2vecapp:drawable/common_google_signin_btn_icon_light_normal = 0x7f08008c
+com.example.wav2vecapp:color/m3_sys_color_light_surface_variant = 0x7f0601f7
+com.example.wav2vecapp:id/wrap = 0x7f09025c
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_sys_color_light_surface_container_lowest = 0x7f0601f5
 com.example.wav2vecapp:color/mtrl_filled_stroke_color = 0x7f0602dc
 com.example.wav2vecapp:color/m3_sys_color_light_surface_container_low = 0x7f0601f4
@@ -3086,7 +3486,11 @@ com.example.wav2vecapp:attr/trackCornerRadius = 0x7f0404ab
 com.example.wav2vecapp:drawable/abc_cab_background_top_material = 0x7f080039
 com.example.wav2vecapp:string/admin_mode = 0x7f10001d
 com.example.wav2vecapp:color/m3_sys_color_dynamic_dark_on_secondary = 0x7f060193
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/notification_main_column = 0x7f09018a
+=======
+com.example.wav2vecapp:id/notification_main_column = 0x7f09018c
+>>>>>>> Stashed changes
 com.example.wav2vecapp:id/btnSettings = 0x7f090080
 com.example.wav2vecapp:id/btnC = 0x7f090070
 com.example.wav2vecapp:attr/collapseContentDescription = 0x7f0400e9
@@ -3145,7 +3549,11 @@ com.example.wav2vecapp:dimen/mtrl_extended_fab_end_padding_icon = 0x7f0702a5
 com.example.wav2vecapp:attr/animationMode = 0x7f040035
 com.example.wav2vecapp:id/accessibility_custom_action_0 = 0x7f090015
 com.example.wav2vecapp:color/m3_ref_palette_tertiary60 = 0x7f060157
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/left = 0x7f090125
+=======
+com.example.wav2vecapp:id/left = 0x7f090124
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_ref_palette_tertiary50 = 0x7f060156
 com.example.wav2vecapp:style/Base.Widget.AppCompat.ActionButton.CloseMode = 0x7f1100ca
 com.example.wav2vecapp:color/m3_ref_palette_tertiary40 = 0x7f060155
@@ -3161,7 +3569,11 @@ com.example.wav2vecapp:dimen/abc_text_size_body_1_material = 0x7f07003f
 com.example.wav2vecapp:style/TextAppearance.AppCompat.Subhead.Inverse = 0x7f1101ba
 com.example.wav2vecapp:attr/dividerInsetEnd = 0x7f040182
 com.example.wav2vecapp:dimen/material_clock_hand_padding = 0x7f070222
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/material_timepicker_container = 0x7f090146
+=======
+com.example.wav2vecapp:id/material_timepicker_container = 0x7f090145
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_ref_palette_secondary95 = 0x7f06014e
 com.example.wav2vecapp:drawable/design_ic_visibility = 0x7f080098
 com.example.wav2vecapp:dimen/m3_fab_corner_size = 0x7f0701b0
@@ -3181,7 +3593,11 @@ com.example.wav2vecapp:attr/motionDurationExtraLong4 = 0x7f040323
 com.example.wav2vecapp:color/m3_ref_palette_secondary100 = 0x7f060145
 com.example.wav2vecapp:color/m3_ref_palette_secondary10 = 0x7f060144
 com.example.wav2vecapp:color/m3_ref_palette_primary90 = 0x7f060140
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/title = 0x7f090224
+=======
+com.example.wav2vecapp:id/title = 0x7f090226
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_ref_palette_primary80 = 0x7f06013f
 com.example.wav2vecapp:attr/useDrawerArrowDrawable = 0x7f0404bf
 com.example.wav2vecapp:dimen/mtrl_slider_track_side_padding = 0x7f0702e7
@@ -3211,7 +3627,11 @@ com.example.wav2vecapp:color/m3_ref_palette_neutral_variant70 = 0x7f060131
 com.example.wav2vecapp:macro/m3_comp_extended_fab_secondary_icon_color = 0x7f0d0032
 com.example.wav2vecapp:dimen/mtrl_alert_dialog_background_inset_top = 0x7f070243
 com.example.wav2vecapp:color/m3_ref_palette_neutral_variant60 = 0x7f060130
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/packed = 0x7f0901a0
+=======
+com.example.wav2vecapp:id/packed = 0x7f0901a2
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_ref_palette_neutral_variant50 = 0x7f06012f
 com.example.wav2vecapp:style/Widget.MaterialComponents.Button = 0x7f110402
 com.example.wav2vecapp:color/m3_ref_palette_neutral_variant40 = 0x7f06012e
@@ -3224,10 +3644,17 @@ com.example.wav2vecapp:color/m3_ref_palette_neutral_variant20 = 0x7f06012c
 com.example.wav2vecapp:color/m3_ref_palette_neutral_variant0 = 0x7f060129
 com.example.wav2vecapp:color/abc_search_url_text_selected = 0x7f060010
 com.example.wav2vecapp:color/m3_ref_palette_neutral96 = 0x7f060126
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tag_state_description = 0x7f09020d
 com.example.wav2vecapp:color/m3_ref_palette_neutral95 = 0x7f060125
 com.example.wav2vecapp:layout/activity_admin = 0x7f0c001d
 com.example.wav2vecapp:id/tag_accessibility_clickable_spans = 0x7f090206
+=======
+com.example.wav2vecapp:id/tag_state_description = 0x7f09020f
+com.example.wav2vecapp:color/m3_ref_palette_neutral95 = 0x7f060125
+com.example.wav2vecapp:layout/activity_admin = 0x7f0c001d
+com.example.wav2vecapp:id/tag_accessibility_clickable_spans = 0x7f090208
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_ref_palette_neutral94 = 0x7f060124
 com.example.wav2vecapp:color/m3_ref_palette_neutral92 = 0x7f060123
 com.example.wav2vecapp:id/west = 0x7f090256
@@ -3257,7 +3684,11 @@ com.example.wav2vecapp:color/m3_ref_palette_neutral12 = 0x7f060114
 com.example.wav2vecapp:color/m3_ref_palette_neutral100 = 0x7f060113
 com.example.wav2vecapp:macro/m3_comp_switch_unselected_pressed_state_layer_color = 0x7f0d013e
 com.example.wav2vecapp:color/m3_ref_palette_neutral10 = 0x7f060112
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/parent_matrix = 0x7f0901a5
+=======
+com.example.wav2vecapp:id/parent_matrix = 0x7f0901a7
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_ref_palette_error99 = 0x7f060110
 com.example.wav2vecapp:color/m3_ref_palette_error90 = 0x7f06010e
 com.example.wav2vecapp:attr/collapsingToolbarLayoutMediumSize = 0x7f0400f1
@@ -3282,14 +3713,23 @@ com.example.wav2vecapp:dimen/m3_sys_state_dragged_state_layer_opacity = 0x7f0702
 com.example.wav2vecapp:color/m3_sys_color_dynamic_light_surface_container_highest = 0x7f0601c5
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_tertiary80 = 0x7f060100
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_tertiary70 = 0x7f0600ff
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/textTop = 0x7f090219
 com.example.wav2vecapp:id/light = 0x7f090128
+=======
+com.example.wav2vecapp:id/textTop = 0x7f09021b
+com.example.wav2vecapp:id/light = 0x7f090127
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_tertiary40 = 0x7f0600fc
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_tertiary30 = 0x7f0600fb
 com.example.wav2vecapp:string/mtrl_exceed_max_badge_number_suffix = 0x7f10009a
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_tertiary100 = 0x7f0600f9
 com.example.wav2vecapp:layout/design_bottom_navigation_item = 0x7f0c0034
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/src_over = 0x7f0901f6
+=======
+com.example.wav2vecapp:id/src_over = 0x7f0901f8
+>>>>>>> Stashed changes
 com.example.wav2vecapp:drawable/m3_avd_hide_password = 0x7f0800ae
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_secondary60 = 0x7f0600f1
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_secondary50 = 0x7f0600f0
@@ -3306,7 +3746,7 @@ com.example.wav2vecapp:attr/maxHeight = 0x7f040309
 com.example.wav2vecapp:string/mtrl_badge_numberless_content_description = 0x7f10008c
 com.example.wav2vecapp:dimen/m3_comp_radio_button_disabled_selected_icon_opacity = 0x7f070164
 com.example.wav2vecapp:attr/spanCount = 0x7f0403da
-com.example.wav2vecapp:id/legacy = 0x7f090127
+com.example.wav2vecapp:id/legacy = 0x7f090126
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_primary70 = 0x7f0600e5
 com.example.wav2vecapp:string/material_timepicker_select_time = 0x7f10008a
 com.example.wav2vecapp:id/indeterminate = 0x7f090114
@@ -3333,7 +3773,11 @@ com.example.wav2vecapp:attr/behavior_halfExpandedRatio = 0x7f04006c
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant70 = 0x7f0600d3
 com.example.wav2vecapp:style/Theme.MaterialComponents.Bridge = 0x7f110252
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant50 = 0x7f0600d0
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/stop = 0x7f0901fe
+=======
+com.example.wav2vecapp:id/stop = 0x7f090200
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant30 = 0x7f0600cd
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant17 = 0x7f0600c9
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral99 = 0x7f0600c4
@@ -3387,11 +3831,19 @@ com.example.wav2vecapp:attr/circularflow_angles = 0x7f0400d6
 com.example.wav2vecapp:color/m3_navigation_rail_item_with_indicator_icon_tint = 0x7f0600a5
 com.example.wav2vecapp:style/Widget.MaterialComponents.TabLayout.Colored = 0x7f11044d
 com.example.wav2vecapp:color/m3_navigation_item_ripple_color = 0x7f0600a3
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/rounded = 0x7f0901c2
 com.example.wav2vecapp:id/noScroll = 0x7f090184
 com.example.wav2vecapp:attr/logoScaleType = 0x7f0402d1
 com.example.wav2vecapp:color/m3_navigation_bar_ripple_color_selector = 0x7f0600a0
 com.example.wav2vecapp:id/navigation_bar_item_icon_view = 0x7f09017c
+=======
+com.example.wav2vecapp:id/rounded = 0x7f0901c4
+com.example.wav2vecapp:id/noScroll = 0x7f090186
+com.example.wav2vecapp:attr/logoScaleType = 0x7f0402d1
+com.example.wav2vecapp:color/m3_navigation_bar_ripple_color_selector = 0x7f0600a0
+com.example.wav2vecapp:id/navigation_bar_item_icon_view = 0x7f09017e
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_navigation_bar_item_with_indicator_label_tint = 0x7f06009f
 com.example.wav2vecapp:attr/colorSurfaceContainerLowest = 0x7f040129
 com.example.wav2vecapp:color/purple_500 = 0x7f060306
@@ -3446,7 +3898,11 @@ com.example.wav2vecapp:dimen/mtrl_extended_fab_icon_text_spacing = 0x7f0702a7
 com.example.wav2vecapp:attr/fabAlignmentModeEndMargin = 0x7f0401ce
 com.example.wav2vecapp:color/m3_button_ripple_color_selector = 0x7f060077
 com.example.wav2vecapp:style/Widget.Material3.Button.TextButton.Dialog = 0x7f110366
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_calendar_frame = 0x7f090165
+=======
+com.example.wav2vecapp:id/mtrl_calendar_frame = 0x7f090167
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/material_dynamic_color_light_error = 0x7f06022a
 com.example.wav2vecapp:attr/trackDecoration = 0x7f0404ac
 com.example.wav2vecapp:color/m3_button_ripple_color = 0x7f060076
@@ -3469,13 +3925,17 @@ com.example.wav2vecapp:macro/m3_comp_navigation_drawer_inactive_icon_color = 0x7
 com.example.wav2vecapp:interpolator/m3_sys_motion_easing_emphasized_decelerate = 0x7f0b0009
 com.example.wav2vecapp:color/grayLight = 0x7f06006a
 com.example.wav2vecapp:color/gray = 0x7f060069
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_card_checked_layer_id = 0x7f09016b
+=======
+com.example.wav2vecapp:id/mtrl_card_checked_layer_id = 0x7f09016d
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/colorAccent = 0x7f0400f5
 com.example.wav2vecapp:style/Widget.MaterialComponents.Slider = 0x7f110448
 com.example.wav2vecapp:attr/materialDisplayDividerStyle = 0x7f0402f4
 com.example.wav2vecapp:color/textPrimary = 0x7f060317
 com.example.wav2vecapp:color/error_color_material_light = 0x7f060066
-com.example.wav2vecapp:id/line1 = 0x7f090129
+com.example.wav2vecapp:id/line1 = 0x7f090128
 com.example.wav2vecapp:color/dim_foreground_material_dark = 0x7f060063
 com.example.wav2vecapp:style/Widget.MaterialComponents.Button.Icon = 0x7f110403
 com.example.wav2vecapp:color/dim_foreground_disabled_material_dark = 0x7f060061
@@ -3489,7 +3949,11 @@ com.example.wav2vecapp:attr/bottomSheetStyle = 0x7f04007d
 com.example.wav2vecapp:color/design_fab_stroke_end_inner_color = 0x7f06005b
 com.example.wav2vecapp:macro/m3_comp_filled_text_field_supporting_text_type = 0x7f0d0052
 com.example.wav2vecapp:color/design_fab_shadow_start_color = 0x7f06005a
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/selected = 0x7f0901d9
+=======
+com.example.wav2vecapp:id/selected = 0x7f0901db
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/material_personalized_color_text_primary_inverse = 0x7f0602b0
 com.example.wav2vecapp:attr/tabPaddingBottom = 0x7f040420
 com.example.wav2vecapp:attr/textAppearanceListItemSecondary = 0x7f04044a
@@ -3533,7 +3997,11 @@ com.example.wav2vecapp:color/m3_dark_hint_foreground = 0x7f060087
 com.example.wav2vecapp:color/common_google_signin_btn_text_dark_default = 0x7f060030
 com.example.wav2vecapp:color/m3_sys_color_dynamic_light_on_primary_container = 0x7f0601b4
 com.example.wav2vecapp:attr/gestureInsetBottomIgnored = 0x7f04020f
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mp_phone_text_input = 0x7f09015e
+=======
+com.example.wav2vecapp:id/mp_phone_text_input = 0x7f090160
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/elevationOverlayEnabled = 0x7f0401a2
 com.example.wav2vecapp:color/common_google_signin_btn_text_dark = 0x7f06002f
 com.example.wav2vecapp:style/ShapeAppearance.M3.Sys.Shape.Corner.Large = 0x7f110177
@@ -3550,7 +4018,11 @@ com.example.wav2vecapp:style/TextAppearance.Material3.LabelLarge = 0x7f1101fb
 com.example.wav2vecapp:color/background_floating_material_dark = 0x7f06001e
 com.example.wav2vecapp:color/abc_decor_view_status_guard_light = 0x7f060006
 com.example.wav2vecapp:color/androidx_core_ripple_material_light = 0x7f06001b
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/right_icon = 0x7f0901c0
+=======
+com.example.wav2vecapp:id/right_icon = 0x7f0901c2
+>>>>>>> Stashed changes
 com.example.wav2vecapp:id/dragClockwise = 0x7f0900cb
 com.example.wav2vecapp:color/accent_material_light = 0x7f06001a
 com.example.wav2vecapp:color/material_personalized_color_on_primary_container = 0x7f060290
@@ -3615,7 +4087,11 @@ com.example.wav2vecapp:drawable/$m3_avd_show_password__1 = 0x7f08000b
 com.example.wav2vecapp:animator/m3_elevated_chip_state_list_anim = 0x7f02000f
 com.example.wav2vecapp:attr/values = 0x7f0404c1
 com.example.wav2vecapp:dimen/mtrl_navigation_bar_item_default_icon_size = 0x7f0702bd
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/showCustom = 0x7f0901de
+=======
+com.example.wav2vecapp:id/showCustom = 0x7f0901e0
+>>>>>>> Stashed changes
 com.example.wav2vecapp:drawable/$mtrl_switch_thumb_unchecked_checked__1 = 0x7f080027
 com.example.wav2vecapp:dimen/m3_comp_suggestion_chip_with_leading_icon_leading_icon_size = 0x7f070188
 com.example.wav2vecapp:color/teal_200 = 0x7f060315
@@ -3640,7 +4116,11 @@ com.example.wav2vecapp:attr/motionEasingStandardDecelerateInterpolator = 0x7f040
 com.example.wav2vecapp:attr/triggerReceiver = 0x7f0404ba
 com.example.wav2vecapp:color/m3_sys_color_dark_on_surface_variant = 0x7f060174
 com.example.wav2vecapp:string/abc_menu_alt_shortcut_label = 0x7f100008
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/spacer = 0x7f0901ea
+=======
+com.example.wav2vecapp:id/spacer = 0x7f0901ec
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/layout_goneMarginBottom = 0x7f0402aa
 com.example.wav2vecapp:attr/tabTextAppearance = 0x7f040429
 com.example.wav2vecapp:macro/m3_comp_top_app_bar_small_on_scroll_container_color = 0x7f0d0174
@@ -3689,7 +4169,11 @@ com.example.wav2vecapp:integer/design_snackbar_text_max_lines = 0x7f0a0006
 com.example.wav2vecapp:drawable/m3_popupmenu_background_overlay = 0x7f0800b2
 com.example.wav2vecapp:style/TextAppearance.Material3.DisplaySmall = 0x7f1101f7
 com.example.wav2vecapp:color/m3_sys_color_on_tertiary_fixed_variant = 0x7f0601ff
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/textSpacerNoButtons = 0x7f090216
+=======
+com.example.wav2vecapp:id/textSpacerNoButtons = 0x7f090218
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/tooltipFrameBackground = 0x7f0404a0
 com.example.wav2vecapp:attr/toolbarNavigationButtonStyle = 0x7f04049c
 com.example.wav2vecapp:attr/thumbColor = 0x7f040473
@@ -3714,7 +4198,7 @@ com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral90 = 0x7f0600be
 com.example.wav2vecapp:attr/motionDurationExtraLong1 = 0x7f040320
 com.example.wav2vecapp:attr/tabMaxWidth = 0x7f04041c
 com.example.wav2vecapp:integer/m3_badge_max_number = 0x7f0a000a
-com.example.wav2vecapp:id/month_title = 0x7f090156
+com.example.wav2vecapp:id/month_title = 0x7f090155
 com.example.wav2vecapp:attr/titleTextColor = 0x7f040497
 com.example.wav2vecapp:style/TextAppearance.MaterialComponents.Subtitle1 = 0x7f110212
 com.example.wav2vecapp:attr/titleMarginTop = 0x7f040493
@@ -3864,7 +4348,11 @@ com.example.wav2vecapp:style/Widget.Material3.TextInputLayout.OutlinedBox.Dense 
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_secondary0 = 0x7f0600ea
 com.example.wav2vecapp:animator/mtrl_btn_state_list_anim = 0x7f020015
 com.example.wav2vecapp:attr/yearSelectedStyle = 0x7f0404dc
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/transition_current_scene = 0x7f09022e
+=======
+com.example.wav2vecapp:id/transition_current_scene = 0x7f090230
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/tabPaddingStart = 0x7f040422
 com.example.wav2vecapp:drawable/rounded_button = 0x7f0800f5
 com.example.wav2vecapp:style/Widget.Material3.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu = 0x7f1103e3
@@ -3896,7 +4384,11 @@ com.example.wav2vecapp:string/abc_searchview_description_query = 0x7f100014
 com.example.wav2vecapp:attr/suggestionRowLayout = 0x7f04040a
 com.example.wav2vecapp:dimen/mtrl_extended_fab_icon_size = 0x7f0702a6
 com.example.wav2vecapp:styleable/NavigationView = 0x7f12006d
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/transition_scene_layoutid_cache = 0x7f090231
+=======
+com.example.wav2vecapp:id/transition_scene_layoutid_cache = 0x7f090233
+>>>>>>> Stashed changes
 com.example.wav2vecapp:drawable/common_google_signin_btn_text_light = 0x7f080093
 com.example.wav2vecapp:color/mtrl_outlined_icon_tint = 0x7f0602e7
 com.example.wav2vecapp:color/m3_dynamic_highlighted_text = 0x7f060092
@@ -3916,7 +4408,11 @@ com.example.wav2vecapp:dimen/m3_bottom_sheet_drag_handle_bottom_padding = 0x7f07
 com.example.wav2vecapp:attr/cardBackgroundColor = 0x7f04009b
 com.example.wav2vecapp:attr/subheaderTextAppearance = 0x7f040400
 com.example.wav2vecapp:dimen/mtrl_textinput_box_stroke_width_default = 0x7f0702f8
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/staticPostLayout = 0x7f0901fd
+=======
+com.example.wav2vecapp:id/staticPostLayout = 0x7f0901ff
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/subheaderInsetEnd = 0x7f0403fe
 com.example.wav2vecapp:attr/subMenuArrow = 0x7f0403fc
 com.example.wav2vecapp:id/accessibility_custom_action_30 = 0x7f09002d
@@ -3931,7 +4427,7 @@ com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral96 = 0x7f0600c2
 com.example.wav2vecapp:attr/state_error = 0x7f0403f2
 com.example.wav2vecapp:style/Theme.AppCompat.Light.Dialog.Alert = 0x7f11022a
 com.example.wav2vecapp:attr/layout_constraintWidth_default = 0x7f0402a2
-com.example.wav2vecapp:id/material_minute_text_input = 0x7f090142
+com.example.wav2vecapp:id/material_minute_text_input = 0x7f090141
 com.example.wav2vecapp:attr/state_collapsed = 0x7f0403ef
 com.example.wav2vecapp:attr/customDimension = 0x7f040168
 com.example.wav2vecapp:attr/searchHintIcon = 0x7f0403ac
@@ -3942,7 +4438,11 @@ com.example.wav2vecapp:attr/startIconTint = 0x7f0403ec
 com.example.wav2vecapp:attr/cornerSizeBottomRight = 0x7f040157
 com.example.wav2vecapp:color/mtrl_navigation_item_background_color = 0x7f0602e2
 com.example.wav2vecapp:attr/startIconMinSize = 0x7f0403ea
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/password_toggle = 0x7f0901a6
+=======
+com.example.wav2vecapp:id/password_toggle = 0x7f0901a8
+>>>>>>> Stashed changes
 com.example.wav2vecapp:id/easeIn = 0x7f0900d4
 com.example.wav2vecapp:attr/floatingActionButtonLargeTertiaryStyle = 0x7f0401e0
 com.example.wav2vecapp:attr/startIconCheckable = 0x7f0403e7
@@ -3959,7 +4459,11 @@ com.example.wav2vecapp:interpolator/btn_checkbox_checked_mtrl_animation_interpol
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_tertiary20 = 0x7f0600fa
 com.example.wav2vecapp:style/Base.V7.Widget.AppCompat.Toolbar = 0x7f1100c3
 com.example.wav2vecapp:color/m3_sys_color_dark_surface_bright = 0x7f06017e
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tv_intro = 0x7f090243
+=======
+com.example.wav2vecapp:id/tv_intro = 0x7f090244
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/m3_comp_elevated_button_disabled_container_elevation = 0x7f07010a
 com.example.wav2vecapp:attr/font = 0x7f0401fe
 com.example.wav2vecapp:attr/springBoundary = 0x7f0403df
@@ -3977,7 +4481,11 @@ com.example.wav2vecapp:drawable/$mtrl_checkbox_button_checked_unchecked__0 = 0x7
 com.example.wav2vecapp:style/ThemeOverlay.AppCompat.Dialog = 0x7f110286
 com.example.wav2vecapp:macro/m3_comp_switch_selected_pressed_state_layer_color = 0x7f0d012d
 com.example.wav2vecapp:dimen/m3_comp_sheet_bottom_docked_drag_handle_width = 0x7f070179
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/search_close_btn = 0x7f0901d1
+=======
+com.example.wav2vecapp:id/search_close_btn = 0x7f0901d3
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/headerLayout = 0x7f040214
 com.example.wav2vecapp:attr/singleSelection = 0x7f0403d4
 com.example.wav2vecapp:color/mtrl_switch_thumb_icon_tint = 0x7f0602eb
@@ -4013,7 +4521,7 @@ com.example.wav2vecapp:macro/m3_comp_filled_tonal_icon_button_toggle_selected_ic
 com.example.wav2vecapp:color/material_on_primary_emphasis_high_type = 0x7f06027e
 com.example.wav2vecapp:dimen/abc_panel_menu_list_width = 0x7f070034
 com.example.wav2vecapp:style/TextAppearance.Material3.HeadlineSmall = 0x7f1101fa
-com.example.wav2vecapp:id/locationButton = 0x7f09012f
+com.example.wav2vecapp:id/locationButton = 0x7f09012e
 com.example.wav2vecapp:attr/searchViewStyle = 0x7f0403af
 com.example.wav2vecapp:id/wrap_content = 0x7f09025c
 com.example.wav2vecapp:attr/scrimVisibleHeightTrigger = 0x7f0403ab
@@ -4029,7 +4537,11 @@ com.example.wav2vecapp:style/Widget.Material3.FloatingActionButton.Large.Surface
 com.example.wav2vecapp:attr/fontWeight = 0x7f040209
 com.example.wav2vecapp:attr/rotationCenterId = 0x7f0403a3
 com.example.wav2vecapp:color/m3_calendar_item_disabled_text = 0x7f060078
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_picker_text_input_range_start = 0x7f090176
+=======
+com.example.wav2vecapp:id/mtrl_picker_text_input_range_start = 0x7f090178
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_sys_color_dark_on_tertiary = 0x7f060175
 com.example.wav2vecapp:attr/hideMotionSpec = 0x7f04021b
 com.example.wav2vecapp:attr/fabCustomSize = 0x7f0401d4
@@ -4069,11 +4581,19 @@ com.example.wav2vecapp:attr/bottomSheetDragHandleStyle = 0x7f04007c
 com.example.wav2vecapp:drawable/abc_item_background_holo_light = 0x7f08004c
 com.example.wav2vecapp:string/abc_capital_off = 0x7f100006
 com.example.wav2vecapp:attr/ratingBarStyleSmall = 0x7f040396
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/transitionToStart = 0x7f09022d
 com.example.wav2vecapp:attr/textAppearanceSearchResultSubtitle = 0x7f04044e
 com.example.wav2vecapp:attr/queryBackground = 0x7f04038f
 com.example.wav2vecapp:string/path_password_strike_through = 0x7f1000d2
 com.example.wav2vecapp:id/north = 0x7f090188
+=======
+com.example.wav2vecapp:id/transitionToStart = 0x7f09022f
+com.example.wav2vecapp:attr/textAppearanceSearchResultSubtitle = 0x7f04044e
+com.example.wav2vecapp:attr/queryBackground = 0x7f04038f
+com.example.wav2vecapp:string/path_password_strike_through = 0x7f1000d2
+com.example.wav2vecapp:id/north = 0x7f09018a
+>>>>>>> Stashed changes
 com.example.wav2vecapp:drawable/material_ic_edit_black_24dp = 0x7f0800bc
 com.example.wav2vecapp:style/Widget.Material3.FloatingActionButton.Secondary = 0x7f110396
 com.example.wav2vecapp:style/Theme.Material3.Dark.DialogWhenLarge = 0x7f11023a
@@ -4096,7 +4616,7 @@ com.example.wav2vecapp:string/abc_action_menu_overflow_description = 0x7f100002
 com.example.wav2vecapp:color/material_on_background_emphasis_high_type = 0x7f06027b
 com.example.wav2vecapp:color/m3_ref_palette_neutral98 = 0x7f060127
 com.example.wav2vecapp:attr/placeholderTextAppearance = 0x7f04037d
-com.example.wav2vecapp:id/material_timepicker_mode_button = 0x7f090147
+com.example.wav2vecapp:id/material_timepicker_mode_button = 0x7f090146
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant92 = 0x7f0600d7
 com.example.wav2vecapp:style/Widget.AppCompat.SearchView.ActionBar = 0x7f110331
 com.example.wav2vecapp:attr/placeholderText = 0x7f04037c
@@ -4127,7 +4647,11 @@ com.example.wav2vecapp:attr/placeholderTextColor = 0x7f04037e
 com.example.wav2vecapp:dimen/m3_comp_input_chip_with_leading_icon_leading_icon_size = 0x7f070135
 com.example.wav2vecapp:attr/panelMenuListWidth = 0x7f04036e
 com.example.wav2vecapp:attr/content = 0x7f04013b
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/text2 = 0x7f090213
+=======
+com.example.wav2vecapp:id/text2 = 0x7f090215
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/springDamping = 0x7f0403e0
 com.example.wav2vecapp:attr/shapeAppearanceCornerExtraSmall = 0x7f0403b8
 com.example.wav2vecapp:style/Base.V21.Theme.AppCompat.Light.Dialog = 0x7f1100a6
@@ -4150,7 +4674,11 @@ com.example.wav2vecapp:attr/paddingLeftSystemWindowInsets = 0x7f040366
 com.example.wav2vecapp:drawable/mtrl_checkbox_button = 0x7f0800c4
 com.example.wav2vecapp:macro/m3_comp_date_picker_modal_range_selection_active_indicator_container_color = 0x7f0d001a
 com.example.wav2vecapp:attr/shapeAppearanceCornerExtraLarge = 0x7f0403b7
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_calendar_selection_frame = 0x7f090168
+=======
+com.example.wav2vecapp:id/mtrl_calendar_selection_frame = 0x7f09016a
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/paddingEnd = 0x7f040365
 com.example.wav2vecapp:attr/fastScrollHorizontalThumbDrawable = 0x7f0401d7
 com.example.wav2vecapp:attr/paddingBottomNoButtons = 0x7f040363
@@ -4178,8 +4706,13 @@ com.example.wav2vecapp:animator/m3_extended_fab_change_size_expand_motion_spec =
 com.example.wav2vecapp:attr/isMaterial3Theme = 0x7f040245
 com.example.wav2vecapp:attr/number = 0x7f040357
 com.example.wav2vecapp:dimen/abc_dropdownitem_text_padding_left = 0x7f07002a
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/view_transition = 0x7f09024d
 com.example.wav2vecapp:id/mp_spinner_relation = 0x7f090160
+=======
+com.example.wav2vecapp:id/view_transition = 0x7f09024e
+com.example.wav2vecapp:id/mp_spinner_relation = 0x7f090162
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/nestedScrollable = 0x7f040356
 com.example.wav2vecapp:style/TextAppearance.Design.Snackbar.Message = 0x7f1101de
 com.example.wav2vecapp:attr/layout_constraintTag = 0x7f04029a
@@ -4196,7 +4729,11 @@ com.example.wav2vecapp:macro/m3_comp_checkbox_unselected_outline_color = 0x7f0d0
 com.example.wav2vecapp:drawable/abc_ic_ab_back_material = 0x7f08003e
 com.example.wav2vecapp:color/m3_sys_color_tertiary_fixed = 0x7f060204
 com.example.wav2vecapp:macro/m3_comp_navigation_rail_active_icon_color = 0x7f0d0098
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_picker_header_toggle = 0x7f090173
+=======
+com.example.wav2vecapp:id/mtrl_picker_header_toggle = 0x7f090175
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/m3_comp_primary_navigation_tab_inactive_focus_state_layer_opacity = 0x7f070160
 com.example.wav2vecapp:attr/navigationViewStyle = 0x7f040353
 com.example.wav2vecapp:style/Theme.AppCompat.Dialog.Alert = 0x7f110223
@@ -4242,13 +4779,21 @@ com.example.wav2vecapp:color/m3_tonal_button_ripple_color_selector = 0x7f06021e
 com.example.wav2vecapp:style/Widget.Material3.MaterialCalendar.Year.Today = 0x7f1103b5
 com.example.wav2vecapp:attr/actionOverflowMenuStyle = 0x7f040022
 com.example.wav2vecapp:style/Base.ThemeOverlay.Material3.SideSheetDialog = 0x7f110084
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_calendar_year_selector_frame = 0x7f09016a
+=======
+com.example.wav2vecapp:id/mtrl_calendar_year_selector_frame = 0x7f09016c
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/motionEasingStandardInterpolator = 0x7f04033b
 com.example.wav2vecapp:style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Title = 0x7f110158
 com.example.wav2vecapp:color/material_personalized_color_surface_variant = 0x7f0602ac
 com.example.wav2vecapp:color/m3_ref_palette_error95 = 0x7f06010f
 com.example.wav2vecapp:attr/thumbIconSize = 0x7f040476
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/open_search_view_toolbar_container = 0x7f09019c
+=======
+com.example.wav2vecapp:id/open_search_view_toolbar_container = 0x7f09019e
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/motionEasingStandardAccelerateInterpolator = 0x7f040339
 com.example.wav2vecapp:dimen/m3_ripple_default_alpha = 0x7f0701ce
 com.example.wav2vecapp:macro/m3_comp_time_picker_time_selector_unselected_container_color = 0x7f0d0168
@@ -4277,13 +4822,17 @@ com.example.wav2vecapp:drawable/notification_template_icon_low_bg = 0x7f0800f2
 com.example.wav2vecapp:color/m3_sys_color_light_surface_dim = 0x7f0601f6
 com.example.wav2vecapp:anim/btn_radio_to_off_mtrl_ring_outer_path_animation = 0x7f010014
 com.example.wav2vecapp:color/purple_700 = 0x7f060307
-com.example.wav2vecapp:id/layout_keyword_list = 0x7f090122
+com.example.wav2vecapp:id/layout_keyword_list = 0x7f090121
 com.example.wav2vecapp:color/m3_sys_color_light_on_error_container = 0x7f0601e0
 com.example.wav2vecapp:string/abc_searchview_description_submit = 0x7f100016
 com.example.wav2vecapp:macro/m3_comp_time_input_time_input_field_label_text_color = 0x7f0d014a
 com.example.wav2vecapp:attr/colorPrimarySurface = 0x7f04011b
 com.example.wav2vecapp:attr/motionDurationShort2 = 0x7f04032d
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/ratio = 0x7f0901b6
+=======
+com.example.wav2vecapp:id/ratio = 0x7f0901b8
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/motionDurationShort1 = 0x7f04032c
 com.example.wav2vecapp:layout/abc_alert_dialog_title_material = 0x7f0c000a
 com.example.wav2vecapp:attr/motionDurationMedium4 = 0x7f04032b
@@ -4366,7 +4915,11 @@ com.example.wav2vecapp:attr/badgeHeight = 0x7f040053
 com.example.wav2vecapp:id/chain = 0x7f090092
 com.example.wav2vecapp:attr/colorTertiaryFixed = 0x7f040130
 com.example.wav2vecapp:attr/fastScrollVerticalThumbDrawable = 0x7f0401d9
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/supportScrollUp = 0x7f090202
+=======
+com.example.wav2vecapp:id/supportScrollUp = 0x7f090204
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_navigation_item_background_color = 0x7f0600a1
 com.example.wav2vecapp:attr/maxAcceleration = 0x7f040305
 com.example.wav2vecapp:id/SYM = 0x7f09000b
@@ -4390,7 +4943,11 @@ com.example.wav2vecapp:attr/materialSearchViewToolbarStyle = 0x7f0402ff
 com.example.wav2vecapp:style/Theme.MaterialComponents.Light.BottomSheetDialog = 0x7f11026e
 com.example.wav2vecapp:attr/backHandlingEnabled = 0x7f040046
 com.example.wav2vecapp:layout/activity_main = 0x7f0c0024
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/recyclerViewReports = 0x7f0901b9
+=======
+com.example.wav2vecapp:id/recyclerViewReports = 0x7f0901bb
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/placeholder_emptyVisibility = 0x7f04037f
 com.example.wav2vecapp:style/Widget.Material3.FloatingActionButton.Surface = 0x7f11039b
 com.example.wav2vecapp:string/mtrl_picker_range_header_selected = 0x7f1000b0
@@ -4407,7 +4964,7 @@ com.example.wav2vecapp:id/visible_removing_fragment_view_tag = 0x7f090253
 com.example.wav2vecapp:attr/materialIconButtonOutlinedStyle = 0x7f0402f9
 com.example.wav2vecapp:attr/switchTextAppearance = 0x7f04040e
 com.example.wav2vecapp:attr/materialIconButtonFilledTonalStyle = 0x7f0402f8
-com.example.wav2vecapp:id/linear = 0x7f09012b
+com.example.wav2vecapp:id/linear = 0x7f09012a
 com.example.wav2vecapp:attr/materialIconButtonFilledStyle = 0x7f0402f7
 com.example.wav2vecapp:attr/extendedFloatingActionButtonSurfaceStyle = 0x7f0401ca
 com.example.wav2vecapp:drawable/abc_menu_hardkey_panel_mtrl_mult = 0x7f080059
@@ -4422,7 +4979,7 @@ com.example.wav2vecapp:attr/passwordToggleContentDescription = 0x7f04036f
 com.example.wav2vecapp:attr/defaultDuration = 0x7f040173
 com.example.wav2vecapp:attr/queryPatterns = 0x7f040391
 com.example.wav2vecapp:drawable/material_ic_keyboard_arrow_right_black_24dp = 0x7f0800c0
-com.example.wav2vecapp:id/menuTitle = 0x7f09014c
+com.example.wav2vecapp:id/menuTitle = 0x7f09014b
 com.example.wav2vecapp:attr/materialCardViewFilledStyle = 0x7f0402ef
 com.example.wav2vecapp:dimen/m3_navigation_rail_icon_size = 0x7f0701c5
 com.example.wav2vecapp:attr/imageZoom = 0x7f040239
@@ -4432,7 +4989,11 @@ com.example.wav2vecapp:attr/materialCalendarTheme = 0x7f0402ec
 com.example.wav2vecapp:id/accessibility_custom_action_5 = 0x7f090030
 com.example.wav2vecapp:attr/materialCalendarMonthNavigationButton = 0x7f0402ea
 com.example.wav2vecapp:macro/m3_comp_search_view_header_leading_icon_color = 0x7f0d00f7
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/title_template = 0x7f090226
+=======
+com.example.wav2vecapp:id/title_template = 0x7f090228
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/flow_maxElementsWrap = 0x7f0401f7
 com.example.wav2vecapp:attr/textureBlurFactor = 0x7f04046d
 com.example.wav2vecapp:attr/toolbarStyle = 0x7f04049d
@@ -4473,15 +5034,26 @@ com.example.wav2vecapp:attr/motionDurationLong4 = 0x7f040327
 com.example.wav2vecapp:styleable/CoordinatorLayout = 0x7f12002c
 com.example.wav2vecapp:dimen/m3_comp_slider_inactive_track_height = 0x7f070182
 com.example.wav2vecapp:attr/shapeAppearanceCornerSmall = 0x7f0403bb
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tag_on_apply_window_listener = 0x7f090209
+=======
+com.example.wav2vecapp:id/tag_on_apply_window_listener = 0x7f09020b
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/materialAlertDialogTitleIconStyle = 0x7f0402d9
 com.example.wav2vecapp:color/material_personalized_color_on_secondary = 0x7f060291
 com.example.wav2vecapp:attr/textAppearanceHeadline4 = 0x7f04043e
 com.example.wav2vecapp:attr/colorSurfaceContainerLow = 0x7f040128
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/src_in = 0x7f0901f5
 com.example.wav2vecapp:attr/materialAlertDialogTheme = 0x7f0402d8
 com.example.wav2vecapp:dimen/design_snackbar_min_width = 0x7f070084
 com.example.wav2vecapp:id/right = 0x7f0901bd
+=======
+com.example.wav2vecapp:id/src_in = 0x7f0901f7
+com.example.wav2vecapp:attr/materialAlertDialogTheme = 0x7f0402d8
+com.example.wav2vecapp:dimen/design_snackbar_min_width = 0x7f070084
+com.example.wav2vecapp:id/right = 0x7f0901bf
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/circularflow_defaultAngle = 0x7f0400d7
 com.example.wav2vecapp:id/accessibility_custom_action_25 = 0x7f090027
 com.example.wav2vecapp:attr/textAppearancePopupMenuHeader = 0x7f04044d
@@ -4557,7 +5129,11 @@ com.example.wav2vecapp:drawable/abc_text_cursor_material = 0x7f08006e
 com.example.wav2vecapp:dimen/m3_comp_slider_disabled_inactive_track_opacity = 0x7f070181
 com.example.wav2vecapp:macro/m3_comp_navigation_drawer_inactive_focus_label_text_color = 0x7f0d008a
 com.example.wav2vecapp:attr/layout_wrapBehaviorInParent = 0x7f0402b7
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/open_search_view_content_container = 0x7f090192
+=======
+com.example.wav2vecapp:id/open_search_view_content_container = 0x7f090194
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/perpendicularPath_percent = 0x7f04037a
 com.example.wav2vecapp:dimen/material_clock_face_margin_bottom = 0x7f07021f
 com.example.wav2vecapp:dimen/m3_back_progress_bottom_container_max_scale_x_distance = 0x7f0700ac
@@ -4565,7 +5141,11 @@ com.example.wav2vecapp:attr/materialDividerHeavyStyle = 0x7f0402f5
 com.example.wav2vecapp:attr/layout_constraintWidth_max = 0x7f0402a3
 com.example.wav2vecapp:attr/cornerFamily = 0x7f04014f
 com.example.wav2vecapp:drawable/abc_btn_colored_material = 0x7f080030
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/never = 0x7f090181
+=======
+com.example.wav2vecapp:id/never = 0x7f090183
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/horizontalOffsetWithText = 0x7f040226
 com.example.wav2vecapp:style/TextAppearance.Design.Prefix = 0x7f1101dd
 com.example.wav2vecapp:attr/layoutManager = 0x7f040272
@@ -4621,7 +5201,11 @@ com.example.wav2vecapp:color/m3_dynamic_dark_default_color_secondary_text = 0x7f
 com.example.wav2vecapp:attr/layout_constraintBaseline_toBaselineOf = 0x7f04027b
 com.example.wav2vecapp:attr/layout_constrainedHeight = 0x7f040278
 com.example.wav2vecapp:styleable/ViewBackgroundHelper = 0x7f120096
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_calendar_days_of_week = 0x7f090164
+=======
+com.example.wav2vecapp:id/mtrl_calendar_days_of_week = 0x7f090166
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/reactiveGuide_applyToConstraintSet = 0x7f040399
 com.example.wav2vecapp:color/m3_sys_color_light_surface = 0x7f0601ef
 com.example.wav2vecapp:dimen/m3_bottom_nav_min_height = 0x7f0700c1
@@ -4700,7 +5284,11 @@ com.example.wav2vecapp:attr/flow_verticalAlign = 0x7f0401f9
 com.example.wav2vecapp:dimen/m3_comp_checkbox_selected_disabled_container_opacity = 0x7f070103
 com.example.wav2vecapp:style/ThemeOverlay.Material3.Button.IconButton = 0x7f110297
 com.example.wav2vecapp:attr/buttonBarPositiveButtonStyle = 0x7f04008d
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/titleDividerNoCustom = 0x7f090225
+=======
+com.example.wav2vecapp:id/titleDividerNoCustom = 0x7f090227
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/layout_scrollFlags = 0x7f0402b5
 com.example.wav2vecapp:attr/pressedTranslationZ = 0x7f040389
 com.example.wav2vecapp:attr/icon = 0x7f040228
@@ -4720,7 +5308,11 @@ com.example.wav2vecapp:color/material_on_background_emphasis_medium = 0x7f06027c
 com.example.wav2vecapp:attr/chipSpacingVertical = 0x7f0400cc
 com.example.wav2vecapp:drawable/ic_launcher_foreground = 0x7f0800a5
 com.example.wav2vecapp:attr/motionStagger = 0x7f040348
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/right_drawer = 0x7f0901bf
+=======
+com.example.wav2vecapp:id/right_drawer = 0x7f0901c1
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/itemHorizontalPadding = 0x7f04024a
 com.example.wav2vecapp:layout/activity_setting = 0x7f0c0028
 com.example.wav2vecapp:attr/closeIconEndPadding = 0x7f0400e3
@@ -4753,7 +5345,11 @@ com.example.wav2vecapp:attr/alertDialogCenterButtons = 0x7f04002a
 com.example.wav2vecapp:attr/layout_constraintHeight_percent = 0x7f04028e
 com.example.wav2vecapp:attr/itemShapeAppearance = 0x7f040255
 com.example.wav2vecapp:attr/fontStyle = 0x7f040207
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/square = 0x7f0901f3
+=======
+com.example.wav2vecapp:id/square = 0x7f0901f5
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/materialCircleRadius = 0x7f0402f2
 com.example.wav2vecapp:styleable/CardView = 0x7f12001a
 com.example.wav2vecapp:style/RtlOverlay.Widget.AppCompat.PopupMenuItem.InternalGroup = 0x7f110154
@@ -4839,7 +5435,11 @@ com.example.wav2vecapp:styleable/MockView = 0x7f120062
 com.example.wav2vecapp:style/Widget.Material3.TextInputLayout.FilledBox = 0x7f1103e1
 com.example.wav2vecapp:attr/maxVelocity = 0x7f04030d
 com.example.wav2vecapp:style/TextAppearance.AppCompat.SearchResult.Title = 0x7f1101b6
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/search_plate = 0x7f0901d5
+=======
+com.example.wav2vecapp:id/search_plate = 0x7f0901d7
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/brightness = 0x7f040089
 com.example.wav2vecapp:attr/fastScrollHorizontalTrackDrawable = 0x7f0401d8
 com.example.wav2vecapp:dimen/m3_comp_elevated_button_container_elevation = 0x7f070109
@@ -4861,7 +5461,11 @@ com.example.wav2vecapp:attr/extendStrategy = 0x7f0401c6
 com.example.wav2vecapp:dimen/mtrl_calendar_header_height = 0x7f07027b
 com.example.wav2vecapp:color/m3_ref_palette_error40 = 0x7f060109
 com.example.wav2vecapp:attr/cornerFamilyBottomRight = 0x7f040151
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/plain_text_input = 0x7f0901ae
+=======
+com.example.wav2vecapp:id/plain_text_input = 0x7f0901b0
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/itemMaxLines = 0x7f04024f
 com.example.wav2vecapp:dimen/m3_comp_text_button_focus_state_layer_opacity = 0x7f070196
 com.example.wav2vecapp:dimen/disabled_alpha_material_light = 0x7f07008f
@@ -4870,8 +5474,13 @@ com.example.wav2vecapp:layout/m3_alert_dialog = 0x7f0c0043
 com.example.wav2vecapp:attr/customStringValue = 0x7f04016e
 com.example.wav2vecapp:attr/materialCalendarHeaderConfirmButton = 0x7f0402e3
 com.example.wav2vecapp:interpolator/mtrl_linear_out_slow_in = 0x7f0b0011
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/parentRelative = 0x7f0901a4
 com.example.wav2vecapp:id/material_timepicker_cancel_button = 0x7f090145
+=======
+com.example.wav2vecapp:id/parentRelative = 0x7f0901a6
+com.example.wav2vecapp:id/material_timepicker_cancel_button = 0x7f090144
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/errorAccessibilityLabel = 0x7f0401b0
 com.example.wav2vecapp:id/drawerLayout = 0x7f0900d2
 com.example.wav2vecapp:attr/cardMaxElevation = 0x7f04009f
@@ -4903,7 +5512,11 @@ com.example.wav2vecapp:attr/carousel_firstView = 0x7f0400a6
 com.example.wav2vecapp:styleable/AnimatedStateListDrawableTransition = 0x7f120009
 com.example.wav2vecapp:attr/collapseIcon = 0x7f0400ea
 com.example.wav2vecapp:id/SHOW_PROGRESS = 0x7f09000a
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_picker_header_title_and_selection = 0x7f090172
+=======
+com.example.wav2vecapp:id/mtrl_picker_header_title_and_selection = 0x7f090174
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/constraints = 0x7f04013a
 com.example.wav2vecapp:dimen/m3_comp_navigation_rail_container_width = 0x7f07014a
 com.example.wav2vecapp:dimen/mtrl_progress_circular_inset_medium = 0x7f0702d0
@@ -4923,7 +5536,11 @@ com.example.wav2vecapp:dimen/m3_comp_fab_primary_focus_state_layer_opacity = 0x7
 com.example.wav2vecapp:style/Widget.Material3.PopupMenu = 0x7f1103c6
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant80 = 0x7f0600d4
 com.example.wav2vecapp:style/Widget.Material3.MaterialCalendar.HeaderSelection = 0x7f1103ac
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tag_transition_group = 0x7f09020e
+=======
+com.example.wav2vecapp:id/tag_transition_group = 0x7f090210
+>>>>>>> Stashed changes
 com.example.wav2vecapp:drawable/abc_list_selector_background_transition_holo_light = 0x7f080054
 com.example.wav2vecapp:attr/dropDownBackgroundTint = 0x7f040197
 com.example.wav2vecapp:attr/drawerLayoutCornerSize = 0x7f040195
@@ -4934,7 +5551,11 @@ com.example.wav2vecapp:color/m3_ref_palette_secondary90 = 0x7f06014d
 com.example.wav2vecapp:layout/abc_activity_chooser_view = 0x7f0c0006
 com.example.wav2vecapp:attr/boxStrokeColor = 0x7f040085
 com.example.wav2vecapp:style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Shortcut = 0x7f110155
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/topPanel = 0x7f090229
+=======
+com.example.wav2vecapp:id/topPanel = 0x7f09022b
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/closeIconSize = 0x7f0400e4
 com.example.wav2vecapp:attr/contentInsetEnd = 0x7f04013d
 com.example.wav2vecapp:dimen/clock_face_margin_start = 0x7f070055
@@ -4963,7 +5584,11 @@ com.example.wav2vecapp:string/mtrl_picker_invalid_format = 0x7f1000a7
 com.example.wav2vecapp:color/m3_sys_color_dark_surface_container = 0x7f06017f
 com.example.wav2vecapp:attr/dividerVertical = 0x7f040186
 com.example.wav2vecapp:attr/sliderStyle = 0x7f0403d6
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/start = 0x7f0901f8
+=======
+com.example.wav2vecapp:id/start = 0x7f0901fa
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/dividerThickness = 0x7f040185
 com.example.wav2vecapp:color/abc_color_highlight_material = 0x7f060004
 com.example.wav2vecapp:attr/badgeWithTextShapeAppearanceOverlay = 0x7f040061
@@ -4982,7 +5607,11 @@ com.example.wav2vecapp:attr/motionDurationLong2 = 0x7f040325
 com.example.wav2vecapp:dimen/m3_comp_outlined_text_field_disabled_label_text_opacity = 0x7f070158
 com.example.wav2vecapp:attr/dialogPreferredPadding = 0x7f04017c
 com.example.wav2vecapp:style/Widget.AppCompat.ListMenuView = 0x7f110323
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tvCount = 0x7f090234
+=======
+com.example.wav2vecapp:id/tvCount = 0x7f090236
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/material_clock_display_height = 0x7f07021c
 com.example.wav2vecapp:attr/motionEasingLinearInterpolator = 0x7f040337
 com.example.wav2vecapp:attr/dialogCornerRadius = 0x7f04017b
@@ -5013,7 +5642,11 @@ com.example.wav2vecapp:dimen/mtrl_progress_circular_inset = 0x7f0702ce
 com.example.wav2vecapp:attr/defaultScrollFlagsEnabled = 0x7f040176
 com.example.wav2vecapp:dimen/tooltip_horizontal_padding = 0x7f070315
 com.example.wav2vecapp:attr/rangeFillColor = 0x7f040393
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/open_search_view_clear_button = 0x7f090191
+=======
+com.example.wav2vecapp:id/open_search_view_clear_button = 0x7f090193
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/layout = 0x7f04026f
 com.example.wav2vecapp:style/ThemeOverlay.MaterialComponents.AutoCompleteTextView.OutlinedBox.Dense = 0x7f1102d2
 com.example.wav2vecapp:attr/actionModeFindDrawable = 0x7f040018
@@ -5021,7 +5654,7 @@ com.example.wav2vecapp:dimen/mtrl_card_checked_icon_margin = 0x7f070295
 com.example.wav2vecapp:attr/defaultQueryHint = 0x7f040175
 com.example.wav2vecapp:style/Widget.Material3.TextInputLayout.OutlinedBox = 0x7f1103e5
 com.example.wav2vecapp:attr/windowActionBar = 0x7f0404d2
-com.example.wav2vecapp:id/mini = 0x7f090150
+com.example.wav2vecapp:id/mini = 0x7f09014f
 com.example.wav2vecapp:drawable/abc_scrubber_control_off_mtrl_alpha = 0x7f08005e
 com.example.wav2vecapp:drawable/abc_spinner_mtrl_am_alpha = 0x7f080066
 com.example.wav2vecapp:attr/alpha = 0x7f04002e
@@ -5046,7 +5679,7 @@ com.example.wav2vecapp:color/m3_dynamic_default_color_primary_text = 0x7f060090
 com.example.wav2vecapp:macro/m3_comp_outlined_text_field_disabled_input_text_color = 0x7f0d00b5
 com.example.wav2vecapp:dimen/m3_navigation_item_vertical_padding = 0x7f0701c0
 com.example.wav2vecapp:macro/m3_comp_radio_button_disabled_unselected_icon_color = 0x7f0d00d8
-com.example.wav2vecapp:id/middle = 0x7f09014f
+com.example.wav2vecapp:id/middle = 0x7f09014e
 com.example.wav2vecapp:attr/simpleItems = 0x7f0403d1
 com.example.wav2vecapp:color/m3_popupmenu_overlay_color = 0x7f0600a8
 com.example.wav2vecapp:color/m3_ref_palette_neutral_variant100 = 0x7f06012b
@@ -5065,7 +5698,11 @@ com.example.wav2vecapp:attr/crossfade = 0x7f040160
 com.example.wav2vecapp:styleable/Fragment = 0x7f120039
 com.example.wav2vecapp:style/TextAppearance.Material3.TitleSmall = 0x7f110204
 com.example.wav2vecapp:style/Base.V21.Theme.MaterialComponents.Dialog = 0x7f1100a8
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/open_search_view_edit_text = 0x7f090195
+=======
+com.example.wav2vecapp:id/open_search_view_edit_text = 0x7f090197
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant22 = 0x7f0600cb
 com.example.wav2vecapp:dimen/material_textinput_default_width = 0x7f07023b
 com.example.wav2vecapp:id/beginOnFirstDraw = 0x7f090063
@@ -5153,7 +5790,7 @@ com.example.wav2vecapp:color/design_default_color_primary = 0x7f060051
 com.example.wav2vecapp:attr/radioButtonStyle = 0x7f040392
 com.example.wav2vecapp:attr/colorPrimaryDark = 0x7f040117
 com.example.wav2vecapp:animator/m3_appbar_state_list_animator = 0x7f020009
-com.example.wav2vecapp:id/material_clock_period_pm_button = 0x7f09013d
+com.example.wav2vecapp:id/material_clock_period_pm_button = 0x7f09013c
 com.example.wav2vecapp:id/alertTitle = 0x7f09004f
 com.example.wav2vecapp:attr/colorOnSecondary = 0x7f040108
 com.example.wav2vecapp:color/common_google_signin_btn_text_light_disabled = 0x7f060036
@@ -5197,7 +5834,7 @@ com.example.wav2vecapp:style/Widget.MaterialComponents.ActionMode = 0x7f1103f1
 com.example.wav2vecapp:style/RtlOverlay.Widget.AppCompat.PopupMenuItem = 0x7f110153
 com.example.wav2vecapp:attr/scaleFromTextSize = 0x7f0403a7
 com.example.wav2vecapp:attr/layout_goneMarginBaseline = 0x7f0402a9
-com.example.wav2vecapp:id/material_timepicker_view = 0x7f090149
+com.example.wav2vecapp:id/material_timepicker_view = 0x7f090148
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant40 = 0x7f0600cf
 com.example.wav2vecapp:attr/motionDurationLong1 = 0x7f040324
 com.example.wav2vecapp:dimen/design_fab_size_mini = 0x7f070071
@@ -5261,11 +5898,19 @@ com.example.wav2vecapp:color/mtrl_btn_bg_color_selector = 0x7f0602c3
 com.example.wav2vecapp:attr/layout_constraintTop_toTopOf = 0x7f04029d
 com.example.wav2vecapp:style/Animation.Material3.SideSheetDialog.Right = 0x7f110009
 com.example.wav2vecapp:attr/state_dragged = 0x7f0403f1
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_anchor_parent = 0x7f090162
 com.example.wav2vecapp:dimen/mtrl_badge_size = 0x7f070247
 com.example.wav2vecapp:id/fragment_container_view_tag = 0x7f0900f6
 com.example.wav2vecapp:attr/closeIcon = 0x7f0400e1
 com.example.wav2vecapp:id/tv_title = 0x7f090244
+=======
+com.example.wav2vecapp:id/mtrl_anchor_parent = 0x7f090164
+com.example.wav2vecapp:dimen/mtrl_badge_size = 0x7f070247
+com.example.wav2vecapp:id/fragment_container_view_tag = 0x7f0900f6
+com.example.wav2vecapp:attr/closeIcon = 0x7f0400e1
+com.example.wav2vecapp:id/tv_title = 0x7f090245
+>>>>>>> Stashed changes
 com.example.wav2vecapp:dimen/m3_btn_icon_only_default_size = 0x7f0700d4
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_neutral_variant94 = 0x7f0600d8
 com.example.wav2vecapp:dimen/design_textinput_caption_translate_y = 0x7f07008d
@@ -5294,7 +5939,11 @@ com.example.wav2vecapp:dimen/m3_btn_inset = 0x7f0700d7
 com.example.wav2vecapp:attr/touchRegionId = 0x7f0404a6
 com.example.wav2vecapp:drawable/m3_avd_show_password = 0x7f0800af
 com.example.wav2vecapp:color/material_on_surface_stroke = 0x7f060283
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/progress_circular = 0x7f0901b3
+=======
+com.example.wav2vecapp:id/progress_circular = 0x7f0901b5
+>>>>>>> Stashed changes
 com.example.wav2vecapp:id/et_emergency_phone = 0x7f0900e3
 com.example.wav2vecapp:color/material_harmonized_color_on_error_container = 0x7f060279
 com.example.wav2vecapp:dimen/abc_action_bar_content_inset_material = 0x7f070000
@@ -5335,7 +5984,11 @@ com.example.wav2vecapp:macro/m3_comp_search_view_container_color = 0x7f0d00f2
 com.example.wav2vecapp:attr/scrimBackground = 0x7f0403aa
 com.example.wav2vecapp:attr/chipBackgroundColor = 0x7f0400bf
 com.example.wav2vecapp:drawable/abc_textfield_activated_mtrl_alpha = 0x7f080072
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/transition_layout_save = 0x7f09022f
+=======
+com.example.wav2vecapp:id/transition_layout_save = 0x7f090231
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/percentHeight = 0x7f040376
 com.example.wav2vecapp:attr/fontProviderSystemFontFamily = 0x7f040206
 com.example.wav2vecapp:color/m3_dynamic_default_color_secondary_text = 0x7f060091
@@ -5364,7 +6017,11 @@ com.example.wav2vecapp:attr/shapeAppearanceMediumComponent = 0x7f0403bd
 com.example.wav2vecapp:dimen/mtrl_extended_fab_bottom_padding = 0x7f0702a0
 com.example.wav2vecapp:styleable/OnSwipe = 0x7f12006f
 com.example.wav2vecapp:dimen/design_snackbar_padding_horizontal = 0x7f070085
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/stretch = 0x7f0901ff
+=======
+com.example.wav2vecapp:id/stretch = 0x7f090201
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/panelBackground = 0x7f04036c
 com.example.wav2vecapp:attr/floatingActionButtonSurfaceStyle = 0x7f0401e9
 com.example.wav2vecapp:color/mtrl_btn_transparent_bg_color = 0x7f0602ca
@@ -5375,7 +6032,11 @@ com.example.wav2vecapp:drawable/material_cursor_drawable = 0x7f0800b9
 com.example.wav2vecapp:animator/m3_extended_fab_hide_motion_spec = 0x7f020012
 com.example.wav2vecapp:dimen/m3_card_elevated_dragged_z = 0x7f0700e7
 com.example.wav2vecapp:style/ThemeOverlay.MaterialComponents.TextInputEditText.FilledBox.Dense = 0x7f1102e9
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/mtrl_motion_snapshot_view = 0x7f09016e
+=======
+com.example.wav2vecapp:id/mtrl_motion_snapshot_view = 0x7f090170
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/checkedChip = 0x7f0400b5
 com.example.wav2vecapp:id/welcomeMessage = 0x7f090255
 com.example.wav2vecapp:attr/region_widthMoreThan = 0x7f04039f
@@ -5452,7 +6113,11 @@ com.example.wav2vecapp:attr/alertDialogStyle = 0x7f04002b
 com.example.wav2vecapp:attr/boxStrokeWidthFocused = 0x7f040088
 com.example.wav2vecapp:dimen/mtrl_textinput_counter_margin_start = 0x7f0702fa
 com.example.wav2vecapp:attr/circularflow_viewCenter = 0x7f0400da
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/search_button = 0x7f0901d0
+=======
+com.example.wav2vecapp:id/search_button = 0x7f0901d2
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/material_harmonized_color_error_container = 0x7f060277
 com.example.wav2vecapp:attr/extendedFloatingActionButtonStyle = 0x7f0401c9
 com.example.wav2vecapp:attr/snackbarTextViewStyle = 0x7f0403d9
@@ -5535,7 +6200,11 @@ com.example.wav2vecapp:string/mtrl_picker_text_input_month_abbr = 0x7f1000b9
 com.example.wav2vecapp:color/foreground_material_dark = 0x7f060067
 com.example.wav2vecapp:attr/behavior_fitToContents = 0x7f04006b
 com.example.wav2vecapp:color/m3_sys_color_dynamic_light_on_background = 0x7f0601b0
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/search_src_text = 0x7f0901d6
+=======
+com.example.wav2vecapp:id/search_src_text = 0x7f0901d8
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/switch_thumb_normal_material_light = 0x7f060314
 com.example.wav2vecapp:attr/colorOutline = 0x7f040113
 com.example.wav2vecapp:attr/alertDialogTheme = 0x7f04002c
@@ -5667,7 +6336,11 @@ com.example.wav2vecapp:dimen/m3_comp_switch_selected_focus_state_layer_opacity =
 com.example.wav2vecapp:color/m3_sys_color_dynamic_on_primary_fixed = 0x7f0601cc
 com.example.wav2vecapp:color/m3_ref_palette_dynamic_primary50 = 0x7f0600e3
 com.example.wav2vecapp:attr/behavior_expandedOffset = 0x7f04006a
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/open_search_bar_text_view = 0x7f09018f
+=======
+com.example.wav2vecapp:id/open_search_bar_text_view = 0x7f090191
+>>>>>>> Stashed changes
 com.example.wav2vecapp:color/design_snackbar_background_color = 0x7f060060
 com.example.wav2vecapp:attr/snackbarButtonStyle = 0x7f0403d7
 com.example.wav2vecapp:style/Widget.Material3.ExtendedFloatingActionButton.Secondary = 0x7f11038e
@@ -5679,7 +6352,7 @@ com.example.wav2vecapp:dimen/mtrl_textinput_box_label_cutout_padding = 0x7f0702f
 com.example.wav2vecapp:dimen/m3_back_progress_bottom_container_max_scale_y_distance = 0x7f0700ad
 com.example.wav2vecapp:attr/colorOnSecondaryContainer = 0x7f040109
 com.example.wav2vecapp:styleable/KeyTrigger = 0x7f120046
-com.example.wav2vecapp:id/material_clock_face = 0x7f090139
+com.example.wav2vecapp:id/material_clock_face = 0x7f090138
 com.example.wav2vecapp:attr/actionLayout = 0x7f04000f
 com.example.wav2vecapp:style/ShapeAppearance.Material3.NavigationBarView.ActiveIndicator = 0x7f110184
 com.example.wav2vecapp:dimen/m3_comp_extended_fab_primary_hover_state_layer_opacity = 0x7f070112
@@ -5732,7 +6405,7 @@ com.example.wav2vecapp:color/primary_dark_material_dark = 0x7f0602fe
 com.example.wav2vecapp:style/Widget.AppCompat.ProgressBar.Horizontal = 0x7f11032c
 com.example.wav2vecapp:attr/springMass = 0x7f0403e1
 com.example.wav2vecapp:attr/dialogTheme = 0x7f04017d
-com.example.wav2vecapp:id/material_value_index = 0x7f09014a
+com.example.wav2vecapp:id/material_value_index = 0x7f090149
 com.example.wav2vecapp:animator/fragment_open_enter = 0x7f020007
 com.example.wav2vecapp:id/accessibility_custom_action_3 = 0x7f09002c
 com.example.wav2vecapp:dimen/m3_divider_heavy_thickness = 0x7f0701a8
@@ -5828,7 +6501,7 @@ com.example.wav2vecapp:attr/layout_constraintHorizontal_bias = 0x7f04028f
 com.example.wav2vecapp:style/TextAppearance.Design.Tab = 0x7f1101e0
 com.example.wav2vecapp:animator/m3_btn_elevated_btn_state_list_anim = 0x7f02000a
 com.example.wav2vecapp:dimen/m3_sys_motion_easing_legacy_accelerate_control_y1 = 0x7f0701fa
-com.example.wav2vecapp:id/material_label = 0x7f090141
+com.example.wav2vecapp:id/material_label = 0x7f090140
 com.example.wav2vecapp:id/btnManageContacts = 0x7f090077
 com.example.wav2vecapp:dimen/m3_comp_filled_card_focus_state_layer_opacity = 0x7f070127
 com.example.wav2vecapp:anim/btn_checkbox_to_checked_box_outer_merged_animation = 0x7f01000d
@@ -5873,7 +6546,11 @@ com.example.wav2vecapp:color/m3_ref_palette_neutral0 = 0x7f060111
 com.example.wav2vecapp:style/Widget.AppCompat.Light.Spinner.DropDown.ActionBar = 0x7f110322
 com.example.wav2vecapp:style/ThemeOverlay.Material3.SideSheetDialog = 0x7f1102c0
 com.example.wav2vecapp:dimen/m3_comp_navigation_drawer_icon_size = 0x7f070143
+<<<<<<< Updated upstream
 com.example.wav2vecapp:id/tvKeyword = 0x7f090239
+=======
+com.example.wav2vecapp:id/tvKeyword = 0x7f09023b
+>>>>>>> Stashed changes
 com.example.wav2vecapp:attr/shapeAppearanceSmallComponent = 0x7f0403bf
 com.example.wav2vecapp:style/CardView.Dark = 0x7f110122
 com.example.wav2vecapp:dimen/design_bottom_navigation_text_size = 0x7f07006a

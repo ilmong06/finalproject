@@ -121,6 +121,8 @@ public class LocationHelper {
 
                 // 서버 전송
                 sendGpsToServer(lat, lon);
+
+
             }
         };
 

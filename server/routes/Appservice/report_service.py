@@ -2,42 +2,32 @@ from Mysqldb.models import get_connection
 from Mysqldb import models
 import pymysql
 
-# ✅ 신고 이력 조회 서비스
-def get_reports(uuid, start_date=None, end_date=None, keyword=None):
-    connection = get_connection()
-    cursor = connection.cursor(pymysql.cursors.DictCursor)
 
-    # 기본 쿼리
-    query = '''
-        SELECT report_time, latitude, longitude, address, keyword
-        FROM ReportGPS
-        WHERE uuid = %s
-    '''
-    params = [uuid]
-
-    # 날짜 필터
-    if start_date:
-        query += " AND report_time >= %s"
-        params.append(start_date)
-    if end_date:
-        query += " AND report_time <= %s"
-        params.append(end_date)
-
-    # 키워드 필터 (LIKE 검색)
-    if keyword:
-        query += " AND keyword LIKE %s"
-        params.append(f"%{keyword}%")
-
+# ✅ 신고 이력 조회 서비스 + keywd_text
+def get_reports_with_keywords():
+    conn = get_connection()
     try:
-        cursor.execute(query, params)
-        results = cursor.fetchall()
-        return results
-    except Exception as e:
-        print("❌ 신고 이력 조회 실패:", e)
-        return []
+        with conn.cursor(pymysql.cursors.DictCursor) as cursor:
+            sql = '''
+                SELECT 
+                    r.id, r.uuid, r.latitude, r.longitude, r.address, r.report_time, k.keywd_text
+                FROM ReportGPS r
+                LEFT JOIN (
+                    SELECT k1.uuid, k1.keywd_text
+                    FROM keyword k1
+                    INNER JOIN (
+                        SELECT uuid, MAX(add_date) AS max_date
+                        FROM keyword
+                        GROUP BY uuid
+                    ) k2 ON k1.uuid = k2.uuid AND k1.add_date = k2.max_date
+                ) k ON r.uuid = k.uuid
+                ORDER BY r.report_time DESC
+            '''
+            cursor.execute(sql)
+            return cursor.fetchall()
     finally:
-        cursor.close()
-        connection.close()
+        conn.close()
+
 
 def save_location(uuid, lat, lon, address):
     return models.insert_gps(uuid, lat, lon, address)
