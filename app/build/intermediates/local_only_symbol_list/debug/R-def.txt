@@ -83,6 +83,7 @@ id gender
 id headerBar
 id history_btnBack
 id history_title
+id k_list
 id keyWord
 id keyword_input_layout
 id layout_emergency
@@ -96,14 +97,11 @@ id mainScrollView
 id menuTitle
 id micOnOff
 id mp_btnBack
-id mp_btn_request_verification
 id mp_btn_submit
 id mp_et_emergency_name
 id mp_et_emergency_phone
-id mp_et_verification_code
 id mp_layout_emergency
 id mp_layout_user_info
-id mp_layout_verification_code
 id mp_phone_text_input
 id mp_plain_text_input
 id mp_spinner_relation
@@ -127,6 +125,7 @@ id tvDeletePrompt
 id tvIndex
 id tvInstruction
 id tvKeyword
+id tvKeywordGuide
 id tvLastDate
 id tvLocation
 id tvNotice

@@ -1,22 +1,15 @@
 package com.example.wav2vecapp;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 public class KeywordListResponse {
+    private List<String> keywords;
 
-    @SerializedName("keywd_text")
-    private String keywd_text;
-
-    @SerializedName("add_date")
-    private String add_date;
-
-    public String getKeyword(){
-        return keywd_text;
+    public List<String> getKeywords() {
+        return keywords;
     }
 
-    public String date(){
-        return add_date;
+    public void setKeywords(List<String> keywords) {
+        this.keywords = keywords;
     }
 }
