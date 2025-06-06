@@ -55,10 +55,10 @@ public class VoiceRegisterActivity extends AppCompatActivity {
         ApiService apiService = RetrofitClient.getApiService();
         KeywordRequest rq = new KeywordRequest(uuid);
 
-        Call<KeywordListResponse> call = apiService.getKeywords(rq);
-        call.enqueue(new Callback<KeywordListResponse>() {
+        Call<KeywordResponse> call = apiService.getKeywords(rq);
+        call.enqueue(new Callback<KeywordResponse>() {
             @Override
-            public void onResponse(Call<KeywordListResponse> call, Response<KeywordListResponse> response) {
+            public void onResponse(Call<KeywordResponse> call, Response<KeywordResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<String> keywords = response.body().getKeywords();
                     StringBuilder guide = new StringBuilder("📌 등록된 키워드 목록:\n");
@@ -73,7 +73,7 @@ public class VoiceRegisterActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<KeywordListResponse> call, Throwable t) {
+            public void onFailure(Call<KeywordResponse> call, Throwable t) {
                 tvKeywordGuide.setText("❌ 네트워크 오류");
                 Log.e("Keyword", "API 호출 실패: " + t.getMessage());
             }
