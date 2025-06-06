@@ -56,12 +56,12 @@ def insertvoice():
 
 #사용자 음성 삭제 팝업창 음성데이터를 삭제하겠습니까? 예/아니요
 @app.route('/voice/voice_delete')
-def deletevoice():
+def deletevoice_pop():
     return render_xml_file("activity_delete_confirm.xml")
 
 #음성 데이터 등록하는 팝업창
 @app.route('/voice/voice_insert')
-def insertvoice():
+def insertvoice_pop():
     return render_xml_file("activity_voice_popup.xml")
 
 #사용자 정보조회(이름,전화번호 입력)
