@@ -47,5 +47,8 @@ public interface ApiService {
     @POST("/api/get_keywords")
     Call<KeywordListResponse> getKeywords(@Body KeywordRequest request);
 
+    @POST("/api/set_selected_keyword")
+    Call<ResponseBody> setSelectedKeyword(@Body SelectedKeywordRequest request);
+
 }
 

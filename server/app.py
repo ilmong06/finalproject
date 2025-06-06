@@ -6,6 +6,7 @@ from routes.UiRoute.user_info_route import user_info_bp #userinforoute
 from routes.UiRoute.secure_route import secure_bp
 from routes.UiRoute.register_route import register_bp
 from routes.UiRoute.keyword_route import keyword_bp
+from routes.UiRoute.voice_route import voice_bp
 # ✅ Android layout 디렉토리 경로 지정
 ANDROID_LAYOUT_PATH = "C:/Users/worker/Desktop/python/finaltest/worr/app/src/main/res/layout"
 
@@ -18,7 +19,7 @@ app.register_blueprint(user_info_bp, url_prefix='/api')
 app.register_blueprint(secure_bp, url_prefix="/api")
 app.register_blueprint(keyword_bp, url_prefix="/api")
 app.register_blueprint(register_bp, url_prefix="/api")
-
+app.register_blueprint(voice_bp, url_prefix="/api")
 #xml 파일 못읽었을시 예외처리 <- 필수는 아님
 def render_xml_file(filename):
     try:
