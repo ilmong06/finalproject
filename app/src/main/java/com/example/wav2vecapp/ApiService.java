@@ -44,8 +44,8 @@ public interface ApiService {
     @GET("/user/check")
     Call<UserResponse> checkUser(@Query("name") String name, @Query("phone") String phone);
 
+    @POST("/api/get_keywords")
+    Call<KeywordListResponse> getKeywords(@Body KeywordRequest request);
 
-    @POST("api/get/keywords")
-    Call<List<KeywordListResponse>> getKeywords(@Body KeywordRequest request);
 }
 

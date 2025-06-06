@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from routes.Appservice import keyword_service
 from routes.DataControl import validator
+from Mysqldb.models import get_connection
 
 keyword_bp = Blueprint('keyword', __name__)
 
@@ -27,6 +28,25 @@ def register_keyword_route():
 
         result = keyword_service.register_keyword(uuid, keyword, order)
         return jsonify(result), 200
-
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+@keyword_bp.route('/get_keywords', methods=['POST'])
+def get_keywords():
+    data = request.get_json()
+    uuid = data.get("uuid")
+    if not uuid:
+        return jsonify({"error": "UUID 누락"}), 400
+
+    conn = get_connection()
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT keywd_text FROM keyword WHERE uuid = %s ORDER BY keywd_order", (uuid,))
+            rows = cursor.fetchall()
+            keywords = [row["keywd_text"] for row in rows]
+            return jsonify({"keywords": keywords})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    finally:
+        conn.close()
