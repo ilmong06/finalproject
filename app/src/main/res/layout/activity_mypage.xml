@@ -78,7 +78,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/input_user_name"
-
                 android:inputType="text"
                 android:minHeight="48dp" />
 
@@ -105,51 +104,8 @@
                     android:maxLength="11"
                     android:minHeight="48dp" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.35"
-                    style="@style/PrimaryButton"
-                    android:textColor="#FFFFFF"
-                    android:text="@string/code" />
             </LinearLayout>
 
-            <!-- 인증번호 입력 + 인증 요청 버튼 -->
-            <LinearLayout
-                android:id="@+id/mp_layout_verification_code"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="12dp"
-                android:visibility="visible"
-                android:gravity="center_vertical">
-
-                <!-- 인증번호 입력창 -->
-                <EditText
-                    android:id="@+id/mp_et_verification_code"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="7"
-                    android:hint="@string/input_code"
-                    android:inputType="number"
-                    android:maxLength="6"
-                    android:minHeight="48dp"/>
-
-                <View
-                    android:layout_width="8dp"
-                    android:layout_height="match_parent"/>
-
-                <!-- 인증 요청 버튼 -->
-                <Button
-                    android:id="@+id/mp_btn_request_verification"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:text="@string/code_require"
-                    android:background="@drawable/rounded_button"
-                    android:textColor="#FFFFFF"
-                    android:minHeight="48dp"/>
-            </LinearLayout>
 
         </LinearLayout>
 
