@@ -5,7 +5,7 @@ def get_connection():
     return pymysql.connect(
         host='localhost',
         user='root',
-        password='1234',
+        password='',
         database='endproject',
         cursorclass=pymysql.cursors.DictCursor
     )
@@ -16,7 +16,8 @@ def check_user_exists(name, phnum):
     try:
         with connection.cursor() as cursor:
             cursor.execute("""
-                SELECT COUNT(*) AS cnt FROM userinfo WHERE name = %s AND phnum = %s
+                SELECT COUNT(*) AS cnt FROM userinfo WHERE Name = %s AND Phnum = %s
+
             """, (name, phnum))
             result = cursor.fetchone()
             return result['cnt'] > 0
@@ -29,7 +30,7 @@ def insert_user(uuid, name, phnum, birthdate, gender, reg_date):
     try:
         with connection.cursor() as cursor:
             sql = """
-                INSERT INTO userinfo (uuid, Name, phnum, birthdate, gender, voicedt, reg_date)
+                INSERT INTO userinfo (uuid, Name, Phnum, birthdate, gender, voicedt, reg_date)
                 VALUES (%s, %s, %s, %s, %s, %s, %s)
             """
             cursor.execute(sql, (uuid, name, phnum, birthdate, gender, None, reg_date))
@@ -43,7 +44,7 @@ def insert_guardian(phnum, uuid, em_name, em_phnum, em_parent, reg_date):
     try:
         with connection.cursor() as cursor:
             sql = """
-                INSERT INTO em_nophnum (phnum, uuid, em_name, em_phnum, em_parent, reg_date)
+                INSERT INTO em_nophnum (Phnum, uuid, em_name, em_phnum, em_parent, reg_date)
                 VALUES (%s, %s, %s, %s, %s, %s)
             """
             cursor.execute(sql, (phnum, uuid, em_name, em_phnum, em_parent, reg_date))

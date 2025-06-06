@@ -8,8 +8,9 @@ from routes.UiRoute.keyword_route import keyword_bp
 from routes.UiRoute.location_route import location_bp
 from routes.UiRoute.report_route import report_bp
 
+
 # ✅ Android layout 디렉토리 경로 지정
-ANDROID_LAYOUT_PATH = "C:/Users/worker/Desktop/python/finalproject55/finalproject/app/src/main/res/layout"
+ANDROID_LAYOUT_PATH = "C/Users/nick_kim/Android/coke/app/src/main/res/layout"
 
 
 app = Flask(__name__)
@@ -61,7 +62,7 @@ def deletevoice():
 
 #음성 데이터 등록하는 팝업창
 @app.route('/voice/voice_insert')
-def insertvoice():
+def insertvoice_popup():
     return render_xml_file("activity_voice_popup.xml")
 
 #사용자 정보조회(이름,전화번호 입력)

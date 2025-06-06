@@ -30,7 +30,7 @@ def register_keyword_route():
         return jsonify(result), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-<<<<<<< Updated upstream
+
 
 
 @keyword_bp.route('/get_keywords', methods=['POST'])
@@ -43,15 +43,45 @@ def get_keywords():
     conn = get_connection()
     try:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT keywd_text FROM keyword WHERE uuid = %s ORDER BY keywd_order", (uuid,))
+            # ✅ 필요한 모든 컬럼 선택
+            cursor.execute("""
+                SELECT keywd_text, add_date, keywd_order
+                FROM keyword
+                WHERE uuid = %s
+                ORDER BY keywd_order
+            """, (uuid,))
             rows = cursor.fetchall()
-            keywords = [row["keywd_text"] for row in rows]
-            return jsonify({"keywords": keywords})
+
+            # ✅ 전체 JSON 배열 형태로 응답 구성
+            keywords = []
+            for row in rows:
+                keywords.append({
+                    "keywd_text": row["keywd_text"],
+                    "add_date": row["add_date"].strftime("%Y-%m-%d") if isinstance(row["add_date"], (str, type(None))) == False else row["add_date"],
+                    "keywd_order": row["keywd_order"]
+                })
+
+            return jsonify(keywords), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     finally:
         conn.close()
-=======
-    
 
->>>>>>> Stashed changes
+@keyword_bp.route('/api/delete_keywords', methods=['POST'])
+def delete_keywords():
+    data = request.get_json()
+    uuid = data.get("uuid")
+    keywords = data.get("keywords")
+
+    if not uuid or not keywords:
+        return jsonify({"error": "Invalid data"}), 400
+
+    try:
+        connection = get_connection()
+        with connection.cursor() as cursor:
+            for kw in keywords:
+                cursor.execute("DELETE FROM Keyword WHERE uuid = %s AND keywd_text = %s", (uuid, kw))
+        connection.commit()
+        return jsonify({"message": "Keywords deleted successfully"}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

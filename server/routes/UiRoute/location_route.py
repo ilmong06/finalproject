@@ -2,7 +2,7 @@ import requests
 from flask import Blueprint, request, jsonify
 from Mysqldb import models
 from datetime import datetime
-from Appservice import report_service
+from routes.Appservice import report_service
 
 
 location_bp = Blueprint('location', __name__)
