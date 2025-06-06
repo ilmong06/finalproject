@@ -4,11 +4,7 @@
             "outputFile": "com.example.wav2vecapp-mergeDebugResources-32:/values-v25/values-v25.xml",
             "map": [
                 {
-<<<<<<< Updated upstream
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-v25\\values-v25.xml",
-=======
-                    "source": "C:\\Users\\worker\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-v25\\values-v25.xml",
->>>>>>> Stashed changes
+                    "source": "C:\\Users\\nick_kim\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-v25\\values-v25.xml",
                     "from": {
                         "startLines": "2,3,4,6",
                         "startColumns": "4,4,4,4",

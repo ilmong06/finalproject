@@ -4,8 +4,7 @@
             "outputFile": "com.example.wav2vecapp-mergeDebugResources-32:/values-large-v4/values-large-v4.xml",
             "map": [
                 {
-<<<<<<< Updated upstream
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\nick_kim\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
@@ -15,10 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-large-v4\\values-large-v4.xml",
-=======
-                    "source": "C:\\Users\\worker\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-large-v4\\values-large-v4.xml",
->>>>>>> Stashed changes
+                    "source": "C:\\Users\\nick_kim\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -32,16 +28,6 @@
                         "startOffsets": "752,866,982,1104",
                         "endColumns": "113,115,121,133",
                         "endOffsets": "861,977,1099,1233"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\worker\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-large-v4\\values-large-v4.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,114,185,256,326,396,464,532,636",
-                        "endColumns": "58,70,70,69,69,67,67,103,115",
-                        "endOffsets": "109,180,251,321,391,459,527,631,747"
                     }
                 }
             ]

@@ -58,8 +58,12 @@ public interface ApiService {
     Call<KeywordResponse> getKeywords(@Body KeywordRequest request);
 
     /// 키워드 리스트 조회
-    @POST("/api/get_myKeyword")
+    @POST("/api/get_keywords")
     Call<List<KeywordItem>> getKeywordList(@Body KeywordRequest request);
+
+    @POST("/api/delete_keywords")
+    Call<Void> deleteKeywords(@Body DeleteKeywordRequest request);
+
 
 }
 

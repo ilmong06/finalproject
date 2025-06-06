@@ -4,11 +4,7 @@
             "outputFile": "com.example.wav2vecapp-mergeDebugResources-32:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-<<<<<<< Updated upstream
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
-=======
-                    "source": "C:\\Users\\worker\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
->>>>>>> Stashed changes
+                    "source": "C:\\Users\\nick_kim\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",
