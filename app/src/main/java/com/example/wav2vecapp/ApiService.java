@@ -44,8 +44,13 @@ public interface ApiService {
     @GET("/user/check")
     Call<UserResponse> checkUser(@Query("name") String name, @Query("phone") String phone);
 
+    /// 키워드 하나 조회
     @POST("/api/get_keywords")
-    Call<KeywordListResponse> getKeywords(@Body KeywordRequest request);
+    Call<KeywordResponse> getKeywords(@Body KeywordRequest request);
+
+    /// 키워드 리스트 조회
+    @POST("/api/get_myKeyword")
+    Call<List<KeywordItem>> getKeywordList(@Body KeywordRequest request);
 
 }
 
