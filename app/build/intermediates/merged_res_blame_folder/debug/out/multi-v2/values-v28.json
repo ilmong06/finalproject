@@ -4,7 +4,7 @@
             "outputFile": "com.example.wav2vecapp-mergeDebugResources-32:/values-v28/values-v28.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\nick_kim\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\05c4e2e8f18486d924ad0ad774dd7fc4\\transformed\\material-1.11.0\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\nick_kim\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-3\\09efd266dedb3063d642c124606048e1\\transformed\\appcompat-1.6.1\\res\\values-v28\\values-v28.xml",
                     "from": {
                         "startLines": "2,3,4,8",
                         "startColumns": "4,4,4,4",

@@ -61,29 +61,29 @@ public class KeywordActivity extends AppCompatActivity {
         /// get Keywords
         ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
         KeywordRequest rq = new KeywordRequest(uuid);
-        Call<List<KeywordListResponse>> call = apiService.getKeywords(rq);
+        Call<KeywordListResponse> call = apiService.getKeywords(rq);
 
-        call.enqueue(new Callback<List<KeywordListResponse>>() {
+        call.enqueue(new Callback<KeywordListResponse>() {
             @Override
-            public void onResponse(Call<List<KeywordListResponse>> call, Response<List<KeywordListResponse>> response) {
+            public void onResponse(Call<KeywordListResponse> call, Response<KeywordListResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    List<KeywordListResponse> keywordList = response.body();
+                    List<String> keywordList = response.body().getKeywords();  // ✅ 리스트는 여기서 꺼냄
 
-                    // ✅ k_list를 비우고 키워드 재출력
                     LinearLayout kListLayout = findViewById(R.id.k_list);
                     kListLayout.removeAllViews();
 
-                    for (KeywordListResponse item : keywordList) {
-                        addKeywordToList(item.getKeyword());
+                    for (String item : keywordList) {
+                        addKeywordToList(item);
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<KeywordListResponse>> call, Throwable t) {
+            public void onFailure(Call<KeywordListResponse> call, Throwable t) {
                 Toast.makeText(KeywordActivity.this, "키워드 불러오기 실패", Toast.LENGTH_SHORT).show();
             }
         });
+
 
         /// 뒤로가기 버튼
         btnBack.setOnClickListener(v -> finish());
