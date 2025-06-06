@@ -6,7 +6,9 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -18,6 +20,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -109,6 +112,18 @@ public class VoiceRegisterActivity extends AppCompatActivity {
                     );
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     spinnerKeywords.setAdapter(adapter);
+                    spinnerKeywords.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                        @Override
+                        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                            saveSelectedKeywordToServer(); // ✅ 자동 저장 실행
+                        }
+
+                        @Override
+                        public void onNothingSelected(AdapterView<?> parent) {
+                            // 아무것도 선택되지 않았을 때 처리 (필요 없으면 비워둠)
+                        }
+                    });
+
                 }
             }
 
@@ -123,6 +138,32 @@ public class VoiceRegisterActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         return sharedPreferences.getString("uuid", "");
     }
+    private void saveSelectedKeywordToServer() {
+        sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+        uuid = sharedPreferences.getString("uuid", "");
+        String selectedKeyword = spinnerKeywords.getSelectedItem().toString();
+
+        SelectedKeywordRequest request = new SelectedKeywordRequest(uuid, selectedKeyword);
+        ApiService apiService = RetrofitClient.getApiService();
+
+        Call<ResponseBody> call = apiService.setSelectedKeyword(request);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    Toast.makeText(VoiceRegisterActivity.this, "키워드 저장 완료", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(VoiceRegisterActivity.this, "서버 오류 발생", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Toast.makeText(VoiceRegisterActivity.this, "통신 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 
     // ======================== 녹음 팝업 관련 ==========================
 
