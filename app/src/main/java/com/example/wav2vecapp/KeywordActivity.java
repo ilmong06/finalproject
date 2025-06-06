@@ -17,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONObject;
 
+import java.util.List;
+
 import okhttp3.OkHttpClient;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -56,8 +58,38 @@ public class KeywordActivity extends AppCompatActivity {
         uuid = sharedPreferences.getString("uuid", "");
         Log.d("UUID", "📌 UUID 불러오기 결과: " + uuid);
 
+        /// get Keywords
+        ApiService apiService = RetrofitClient.getClient().create(ApiService.class);
+        KeywordRequest rq = new KeywordRequest(uuid);
+        Call<List<KeywordListResponse>> call = apiService.getKeywords(rq);
+
+        call.enqueue(new Callback<List<KeywordListResponse>>() {
+            @Override
+            public void onResponse(Call<List<KeywordListResponse>> call, Response<List<KeywordListResponse>> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    List<KeywordListResponse> keywordList = response.body();
+
+                    // ✅ k_list를 비우고 키워드 재출력
+                    LinearLayout kListLayout = findViewById(R.id.k_list);
+                    kListLayout.removeAllViews();
+
+                    for (KeywordListResponse item : keywordList) {
+                        addKeywordToList(item.getKeyword());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<KeywordListResponse>> call, Throwable t) {
+                Toast.makeText(KeywordActivity.this, "키워드 불러오기 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        /// 뒤로가기 버튼
         btnBack.setOnClickListener(v -> finish());
 
+
+        /// 키워드 등록
         btnAddKeyword.setOnClickListener(v -> {
             String keyword = etKeyword.getText().toString().trim();
             if (keyword.isEmpty()) {
@@ -69,6 +101,7 @@ public class KeywordActivity extends AppCompatActivity {
             sendKeywordToServer(keyword, keywordOrder);
         });
 
+        /// 편집 버튼
         edit.setOnClickListener(v -> {
             isEditMode = !isEditMode;
             edit.setText(isEditMode ? "완료" : "편집");
