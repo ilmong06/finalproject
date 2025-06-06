@@ -114,6 +114,7 @@ id recordButtons
 id recyclerViewReports
 id registerButton
 id right_drawer
+id spinnerKeywords
 id spinner_language
 id spinner_relation
 id switchMockReport

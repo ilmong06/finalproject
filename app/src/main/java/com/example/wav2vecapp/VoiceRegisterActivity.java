@@ -7,12 +7,15 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -23,15 +26,17 @@ public class VoiceRegisterActivity extends AppCompatActivity {
 
     private Button btnBack, btnStartRecording, btnDeleteRecording;
     private TextView tvKeywordGuide;
+    private Spinner spinnerKeywords;
+
     private SharedPreferences sharedPreferences;
     private String uuid;
+    private List<String> keywordList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voice);
 
-        // UUID 가져오기
         sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
         uuid = sharedPreferences.getString("uuid", "");
         Log.d("UUID", "📌 UUID 불러오기 결과: " + uuid);
@@ -41,11 +46,12 @@ public class VoiceRegisterActivity extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         btnStartRecording = findViewById(R.id.btnRecord);
         btnDeleteRecording = findViewById(R.id.btnDelete);
+        spinnerKeywords = findViewById(R.id.spinnerKeywords); // 🔹 Spinner 연결
 
-        // 키워드 불러오기
+        // 키워드 목록 출력 및 드롭다운
         loadKeywords(uuid);
+        loadKeywordsToSpinner();
 
-        // 버튼 이벤트
         btnBack.setOnClickListener(v -> finish());
         btnStartRecording.setOnClickListener(v -> showRecordStartPopup());
         btnDeleteRecording.setOnClickListener(v -> showRecordDeletePopup());
@@ -80,11 +86,47 @@ public class VoiceRegisterActivity extends AppCompatActivity {
         });
     }
 
+
+    private void loadKeywordsToSpinner() {
+        sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+        uuid = sharedPreferences.getString("uuid", "");
+        Log.d("UUID", "📌 Spinner용 UUID: " + uuid);
+
+        ApiService apiService = RetrofitClient.getApiService();
+        KeywordRequest request = new KeywordRequest(uuid); // uuid 직접 사용
+        Call<KeywordListResponse> call = apiService.getKeywords(request);
+        call.enqueue(new Callback<KeywordListResponse>() {
+            @Override
+            public void onResponse(Call<KeywordListResponse> call, Response<KeywordListResponse> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    keywordList.clear();
+                    keywordList.addAll(response.body().getKeywords());
+
+                    ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                            VoiceRegisterActivity.this,
+                            android.R.layout.simple_spinner_item,
+                            keywordList
+                    );
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinnerKeywords.setAdapter(adapter);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<KeywordListResponse> call, Throwable t) {
+                Toast.makeText(VoiceRegisterActivity.this, "키워드 드롭다운 불러오기 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private String getUUIDFromPrefs() {
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        return sharedPreferences.getString("uuid", "");
+    }
+
     // ======================== 녹음 팝업 관련 ==========================
 
-    private Button btnClose;
-    private Button btnRecord, btnC, btnRetry;
-    private Button btnFinish;
+    private Button btnClose, btnRecord, btnC, btnRetry, btnFinish;
     private int recordCount = 0;
 
     private void showRecordStartPopup() {
