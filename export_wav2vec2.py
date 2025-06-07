@@ -40,8 +40,7 @@ from train_matchboxnet_protonet import MatchboxNetEncoder
 app = Flask(__name__)
 CORS(app)
 
-# ✅ Vosk 모델 로드
-vosk_model = VoskModel("model")
+
 
 def segment_waveform(waveform, sample_rate=16000, segment_ms=250  ):
     segment_samples = int(sample_rate * segment_ms / 1000  )
@@ -253,6 +252,72 @@ def transcribe():
                 os.remove(temp_filename)
             except Exception as e:
                 print("[WARN] 파일 삭제 실패:", e)
+import requests
+
+@app.route("/train_from_voice_db", methods=["POST"])
+def train_from_voice_db():
+    try:
+        uuid_value = request.form.get("uuid")
+        if not uuid_value:
+            return jsonify({"error": "UUID 누락"}), 400
+
+        conn = get_connection()
+        with conn.cursor() as cursor:
+            # 1️⃣ selected_keyword ID + 텍스트 조회
+            cursor.execute("""
+                SELECT k.id, k.keywd_text
+                FROM userinfo u
+                JOIN keyword k ON u.selected_keyword = k.id
+                WHERE u.uuid = %s
+            """, (uuid_value,))
+            keyword_row = cursor.fetchone()
+            if not keyword_row:
+                return jsonify({"error": "선택된 키워드가 없습니다"}), 404
+
+            keyword_id = keyword_row["id"]
+            keyword_text = keyword_row["keywd_text"]
+
+            # 2️⃣ 해당 키워드의 음성 경로들 조회
+            cursor.execute("""
+                SELECT voice_path
+                FROM voice
+                WHERE uuid = %s AND keyword_id = %s
+                ORDER BY voice_index ASC
+                LIMIT 4
+            """, (uuid_value, keyword_id))
+            rows = cursor.fetchall()
+
+        if len(rows) < 4:
+            return jsonify({"error": "음성 데이터가 4개 미만입니다."}), 400
+
+        BASE_DIR = r"C:\Users\user\Wav2Vec2_Android_Java_Final\server"
+
+        # 3️⃣ 키워드 등록 /register_keyword 먼저 실행
+        data = {
+            "uuid": uuid_value,
+            "keyword": keyword_text,
+            "order": 1
+        }
+        res_kw = requests.post("http://127.0.0.1:5000/register_keyword", data=data)
+        print(f"[INFO] 키워드 등록 응답: {res_kw.json()}")
+
+        # 4️⃣ 4개 음성을 /register로 순차 전송
+        for i, row in enumerate(rows):
+            voice_path = os.path.join(BASE_DIR, row["voice_path"])
+            if not os.path.exists(voice_path):
+                return jsonify({"error": f"파일 없음: {voice_path}"}), 400
+
+            with open(voice_path, 'rb') as f:
+                files = {'file': f}
+                res = requests.post("http://127.0.0.1:5000/register", files=files)
+                print(f"[INFO] 등록 요청 {i+1}/4 → 응답: {res.json()}")
+
+        return jsonify({"message": "화자 + 키워드 등록 완료 ✅"}), 200
+
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
 
 # ✅ 실행
 if __name__ == "__main__":

@@ -61,8 +61,23 @@ def register_voice():
         cursor.close()
         conn.close()
 
-    return jsonify({'message': '파일 저장 및 DB 저장 완료', 'filename': filename}), 200
+    # ✅ voice DB 저장 후 자동 학습 요청
+        # ✅ voice DB 저장 후 자동 학습 요청 (사용자 uuid 전송)
+        try:
+            import requests
+            res = requests.post(
+                "http://192.168.219.105:5000/train_from_voice_db",
+                data={"uuid": uuid}
+            )
+            print("[INFO] 학습 요청 응답 코드:", res.status_code)
+            try:
+                print("[INFO] 응답 내용:", res.json())
+            except Exception:
+                print("[WARN] 응답이 JSON 형식이 아님:", res.text)
+        except Exception as train_err:
+            print("[WARN] 학습 요청 실패:", train_err)
 
+        return jsonify({'message': '파일 저장 및 DB 저장 완료', 'filename': filename}), 200
 
 
 @voice_bp.route('/set_selected_keyword', methods=['POST'])
