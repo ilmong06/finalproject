@@ -121,7 +121,7 @@ def register_keyword():
     if not raw_keyword or not uuid_value or not order_value:
         return jsonify({"error": "키워드, UUID, 순번 누락"}), 400
 
-    # ✅ 등록된 키워드를 파일로 저장 (예: keywords.txt)
+    # ✅ 키워드 텍스트 파일에 저장 (keywords.txt)
     keyword_file = "keywords.txt"
     keywords = []
     if os.path.exists(keyword_file):
@@ -150,6 +150,70 @@ def register_keyword():
         conn.close()
 
     return jsonify({"message": f"{raw_keyword} 키워드 등록 완료 ✅"}), 200
+
+@app.route("/finalize_speaker_registration", methods=["POST"])
+def finalize_speaker_registration():
+    uuid = request.form.get("uuid")
+    if not uuid:
+        return jsonify({"error": "UUID 누락"}), 400
+
+    try:
+        conn = get_connection()
+        with conn.cursor(dictionary=True) as cursor:
+            # ✅ 현재 선택된 키워드 ID 가져오기
+            cursor.execute("SELECT selected_keyword FROM userinfo WHERE uuid = %s", (uuid,))
+            row = cursor.fetchone()
+            if not row or not row["selected_keyword"]:
+                return jsonify({"error": "선택된 키워드 없음"}), 400
+            keyword_id = row["selected_keyword"]
+
+            # ✅ voice 테이블에서 해당 사용자 + 키워드 조합의 4개 음성 경로 가져오기
+            cursor.execute("""
+                SELECT voice_path FROM voice
+                WHERE uuid = %s AND keyword_id = %s
+                ORDER BY voice_index ASC
+            """, (uuid, keyword_id))
+            rows = cursor.fetchall()
+
+            if len(rows) < 4:
+                return jsonify({"error": "녹음 파일이 4개 미만입니다"}), 400
+
+            paths = [r["voice_path"] for r in rows]
+
+    except Exception as e:
+        return jsonify({"error": f"MySQL 오류: {str(e)}"}), 500
+    finally:
+        conn.close()
+
+    # ✅ 음성 벡터 추출
+    try:
+        from train_matchboxnet_protonet import MatchboxNetEncoder  # 필요시 수정
+        model = MatchboxNetEncoder()
+        model.load_state_dict(torch.load("matchbox_model.pt", map_location="cpu")["model"])
+        model.eval()
+
+        vectors = []
+        for path in paths:
+            waveform, sr = torchaudio.load(path)
+            if waveform.shape[0] > 1:
+                waveform = waveform[0:1, :]  # mono 처리
+            with torch.no_grad():
+                emb = model(waveform.unsqueeze(0))  # [1, 1, T] → [1, 80]
+                vectors.append(emb.squeeze().numpy())
+
+        final_vector = np.mean(np.stack(vectors), axis=0)
+
+        # ✅ 저장
+        os.makedirs("vector_store", exist_ok=True)
+        final_path = os.path.join("vector_store", "registered_speaker.json")
+        with open(final_path, "w", encoding="utf-8") as f:
+            json.dump({uuid: final_vector.tolist()}, f, indent=2)
+
+        return jsonify({"message": "화자 벡터 등록 완료 ✅"}), 200
+
+    except Exception as e:
+        return jsonify({"error": f"벡터 처리 실패: {str(e)}"}), 500
+
 
 # ✅ STT + 화자 + 키워드 텍스트 인증
 @app.route("/stt", methods=["POST"])
