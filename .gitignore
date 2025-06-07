@@ -1,0 +1,12 @@
+secrets.properties
+# Ignore APKs
+*.apk
+
+google_stt_key.json
+/app/build/
+
+/MyLargeFolder/
+.gradle/
+build/
+*.bin
+*.fst
