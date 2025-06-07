@@ -49,6 +49,9 @@ public interface ApiService {
 
     @POST("/api/set_selected_keyword")
     Call<ResponseBody> setSelectedKeyword(@Body SelectedKeywordRequest request);
+    @Multipart
+    @POST("/stt")
+    Call<ResponseBody> sendSTT(@Part MultipartBody.Part file);
 
 }
 
