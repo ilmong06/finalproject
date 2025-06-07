@@ -1,2 +1,0 @@
-model/graph/HCLr.fst filter=lfs diff=lfs merge=lfs -text
-*.bin filter=lfs diff=lfs merge=lfs -text
