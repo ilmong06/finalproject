@@ -49,6 +49,15 @@ public interface ApiService {
 
     @POST("/api/set_selected_keyword")
     Call<ResponseBody> setSelectedKeyword(@Body SelectedKeywordRequest request);
+    @Multipart
+    @POST("/api/register_voice")
+    Call<ResponseBody> registerVoice(
+            @Part MultipartBody.Part file,
+            @Part("uuid") RequestBody uuid,
+            @Part("index") RequestBody index,
+            @Part("selected_keyword") RequestBody selectedKeyword // ✅ 추가
+    );
+
 
 }
 

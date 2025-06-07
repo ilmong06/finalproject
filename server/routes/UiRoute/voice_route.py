@@ -15,23 +15,55 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @voice_bp.route('/register_voice', methods=['POST'])
 def register_voice():
-    if 'file' not in request.files or 'uuid' not in request.form:
-        return jsonify({'error': '파일 또는 UUID 누락'}), 400
+    file = request.files.get('file')
+    uuid = request.form.get('uuid')
+    index = request.form.get('index')
+    selected_keyword = request.form.get('selected_keyword')
 
-    file = request.files['file']
-    user_uuid = request.form['uuid']
+    if not file or not uuid or not index or not selected_keyword:
+        return jsonify({'error': '필수 값 누락'}), 400
 
-    if file.filename == '':
-        return jsonify({'error': '파일명이 없습니다'}), 400
+    save_dir = os.path.join('uploads', 'voice')
+    os.makedirs(save_dir, exist_ok=True)
 
-    filename = secure_filename(file.filename)
-    save_path = os.path.join(UPLOAD_FOLDER, f"{user_uuid}_{uuid.uuid4().hex}.wav")
+    filename = f"speaker{index}.wav"
+    save_path = os.path.join(save_dir, filename)
     file.save(save_path)
 
-    # ✅ 서비스 로직 수행
-    save_voice_file(user_uuid, save_path)
+    # DB 처리
+    from Mysqldb.models import get_connection
+    from datetime import datetime
+    conn = get_connection()
+    cursor = conn.cursor()
 
-    return jsonify({'message': '음성 등록 성공', 'path': save_path}), 200
+    try:
+        # keyword_id 찾기
+        cursor.execute(
+            "SELECT id FROM keyword WHERE uuid = %s AND keywd_text = %s",
+            (uuid, selected_keyword)
+        )
+        keyword_row = cursor.fetchone()
+        if keyword_row is None:
+            return jsonify({'error': '해당 키워드가 존재하지 않음'}), 404
+        keyword_id = keyword_row["id"]
+
+        # voice 테이블에 INSERT
+        cursor.execute("""
+            INSERT INTO voice (keyword_id, uuid, voice_index, voice_path, reg_date)
+            VALUES (%s, %s, %s, %s, %s)
+        """, (keyword_id, uuid, index, save_path, datetime.now()))
+        conn.commit()
+    except Exception as e:
+        print("DB 오류:", e)
+        traceback.print_exc()
+        return jsonify({'error': 'DB 저장 실패', 'detail': str(e)}), 500
+    finally:
+        cursor.close()
+        conn.close()
+
+    return jsonify({'message': '파일 저장 및 DB 저장 완료', 'filename': filename}), 200
+
+
 
 @voice_bp.route('/set_selected_keyword', methods=['POST'])
 def set_selected_keyword():
