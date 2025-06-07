@@ -50,8 +50,7 @@ public interface ApiService {
     @POST("/api/set_selected_keyword")
     Call<ResponseBody> setSelectedKeyword(@Body SelectedKeywordRequest request);
     @Multipart
-    @POST("/stt")
+    @POST("/stt")  // 🔥 Flask 서버에서 정의한 STT 처리 라우트
     Call<ResponseBody> sendSTT(@Part MultipartBody.Part file);
-
 }
 

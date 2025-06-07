@@ -20,9 +20,15 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -195,6 +201,40 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private void sendToSTTServer(File file) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BuildConfig.BACKEND_BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ApiService api = retrofit.create(ApiService.class);
+        RequestBody requestFile = RequestBody.create(MediaType.parse("audio/wav"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", file.getName(), requestFile);
+
+        Call<ResponseBody> call = api.sendSTT(body);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        String result = response.body().string();
+                        Log.d("STT 결과", result);
+                        Toast.makeText(MainActivity.this, "✅ 서버 응답 완료", Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    Toast.makeText(MainActivity.this, "❌ 서버 응답 실패", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("STT 실패", t.getMessage());
+                Toast.makeText(MainActivity.this, "❌ 서버 연결 실패", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
     @Override
     public void onBackPressed() {
@@ -295,13 +335,16 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("녹음", "녹음 종료됨");
 
                 Toast.makeText(this, "녹음 완료됨", Toast.LENGTH_SHORT).show();
-                // 서버 전송 필요 시 여기서 수행
+
+                // ✅ 녹음된 파일 서버로 전송
+                sendToSTTServer(new File(getExternalCacheDir(), "temp_record.wav"));
             }
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "녹음 종료 실패", Toast.LENGTH_SHORT).show();
         }
     }
+
 
     @Override
     protected void onDestroy() {
