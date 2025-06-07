@@ -66,8 +66,9 @@ def get_keywords():
         return jsonify({"error": str(e)}), 500
     finally:
         conn.close()
-
-@keyword_bp.route('/api/delete_keywords', methods=['POST'])
+        
+#키워드 삭제
+@keyword_bp.route('/delete_keywords', methods=['POST'])
 def delete_keywords():
     data = request.get_json()
     uuid = data.get("uuid")
