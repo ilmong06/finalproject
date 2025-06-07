@@ -5,6 +5,10 @@ package com.example.wav2vecapp;
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.media.AudioFormat;
+import android.media.AudioRecord;
+import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,9 +22,17 @@ import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -57,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
     private SwitchCompat switchMockReport;
     private Button btnMyPage, btnSettings;
     private DrawerLayout drawerLayout;
+    private AudioRecord audioRecord;
+    private boolean isRecording = false;
+    private Thread recordingThread;
+    private File wavFile;
+    private int bufferSize;
 
 
     @Override
@@ -75,6 +92,15 @@ public class MainActivity extends AppCompatActivity {
         keyWord = findViewById(R.id.keyWord);
         voiceRecord = findViewById(R.id.registerButton);
         micOn = findViewById(R.id.micOnOff);
+        micOn.setOnClickListener(v -> {
+            if (!isRecording) {
+                startRecording();
+                micOn.setText("마이크 OFF");
+            } else {
+                stopRecording();
+                micOn.setText("마이크 ON");
+            }
+        });
 
         //btnMoveKeywordPage = findViewById(R.id.btnMoveKeywordPage);
 
@@ -140,10 +166,6 @@ public class MainActivity extends AppCompatActivity {
             recreate(); // 현재 액티비티 새로고침
         });
 
-        ///마이크 on/off 화면
-        micOn.setOnClickListener(view -> {
-
-        });
 
         /// 햄버거 메뉴 클릭 시 등장하는 컴포넌트의 이벤트
 
@@ -179,6 +201,116 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+    private void startRecording() {
+        int sampleRate = 16000;
+        int channelConfig = AudioFormat.CHANNEL_IN_MONO;
+        int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
+        bufferSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
+                sampleRate, channelConfig, audioFormat, bufferSize);
+
+        wavFile = new File(getExternalFilesDir(null), "main_recorded_audio.wav");
+
+        audioRecord.startRecording();
+        isRecording = true;
+
+        recordingThread = new Thread(() -> writeAudioDataToFile(), "AudioRecorder Thread");
+        recordingThread.start();
+    }
+    private void stopRecording() {
+        if (audioRecord != null) {
+            isRecording = false;
+            audioRecord.stop();
+            audioRecord.release();
+            audioRecord = null;
+            recordingThread = null;
+            writeWavHeader();  // WAV 헤더 작성
+            uploadWavToServer(wavFile);
+        }
+    }
+    private void writeAudioDataToFile() {
+        byte[] data = new byte[bufferSize];
+        try (FileOutputStream os = new FileOutputStream(wavFile)) {
+            while (isRecording) {
+                int read = audioRecord.read(data, 0, bufferSize);
+                if (read > 0) {
+                    os.write(data, 0, read);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void writeWavHeader() {
+        try {
+            File tmpFile = new File(getExternalFilesDir(null), "main_recorded_audio.wav");
+            RandomAccessFile wav = new RandomAccessFile(tmpFile, "rw");
+            long totalAudioLen = wav.length() - 44;
+            long totalDataLen = totalAudioLen + 36;
+            int sampleRate = 16000;
+            int channels = 1;
+            long byteRate = 16 * sampleRate * channels / 8;
+
+            wav.seek(0);
+            wav.writeBytes("RIFF");
+            wav.writeInt(Integer.reverseBytes((int) totalDataLen));
+            wav.writeBytes("WAVE");
+            wav.writeBytes("fmt ");
+            wav.writeInt(Integer.reverseBytes(16));
+            wav.writeShort(Short.reverseBytes((short) 1));
+            wav.writeShort(Short.reverseBytes((short) channels));
+            wav.writeInt(Integer.reverseBytes(sampleRate));
+            wav.writeInt(Integer.reverseBytes((int) byteRate));
+            wav.writeShort(Short.reverseBytes((short) (channels * 2)));
+            wav.writeShort(Short.reverseBytes((short) 16));
+            wav.writeBytes("data");
+            wav.writeInt(Integer.reverseBytes((int) totalAudioLen));
+            wav.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private void uploadWavToServer(File file) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BuildConfig.BACKEND_BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ApiService apiService = retrofit.create(ApiService.class);
+
+        RequestBody requestFile = RequestBody.create(MediaType.parse("audio/wav"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("file", "compare.wav", requestFile);
+
+        Call<ResponseBody> call = apiService.uploadVoice(body);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    Log.d("업로드", "✅ compare.wav 업로드 성공");
+                } else {
+                    Log.e("업로드", "❌ 실패: " + response.code());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                Log.e("업로드", "🚫 오류: " + t.getMessage());
+            }
+        });
+    }
+
+
 
     @Override
     public void onBackPressed() {
