@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.AudioFormat;
+import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,7 +26,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +53,9 @@ public class VoiceRegisterActivity extends AppCompatActivity {
     private List<String> keywordList = new ArrayList<>();
     private MediaRecorder recorder;
     private File audioFile;
-
+    private AudioRecord audioRecord;
+    private boolean isRecording = false;
+    private File wavFile;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -157,40 +163,63 @@ public class VoiceRegisterActivity extends AppCompatActivity {
         });
     }
 
-    private boolean isRecording = false;
 
     private void startRecording() {
-        try {
-            audioFile = new File(getExternalCacheDir(), "recorded.wav");
-            recorder = new MediaRecorder();
-            recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-            recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP); // 실제 저장 포맷
-            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-            recorder.setOutputFile(audioFile.getAbsolutePath());
-            recorder.prepare();
-            recorder.start();
-            isRecording = true;
-            Log.d("녹음", "녹음 시작됨");
-        } catch (Exception e) {
-            isRecording = false;
-            recorder = null;
-            Log.e("녹음 오류", "startRecording 실패: " + e.getMessage());
+        int sampleRate = 16000;
+        int channelConfig = AudioFormat.CHANNEL_IN_MONO;
+        int audioFormat = AudioFormat.ENCODING_PCM_16BIT;
+        int bufferSize = AudioRecord.getMinBufferSize(sampleRate, channelConfig, audioFormat);
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
         }
+        audioRecord = new AudioRecord(MediaRecorder.AudioSource.MIC,
+                sampleRate, channelConfig, audioFormat, bufferSize);
+
+        wavFile = new File(getExternalCacheDir(), "recorded.wav");
+
+        isRecording = true;
+        audioRecord.startRecording();
+
+        new Thread(() -> {
+            try (FileOutputStream os = new FileOutputStream(wavFile)) {
+                byte[] buffer = new byte[bufferSize];
+                while (isRecording) {
+                    int read = audioRecord.read(buffer, 0, buffer.length);
+                    if (read > 0) {
+                        os.write(buffer, 0, read);
+                    }
+                }
+            } catch (IOException e) {
+                Log.e("녹음 오류", "파일 저장 실패: " + e.getMessage());
+            }
+        }).start();
+
+        Log.d("녹음", "WAV 녹음 시작");
     }
 
     private void stopRecordingAndSendToServer() {
-        try {
-            if (recorder != null && isRecording) {
-                recorder.stop();
-                recorder.release();
-                recorder = null;
-                isRecording = false;
-                sendToSTTServer(audioFile);
-            } else {
-                Log.w("녹음 중지", "recorder가 null이거나 녹음 상태가 아님");
+        if (audioRecord != null && isRecording) {
+            isRecording = false;
+            audioRecord.stop();
+            audioRecord.release();
+            audioRecord = null;
+
+            // WAV 헤더 붙이기
+            try {
+                File wavWithHeader = new File(getExternalCacheDir(), "final_recorded.wav");
+                addWavHeader(wavFile, wavWithHeader, 16000, 1, 16);
+                sendToSTTServer(wavWithHeader);
+            } catch (IOException e) {
+                Log.e("WAV 변환 오류", e.getMessage());
             }
-        } catch (Exception e) {
-            Log.e("녹음 중지 오류", "stopRecording 실패: " + e.getMessage());
         }
     }
 
@@ -226,6 +255,38 @@ public class VoiceRegisterActivity extends AppCompatActivity {
             }
         });
     }
+    private void addWavHeader(File pcmFile, File wavFile, int sampleRate, int channels, int bitsPerSample) throws IOException {
+        byte[] pcmData = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            pcmData = Files.readAllBytes(pcmFile.toPath());
+        }
+        int byteRate = sampleRate * channels * bitsPerSample / 8;
+
+        try (FileOutputStream out = new FileOutputStream(wavFile)) {
+            out.write("RIFF".getBytes());
+            out.write(intToLittleEndian(36 + pcmData.length));
+            out.write("WAVEfmt ".getBytes());
+            out.write(intToLittleEndian(16)); // Subchunk1Size
+            out.write(shortToLittleEndian((short) 1)); // PCM
+            out.write(shortToLittleEndian((short) channels));
+            out.write(intToLittleEndian(sampleRate));
+            out.write(intToLittleEndian(byteRate));
+            out.write(shortToLittleEndian((short) (channels * bitsPerSample / 8))); // Block align
+            out.write(shortToLittleEndian((short) bitsPerSample));
+            out.write("data".getBytes());
+            out.write(intToLittleEndian(pcmData.length));
+            out.write(pcmData);
+        }
+    }
+
+    private byte[] intToLittleEndian(int value) {
+        return new byte[]{(byte) value, (byte) (value >> 8), (byte) (value >> 16), (byte) (value >> 24)};
+    }
+
+    private byte[] shortToLittleEndian(short value) {
+        return new byte[]{(byte) value, (byte) (value >> 8)};
+    }
+
 
     private void showRecordStartPopup() {
         Dialog dialog = new Dialog(this);
