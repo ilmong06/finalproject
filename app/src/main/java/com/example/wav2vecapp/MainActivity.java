@@ -289,10 +289,17 @@ public class MainActivity extends AppCompatActivity {
 
         ApiService apiService = retrofit.create(ApiService.class);
 
+        // ✅ uuid 가져오기
+        SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+        String uuid = sharedPreferences.getString("uuid", "");
+
+        // ✅ uuid 포함하여 Multipart 구성
         RequestBody requestFile = RequestBody.create(MediaType.parse("audio/wav"), file);
         MultipartBody.Part body = MultipartBody.Part.createFormData("file", "compare.wav", requestFile);
+        RequestBody uuidBody = RequestBody.create(MediaType.parse("text/plain"), uuid);
 
-        Call<ResponseBody> call = apiService.uploadVoice(body);
+        // ✅ uuid도 함께 전송
+        Call<ResponseBody> call = apiService.uploadVoice(body, uuidBody);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

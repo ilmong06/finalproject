@@ -59,7 +59,10 @@ public interface ApiService {
     );
     @Multipart
     @POST("/api/upload_voice")
-    Call<ResponseBody> uploadVoice(@Part MultipartBody.Part file);
+    Call<ResponseBody> uploadVoice(
+            @Part MultipartBody.Part file,
+            @Part("uuid") RequestBody uuid
+    );
 
 }
 

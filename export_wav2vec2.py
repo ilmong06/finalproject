@@ -117,23 +117,27 @@ def register_keyword():
     uuid_value = request.form.get("uuid")
     order_value = request.form.get("order")
 
-    if not raw_keyword or not uuid_value or not order_value:
-        return jsonify({"error": "키워드, UUID, 순번 누락"}), 400
+    # ✅ UUID는 파일명 또는 요청에서 받아야 함 (예: Android 앱에서 함께 전송)
+    uuid_value = request.form.get("uuid")
+    if not uuid_value:
+        return jsonify({"error": "UUID 누락"}), 400
 
-    # ✅ 등록된 키워드를 파일로 저장 (예: keywords.txt)
-    keyword_file = "keywords.txt"
-    keywords = []
-    if os.path.exists(keyword_file):
-        with open(keyword_file, "r", encoding="utf-8") as f:
-            keywords = f.read().splitlines()
+    try:
+        conn = get_connection()
+        with conn.cursor() as cursor:
+            cursor.execute("""
+                SELECT keywd_text FROM keyword WHERE uuid = %s ORDER BY keywd_order ASC
+            """, (uuid_value,))
+            rows = cursor.fetchall()
+        keyword_list = [row["keywd_text"] for row in rows]
+    except Exception as db_err:
+        return jsonify({"error": f"키워드 DB 조회 실패: {str(db_err)}"}), 500
 
-    if raw_keyword not in keywords:
-        keywords.append(raw_keyword)
-        keywords.append(g2p(raw_keyword).replace(" ", ""))  # 발음형도 같이 저장
-        with open(keyword_file, "w", encoding="utf-8") as f:
-            f.write("\n".join(keywords))
+    if not keyword_list:
+        return jsonify({"error": "해당 사용자의 등록 키워드 없음"}), 403
+    # ✅ 키워드 등록 성공 메시지 반환
+    return jsonify({"message": "키워드 확인 완료 ✅", "keywords": keyword_list}), 200
 
-    return jsonify({"message": f"{raw_keyword} 키워드 등록 완료 ✅"}), 200
 
 # ✅ STT + 화자 + 키워드 텍스트 인증
 @app.route("/stt", methods=["POST"])
@@ -144,15 +148,20 @@ def transcribe():
     if file.filename == "":
         return jsonify({"error": "No selected file"}), 400
 
+    uuid_value = request.form.get("uuid")
+    if not uuid_value:
+        return jsonify({"error": "UUID 누락"}), 400
+
     temp_filename = f"temp_{uuid.uuid4().hex}.wav"
     file.save(temp_filename)
 
     try:
+        # ✅ 음성 전처리
         audio = AudioSegment.from_file(temp_filename).set_frame_rate(16000).set_channels(1)
         audio.export(temp_filename, format="wav")
         waveform, sr = torchaudio.load(temp_filename)
 
-        # 🔐 화자 인증
+        # ✅ 화자 인증
         speaker_embedding = speaker_model.encode_batch(waveform)
         speaker_vector = speaker_embedding.squeeze().numpy()
         norm_vector = speaker_vector / np.linalg.norm(speaker_vector)
@@ -165,7 +174,7 @@ def transcribe():
         sim_sp = float(np.dot(norm_vector, registered_vector))
         print(f"[DEBUG] 🔐 화자 유사도: {sim_sp:.4f}")
 
-        # ✅ Google STT로 텍스트 추출
+        # ✅ Google STT
         try:
             client = speech.SpeechClient()
             with open(temp_filename, "rb") as audio_file:
@@ -187,25 +196,22 @@ def transcribe():
         phonetic_transcript = g2p(transcript).replace(" ", "")
         print(f"[DEBUG] 🔤 변환된 발음: {phonetic_transcript}")
 
-        # ✅ 키워드 포함 여부만으로 판별
-        keyword_file = "keywords.txt"
-        if not os.path.exists(keyword_file):
-            return jsonify({"error": "등록된 키워드 없음"}), 403
+        # ✅ 키워드 DB에서 가져오기
+        try:
+            conn = get_connection()
+            with conn.cursor() as cursor:
+                cursor.execute("""
+                    SELECT keywd_text FROM keyword WHERE uuid = %s ORDER BY keywd_order ASC
+                """, (uuid_value,))
+                rows = cursor.fetchall()
+            keyword_list = [row["keywd_text"] for row in rows]
+        except Exception as db_err:
+            return jsonify({"error": f"키워드 DB 조회 실패: {str(db_err)}"}), 500
 
-        with open(keyword_file, "r", encoding="utf-8") as f:
-            keyword_list = f.read().splitlines()
+        if not keyword_list:
+            return jsonify({"error": "해당 사용자의 등록 키워드 없음"}), 403
 
-        for keyword in keyword_list:
-            original_keyword = keyword
-            g2p_keyword = g2p(keyword).replace(" ", "")
-
-#             if (original_keyword in transcript or
-#                 g2p_keyword in transcript.replace(" ", "") or
-#                 original_keyword in phonetic_transcript or
-#                 g2p_keyword in phonetic_transcript):
-#                 matched_keyword = original_keyword
-#                 sim_kw = 1.0
-#                 break
+        # ✅ 키워드 매칭
         matched_keyword = None
         sim_kw = 0.0
         match_type = ""
@@ -235,18 +241,14 @@ def transcribe():
                 match_type = "g2p 기준 음소 일치"
                 break
 
-        # ✅ 이건 루프 바깥에 넣기!
+        # ✅ 디버그 로그
         if matched_keyword:
             print(f"[DEBUG] ✅ 키워드 매칭 성공 → '{matched_keyword}' | 방식: {match_type} | 유사도: {sim_kw:.4f}")
         else:
             print("[DEBUG] ❌ 키워드 일치 실패")
-
-
-        if matched_keyword:
-            print(f"[DEBUG] ✅ 키워드 매칭 성공 → '{matched_keyword}' | 유사도: {sim_kw:.4f}")
-        else:
-            print("[DEBUG] ❌ 키워드 일치 실패")
-
+        print(f"[DEBUG] 📌 UUID: {uuid_value}")
+        print(f"[DEBUG] 🗣️ 전체 텍스트: {transcript}")
+        print(f"[DEBUG] 🔍 등록된 키워드 목록: {keyword_list}")
         if not matched_keyword:
             return jsonify({
                 "error": "키워드 인증 실패",
@@ -255,15 +257,16 @@ def transcribe():
                 "text": transcript
             }), 403
 
+        # ✅ 최종 결과 반환
         return jsonify({
-            "uuid": uuid_value,  # ✅ 사용자 UUID 추가
+            "uuid": uuid_value,
             "text": transcript.strip(),
             "speaker_similarity": round(sim_sp, 4),
             "triggered_keyword": matched_keyword,
             "triggered_keyword_g2p": g2p(matched_keyword).replace(" ", "") if matched_keyword else None,
             "keyword_similarity": sim_kw,
             "s_total": round(sim_sp + sim_kw, 4),
-            "registered_keywords": keyword_list  # ✅ DB에서 가져온 키워드 전체 리스트
+            "registered_keywords": keyword_list
         })
 
     except Exception as e:
@@ -275,6 +278,7 @@ def transcribe():
                 os.remove(temp_filename)
             except Exception as e:
                 print("[WARN] 파일 삭제 실패:", e)
+
 import requests
 
 @app.route("/train_from_voice_db", methods=["POST"])
@@ -283,7 +287,17 @@ def train_from_voice_db():
         uuid_value = request.form.get("uuid")
         if not uuid_value:
             return jsonify({"error": "UUID 누락"}), 400
+        try:
+            conn = get_connection()
+            with conn.cursor() as cursor:
+                cursor.execute("SELECT keywd_text FROM keyword WHERE uuid = %s", (uuid_value,))
+                rows = cursor.fetchall()
+            keyword_list = [row["keywd_text"] for row in rows]
+        except Exception as e:
+            return jsonify({"error": "키워드 DB 조회 실패"}), 500
 
+        if not keyword_list:
+            return jsonify({"error": "등록된 키워드가 없습니다"}), 403
         conn = get_connection()
         with conn.cursor() as cursor:
             # 1️⃣ selected_keyword ID + 텍스트 조회
