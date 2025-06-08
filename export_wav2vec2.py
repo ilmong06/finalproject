@@ -199,17 +199,53 @@ def transcribe():
             original_keyword = keyword
             g2p_keyword = g2p(keyword).replace(" ", "")
 
-            if (original_keyword in transcript or
-                g2p_keyword in transcript.replace(" ", "") or
-                original_keyword in phonetic_transcript or
-                g2p_keyword in phonetic_transcript):
+#             if (original_keyword in transcript or
+#                 g2p_keyword in transcript.replace(" ", "") or
+#                 original_keyword in phonetic_transcript or
+#                 g2p_keyword in phonetic_transcript):
+#                 matched_keyword = original_keyword
+#                 sim_kw = 1.0
+#                 break
+        matched_keyword = None
+        sim_kw = 0.0
+        match_type = ""
+
+        for keyword in keyword_list:
+            original_keyword = keyword
+            g2p_keyword = g2p(keyword).replace(" ", "")
+
+            if original_keyword in transcript:
                 matched_keyword = original_keyword
                 sim_kw = 1.0
+                match_type = "원본 텍스트 포함"
+                break
+            elif g2p_keyword in transcript.replace(" ", ""):
+                matched_keyword = original_keyword
+                sim_kw = 1.0
+                match_type = "g2p 키워드가 텍스트에 포함"
+                break
+            elif original_keyword in phonetic_transcript:
+                matched_keyword = original_keyword
+                sim_kw = 1.0
+                match_type = "텍스트가 키워드에 포함"
+                break
+            elif g2p_keyword in phonetic_transcript:
+                matched_keyword = original_keyword
+                sim_kw = 1.0
+                match_type = "g2p 기준 음소 일치"
                 break
 
+        # ✅ 이건 루프 바깥에 넣기!
+        if matched_keyword:
+            print(f"[DEBUG] ✅ 키워드 매칭 성공 → '{matched_keyword}' | 방식: {match_type} | 유사도: {sim_kw:.4f}")
+        else:
+            print("[DEBUG] ❌ 키워드 일치 실패")
 
-        print(f"[DEBUG] 🔍 키워드 유사도: {sim_kw:.4f}")
 
+        if matched_keyword:
+            print(f"[DEBUG] ✅ 키워드 매칭 성공 → '{matched_keyword}' | 유사도: {sim_kw:.4f}")
+        else:
+            print("[DEBUG] ❌ 키워드 일치 실패")
 
         if not matched_keyword:
             return jsonify({
@@ -220,12 +256,14 @@ def transcribe():
             }), 403
 
         return jsonify({
+            "uuid": uuid_value,  # ✅ 사용자 UUID 추가
             "text": transcript.strip(),
             "speaker_similarity": round(sim_sp, 4),
             "triggered_keyword": matched_keyword,
-            "triggered_keyword_g2p": g2p(matched_keyword).replace(" ", ""),
+            "triggered_keyword_g2p": g2p(matched_keyword).replace(" ", "") if matched_keyword else None,
             "keyword_similarity": sim_kw,
-            "s_total": round(sim_sp + sim_kw, 4)
+            "s_total": round(sim_sp + sim_kw, 4),
+            "registered_keywords": keyword_list  # ✅ DB에서 가져온 키워드 전체 리스트
         })
 
     except Exception as e:
