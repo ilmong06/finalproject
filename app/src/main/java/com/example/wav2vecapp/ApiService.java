@@ -58,7 +58,7 @@ public interface ApiService {
             @Part("selected_keyword") RequestBody selectedKeyword // ✅ 추가
     );
     @Multipart
-    @POST("/api/train_from_voice_db")
+    @POST("/api/upload_voice")
     Call<ResponseBody> uploadVoice(@Part MultipartBody.Part file);
 
 }

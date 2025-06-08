@@ -38,7 +38,7 @@ def upload_voice():
 
     # ✅ STT 서버로 compare.wav 전송
     try:
-        stt_url = "http://192.168.219.105:5000/stt"
+        stt_url = "http://192.168.219.231:5000/stt"
         with open(save_path, 'rb') as f:
             files = {'file': f}
             response = requests.post(stt_url, files=files)

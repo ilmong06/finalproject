@@ -66,7 +66,7 @@ def register_voice():
         try:
             import requests
             res = requests.post(
-                "http://192.168.219.105:5000/train_from_voice_db",
+                "http://192.168.219.231:5000/train_from_voice_db",
                 data={"uuid": uuid}
             )
             print("[INFO] 학습 요청 응답 코드:", res.status_code)
