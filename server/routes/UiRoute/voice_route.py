@@ -61,12 +61,12 @@ def register_voice():
         cursor.close()
         conn.close()
 
-    # ✅ voice DB 저장 후 자동 학습 요청
-        # ✅ voice DB 저장 후 자동 학습 요청 (사용자 uuid 전송)
-        try:
+    # ✅ voice DB 저장 후 자동 학습 요청 (index == 4일 때만)
+    try:
+        if index == "4":  # 마지막 녹음일 경우에만 학습 요청
             import requests
             res = requests.post(
-                "http://192.168.219.231:5000/train_from_voice_db",
+                "http://192.168.219.105:5000/train_from_voice_db",
                 data={"uuid": uuid}
             )
             print("[INFO] 학습 요청 응답 코드:", res.status_code)
@@ -74,10 +74,10 @@ def register_voice():
                 print("[INFO] 응답 내용:", res.json())
             except Exception:
                 print("[WARN] 응답이 JSON 형식이 아님:", res.text)
-        except Exception as train_err:
-            print("[WARN] 학습 요청 실패:", train_err)
+    except Exception as train_err:
+        print("[WARN] 학습 요청 실패:", train_err)
 
-        return jsonify({'message': '파일 저장 및 DB 저장 완료', 'filename': filename}), 200
+    return jsonify({'message': '파일 저장 및 DB 저장 완료', 'filename': filename}), 200
 
 
 @voice_bp.route('/set_selected_keyword', methods=['POST'])
