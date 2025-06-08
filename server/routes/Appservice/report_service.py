@@ -1,5 +1,6 @@
 from Mysqldb.models import get_connection
 from Mysqldb import models
+from datetime import datetime
 import pymysql
 
 
@@ -29,5 +30,5 @@ def get_reports_with_keywords():
         conn.close()
 
 
-def save_location(uuid, lat, lon, address):
-    return models.insert_gps(uuid, lat, lon, address)
+def save_location(uuid, lat, lng, address):
+    return models.insert_location_with_address(uuid, lat, lng, address, datetime.now())
