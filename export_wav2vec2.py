@@ -133,21 +133,6 @@ def register_keyword():
         with open(keyword_file, "w", encoding="utf-8") as f:
             f.write("\n".join(keywords))
 
-    # ✅ MySQL DB에 저장
-    try:
-        conn = get_connection()
-        with conn.cursor() as cursor:
-            sql = """
-                INSERT INTO keyword (uuid, keywd_text, keywd_order, add_date)
-                VALUES (%s, %s, %s, %s)
-            """
-            cursor.execute(sql, (uuid_value, raw_keyword, int(order_value), datetime.now()))
-        conn.commit()
-    except Exception as e:
-        return jsonify({"error": f"MySQL 저장 실패: {str(e)}"}), 500
-    finally:
-        conn.close()
-
     return jsonify({"message": f"{raw_keyword} 키워드 등록 완료 ✅"}), 200
 
 # ✅ STT + 화자 + 키워드 텍스트 인증
