@@ -10,3 +10,4 @@ app/build/
 *.bin
 *.txt
 *.json
+model/graph/HCLr.fst
